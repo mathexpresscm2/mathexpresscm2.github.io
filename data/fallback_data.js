@@ -1,4 +1,4 @@
-[
+window.INITIAL_PRESENTATIONS = [
   {
     "id": "pres-khoi8",
     "title": "Tháng 7 - Họp giáo viên khối 8",
@@ -771,4 +771,28 @@
     ],
     "actionItems": []
   }
-]
+];
+window.INITIAL_ANNOUNCEMENTS = [
+  {
+    "id": "anc-001",
+    "title": "Thông Báo Lịch Họp Chuyên Môn Toán Quý 3 & Tập Huấn Trợ Giảng Mới K2026",
+    "date": "2026-07-25",
+    "author": "Ban Chuyên Môn MathExpress",
+    "category": "Thông báo quan trọng",
+    "priority": "High",
+    "summary": "Trân trọng kính mời toàn thể Giáo viên & Trợ giảng tham dự buổi Họp Định Kỳ Quý 3 và Tập huấn Chuyên môn vào 09h00 Thứ Bảy (01/08/2026) tại Hội trường A.",
+    "content": "Buổi họp sẽ tập trung triển khai bộ giáo trình nâng cấp 2026-2027, công bố lịch thi thử vào 10 đợt 1 và phân công công tác trợ giảng phụ đạo các lớp mục tiêu.",
+    "badge": "MỚI"
+  },
+  {
+    "id": "anc-002",
+    "title": "Cập Nhật Thư Viện Bài Trình Chiếu & File Bài Tập Chuẩn Hóa 2026",
+    "date": "2026-07-18",
+    "author": "Tổ Kỹ Thuật Giáo Trình",
+    "category": "Tài nguyên mới",
+    "priority": "Normal",
+    "summary": "Toàn bộ slide bài giảng Hình học 9 và file applet GeoGebra tương tác đã được cập nhật đầy đủ trên hệ thống Thư viện nội bộ.",
+    "content": "Giáo viên và Trợ giảng có thể xem trực tiếp hoặc tải file PPTX/PDF gốc về để phục vụ công tác giảng dạy.",
+    "badge": "UPDATE"
+  }
+];

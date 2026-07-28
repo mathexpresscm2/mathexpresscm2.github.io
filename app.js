@@ -78,13 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       presentationsData = await presRes.json();
       announcementsData = await ancRes.json();
-
-      renderAnnouncements();
-      renderPresentations();
     } catch (error) {
-      console.error('Error loading data:', error);
-      renderPresentations();
+      console.warn('Fetch failed (e.g. file:// protocol), using fallback JS data:', error);
+      presentationsData = window.INITIAL_PRESENTATIONS || [];
+      announcementsData = window.INITIAL_ANNOUNCEMENTS || [];
     }
+
+    renderAnnouncements();
+    renderPresentations();
   }
 
   // Render Announcements Sidebar
@@ -106,13 +107,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Presentation Cards
   function renderPresentations() {
     const filtered = presentationsData.filter(item => {
-      const matchCategory = currentFilterCategory === 'all' || item.category === currentFilterCategory;
+      const catLower = currentFilterCategory.toLowerCase();
+      const matchCategory = currentFilterCategory === 'all' || 
+        (item.category && item.category.toLowerCase() === catLower) ||
+        item.title.toLowerCase().includes(catLower) ||
+        (item.audienceBadge && item.audienceBadge.toLowerCase().includes(catLower)) ||
+        (item.tags && item.tags.some(tag => tag.toLowerCase().includes(catLower)));
+
       const matchAudience = currentFilterAudience === 'all' || item.audienceBadge.includes(currentFilterAudience);
       const matchSearch = currentSearchQuery === '' || 
         item.title.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
         item.speaker.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
         item.summary.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-        item.tags.some(tag => tag.toLowerCase().includes(currentSearchQuery.toLowerCase()));
+        (item.tags && item.tags.some(tag => tag.toLowerCase().includes(currentSearchQuery.toLowerCase())));
 
       return matchCategory && matchAudience && matchSearch;
     });
@@ -171,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ${hasWebDeck ? `
                 <a href="${item.webViewerUrl}" target="_blank" class="btn btn-primary" style="width: 100%; text-decoration: none;">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                  Mở Trình Chiếu Web Khối 8
+                  Mở Slide Tương Tác (${item.audienceBadge})
                 </a>
               ` : ''}
 

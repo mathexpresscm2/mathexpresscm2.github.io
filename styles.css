@@ -6,27 +6,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Color Tokens - Light Theme (UI/UX Pro Max Education Palette) */
-  --primary: #0D9488;
-  --primary-hover: #0F766E;
-  --primary-light: #F0FDFA;
-  --primary-border: #99F6E4;
+  /* Color Tokens - Light Theme (UI/UX Pro Max Option 1: MathExpress Modern Brand Hybrid) */
+  --primary: #1D8BCB;          /* MathExpress Ocean Blue */
+  --primary-hover: #1674AA;
+  --primary-light: #EFF8FC;
+  --primary-border: #BCE2F6;
 
-  --secondary: #4F46E5;
-  --secondary-hover: #4338CA;
-  --secondary-light: #EEF2FF;
+  --secondary: #F36F21;        /* MathExpress Flame Orange */
+  --secondary-hover: #D85A10;
+  --secondary-light: #FFF5EE;
+  --secondary-border: #FFD5BC;
 
-  --accent-amber: #D97706;
+  --accent-amber: #F59E0B;
   --accent-amber-light: #FEF3C7;
   --accent-rose: #E11D48;
 
   --text-main: #0F172A;
-  --text-muted: #64748B;
+  --text-muted: #475569;
   --text-light: #94A3B8;
 
   --bg-main: #F8FAFC;
   --card-bg: #FFFFFF;
-  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-bg: rgba(255, 255, 255, 0.9);
   --modal-bg: #FFFFFF;
 
   --border-color: #E2E8F0;
@@ -35,8 +36,8 @@
   /* Elevation Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 20px 30px -10px rgba(13, 148, 136, 0.12), 0 10px 15px -5px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 25px -5px rgba(29, 139, 203, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 20px 30px -10px rgba(29, 139, 203, 0.2), 0 10px 15px -5px rgba(243, 111, 33, 0.12);
 
   /* Radius Tokens */
   --radius-sm: 8px;
@@ -59,16 +60,16 @@
   --header-height: 72px;
 }
 
-/* Dark Theme Support */
+/* Dark Theme Support (Option 1: Midnight Navy & Glowing Flame Accent) */
 [data-theme="dark"] {
-  --primary: #14B8A6;
-  --primary-hover: #2DD4BF;
-  --primary-light: rgba(20, 184, 166, 0.15);
-  --primary-border: #115E59;
+  --primary: #38BDF8;          /* Bright Azure Blue for Dark Mode */
+  --primary-hover: #0EA5E9;
+  --primary-light: rgba(29, 139, 203, 0.2);
+  --primary-border: rgba(56, 189, 248, 0.35);
 
-  --secondary: #6366F1;
-  --secondary-hover: #818CF8;
-  --secondary-light: rgba(99, 102, 241, 0.15);
+  --secondary: #FF8C42;        /* Glowing Coral Orange for Dark Mode */
+  --secondary-hover: #F36F21;
+  --secondary-light: rgba(243, 111, 33, 0.2);
 
   --accent-amber: #F59E0B;
   --accent-amber-light: rgba(245, 158, 11, 0.15);
@@ -77,18 +78,18 @@
   --text-muted: #94A3B8;
   --text-light: #64748B;
 
-  --bg-main: #0F172A;
-  --card-bg: #1E293B;
-  --header-bg: rgba(15, 23, 42, 0.85);
-  --modal-bg: #1E293B;
+  --bg-main: #0B132B;          /* Midnight Navy */
+  --card-bg: #1C2541;          /* Rich Navy Blue Cards */
+  --header-bg: rgba(11, 19, 43, 0.88);
+  --modal-bg: #1C2541;
 
-  --border-color: #334155;
-  --divider: #1E293B;
+  --border-color: #2E3B5B;
+  --divider: #1C2541;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-  --shadow-hover: 0 20px 30px -10px rgba(20, 184, 166, 0.2);
+  --shadow-hover: 0 20px 30px -10px rgba(56, 189, 248, 0.25);
 }
 
 /* Base Resets */
@@ -158,18 +159,23 @@ body {
   color: var(--text-main);
 }
 
-.logo-badge {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: #FFFFFF;
+.brand-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.04);
+}
+
+[data-theme="dark"] .brand-logo-img {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
   border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1.25rem;
-  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .brand-info h1 {
