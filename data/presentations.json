@@ -1,0 +1,184 @@
+[
+  {
+    "id": "pres-khoi8",
+    "title": "Trao Đổi Giáo Viên Khối 8 - Khung Chương Trình & Kế Hoạch 2026 - 2027",
+    "category": "Chuyên Môn Toán",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 8",
+    "speaker": "Ban Chuyên Môn Toán Khối 8 MathExpress",
+    "date": "2026-07-28",
+    "quarter": "Q3-2026",
+    "duration": "60 phút (10 slide tương tác)",
+    "fileSize": "Interactive HTML Deck",
+    "pdfUrl": "#",
+    "pptxUrl": "#",
+    "webViewerUrl": "Khoi 8/index_khoi8.html",
+    "summary": "Chi tiết khung chương trình Toán Khối 8 năm học 2026-2027, kế hoạch bài kiểm tra tháng, nhận xét mẫu, tổ chức lớp bổ trợ và lưu ý sư phạm quan trọng.",
+    "featured": true,
+    "tags": ["Toán 8", "Khái 8", "Khung chương trình", "Kiểm tra tháng", "Lớp bổ trợ"],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Trao Đổi Giáo Viên Khối 8 - Năm Học 2026 - 2027",
+        "subtitle": "Định hướng giảng dạy & Quản lý chất lượng chuyên môn",
+        "content": "<ul><li><strong>Khung chương trình:</strong> Phân phối buổi học Đại số & Hình học từ Tháng 7 đến Tháng 9/2026.</li><li><strong>Bài kiểm tra tháng:</strong> Quy trình chấm, nhận xét mẫu & nhập điểm hệ thống.</li><li><strong>Lớp bổ trợ:</strong> Tổ chức phụ đạo gỡ rào cản kiến thức cho học sinh Khối 8.</li></ul>",
+        "notes": "Yêu cầu tất cả GV Khối 8 nắm chắc tiến độ từng tuần và quy chuẩn mẫu nhận xét bài kiểm tra.",
+        "badge": "Tổng quan Khối 8"
+      },
+      {
+        "page": 2,
+        "title": "Nội Dung Trao Đổi Chính",
+        "subtitle": "3 Trụ cột chuyên môn năm học 2026-2027",
+        "content": "<ul><li>1. Khung chương trình và bài thi tháng (Tháng 7, 8, 9).</li><li>2. Kế hoạch triển khai Lớp bổ trợ cho học sinh hổng kiến thức.</li><li>3. Trao đổi chuyên môn: Phân tích lỗi sai thường gặp & lưu ý khi giảng dạy.</li></ul>",
+        "notes": "Phổ biến tới toàn bộ trợ giảng đi kèm các lớp Khối 8.",
+        "badge": "Nội dung"
+      },
+      {
+        "page": 3,
+        "title": "Khung Chương Trình Giảng Dạy Chi Tiết (Tháng 7 - Tháng 9)",
+        "subtitle": "Chuyên đề Hằng đẳng thức, Phân tích đa thức, Tứ giác đặc biệt",
+        "content": "<ul><li><strong>Tháng 7:</strong> Biến đổi biểu thức đại số, Hằng đẳng thức (Buổi 1).</li><li><strong>Tháng 8:</strong> Hình thang cân, Phân tích đa thức thành nhân tử, Hình bình hành, Ôn tập kiểm tra tháng.</li><li><strong>Tháng 9:</strong> Hình chữ nhật, Hình thoi, Hình vuông, Tính chất chia hết số nguyên.</li></ul>",
+        "notes": "Chú ý tuần Quốc khánh 02/09 dành thời gian ôn tập tổng hợp toàn bộ các lớp.",
+        "badge": "Lịch học"
+      }
+    ],
+    "actionItems": [
+      "GV Khối 8 hoàn thành tổ chức bài kiểm tra định kỳ từ tuần thứ 6 đến tuần thứ 8.",
+      "Thực hiện đầy đủ nhận xét mẫu theo quy chuẩn 5 bài tập bài kiểm tra tháng.",
+      "Lập danh sách học sinh cần phụ đạo lớp bổ trợ gửi Ban Chuyên Môn."
+    ]
+  },
+  {
+    "id": "pres-001",
+    "title": "Tổ Chức Ôn Thi Vào 10 - Phân Tích Cấu Trúc Đề & Phương Pháp Dạy Hình Học",
+    "category": "Chuyên Môn Toán",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV",
+    "speaker": "ThS. Nguyễn Văn Đức - Trưởng Tổ Toán",
+    "date": "2026-07-20",
+    "quarter": "Q3-2026",
+    "duration": "45 phút (12 slide)",
+    "fileSize": "14.2 MB",
+    "pdfUrl": "#",
+    "pptxUrl": "#",
+    "summary": "Phân tích xu hướng ra đề thi tuyển sinh vào 10 chuyên & không chuyên năm 2026. Định hướng phương pháp dạy học phân hóa cho các lớp mục tiêu Top đầu.",
+    "featured": true,
+    "tags": ["Toán 9", "Thi vào 10", "Hình học", "Phương pháp dạy"],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Tổng Quan Cấu Trúc Đề Thi Vào 10 Năm 2026",
+        "subtitle": "Phân tích ma trận kiến thức & Tỷ lệ câu phân hóa",
+        "content": "<ul><li><strong>Đại số (60%):</strong> Phương trình, Hệ phương trình, Bất đẳng thức & Bài toán thực tế.</li><li><strong>Hình học (30%):</strong> Đường tròn, Tứ giác nội tiếp, Hình học không gian cơ bản.</li><li><strong>Bài toán phân hóa (10%):</strong> Bất đẳng thức Cauchy/Schwarz & Cực trị hình học.</li></ul>",
+        "notes": "Nhấn mạnh với GV: Cần chú trọng bài toán thực tế vì chiếm 15% tổng số điểm năm nay.",
+        "badge": "Ma trận kiến thức"
+      },
+      {
+        "page": 2,
+        "title": "Chiến Lược Giảng Dạy Chuyên Đề Đường Tròn",
+        "subtitle": "Giải quyết dứt điểm các dạng bài chứng minh Tứ giác nội tiếp",
+        "content": "<ul><li>Sử dụng sơ đồ tư duy ngược (Backward Planning) để hướng dẫn học sinh tìm lời giải.</li><li>Chuẩn hóa cách trình bày 4 bước không bị trừ điểm lỗi trình bày.</li><li>Bộ 20 bài tập mẫu có đáp án chi tiết cho lớp mục tiêu 8.5+.</li></ul>",
+        "notes": "Yêu cầu Trợ giảng chấm kỹ lỗi thiếu điều kiện và lỗi viết tắt không quy chuẩn.",
+        "badge": "Phương pháp"
+      }
+    ],
+    "actionItems": [
+      "GV bộ môn cập nhật bộ bài tập Hình học đường tròn vào giáo trình trước 05/08.",
+      "TG thống kê danh sách học sinh chưa nắm chắc kiến thức Tứ giác nội tiếp để phụ đạo.",
+      "Tổ chức thi khảo sát chất lượng đợt 1 vào ngày 15/08/2026."
+    ]
+  },
+  {
+    "id": "pres-002",
+    "title": "Đào Tạo Trợ Giảng K2026 - Quy Trình Quản Lý Lớp & Chấm Bài Tập Về Nhà",
+    "category": "Đào Tạo Trợ Giảng",
+    "audience": "Trợ giảng",
+    "audienceBadge": "TG",
+    "speaker": "Cô Trần Thị Mai - Quản Lý Đào Tạo",
+    "date": "2026-07-15",
+    "quarter": "Q3-2026",
+    "duration": "60 phút (16 slide)",
+    "fileSize": "8.5 MB",
+    "pdfUrl": "#",
+    "pptxUrl": "#",
+    "summary": "Chuẩn hóa quy trình làm việc của Trợ giảng MathExpress: Từ khâu điểm danh, chữa bài tập về nhà, phản hồi phụ huynh đến hỗ trợ học sinh học yếu.",
+    "featured": true,
+    "tags": ["Trợ giảng", "Quy trình", "Chấm bài", "Quản lý lớp"],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Chuẩn Chấm Bài Tập Về Nhà (BTVN)",
+        "subtitle": "Quy tắc 3C: Chi tiết - Chính xác - Chân thành",
+        "content": "<ul><li><strong>Thời hạn trả bài:</strong> Trong vòng 48h sau buổi học.</li><li><strong>Bút chấm bài:</strong> Sử dụng mực đỏ cho lỗi sai, mực xanh cho ghi chú nhắc nhở.</li><li><strong>Ghi lời nhận xét:</strong> Không chỉ chấm đúng/sai, bắt buộc viết 1 dòng động viên/hướng dẫn sửa lỗi.</li></ul>",
+        "notes": "Trợ giảng mới cần nộp 5 bài chấm mẫu cho Quản lý đào tạo duyệt trước khi trả bài.",
+        "badge": "Tiêu chuẩn"
+      }
+    ],
+    "actionItems": [
+      "100% Trợ giảng hoàn thành bài test quy trình trước ngày 25/07.",
+      "Cập nhật sổ theo dõi điểm danh và BTVN trên hệ thống Sheets nội bộ đúng 22h hàng ngày."
+    ]
+  },
+  {
+    "id": "pres-003",
+    "title": "Phương Pháp Dạy Đại Số Trực Quan & Ứng Dụng Phần Mềm GeoGebra",
+    "category": "Đổi Mới Phương Pháp",
+    "audience": "Toàn bộ",
+    "audienceBadge": "GV & TG",
+    "speaker": "ThS. Lê Hoàng Nam - Chuyên Gia CNTT Giáo Dục",
+    "date": "2026-07-02",
+    "quarter": "Q3-2026",
+    "duration": "50 phút (14 slide)",
+    "fileSize": "22.1 MB",
+    "pdfUrl": "#",
+    "pptxUrl": "#",
+    "summary": "Hướng dẫn ứng dụng phần mềm GeoGebra và Desmos để trực quan hóa đồ thị hàm số, bài toán cực trị và tương quan hình học cho học sinh THCS & THPT.",
+    "featured": false,
+    "tags": ["GeoGebra", "Công nghệ", "Đại số", "Trực quan"],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Trực Quan Hóa Hàm Số Bậc Nhất & Bậc Hai",
+        "subtitle": "Biến công thức khô khan thành chuyển động sinh động",
+        "content": "<ul><li>Minh họa sự thay đổi của hệ số a, b, c tới hình dáng Parabol y = ax² + bx + c.</li><li>Giải thích ý nghĩa nghiệm phương trình qua giao điểm đồ thị với trục Hoành.</li><li>Tạo applet tương tác cho học sinh tự kéo thanh trượt Slider.</li></ul>",
+        "notes": "Chuẩn bị sẵn file .ggb mẫu trong thư viện dùng chung cho toàn bộ giáo viên.",
+        "badge": "Ứng dụng GeoGebra"
+      }
+    ],
+    "actionItems": [
+      "Tải tập tin thư viện GeoGebra MathExpress 2026 tại thư mục Shared Drive.",
+      "Áp dụng ít nhất 1 hình minh họa trực quan trong các bài giảng tuần tới."
+    ]
+  },
+  {
+    "id": "pres-004",
+    "title": "Họp Chuyên Môn Quý 2 - Đánh Giá Năng Lực Học Viên & Cập Nhật Giáo Trình",
+    "category": "Họp Định Kỳ",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV",
+    "speaker": "Ban Chuyên Môn MathExpress",
+    "date": "2026-06-28",
+    "quarter": "Q2-2026",
+    "duration": "90 phút (20 slide)",
+    "fileSize": "18.0 MB",
+    "pdfUrl": "#",
+    "pptxUrl": "#",
+    "summary": "Tổng kết kết quả học tập Quý 2, phân tích phổ điểm các lớp thi thử và kế hoạch nâng cấp giáo trình học kỳ mới.",
+    "featured": false,
+    "tags": ["Họp định kỳ", "Báo cáo", "Giáo trình", "Đánh giá"],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Phân Tích Phổ Điểm Thi Thử Đợt 2",
+        "subtitle": "Tỷ lệ đạt mục tiêu theo từng khối lớp",
+        "content": "<ul><li><strong>Khối 9:</strong> 78% học sinh đạt điểm 8.0 trở lên. Cần cải thiện tốc độ làm phần trắc nghiệm.</li><li><strong>Khối 8:</strong> 82% nắm vững đại số, phần Hình học bất đẳng thức còn yếu.</li><li><strong>Khối 6-7:</strong> Tỷ lệ khá giỏi đạt 91%, học sinh hào hứng với bài tập thực tế.</li></ul>",
+        "notes": "Các lớp có tỷ lệ dưới 70% cần họp riêng với Ban chuyên môn để điều chỉnh tốc độ.",
+        "badge": "Kết quả"
+      }
+    ],
+    "actionItems": [
+      "Hoàn thiện bản thảo giáo trình Toán 9 tập 1 nâng cấp trước 15/08.",
+      "Gửi báo cáo tổng kết tình hình lớp về cho Phụ huynh trước ngày 05/07."
+    ]
+  }
+]
