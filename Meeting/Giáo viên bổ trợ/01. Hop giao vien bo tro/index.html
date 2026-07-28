@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathExpress - Trao đổi Giáo viên Bổ trợ (2026-2027)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tích hợp MathJax để render công thức Toán học chuẩn LaTeX -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#005b9f', // Xanh dương MathExpress
+                            orange: '#f26522', // Cam MathExpress
+                            light: '#f0f7fb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(20px) scale(0.98);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex-grow: 1;
+            padding: 1.25rem;
+            overflow-y: auto;
+            padding-bottom: 5rem;
+        }
+        @media (min-width: 768px) {
+            .slide-content {
+                padding: 2rem 4rem;
+                padding-bottom: 6rem;
+            }
+        }
+
+        /* Tùy chỉnh Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Hiệu ứng gradient nền nhẹ */
+        .bg-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Cố định Header */
+        .slide-header {
+            border-bottom: 4px solid #f26522;
+        }
+
+        /* Tùy chỉnh Table */
+        .table-custom th,
+        .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        /* CSS cho chế độ In / Xuất PDF */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 1600px !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: visible !important;
+                background: white !important;
+            }
+
+            .slide {
+                position: relative !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                width: 1600px !important;
+                min-height: 900px !important;
+                height: auto !important;
+                page-break-after: always;
+                break-after: page;
+                overflow: visible !important;
+            }
+
+            .slide-content {
+                overflow: visible !important;
+                padding-bottom: 2rem !important;
+            }
+
+            .fixed {
+                display: none !important;
+            }
+
+            .force-page-break-before {
+                page-break-before: always !important;
+                break-before: page !important;
+                padding-top: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 bg-pattern h-screen w-screen flex flex-col relative print:h-auto print:w-auto">
+
+    <!-- Nút điều hướng -->
+    <div
+        class="fixed bottom-4 right-4 md:bottom-6 md:right-8 z-50 flex gap-2 md:gap-4 bg-white/90 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border border-slate-200">
+        <button id="prevBtn"
+            class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-left text-sm md:text-base"></i>
+        </button>
+        <div class="flex items-center font-semibold text-slate-500 text-sm md:text-base min-w-[2.5rem] md:min-w-[3rem] justify-center" id="slideCounter">
+            1/9
+        </div>
+        <button id="nextBtn"
+            class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-brand-orange text-white hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-right text-sm md:text-base"></i>
+        </button>
+    </div>
+
+    <!-- Thanh tiến trình -->
+    <div class="fixed top-0 left-0 h-1.5 bg-slate-200 w-full z-50">
+        <div id="progressBar" class="h-full bg-brand-orange transition-all duration-300 w-0"></div>
+    </div>
+
+    <!-- SLIDE 1: TRANG BÌA -->
+    <div class="slide active" id="slide-1">
+        <div
+            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-brand-blue to-blue-900 text-white relative overflow-hidden">
+            <div class="absolute -top-12 -left-12 md:-top-24 md:-left-24 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-12 -right-12 md:-bottom-24 md:-right-24 w-64 h-64 md:w-96 md:h-96 bg-brand-orange/20 rounded-full blur-3xl"></div>
+
+            <div
+                class="bg-white px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-2xl mb-8 flex items-center justify-center gap-3 transform -rotate-2">
+                <img src="logo.png" alt="MathExpress Logo" class="h-12 md:h-16 object-contain" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight max-w-4xl shadow-black drop-shadow-md px-4">
+                TRAO ĐỔI GIÁO VIÊN BỔ TRỢ <br>
+            </h2>
+            <div class="w-16 md:w-24 h-1 bg-brand-orange mb-6"></div>
+            <p
+                class="text-xl md:text-2xl text-blue-100 font-medium bg-black/20 px-5 py-2 md:px-6 md:py-2 rounded-full inline-block backdrop-blur-sm">
+                NĂM HỌC: 2026 - 2027
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: NỘI DUNG TRAO ĐỔI -->
+    <div class="slide bg-white" id="slide-2">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex items-center justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl">
+                <!-- Mục 1 -->
+                <div
+                    class="bg-slate-50 border-l-4 border-brand-orange p-6 rounded-r-xl shadow-md hover:-translate-y-1 transition">
+                    <div
+                        class="w-12 h-12 bg-orange-100 text-brand-orange rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                        1</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Mục tiêu đào tạo</h3>
+                    <p class="text-slate-600">Nắm rõ định hướng chuyên môn và chuẩn hóa phương pháp giảng dạy.</p>
+                </div>
+
+                <!-- Mục 2 -->
+                <div
+                    class="bg-slate-50 border-l-4 border-brand-blue p-6 rounded-r-xl shadow-md hover:-translate-y-1 transition">
+                    <div
+                        class="w-12 h-12 bg-blue-100 text-brand-blue rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                        2</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Tổng quan lớp bổ trợ</h3>
+                    <p class="text-slate-600">Mục tiêu, nguyên tắc, đối tượng học sinh và hình thức tổ chức.</p>
+                </div>
+
+                <!-- Mục 3 -->
+                <div
+                    class="bg-slate-50 border-l-4 border-brand-blue p-6 rounded-r-xl shadow-md hover:-translate-y-1 transition">
+                    <div
+                        class="w-12 h-12 bg-blue-100 text-brand-blue rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                        3</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Vấn đề tồn đọng</h3>
+                    <p class="text-slate-600">Đánh giá kết quả dự giờ và nhận diện các vấn đề cần khắc phục.</p>
+                </div>
+
+                <!-- Mục 4 -->
+                <div
+                    class="bg-slate-50 border-l-4 border-brand-orange p-6 rounded-r-xl shadow-md hover:-translate-y-1 transition">
+                    <div
+                        class="w-12 h-12 bg-orange-100 text-brand-orange rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                        4</div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Quy trình vận hành</h3>
+                    <p class="text-slate-600">Chuẩn bị chuyên môn, setup trước buổi học và các bước thực hiện trong/sau giờ.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: MỤC TIÊU ĐÀO TẠO -->
+    <div class="slide bg-white" id="slide-3">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-bullseye mr-3 text-brand-orange"></i>Mục tiêu đào tạo giáo viên</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex flex-col gap-6 justify-center">
+            <h3 class="text-xl font-bold text-slate-700 mb-2 text-center bg-slate-100 py-3 rounded-full mx-auto px-8 shadow-sm border border-slate-200">
+                Mục tiêu của sinh hoạt chuyên môn định kỳ hàng tháng
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 shadow-md relative overflow-hidden transition hover:shadow-lg col-span-1 md:col-span-2">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-blue-400"><i class="fa-solid fa-compass"></i></div>
+                    <div class="flex items-start gap-5 relative z-10">
+                        <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center text-brand-blue text-2xl shadow-md flex-shrink-0">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h4 class="font-bold text-brand-blue text-[18px] mb-2 uppercase">Nắm rõ định hướng chuyên môn</h4>
+                            <p class="text-[16px] text-slate-700 leading-relaxed">Đảm bảo 100% giáo viên hiểu rõ chiến lược, định hướng chuyên môn của trung tâm trong năm học mới.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 border-2 border-orange-200 rounded-2xl p-5 shadow-md relative overflow-hidden transition hover:shadow-lg">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-orange-400"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div class="flex items-start gap-4 relative z-10">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-orange text-xl shadow-md flex-shrink-0">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h4 class="font-bold text-brand-orange text-[17px] mb-1">Chuẩn hóa phương pháp giảng dạy</h4>
+                            <p class="text-[15px] text-slate-700 leading-relaxed">Thống nhất giảng dạy đúng theo chuẩn chương trình trung tâm đề ra.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-5 shadow-md relative overflow-hidden transition hover:shadow-lg">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-green-400"><i class="fa-solid fa-book"></i></div>
+                    <div class="flex items-start gap-4 relative z-10">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-green-600 text-xl shadow-md flex-shrink-0">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h4 class="font-bold text-green-700 text-[17px] mb-1">Thống nhất cách sử dụng học liệu</h4>
+                            <p class="text-[15px] text-slate-700 leading-relaxed">Đồng bộ cách khai thác phiếu bài, bài tập về nhà và tài liệu giảng dạy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl p-5 shadow-md relative overflow-hidden transition hover:shadow-lg">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-purple-400"><i class="fa-solid fa-users"></i></div>
+                    <div class="flex items-start gap-4 relative z-10">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-purple-600 text-xl shadow-md flex-shrink-0">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h4 class="font-bold text-purple-700 text-[17px] mb-1">Nâng cao năng lực quản lý</h4>
+                            <p class="text-[15px] text-slate-700 leading-relaxed">Tăng cường khả năng quản lý lớp học và đánh giá chính xác năng lực học sinh.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-rose-50 border-2 border-rose-200 rounded-2xl p-5 shadow-md relative overflow-hidden transition hover:shadow-lg">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-rose-400"><i class="fa-solid fa-award"></i></div>
+                    <div class="flex items-start gap-4 relative z-10">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-rose-600 text-xl shadow-md flex-shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="mt-1">
+                            <h4 class="font-bold text-rose-700 text-[17px] mb-1">Đảm bảo chất lượng đầu ra</h4>
+                            <p class="text-[15px] text-slate-700 leading-relaxed">Cam kết chất lượng đầu ra đồng đều, vững chắc theo yêu cầu từng khối.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: TỔNG QUAN LỚP BỔ TRỢ -->
+    <div class="slide bg-white" id="slide-4">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-layer-group mr-3 text-brand-orange"></i>Tổng quan về Lớp Bổ Trợ</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex flex-col pt-6">
+            <h3 class="text-xl font-bold text-brand-orange mb-4"><i class="fa-solid fa-bullseye mr-2"></i>I. Mô hình & Mục tiêu</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8 w-full max-w-6xl mx-auto">
+                <!-- Mô hình -->
+                <div class="bg-white border-2 border-slate-200 rounded-2xl flex flex-col overflow-hidden shadow-sm">
+                    <div class="bg-brand-blue text-white p-4 text-center">
+                        <h3 class="font-bold text-[17px] uppercase"><i class="fa-solid fa-cubes mr-2"></i>Mô hình các lớp</h3>
+                    </div>
+                    <div class="p-5 flex-grow bg-slate-50">
+                        <ul class="space-y-3 text-[15px] text-slate-700 font-medium">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-blue mt-1 text-sm"></i> Bổ trợ bù.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-blue mt-1 text-sm"></i> Bổ trợ học sinh mới.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-brand-blue mt-1 text-sm"></i> Ôn thi học kì...</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mục tiêu -->
+                <div class="bg-white border-2 border-slate-200 rounded-2xl flex flex-col overflow-hidden shadow-sm lg:col-span-1">
+                    <div class="bg-green-600 text-white p-4 text-center">
+                        <h3 class="font-bold text-[17px] uppercase"><i class="fa-solid fa-arrow-up-right-dots mr-2"></i>Mục tiêu chính</h3>
+                    </div>
+                    <div class="p-5 flex-grow bg-green-50/30">
+                        <ul class="space-y-3 text-[15px] text-slate-700 font-medium">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1 text-sm"></i> Hỗ trợ học sinh chưa theo kịp.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1 text-sm"></i> Bù đắp kiến thức còn thiếu.</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-green-600 mt-1 text-sm"></i> Củng cố kỹ năng nền tảng.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-100 p-3 border-t border-green-200 mt-auto text-center">
+                        <p class="text-[14px] font-bold text-green-800">Đích đến: HS quay lại nhịp học chung.</p>
+                    </div>
+                </div>
+
+                <!-- Nguyên tắc -->
+                <div class="bg-white border-2 border-slate-200 rounded-2xl flex flex-col overflow-hidden shadow-sm lg:col-span-2 relative">
+                    <div class="bg-brand-orange text-white p-4 text-center">
+                        <h3 class="font-bold text-[17px] uppercase"><i class="fa-solid fa-scale-balanced mr-2"></i>Nguyên tắc hoạt động</h3>
+                    </div>
+                    <div class="p-5 flex flex-col items-center justify-center text-center flex-grow bg-orange-50/30 relative overflow-hidden">
+                        <i class="fa-solid fa-handshake-angle absolute -right-6 -bottom-6 text-9xl text-brand-orange opacity-10"></i>
+                        <p class="text-[18px] font-bold text-slate-800 relative z-10 leading-relaxed bg-white/80 p-3 rounded-lg border border-orange-100">
+                            Lớp bổ trợ <span class="text-red-600 uppercase bg-red-100 px-2 py-0.5 rounded">không thay thế</span> lớp chính.
+                            <br><span class="text-[16px] text-slate-600 font-medium">Đó là hoạt động hỗ trợ <strong>sau lớp học</strong>.</span>
+                        </p>
+                        <div class="mt-4 inline-flex items-center gap-2 bg-white px-5 py-2 rounded-full border-2 border-orange-200 shadow-sm text-brand-orange font-bold relative z-10 text-[15px]">
+                            <i class="fa-solid fa-laptop-video text-xl"></i> Hình thức: Online qua Zoom
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-brand-orange mb-4 force-page-break-before"><i class="fa-solid fa-users-viewfinder mr-2"></i>II. Đối tượng Học sinh tham gia (3 Nhóm)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto w-full">
+                <div class="bg-blue-50 border-2 border-blue-200 p-5 rounded-xl shadow-sm flex flex-col text-center transition hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -left-4 -top-4 text-7xl text-blue-200 font-black opacity-50">1</div>
+                    <div class="w-14 h-14 rounded-full bg-brand-blue text-white flex justify-center items-center font-bold mb-3 mx-auto text-xl shadow-md relative z-10"><i class="fa-solid fa-user-plus"></i></div>
+                    <h3 class="font-bold text-brand-blue text-[18px] mb-2 uppercase relative z-10">Học sinh mới</h3>
+                    <p class="text-[15px] text-slate-700 leading-relaxed font-medium relative z-10">Chưa học chương trình trước đó, chưa nắm kiến thức nền, cần thời gian làm quen chương trình.</p>
+                </div>
+                <div class="bg-orange-50 border-2 border-orange-200 p-5 rounded-xl shadow-sm flex flex-col text-center transition hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -left-4 -top-4 text-7xl text-orange-200 font-black opacity-50">2</div>
+                    <div class="w-14 h-14 rounded-full bg-brand-orange text-white flex justify-center items-center font-bold mb-3 mx-auto text-xl shadow-md relative z-10"><i class="fa-solid fa-bed"></i></div>
+                    <h3 class="font-bold text-brand-orange text-[18px] mb-2 uppercase relative z-10">Học sinh nghỉ học</h3>
+                    <p class="text-[15px] text-slate-700 leading-relaxed font-medium relative z-10">Nghỉ có phép hoặc không phép ở lớp chính, cần tham gia bổ trợ để bù lại kiến thức của buổi nghỉ.</p>
+                </div>
+                <div class="bg-red-50 border-2 border-red-200 p-5 rounded-xl shadow-sm flex flex-col text-left transition hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute -left-4 -top-4 text-7xl text-red-200 font-black opacity-50">3</div>
+                    <div class="flex items-center justify-center w-14 h-14 rounded-full bg-red-600 text-white font-bold mb-3 mx-auto text-xl shadow-md relative z-10"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3 class="font-bold text-red-700 text-[18px] mb-3 text-center uppercase relative z-10">Học sinh yếu / Cần hỗ trợ</h3>
+                    <ul class="text-[15px] text-slate-800 space-y-2 list-disc pl-5 font-medium relative z-10">
+                        <li>Điểm kiểm tra chưa đạt.</li>
+                        <li>Không hoàn thành BTVN.</li>
+                        <li>Thường xuyên sai kiến thức cơ bản.</li>
+                        <li>Chưa theo được tốc độ lớp chính.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: VẤN ĐỀ TỒN ĐỌNG -->
+    <div class="slide bg-white" id="slide-5">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-triangle-exclamation mr-3 text-red-500"></i>Vấn đề tồn đọng ở Lớp Bổ Trợ</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex flex-col justify-center">
+            
+            <div class="bg-gradient-to-br from-slate-50 to-slate-100 rounded-3xl p-6 md:p-8 text-slate-800 shadow-inner relative overflow-hidden border-2 border-slate-200 max-w-6xl mx-auto w-full">
+                <div class="absolute -right-4 -bottom-4 opacity-5 text-[150px]"><i class="fa-solid fa-clipboard-question"></i></div>
+                <h3 class="text-xl font-bold text-red-600 mb-6 border-b-2 border-slate-200 pb-3 flex items-center relative z-10 uppercase">
+                    <i class="fa-solid fa-magnifying-glass text-brand-orange mr-3 text-2xl"></i>Đánh giá dựa vào dự giờ Record
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
+                    <!-- Item 1 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-red-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-red-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-red-500 border border-red-100"><i class="fa-solid fa-microphone-slash"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug pt-2">Giọng giáo viên đều đều, thiếu điểm nhấn.</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-red-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-red-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-red-500 border border-red-100"><i class="fa-regular fa-face-frown"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug mt-0.5">Chưa tạo được không khí lớp học, khó bao quát và đánh giá.</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-red-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-red-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-red-500 border border-red-100"><i class="fa-solid fa-circle-question"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug mt-0.5">Câu hỏi chưa trọng tâm, câu hỏi đóng, thiếu tính gợi mở.</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-orange-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-orange-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-orange-500 border border-orange-100"><i class="fa-solid fa-stopwatch"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug pt-2">Phân bổ thời gian giảng dạy chưa phù hợp.</p>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-orange-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-orange-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-orange-500 border border-orange-100"><i class="fa-solid fa-comment-slash"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug mt-0.5">Gọi học sinh nhưng học sinh không mở mic trả lời.</p>
+                    </div>
+                    <!-- Item 6 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-orange-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-orange-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-orange-500 border border-orange-100"><i class="fa-solid fa-comments"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug mt-0.5">Học sinh bật mic nói tự do, chat hoặc vẽ linh tinh.</p>
+                    </div>
+                    <!-- Item 7 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-yellow-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-yellow-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-yellow-600 border border-yellow-200"><i class="fa-solid fa-shirt"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug pt-2">Tác phong, trang phục chưa thực sự chuẩn mực.</p>
+                    </div>
+                    <!-- Item 8 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-yellow-500 shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-yellow-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-yellow-600 border border-yellow-200"><i class="fa-solid fa-pen-nib"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug mt-0.5">Chữ viết, trình bày bảng chưa logic, chưa chuẩn nội dung.</p>
+                    </div>
+                    <!-- Item 9 -->
+                    <div class="bg-white p-4 rounded-xl border-l-4 border-brand-blue shadow-sm flex items-start gap-3 hover:-translate-y-1 hover:shadow-md transition">
+                        <div class="bg-blue-50 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-brand-blue border border-blue-100"><i class="fa-solid fa-chalkboard"></i></div>
+                        <p class="text-[15px] font-semibold text-slate-700 leading-snug mt-0.5">Chỉ tập trung thuần chữa bài, chưa phân tích định hướng.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SLIDE 6: QUY TRÌNH TRƯỚC BUỔI HỌC -->
+    <div class="slide bg-white" id="slide-6">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-gears mr-3 text-brand-orange"></i>Quy trình vận hành: Trước buổi học</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex flex-col gap-5 justify-center pt-8">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 max-w-6xl mx-auto w-full">
+
+                <!-- CHUYÊN MÔN -->
+                <div class="bg-blue-50 rounded-2xl border-2 border-blue-200 shadow-md p-6 flex flex-col relative overflow-hidden transition hover:shadow-lg">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-blue-500"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="font-bold text-brand-blue text-xl mb-4 border-b-2 border-blue-200 pb-3 flex items-center relative z-10">
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex justify-center items-center mr-3 shadow-sm"><i class="fa-solid fa-brain text-lg"></i></div> CHUYÊN MÔN
+                    </h3>
+                    <div class="relative z-10">
+                        <ul class="space-y-4 text-[16px] text-slate-800 font-medium">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-blue-600 mt-1"></i>
+                                <span>Nhận kế hoạch bài giảng đúng khối, mức độ. <span class="italic text-slate-600 font-normal">(Phiếu bài có: Mục tiêu, Kiến thức trọng tâm, BTTL, BTVN)</span>.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-blue-600 mt-1"></i>
+                                <span>Nắm mục tiêu, nghiên cứu nội dung, chuẩn bị phương pháp và <strong>xác định khó khăn dự kiến</strong> của học sinh.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-blue-600 mt-1"></i>
+                                <span>Nháp vắn tắt một số câu hỏi định hướng, tránh trường hợp đặt câu hỏi bộc phát.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-blue-600 mt-1"></i>
+                                <span>Rèn viết bảng, trình bày nội dung bài học <strong>trước 2 – 3 lần</strong>.</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-blue-100/50 p-2 rounded-lg border border-blue-200">
+                                <i class="fa-solid fa-check-double text-blue-600 mt-1"></i>
+                                <span>Soạn mini test phù hợp. <span class="text-red-600 font-bold block mt-1"><i class="fa-solid fa-triangle-exclamation mr-1 text-sm"></i>Lưu ý: Điều chỉnh phiếu bài đúng thời lượng.</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SETUP -->
+                <div class="bg-orange-50 rounded-2xl border-2 border-orange-200 shadow-md p-6 flex flex-col relative overflow-hidden transition hover:shadow-lg">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[100px] text-orange-500"><i class="fa-solid fa-desktop"></i></div>
+                    <h3 class="font-bold text-brand-orange text-xl mb-4 border-b-2 border-orange-200 pb-3 flex items-center relative z-10">
+                        <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex justify-center items-center mr-3 shadow-sm"><i class="fa-solid fa-desktop text-lg"></i></div> SETUP MÔI TRƯỜNG
+                    </h3>
+                    <div class="relative z-10">
+                        <ul class="space-y-4 text-[16px] text-slate-800 font-medium">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-orange-600 mt-1"></i>
+                                <span>Tác phong, trang phục lịch sự, chững chạc, tô son <span class="italic text-slate-600 font-normal">(tránh phụ huynh đánh giá GV quá trẻ)</span>.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-orange-600 mt-1"></i>
+                                <span>Căn chỉnh góc giảng dạy đảm bảo không quá tối.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-orange-600 mt-1"></i>
+                                <span>Thiết lập các chế độ phòng học Zoom (chat, vẽ bảng...).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-orange-600 mt-1"></i>
+                                <span>Tạo riêng 1 slide đầu giờ xây dựng nội quy lớp học.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-check-double text-orange-600 mt-1"></i>
+                                <span>Tạo 1 checklist kiểm tra đầy đủ các buổi học.</span>
+                            </li>
+                            <li class="flex items-start gap-3 bg-orange-100/50 p-2 rounded-lg border border-orange-200">
+                                <i class="fa-regular fa-clock text-brand-orange mt-1"></i>
+                                <span class="font-bold text-brand-orange">Tham gia buổi dạy sớm để có thời gian chuẩn bị.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: TRONG VÀ SAU BUỔI HỌC -->
+    <div class="slide bg-white" id="slide-7">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-chalkboard-user mr-3 text-brand-orange"></i>Quy trình vận hành: Trong & Sau buổi học</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex flex-col gap-6 justify-center max-w-6xl mx-auto w-full">
+
+            <!-- TRONG BUỔI HỌC -->
+            <div class="bg-white rounded-2xl border-2 border-blue-200 shadow-md p-6 relative">
+                <h3 class="font-bold text-brand-blue text-[18px] mb-4 flex items-center uppercase border-b-2 border-blue-100 pb-2 w-max">
+                    <div class="w-8 h-8 rounded-full bg-brand-blue text-white flex justify-center items-center mr-3 text-sm shadow-sm"><i class="fa-solid fa-chalkboard"></i></div> Trong buổi học
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 shadow-sm relative overflow-hidden hover:shadow-md transition">
+                        <div class="absolute -right-2 -bottom-2 text-6xl font-black text-blue-200/50">1</div>
+                        <h4 class="font-bold text-brand-blue mb-2 relative z-10"><i class="fa-solid fa-door-open mr-2"></i>Mở đầu</h4>
+                        <p class="text-[15px] text-slate-700 relative z-10 leading-snug">Kiểm tra bài cũ, tạo kết nối mượt mà với bài học mới.</p>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 shadow-sm relative overflow-hidden hover:shadow-md transition">
+                        <div class="absolute -right-2 -bottom-2 text-6xl font-black text-blue-200/50">2</div>
+                        <h4 class="font-bold text-brand-blue mb-2 relative z-10"><i class="fa-solid fa-graduation-cap mr-2"></i>Triển khai kiến thức</h4>
+                        <ul class="text-[14px] text-slate-700 list-disc pl-4 space-y-1 relative z-10 font-medium">
+                            <li>Giải thích <strong>bản chất</strong>.</li>
+                            <li>Hướng dẫn phương pháp và ví dụ.</li>
+                            <li>Luyện tập có kiểm soát.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 shadow-sm relative overflow-hidden hover:shadow-md transition">
+                        <div class="absolute -right-2 -bottom-2 text-6xl font-black text-blue-200/50">3</div>
+                        <h4 class="font-bold text-brand-blue mb-2 relative z-10"><i class="fa-solid fa-flag-checkered mr-2"></i>Cuối buổi</h4>
+                        <p class="text-[15px] text-slate-700 relative z-10 leading-snug">Chốt lại kiến thức cốt lõi và giao BTVN rõ ràng.</p>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 border-2 border-red-200 p-4 rounded-xl flex items-start gap-4 shadow-sm">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-500 text-2xl flex-shrink-0"><i class="fa-solid fa-bell"></i></div>
+                    <div>
+                        <span class="font-bold text-red-700 uppercase text-[15px] block mb-2">Lưu ý cực kỳ quan trọng trong giờ:</span>
+                        <ul class="text-[15px] text-slate-800 list-disc pl-4 space-y-1 font-medium">
+                            <li>Trường hợp gọi 2 lần không phản hồi, <strong class="text-red-600">nhờ Trợ giảng liên lạc Phụ huynh ngay</strong>.</li>
+                            <li>Tăng tương tác với HS: lồng ghép giảng thực tế, chuyện vui, trò chơi khởi động... để tăng hứng thú.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAU BUỔI HỌC -->
+            <div class="bg-white rounded-2xl border-2 border-green-200 shadow-md p-6 relative">
+                <h3 class="font-bold text-green-700 text-[18px] mb-4 flex items-center uppercase border-b-2 border-green-100 pb-2 w-max">
+                    <div class="w-8 h-8 rounded-full bg-green-600 text-white flex justify-center items-center mr-3 text-sm shadow-sm"><i class="fa-solid fa-clipboard-check"></i></div> Sau buổi học
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="flex items-center gap-4 bg-green-50 p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-green-600 text-2xl shadow-sm flex-shrink-0"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <p class="text-[16px] text-slate-800 font-medium leading-snug">Xử lý và <strong class="text-green-700">đẩy record bài giảng</strong> đúng hạn theo quy định.</p>
+                    </div>
+                    <div class="flex items-center gap-4 bg-green-50 p-4 rounded-xl border border-green-100 shadow-sm hover:shadow-md transition hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-green-600 text-2xl shadow-sm flex-shrink-0"><i class="fa-solid fa-file-pen"></i></div>
+                        <p class="text-[15px] text-slate-800 font-medium leading-relaxed">Nhập điểm mini test, nhận xét HS. Nhắc Trợ giảng thông báo TG lớp chính nếu HS cần hỗ trợ thêm.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SLIDE 8: Q&A -->
+    <div class="slide bg-white" id="slide-8">
+        <div class="slide-header p-4 md:p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-comments mr-3 text-brand-orange"></i>Thảo luận và góp ý</h2>
+            <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+        </div>
+        <div class="slide-content flex flex-col items-center justify-center pt-20 text-center">
+            <div class="text-[120px] text-brand-orange mb-6 opacity-80"><i class="fa-regular fa-circle-question"></i>
+            </div>
+            <h3 class="text-4xl font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?</h3>
+            <p class="text-xl text-slate-600 max-w-3xl leading-relaxed">Bộ phận Chuyên môn luôn sẵn sàng lắng nghe những
+                chia sẻ và đóng góp từ các Thầy Cô để công tác giảng dạy ngày càng hoàn thiện hơn.</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: THANK YOU -->
+    <div class="slide bg-brand-blue" id="slide-9">
+        <div
+            class="slide-content h-full flex flex-col items-center justify-center text-center p-10 relative overflow-hidden">
+            <!-- Background Decoration -->
+            <div
+                class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full opacity-20 blur-3xl print:hidden">
+            </div>
+            <div
+                class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-white rounded-full opacity-10 blur-3xl print:hidden">
+            </div>
+
+            <img src="logo.png" class="h-20 object-contain mb-10 brightness-0 invert" alt="Logo" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'">
+
+            <h2 class="text-6xl font-extrabold text-white mb-6 tracking-wide drop-shadow-md leading-[1]">XIN CHÂN
+                THÀNH CẢM
+                ƠN<br><span class="text-brand-orange drop-shadow-none block mt-4">CÁC THẦY CÔ!</span></h2>
+
+            <p class="text-2xl text-blue-100 font-medium max-w-4xl leading-relaxed mt-4">
+                Kính chúc các Thầy Cô một năm học mới dồi dào sức khỏe, luôn giữ mãi nhiệt huyết và gặt hái nhiều thành
+                công!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            let currentSlideIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateUI() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else if (slide.classList.contains('active')) {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `${currentSlideIndex + 1}/${totalSlides}`;
+                const progressPercentage = ((currentSlideIndex + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+            }
+
+            function nextSlide() {
+                if (currentSlideIndex < totalSlides - 1) {
+                    currentSlideIndex++;
+                    updateUI();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    updateUI();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'Space') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            updateUI();
+        });
+    </script>
+</body>
+
+</html>

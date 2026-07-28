@@ -1,0 +1,18 @@
+3.Các dạng bài điển hình 
+a)Căn dặn học sinh:  
+- Chuẩn bị đầy đủ dụng cụ học tập 
+- Thay đổi tư duy: từ hình học trực quan sang hình học chứng minh 
+- Kĩ năng vẽ hình là chìa khóa 
+- Coi trọng phần giả thiết – kết luận 
+- Nắm được các định lý giúp giải quyết tốt các bài hình học 
+ 
+ 
+Lưu ý:  
+Nhấn mạnh yếu tố “xen giữa” trong 2 trường hợp c-g-c và g-c-g 
+Nhấn mạnh cách chứng minh 2 góc, 2 cạnh bằng nhau ta có thể sử dụng hai tam giác bằng 
+nhau chứa nó. 
+Nhắc nhở học sinh viết đầy đủ bước giải: Xét hai tam giác/ các điều kiện bằng nhau/ kết 
+luận hai tam giác bằng nhau/ suy ra các cạnh, góc bằng nhau tương ứng. 
+- Phương pháp "Phân tích ngược": giáo viên cách hướng dẫn học sinh tư duy ngược: Để 
+chứng minh A B, ta cần tam giác nào bằng nhau? Trong hai tam giác đó có gì rồi? Còn 
+thiếu gì? 
