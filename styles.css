@@ -294,7 +294,7 @@ body {
 }
 
 .hero-main-card {
-  grid-column: span 8;
+  grid-column: span 12;
   background: linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #4F46E5 100%);
   color: #FFFFFF;
   border-radius: var(--radius-xl);
@@ -587,6 +587,24 @@ body {
   background-size: 16px 16px;
 }
 
+.glass-number {
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 150px;
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+}
+
 .cover-content {
   position: relative;
   z-index: 2;
@@ -607,6 +625,15 @@ body {
   color: #2DD4BF;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* Dynamic Backgrounds */
+.bg-khoi-6 { background: linear-gradient(135deg, #4338CA 0%, #312E81 100%) !important; }
+.bg-khoi-7 { background: linear-gradient(135deg, #0369A1 0%, #0C4A6E 100%) !important; }
+.bg-khoi-8 { background: linear-gradient(135deg, #047857 0%, #064E3B 100%) !important; }
+.bg-khoi-9 { background: linear-gradient(135deg, #BE123C 0%, #881337 100%) !important; }
+.bg-bo-tro { background: linear-gradient(135deg, #C2410C 0%, #7C2D12 100%) !important; }
+.bg-tro-giang { background: linear-gradient(135deg, #6D28D9 0%, #4C1D95 100%) !important; }
+
 
 .cover-title {
   font-size: 0.95rem;

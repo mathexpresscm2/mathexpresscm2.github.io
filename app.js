@@ -142,10 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const badgeClass = item.audienceBadge.includes('GV') ? 'badge-gv' : (item.audienceBadge.includes('TG') ? 'badge-tg' : 'badge-amber');
       const hasWebDeck = !!item.webViewerUrl;
       
+      let coverBgClass = '';
+      let gradeNumber = '';
+      const titleLower = item.title.toLowerCase();
+      if (titleLower.includes('khối 6')) { coverBgClass = 'bg-khoi-6'; gradeNumber = '6'; }
+      else if (titleLower.includes('khối 7')) { coverBgClass = 'bg-khoi-7'; gradeNumber = '7'; }
+      else if (titleLower.includes('khối 8')) { coverBgClass = 'bg-khoi-8'; gradeNumber = '8'; }
+      else if (titleLower.includes('khối 9')) { coverBgClass = 'bg-khoi-9'; gradeNumber = '9'; }
+      else if (titleLower.includes('bổ trợ')) { coverBgClass = 'bg-bo-tro'; gradeNumber = 'BT'; }
+      else if (titleLower.includes('trợ giảng')) { coverBgClass = 'bg-tro-giang'; gradeNumber = 'TG'; }
+      
       return `
         <article class="presentation-card card-col-4" data-id="${item.id}">
-          <div class="card-cover">
+          <div class="card-cover ${coverBgClass}">
             <div class="cover-svg-pattern"></div>
+            ${gradeNumber ? `<div class="glass-number">${gradeNumber}</div>` : ''}
             <div class="card-badges">
               <span class="badge ${badgeClass}">${item.audienceBadge}</span>
               <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" data-bookmark-id="${item.id}" title="Lưu bài học">
@@ -169,10 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="card-title">${item.title}</h3>
             <p class="card-summary">${item.summary}</p>
             
+            ${(item.speaker === 'Ban Chuyên Môn Toán Khối 8 MathExpress' || item.speaker === 'Ban Chuyên Môn MathExpress') ? '' : `
             <div class="card-speaker">
               <div class="speaker-avatar">${item.speaker.charAt(0)}</div>
               <span>${item.speaker}</span>
             </div>
+            `}
 
             <div class="card-footer" style="flex-direction: column; gap: 8px;">
               ${hasWebDeck ? `
@@ -249,7 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentSlideIndex = 0;
     modalTitle.textContent = activePresentation.title;
-    modalMeta.textContent = `${activePresentation.category} • ${activePresentation.speaker} • ${activePresentation.date}`;
+    const speakerText = (activePresentation.speaker === 'Ban Chuyên Môn Toán Khối 8 MathExpress' || activePresentation.speaker === 'Ban Chuyên Môn MathExpress') ? '' : ` • ${activePresentation.speaker}`;
+    modalMeta.textContent = `${activePresentation.category}${speakerText} • ${activePresentation.date}`;
 
     renderSlideContent();
     renderSidebarData();
