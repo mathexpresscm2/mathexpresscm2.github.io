@@ -241,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
       categoryChips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       currentFilterCategory = chip.getAttribute('data-category');
+      chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       renderPresentations();
     });
   });
@@ -416,6 +417,39 @@ document.addEventListener('DOMContentLoaded', () => {
       closeSlideModal();
     }
   });
+
+  // Touch Swipe Gestures for Mobile Slide Canvas
+  const slideCanvasEl = document.querySelector('.slide-canvas');
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (slideCanvasEl) {
+    slideCanvasEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    slideCanvasEl.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 40; // min distance in px
+    if (touchEndX < touchStartX - swipeThreshold) {
+      // Swiped Left -> Next Slide
+      if (activePresentation && currentSlideIndex < activePresentation.slides.length - 1) {
+        currentSlideIndex++;
+        renderSlideContent();
+      }
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+      // Swiped Right -> Prev Slide
+      if (currentSlideIndex > 0) {
+        currentSlideIndex--;
+        renderSlideContent();
+      }
+    }
+  }
 
   // Modal Sidebar Tabs Handling
   tabBtns.forEach(btn => {
