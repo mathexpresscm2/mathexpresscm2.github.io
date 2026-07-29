@@ -421,32 +421,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Touch Swipe Gestures for Mobile Slide Canvas
   const slideCanvasEl = document.querySelector('.slide-canvas');
   let touchStartX = 0;
+  let touchStartY = 0;
   let touchEndX = 0;
+  let touchEndY = 0;
 
   if (slideCanvasEl) {
     slideCanvasEl.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
     }, { passive: true });
 
     slideCanvasEl.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
+      touchEndX = e.changedTouches[0].clientX;
+      touchEndY = e.changedTouches[0].clientY;
       handleSwipe();
     }, { passive: true });
   }
 
   function handleSwipe() {
-    const swipeThreshold = 40; // min distance in px
-    if (touchEndX < touchStartX - swipeThreshold) {
-      // Swiped Left -> Next Slide
-      if (activePresentation && currentSlideIndex < activePresentation.slides.length - 1) {
-        currentSlideIndex++;
-        renderSlideContent();
-      }
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-      // Swiped Right -> Prev Slide
-      if (currentSlideIndex > 0) {
-        currentSlideIndex--;
-        renderSlideContent();
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    const swipeThreshold = 45; // Minimum horizontal distance in px
+
+    // Only trigger horizontal slide swipe if horizontal movement is greater than vertical movement
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX < 0) {
+        // Swiped Left -> Next Slide
+        if (activePresentation && currentSlideIndex < activePresentation.slides.length - 1) {
+          currentSlideIndex++;
+          renderSlideContent();
+        }
+      } else {
+        // Swiped Right -> Prev Slide
+        if (currentSlideIndex > 0) {
+          currentSlideIndex--;
+          renderSlideContent();
+        }
       }
     }
   }

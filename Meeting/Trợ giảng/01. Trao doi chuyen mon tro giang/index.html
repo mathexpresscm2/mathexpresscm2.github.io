@@ -2463,6 +2463,34 @@
                     prevSlide();
                 }
             });
+
+            // Touch Swipe Gestures for Mobile Presentation Deck
+            let touchDeckStartX = 0;
+            let touchDeckStartY = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, .swiper-container, .swiper, .swiper-slide')) return;
+                touchDeckStartX = e.changedTouches[0].clientX;
+                touchDeckStartY = e.changedTouches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, .swiper-container, .swiper, .swiper-slide')) return;
+                const touchDeckEndX = e.changedTouches[0].clientX;
+                const touchDeckEndY = e.changedTouches[0].clientY;
+                const deltaX = touchDeckEndX - touchDeckStartX;
+                const deltaY = touchDeckEndY - touchDeckStartY;
+                const swipeThreshold = 45;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+                    if (deltaX < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }, { passive: true });
+
             updateUI();
         });
     </script>
