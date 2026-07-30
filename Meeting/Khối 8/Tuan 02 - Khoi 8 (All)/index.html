@@ -121,6 +121,7 @@
         @media (max-width: 768px) {
             .slide-content {
                 padding: 1rem 1rem 5rem 1rem !important;
+                min-height: 0 !important;
             }
             .slide-header {
                 padding-left: 1rem !important;
@@ -201,22 +202,18 @@
 
     <!-- SLIDE 1: TRANG BÌA -->
     <div class="slide active" id="slide-1">
-        <div
-            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-brand-blue to-blue-900 text-white relative overflow-hidden">
-            <div class="absolute -top-12 -left-12 md:-top-24 md:-left-24 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-12 -right-12 md:-bottom-24 md:-right-24 w-64 h-64 md:w-96 md:h-96 bg-brand-orange/20 rounded-full blur-3xl"></div>
-
-            <div
-                class="bg-white px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-2xl mb-8 flex items-center justify-center gap-3 transform -rotate-2">
-                <img src="logo.png" alt="MathExpress Logo" class="h-12 md:h-16 object-contain">
+        <div class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden">
+            <div class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]"></div>
+            <div class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]"></div>
+            <div class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'" src="logo.webp" />
             </div>
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight max-w-4xl shadow-black drop-shadow-md px-4">
-                TRAO ĐỔI GIÁO VIÊN KHỐI 8 <br>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                TRAO ĐỔI GIÁO VIÊN KHỐI 8
             </h2>
-            <div class="w-16 md:w-24 h-1 bg-brand-orange mb-6"></div>
-            <p
-                class="text-xl md:text-2xl text-blue-100 font-medium bg-black/20 px-5 py-2 md:px-6 md:py-2 rounded-full inline-block backdrop-blur-sm">
-                NĂM HỌC: 2026 - 2027
+            <div class="w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
+            <p class="text-2xl md:text-4xl font-medium text-slate-700 max-w-2xl px-4 tracking-wide drop-shadow-sm">
+                Năm học: 2026 – 2027
             </p>
         </div>
     </div>
@@ -228,7 +225,7 @@
                     class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
             <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex items-center justify-center">
+        <div class="slide-content flex justify-center md:items-center">
             <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl">
                 <!-- Mục 1 -->
                 <div
@@ -654,7 +651,7 @@
             </h2>
             <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col gap-6 justify-center">
+        <div class="slide-content flex flex-col gap-6 md:justify-center">
 
             <!-- Phần 1: Bám sát chương trình mới -->
             <div
@@ -723,7 +720,7 @@
             </h2>
             <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content p-8 flex flex-col items-center justify-center">
+        <div class="slide-content p-8 flex flex-col items-center md:justify-center">
 
             <!-- Image Slider -->
             <div class="relative w-full max-w-6xl mx-auto flex-1 flex flex-col items-center justify-center min-h-0">
@@ -821,7 +818,7 @@
                     class="fa-solid fa-chalkboard mr-3 text-brand-orange"></i>Vận hành lớp học</h2>
             <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col justify-center">
+        <div class="slide-content flex flex-col md:justify-center">
             <!-- Phần 1: 5 Bước Thực Hành Kiến Thức -->
             <div
                 class="mb-8 bg-gradient-to-br from-slate-50 to-blue-50/50 p-8 rounded-3xl border border-blue-100 shadow-sm relative overflow-hidden">
@@ -938,7 +935,7 @@
                 8)</h2>
             <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col items-center">
+        <div class="slide-content flex flex-col md:items-center">
             <div class="w-full max-w-6xl overflow-x-auto rounded-xl border border-slate-300 shadow-sm">
                 <table class="w-full min-w-[700px] text-[15px] text-slate-700 table-custom bg-white" style="line-height: 1.3;">
                     <thead class="bg-brand-blue text-white text-[15px]">
@@ -1247,8 +1244,7 @@
         </div>
 
     </div>
-    </div>
-    </div>
+
 
     <!-- SLIDE 11: BÀI KIỂM TRA ĐỊNH KỲ -->
     <div class="slide bg-white" id="slide-11">
@@ -1359,7 +1355,6 @@
 
         </div>
     </div>
-    </div>
 
     <!-- SLIDE 12: Q&A -->
     <div class="slide bg-white" id="slide-12">
@@ -1368,7 +1363,7 @@
                     class="fa-solid fa-comments mr-3 text-brand-orange"></i>Q&A - Giải đáp thắc mắc</h2>
             <img src="logo.png" class="h-7 md:h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col items-center justify-center pt-20 text-center">
+        <div class="slide-content flex flex-col items-center md:justify-center pt-20 text-center">
             <div class="text-[120px] text-brand-orange mb-6 opacity-80"><i class="fa-regular fa-circle-question"></i>
             </div>
             <h3 class="text-4xl font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?</h3>
@@ -1377,32 +1372,25 @@
         </div>
     </div>
 
-    <!-- SLIDE 13: THANK YOU -->
-    <div class="slide bg-brand-blue" id="slide-13">
-        <div
-            class="slide-content h-full flex flex-col items-center justify-center text-center p-10 relative overflow-hidden">
-            <!-- Background Decoration -->
-            <div
-                class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full opacity-20 blur-3xl print:hidden">
+    <!-- SLIDE THANK YOU -->
+    <div class="slide bg-white" id="slide-last">
+        <div class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden">
+            <div class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]"></div>
+            <div class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]"></div>
+            <div class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'" src="logo.webp" />
             </div>
-            <div
-                class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-white rounded-full opacity-10 blur-3xl print:hidden">
-            </div>
-
-            <img src="logo.png" class="h-20 object-contain mb-10 brightness-0 invert" alt="Logo">
-
-            <h2 class="text-6xl font-extrabold text-white mb-6 tracking-wide drop-shadow-md leading-[1]">XIN CHÂN
-                THÀNH CẢM
-                ƠN<br><span class="text-brand-orange drop-shadow-none block mt-4">CÁC THẦY CÔ!</span></h2>
-
-            <p class="text-2xl text-blue-100 font-medium max-w-4xl leading-relaxed mt-4">
-                Kính chúc các Thầy Cô một năm học mới dồi dào sức khỏe, luôn giữ mãi nhiệt huyết và gặt hái nhiều thành
-                công!
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                CẢM ƠN CÁC THẦY CÔ!
+            </h2>
+            <div class="w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
+            <p class="text-2xl md:text-4xl font-medium text-slate-700 max-w-3xl px-4 tracking-wide drop-shadow-sm">
+                Chúc các thầy cô một năm học mới làm việc hiệu quả và tràn đầy năng&nbsp;lượng.
             </p>
         </div>
     </div>
 
-    <script>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.slide');
             const prevBtn = document.getElementById('prevBtn');

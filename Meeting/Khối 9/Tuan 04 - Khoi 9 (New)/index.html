@@ -120,6 +120,7 @@
         @media (max-width: 768px) {
             .slide-content {
                 padding: 1rem 1rem 5rem 1rem !important;
+                min-height: 0 !important;
             }
             .slide-header {
                 padding-left: 1rem !important;
@@ -227,7 +228,7 @@
                     class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
             <img src="logo.png" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex items-center justify-center relative overflow-hidden">
+        <div class="slide-content flex justify-center md:items-center relative">
             <!-- Background decorations -->
             <div class="absolute top-10 left-10 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl"></div>
             <div class="absolute bottom-10 right-10 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl"></div>
@@ -280,7 +281,7 @@
                     class="fa-solid fa-calendar-days mr-3 text-brand-orange"></i>Khung chương trình dự kiến</h2>
             <img src="logo.png" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col items-center py-2 px-2">
+        <div class="slide-content flex flex-col md:items-center py-2 px-2">
             <style>
                 #slide-8 .table-custom th,
                 #slide-8 .table-custom td {
@@ -564,7 +565,7 @@
                     class="fa-solid fa-graduation-cap mr-3 text-brand-orange"></i>Lớp bổ trợ cho học sinh</h2>
             <img src="logo.png" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content p-8 flex flex-col justify-center">
+        <div class="slide-content p-8 flex flex-col md:justify-center">
             <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl mx-auto">
 
                 <!-- Card 1: Lớp bổ trợ Học Sinh mới -->
@@ -1184,7 +1185,7 @@
                     qua</h2>
                 <img src="logo.png" class="h-10 object-contain" alt="Logo">
             </div>
-            <div class="slide-content p-8 flex flex-col items-center justify-center">
+            <div class="slide-content p-8 flex flex-col items-center md:justify-center">
 
                 <!-- Image Slider -->
                 <div class="relative w-full max-w-6xl mx-auto flex-1 flex flex-col items-center justify-center min-h-0">
@@ -1282,7 +1283,7 @@
                         class="fa-solid fa-comments mr-3 text-brand-orange"></i>Q&A - Giải đáp thắc mắc</h2>
                 <img src="logo.png" class="h-10 object-contain" alt="Logo">
             </div>
-            <div class="slide-content flex flex-col items-center justify-center pt-20 text-center">
+            <div class="slide-content flex flex-col items-center md:justify-center pt-20 text-center">
                 <div class="text-[120px] text-brand-orange mb-6 opacity-80"><i
                         class="fa-regular fa-circle-question"></i>
                 </div>
@@ -1298,7 +1299,7 @@
         <!-- SLIDE 15: THANK YOU -->
         <div class="slide bg-brand-blue" id="slide-15">
             <div
-                class="slide-content h-full flex flex-col items-center justify-center text-center p-10 relative overflow-hidden">
+                class="slide-content h-full flex flex-col items-center md:justify-center text-center p-10 relative">
                 <!-- Background Decoration -->
                 <div
                     class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full opacity-20 blur-3xl print:hidden">

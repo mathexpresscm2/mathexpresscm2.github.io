@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tháng 7 - Họp giáo viên khối 8</title>
+    <title>MathExpress - Trao đổi Giáo viên 2026-2027</title>
     <!-- STREAMING_CHUNK:Loading libraries and setting up Tailwind CSS... -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -117,16 +117,6 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .slide-content {
-                padding: 1rem 1rem 5rem 1rem !important;
-            }
-            .slide-header {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-        }
-
         /* CSS cho chế độ In / Xuất PDF */
         @media print {
             @page {
@@ -179,17 +169,18 @@
 
     <!-- Nút điều hướng -->
     <div
-        class="fixed bottom-6 right-8 z-50 flex gap-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-slate-200">
+        class="fixed bottom-4 right-4 md:bottom-6 md:right-8 z-50 flex gap-2 md:gap-4 bg-white/90 backdrop-blur px-3 py-1.5 md:px-4 md:py-2 rounded-full shadow-lg border border-slate-200">
         <button id="prevBtn"
-            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
-            <i class="fa-solid fa-chevron-left"></i>
+            class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-left text-sm md:text-base"></i>
         </button>
-        <div class="flex items-center font-semibold text-slate-500 min-w-[3rem] justify-center" id="slideCounter">
-            1/10
+        <div class="flex items-center font-semibold text-slate-500 text-sm md:text-base min-w-[2.5rem] md:min-w-[3rem] justify-center"
+            id="slideCounter">
+            1/11
         </div>
         <button id="nextBtn"
-            class="w-10 h-10 flex items-center justify-center rounded-full bg-brand-orange text-white hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
-            <i class="fa-solid fa-chevron-right"></i>
+            class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-brand-orange text-white hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-chevron-right text-sm md:text-base"></i>
         </button>
     </div>
 
@@ -201,21 +192,28 @@
     <!-- SLIDE 1: TRANG BÌA -->
     <div class="slide active" id="slide-1">
         <div
-            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-brand-blue to-blue-900 text-white relative overflow-hidden">
-            <div class="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl"></div>
-
+            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden">
             <div
-                class="bg-white px-8 py-4 rounded-2xl shadow-2xl mb-8 flex items-center justify-center gap-3 transform -rotate-2">
-                <img src="logo.png" alt="MathExpress Logo" class="h-16 object-contain">
+                class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]">
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight max-w-4xl shadow-black drop-shadow-md">
-                THÁNG 7 - HỌP GIÁO VIÊN KHỐI 8 <br>
+            <div
+                class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]">
+            </div>
+            <div
+                class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md"
+                    onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'"
+                    src="logo.webp" />
+            </div>
+            <h2
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                TRAO ĐỔI GIÁO VIÊN KHỐI 8
             </h2>
-            <div class="w-24 h-1 bg-brand-orange mb-6"></div>
-            <p
-                class="text-3xl text-blue-100 font-medium bg-black/20 px-6 py-2 rounded-full inline-block backdrop-blur-sm">
-                NĂM HỌC: 2026 - 2027
+            <div
+                class="w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg">
+            </div>
+            <p class="text-2xl md:text-4xl font-medium text-slate-700 max-w-2xl px-4 tracking-wide drop-shadow-sm">
+                Năm học: 2026 – 2027
             </p>
         </div>
     </div>
@@ -223,11 +221,11 @@
     <!-- SLIDE 2: NỘI DUNG TRAO ĐỔI -->
     <div class="slide bg-white" id="slide-2">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-[40px] font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex items-center justify-center relative overflow-hidden">
+        <div class="slide-content flex justify-center md:items-center relative">
             <!-- Background decorations -->
             <div class="absolute top-10 left-10 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl"></div>
             <div class="absolute bottom-10 right-10 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl"></div>
@@ -239,9 +237,11 @@
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-brand-orange rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
                         1</div>
-                    <h3 class="text-[28px] font-bold text-brand-orange mb-3 leading-tight">Khung chương trình và bài thi
+                    <h3 class="text-2xl md:text-[28px] font-bold text-brand-orange mb-3 leading-tight">Khung chương
+                        trình và bài thi
                         tháng</h3>
-                    <p class="text-orange-900 text-xl leading-relaxed">Chi tiết khung chương trình giảng dạy và kế hoạch
+                    <p class="text-orange-900 text-lg md:text-xl leading-relaxed">Chi tiết khung chương trình giảng dạy
+                        và kế hoạch
                         kiểm tra định kỳ hàng tháng.</p>
                 </div>
 
@@ -251,8 +251,10 @@
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 text-brand-blue rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
                         2</div>
-                    <h3 class="text-[28px] font-bold text-brand-blue mb-3 leading-tight">Lớp bổ trợ cho học sinh</h3>
-                    <p class="text-blue-900 text-xl leading-relaxed">Kế hoạch triển khai, tổ chức lớp bổ trợ nhằm củng
+                    <h3 class="text-2xl md:text-[28px] font-bold text-brand-blue mb-3 leading-tight">Lớp bổ trợ cho học
+                        sinh</h3>
+                    <p class="text-blue-900 text-lg md:text-xl leading-relaxed">Kế hoạch triển khai, tổ chức lớp bổ trợ
+                        nhằm củng
                         cố và lấp lỗ hổng kiến thức cho học sinh.</p>
                 </div>
 
@@ -262,8 +264,10 @@
                     <div
                         class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-brand-orange rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
                         3</div>
-                    <h3 class="text-[28px] font-bold text-brand-orange mb-3 leading-tight">Trao đổi chuyên môn</h3>
-                    <p class="text-orange-900 text-xl leading-relaxed">Phân tích các lỗi sai thường gặp của học sinh và
+                    <h3 class="text-2xl md:text-[28px] font-bold text-brand-orange mb-3 leading-tight">Trao đổi chuyên
+                        môn</h3>
+                    <p class="text-orange-900 text-lg md:text-xl leading-relaxed">Phân tích các lỗi sai thường gặp của
+                        học sinh và
                         những lưu ý quan trọng dành cho giáo viên trong quá trình giảng dạy.</p>
                 </div>
             </div>
@@ -273,12 +277,12 @@
     <!-- SLIDE 3: KHUNG CHƯƠNG TRÌNH -->
     <div class="slide bg-white" id="slide-3">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-[44px] font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-calendar-days mr-3 text-brand-orange"></i>Khung chương trình
             </h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col items-center justify-center py-2 px-2">
+        <div class="slide-content flex flex-col items-center md:justify-center py-2 px-2">
             <style>
                 #slide-3 .table-custom td {
                     padding: 0.25rem 0.4rem !important;
@@ -289,9 +293,10 @@
                 }
             </style>
             <div
-                class="w-full max-w-[80%] mx-auto my-auto overflow-hidden rounded-xl border border-slate-300 shadow-sm">
-                <table class="w-full text-[17px] text-slate-700 table-custom bg-white" style="line-height: 1.15;">
-                    <thead class="bg-brand-blue text-white text-[17.5px]">
+                class="w-full max-w-[95%] md:max-w-[80%] mx-auto my-auto overflow-hidden rounded-xl border border-slate-300 shadow-sm">
+                <table class="w-full text-[14px] md:text-[17px] text-slate-700 table-custom bg-white"
+                    style="line-height: 1.15;">
+                    <thead class="bg-brand-blue text-white text-[15px] md:text-[17.5px]">
                         <tr>
                             <th class="w-[35px] py-1">Tháng</th>
                             <th class="w-20 py-1">Buổi học</th>
@@ -306,7 +311,8 @@
                             class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors border-b-2 border-slate-300">
                             <td class="font-bold text-green-800 bg-emerald-100/50 py-1">Tháng 7<br>năm 2026
                             </td>
-                            <td class="font-semibold py-1">5 <br><span class="text-[17px] font-normal">(27/7 -
+                            <td class="font-semibold py-1">5 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(27/7 -
                                     02/8)</span></td>
                             <td class="py-1">Biến đổi biểu thức đại số</td>
                             <td class="py-1">Hằng đẳng thức (buổi 3)</td>
@@ -317,28 +323,32 @@
                         <tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors">
                             <td rowspan="4" class="font-bold text-brand-blue bg-rose-100/50 py-1">Tháng 8<br>năm 2026
                             </td>
-                            <td class="font-semibold py-1">6 <br><span class="text-[17px] font-normal">(03/8 -
+                            <td class="font-semibold py-1">6 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(03/8 -
                                     09/8)</span></td>
                             <td class="py-1 font-bold text-red-600 bg-yellow-100/80">Ôn tập và kiểm tra tháng</td>
                             <td class="py-1">Hình thang - Hình thang cân</td>
                             <td class="py-1 border-2 border-purple-500">Hằng đẳng thức (Buổi 2)</td>
                         </tr>
                         <tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors">
-                            <td class="font-semibold py-1">7 <br><span class="text-[17px] font-normal">(10/8 -
+                            <td class="font-semibold py-1">7 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(10/8 -
                                     16/08)</span></td>
                             <td class="py-1">Phân tích đa thức thành nhân tử (buổi 1)</td>
                             <td class="py-1 font-bold text-red-600 bg-yellow-100/80">Ôn tập và kiểm tra tháng</td>
                             <td class="py-1">Hằng đẳng thức (Buổi 3)</td>
                         </tr>
                         <tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors">
-                            <td class="font-semibold py-1">8 <br><span class="text-[17px] font-normal">(17/8 -
+                            <td class="font-semibold py-1">8 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(17/8 -
                                     23/8)</span></td>
                             <td class="py-1">Phân tích đa thức thành nhân tử (buổi 2)</td>
                             <td class="py-1">Hình bình hành</td>
                             <td class="py-1 font-bold text-red-600 bg-yellow-100/80">Ôn tập và kiểm tra tháng</td>
                         </tr>
                         <tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors border-b-2 border-slate-300">
-                            <td class="font-semibold py-1">9 <br><span class="text-[17px] font-normal">(24/8 -
+                            <td class="font-semibold py-1">9 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(24/8 -
                                     30/8)</span></td>
                             <td class="py-1">Hình chữ nhật</td>
                             <td class="py-1">Hình chữ nhật</td>
@@ -349,21 +359,24 @@
                         <tr class="bg-yellow-200 hover:bg-yellow-300 transition-colors">
                             <td rowspan="4" class="font-bold text-green-800 bg-emerald-100/50 py-1">Tháng 9<br>năm 2026
                             </td>
-                            <td class="font-semibold py-1 text-red-600">10 <br><span class="text-[17px] font-bold">(Lễ
+                            <td class="font-semibold py-1 text-red-600">10 <br><span
+                                    class="text-[15px] md:text-[17px] font-bold">(Lễ
                                     Quốc khánh)</span></td>
                             <td class="py-1 text-red-600 font-bold">Ôn tập tổng hợp</td>
                             <td class="py-1 text-red-600 font-bold">Ôn tập tổng hợp</td>
                             <td class="py-1 text-red-600 font-bold">Ôn tập tổng hợp</td>
                         </tr>
                         <tr class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors">
-                            <td class="font-semibold py-1">11 <br><span class="text-[17px] font-normal">(07/9 -
+                            <td class="font-semibold py-1">11 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(07/9 -
                                     13/9)</span></td>
                             <td class="py-1">Hình thoi - Hình vuông</td>
                             <td class="py-1">Phân tích đa thức thành nhân tử (buổi 1)</td>
                             <td class="py-1">Hình chữ nhật</td>
                         </tr>
                         <tr class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors">
-                            <td class="font-semibold py-1">12 <br><span class="text-[17px] font-normal">(14/9 -
+                            <td class="font-semibold py-1">12 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(14/9 -
                                     20/9)</span></td>
                             <td class="py-1">Ôn tập tứ giác đặc biệt</td>
                             <td class="py-1">Phân tích đa thức thành nhân tử (buổi 2)</td>
@@ -371,7 +384,8 @@
                         </tr>
                         <tr
                             class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors border-b-2 border-slate-300">
-                            <td class="font-semibold py-1">13 <br><span class="text-[17px] font-normal">(21/9 -
+                            <td class="font-semibold py-1">13 <br><span
+                                    class="text-[15px] md:text-[17px] font-normal">(21/9 -
                                     27/9)</span></td>
                             <td class="py-1">Tính chất chia hết với số nguyên (buổi 1)</td>
                             <td class="py-1">Hình thoi - Hình vuông</td>
@@ -386,9 +400,9 @@
     <!-- SLIDE 4: BÀI KIỂM TRA THÁNG -->
     <div class="slide bg-white" id="slide-4">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-4xl font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-clipboard-check mr-3 text-brand-orange"></i>Bài kiểm tra tháng</h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
         <div class="slide-content p-6 overflow-y-auto flex flex-col">
 
@@ -396,11 +410,15 @@
                 class="bg-orange-50 border border-orange-200 rounded-xl p-5 shadow-sm mb-6 relative overflow-hidden transition hover:shadow-md">
                 <div class="absolute -right-4 -bottom-4 opacity-5 text-[80px] text-orange-500"><i
                         class="fa-solid fa-chalkboard-user"></i></div>
-                <h3 class="text-xl font-bold text-brand-orange mb-3 pb-2 border-b-2 border-orange-200 relative z-10"><i
-                        class="fa-solid fa-thumbtack mr-2"></i>Nhiệm vụ của giáo viên</h3>
-                <p class="text-[17px] text-slate-700 leading-relaxed relative z-10">
-                    Từ tuần thứ 6 đến tuần thứ 8, các lớp sẽ tổ chức <strong>bài kiểm tra định kỳ</strong> theo kế
-                    hoạch. Giáo viên phụ trách cần thực hiện
+                <h3
+                    class="text-lg md:text-xl font-bold text-brand-orange mb-3 pb-2 border-b-2 border-orange-200 relative z-10">
+                    <i class="fa-solid fa-thumbtack mr-2"></i>Nhiệm vụ của giáo viên
+                </h3>
+                <p class="text-base md:text-[17px] text-slate-700 leading-relaxed relative z-10">
+                    <span class="bg-red-100 text-red-600 font-bold px-2 py-1 rounded-md inline-block mb-1">Từ tuần thứ 6
+                        đến tuần thứ 8 (Bắt đầu ngay từ tuần sau!)</span><br>
+                    Các lớp sẽ tổ chức <strong>bài kiểm tra định kỳ</strong> theo kế hoạch. Giáo viên phụ trách cần thực
+                    hiện
                     đầy đủ các công việc đã được phân công, bao gồm: tổ chức kiểm tra, chấm bài, nhập điểm, hoàn thành
                     nhận xét và cập nhật kết quả trên hệ thống đúng thời hạn, đảm bảo tính chính xác và khách quan trong
                     công tác đánh giá học sinh.
@@ -412,7 +430,7 @@
                 <div class="absolute -right-4 -bottom-4 opacity-5 text-[120px] text-blue-500"><i
                         class="fa-solid fa-table"></i></div>
                 <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-blue-200 relative z-10">
-                    <h3 class="text-xl font-bold text-brand-blue flex items-center">
+                    <h3 class="text-lg md:text-xl font-bold text-brand-blue flex items-center">
                         <span
                             class="bg-brand-blue text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 shadow-sm"><i
                                 class="fa-solid fa-pen-clip text-sm"></i></span>
@@ -424,12 +442,14 @@
                 </div>
 
                 <div class="bg-white rounded-lg border-2 border-slate-200 overflow-hidden shadow-sm relative z-10">
-                    <table class="w-full text-[16px]">
+                    <table class="w-full text-[14px] md:text-[16px]">
                         <thead>
                             <tr class="bg-brand-blue text-white">
-                                <th class="p-4 text-left w-[35%] border-r border-blue-400 font-semibold text-[17px]"><i
-                                        class="fa-solid fa-list-check mr-2"></i>Dạng bài</th>
-                                <th class="p-4 text-left w-[65%] font-semibold text-[17px]"><i
+                                <th
+                                    class="p-4 text-left w-[35%] border-r border-blue-400 font-semibold text-[15px] md:text-[17px]">
+                                    <i class="fa-solid fa-list-check mr-2"></i>Dạng bài
+                                </th>
+                                <th class="p-4 text-left w-[65%] font-semibold text-[15px] md:text-[17px]"><i
                                         class="fa-solid fa-comment-dots mr-2"></i>Nội dung nhận xét</th>
                             </tr>
                         </thead>
@@ -462,7 +482,7 @@
                                     <div
                                         class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-4 shadow-sm">
                                         <p class="mb-2"><span
-                                                class="font-bold text-green-700 text-[17px] flex items-center"><i
+                                                class="font-bold text-green-700 text-[15px] md:text-[17px] flex items-center"><i
                                                     class="fa-solid fa-circle-check mr-2"></i>Con vận dụng tốt:</span>
                                         </p>
                                         <p class="text-slate-700 leading-relaxed pl-6">
@@ -475,7 +495,7 @@
                                     </div>
                                     <div class="bg-orange-50 border-l-4 border-brand-orange p-4 rounded-r-lg shadow-sm">
                                         <p class="mb-2"><span
-                                                class="font-bold text-brand-orange text-[17px] flex items-center"><i
+                                                class="font-bold text-brand-orange text-[15px] md:text-[17px] flex items-center"><i
                                                     class="fa-solid fa-arrow-trend-up mr-2"></i>Con cần ôn tập
                                                 thêm:</span></p>
                                         <p class="text-slate-700 leading-relaxed pl-6">
@@ -496,11 +516,11 @@
     <!-- SLIDE 5: LỚP BỔ TRỢ CHO HỌC SINH -->
     <div class="slide bg-white" id="slide-5">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-4xl font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-graduation-cap mr-3 text-brand-orange"></i>Lớp bổ trợ cho học sinh</h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content p-8 flex flex-col justify-center">
+        <div class="slide-content p-8 flex flex-col md:justify-center">
             <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl mx-auto">
 
                 <!-- Card 1: Lớp bổ trợ Học Sinh mới -->
@@ -517,7 +537,8 @@
                                 <i class="fa-solid fa-user-plus"></i>
                             </div>
                             <div>
-                                <h3 class="text-3xl font-extrabold text-brand-orange leading-tight">Lớp bổ trợ học sinh
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-brand-orange leading-tight">Lớp bổ
+                                    trợ học sinh
                                     mới</h3>
                             </div>
                         </div>
@@ -548,7 +569,8 @@
                                 <i class="fa-solid fa-user-clock"></i>
                             </div>
                             <div>
-                                <h3 class="text-3xl font-extrabold text-brand-blue leading-tight">Lớp bổ trợ học sinh
+                                <h3 class="text-2xl md:text-3xl font-extrabold text-brand-blue leading-tight">Lớp bổ trợ
+                                    học sinh
                                     yếu, học sinh học bù</h3>
                             </div>
                         </div>
@@ -574,62 +596,110 @@
     <!-- SLIDE 6: KIẾN THỨC TRỌNG TÂM -->
     <div class="slide bg-white" id="slide-6">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-4xl font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-book-open mr-3 text-brand-orange"></i>Kiến thức trọng tâm</h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
         <div class="slide-content px-8 py-6 flex flex-col overflow-y-auto">
-            <div class="flex flex-col gap-6 w-full max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-[96rem] mx-auto">
 
                 <!-- A. Hằng đẳng thức đáng nhớ -->
-                <div class="bg-gradient-to-br from-blue-50 to-white border-l-[6px] border-brand-blue p-6 rounded-2xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <h3 class="text-[24px] font-bold text-brand-blue mb-4 pb-2 border-b border-blue-200 flex items-center">
-                        <span class="bg-brand-blue text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-sm text-lg"><i class="fa-solid fa-calculator"></i></span>
+                <div
+                    class="lg:col-span-2 bg-gradient-to-br from-blue-50 to-white border-l-[6px] border-brand-blue p-6 rounded-2xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <h3
+                        class="text-xl md:text-[24px] font-bold text-brand-blue mb-4 pb-2 border-b border-blue-200 flex items-center">
+                        <span
+                            class="bg-brand-blue text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-sm text-lg"><i
+                                class="fa-solid fa-calculator"></i></span>
                         A. Hằng đẳng thức đáng nhớ
                     </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-700 items-stretch">
-                        <div class="md:col-span-1 bg-blue-100/50 p-5 rounded-xl border border-blue-200/60 flex items-center justify-center shadow-sm">
-                            <p class="font-bold text-blue-900 text-[18px] text-center"><i class="fa-solid fa-caret-right text-brand-orange mr-2"></i>7 hằng đẳng thức cơ bản</p>
+                    <div class="grid grid-cols-1 xl:grid-cols-5 gap-6 text-slate-700 items-stretch">
+                        <div
+                            class="xl:col-span-1 bg-blue-100/50 p-5 rounded-xl border border-blue-200/60 flex items-center justify-center shadow-sm">
+                            <p class="font-bold text-blue-900 text-lg md:text-[18px] text-center"><i
+                                    class="fa-solid fa-caret-right text-brand-orange mr-2"></i>7 hằng đẳng thức cơ bản
+                            </p>
                         </div>
-                        <div class="md:col-span-2 bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex flex-col justify-center">
-                            <p class="font-bold text-blue-900 mb-3 text-[17px]"><i class="fa-solid fa-caret-right text-brand-orange mr-2"></i>Một số hằng đẳng thức mở rộng:</p>
+                        <div
+                            class="xl:col-span-2 bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex flex-col justify-center">
+                            <p class="font-bold text-blue-900 mb-3 text-[17px]"><i
+                                    class="fa-solid fa-caret-right text-brand-orange mr-2"></i>Một số hằng đẳng thức mở
+                                rộng:</p>
                             <div class="space-y-3 text-[15.5px] font-medium overflow-x-auto">
                                 <p class="whitespace-nowrap">$(a+b+c)^2 = a^2+b^2+c^2+2ab+2bc+2ca$</p>
                                 <p class="whitespace-nowrap">$(a+b+c)^3 = a^3+b^3+c^3+3(a+b)(b+c)(c+a)$</p>
                                 <p class="whitespace-nowrap">$a^3+b^3+c^3-3abc = (a+b+c)(a^2+b^2+c^2-ab-bc-ca)$</p>
                             </div>
                         </div>
+                        <div
+                            class="xl:col-span-2 bg-white p-5 rounded-xl border border-blue-100 shadow-sm flex flex-col justify-center">
+                            <p class="font-bold text-blue-900 mb-3 text-[17px]"><i
+                                    class="fa-solid fa-caret-right text-brand-orange mr-2"></i>Hệ quả:</p>
+                            <div class="space-y-3 text-[15.5px] font-medium text-slate-700 py-1">
+                                <p class="whitespace-nowrap">1. Nếu $a^2+b^2+c^2=ab+bc+ca$ thì $a=b=c$.</p>
+                                <p class="whitespace-nowrap">2. Nếu $a+b+c=0$ thì $a^3+b^3+c^3=3abc$.</p>
+                                <div class="flex items-center gap-2 pt-1">
+                                    <span class="whitespace-nowrap">3. Nếu $a^3+b^3+c^3=3abc$ thì</span>
+                                    <span>$\left[\begin{array}{l} a+b+c=0 \\ a=b=c \end{array}\right.$</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- B. Phân tích đa thức thành nhân tử -->
-                <div class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-6 rounded-2xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <h3 class="text-[24px] font-bold text-brand-orange mb-4 pb-2 border-b border-orange-200 flex items-center">
-                        <span class="bg-brand-orange text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-sm text-lg"><i class="fa-solid fa-layer-group"></i></span>
+                <div
+                    class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-6 rounded-2xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                    <h3
+                        class="text-xl md:text-[24px] font-bold text-brand-orange mb-4 pb-2 border-b border-orange-200 flex items-center">
+                        <span
+                            class="bg-brand-orange text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-sm text-lg"><i
+                                class="fa-solid fa-layer-group"></i></span>
                         B. Phân tích đa thức thành nhân tử
                     </h3>
-                    <p class="font-bold text-orange-900 mb-4 text-[17px]">Một số phương pháp cơ bản:</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-[15.5px] text-slate-700">
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">1</span> Đặt nhân tử chung</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">2</span> Sử dụng hằng đẳng thức</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">3</span> Nhóm hạng tử</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">4</span> Tách hạng tử</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">5</span> Thêm bớt hạng tử</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">6</span> Đặt ẩn phụ</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">7</span> Hệ số bất định</div>
-                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">8</span> Tách biến hoán vị vòng quanh</div>
+                    <p class="font-bold text-orange-900 mb-4 text-[17px]">Một số phương pháp phân tích đa thức thành
+                        nhân tử:</p>
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 text-[15.5px] text-slate-700 flex-1">
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">1</span>
+                            Đặt nhân tử chung</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">2</span>
+                            Sử dụng hằng đẳng thức</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">3</span>
+                            Nhóm hạng tử</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">4</span>
+                            Tách hạng tử</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">5</span>
+                            Thêm bớt hạng tử</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">6</span>
+                            Đặt ẩn phụ</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">7</span>
+                            Hệ số bất định</div>
+                        <div class="flex items-center bg-white p-3 rounded-lg border border-orange-100 shadow-sm"><span
+                                class="bg-orange-100 text-brand-orange w-6 h-6 rounded-full flex items-center justify-center font-bold mr-3 text-sm shrink-0">8</span>
+                            Tách biến hoán vị vòng quanh</div>
                     </div>
                 </div>
 
                 <!-- C. Tứ giác đặc biệt -->
-                <div class="bg-gradient-to-br from-emerald-50 to-white border-l-[6px] border-emerald-500 p-6 rounded-2xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
-                    <h3 class="text-[24px] font-bold text-emerald-600 mb-4 pb-2 border-b border-emerald-200 flex items-center">
-                        <span class="bg-emerald-500 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-sm text-lg"><i class="fa-solid fa-shapes"></i></span>
+                <div
+                    class="bg-gradient-to-br from-emerald-50 to-white border-l-[6px] border-emerald-500 p-6 rounded-2xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                    <h3
+                        class="text-xl md:text-[24px] font-bold text-emerald-600 mb-4 pb-2 border-b border-emerald-200 flex items-center">
+                        <span
+                            class="bg-emerald-500 text-white w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-sm text-lg"><i
+                                class="fa-solid fa-shapes"></i></span>
                         C. Tứ giác đặc biệt
                     </h3>
                     <div
-                        class="bg-white p-6 rounded-xl border border-emerald-100 shadow-sm flex flex-col items-center text-center mt-8">
-                        <div class="text-emerald-500 text-6xl mb-6 opacity-80">
+                        class="bg-white p-6 rounded-xl border border-emerald-100 shadow-sm flex flex-col items-center justify-center text-center mt-auto flex-1">
+                        <div class="text-emerald-500 text-5xl md:text-6xl mb-6 opacity-80">
                             <i class="fa-solid fa-draw-polygon"></i>
                         </div>
                         <p class="text-[17.5px] text-slate-700 leading-relaxed font-medium">
@@ -648,11 +718,11 @@
     <!-- SLIDE 7: LỖI SAI THƯỜNG GẶP -->
     <div class="slide bg-white" id="slide-7">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-3xl font-bold text-brand-blue uppercase"><i
+            <h2 class="text-xl md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Lỗi sai thường gặp & Lưu ý
                 chuyên môn
             </h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
         <div class="slide-content p-6 overflow-y-auto">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full max-w-[96rem] mx-auto">
@@ -660,11 +730,11 @@
                 <!-- Topic 1: Đại số -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col h-full">
                     <h3
-                        class="text-xl font-bold text-brand-orange mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
+                        class="text-lg md:text-xl font-bold text-brand-orange mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
                         <span><i class="fa-solid fa-calculator mr-2"></i>1. Đại số: Hằng đẳng thức & Phân tích đa
                             thức</span>
                         <span
-                            class="text-xs bg-orange-100 text-orange-800 font-semibold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lỗi
+                            class="text-[10px] md:text-xs bg-orange-100 text-orange-800 font-semibold px-2 md:px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lỗi
                             học sinh</span>
                     </h3>
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 flex-1 text-[15.5px]">
@@ -701,7 +771,7 @@
                             </div>
                             <ul class="space-y-3 text-slate-800 flex-1 list-disc ml-5 leading-relaxed">
                                 <li><strong class="text-emerald-900">Đổi dấu trước ngoặc:</strong> <span
-                                        class="text-emerald-800 font-bold">$-x^2 + 2xy - y^2$</span></li>
+                                        class="text-emerald-800 font-bold">$-(x-y)^2=-x^2 + 2xy - y^2$</span></li>
                                 <li><strong class="text-emerald-900">Lũy thừa đủ hệ số:</strong> <span
                                         class="text-emerald-800 font-bold">$(2x)^2 = 4x^2$</span>; <span
                                         class="text-emerald-800 font-bold">$(2x)^3 = 8x^3$</span></li>
@@ -715,10 +785,10 @@
                 <!-- Topic 2: Hình học -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col h-full">
                     <h3
-                        class="text-xl font-bold text-brand-blue mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
-                        <span><i class="fa-solid fa-shapes mr-2"></i>2. Hình học: Vẽ hình & Lập luận chứng minh</span>
+                        class="text-lg md:text-xl font-bold text-brand-blue mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
+                        <span><i class="fa-solid fa-shapes mr-2"></i>2. Hình học: Tứ giác & Các hình đặc biệt</span>
                         <span
-                            class="text-xs bg-blue-100 text-blue-800 font-semibold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lỗi
+                            class="text-[10px] md:text-xs bg-blue-100 text-blue-800 font-semibold px-2 md:px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lỗi
                             học sinh</span>
                     </h3>
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 flex-1 text-[15.5px]">
@@ -764,10 +834,11 @@
                 <!-- Topic 3: Định lý Pythagore & Trung tuyến -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col h-full">
                     <h3
-                        class="text-xl font-bold text-purple-700 mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
-                        <span><i class="fa-solid fa-book-open-reader mr-2"></i>3. Định lý Pythagore</span>
+                        class="text-lg md:text-xl font-bold text-purple-700 mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
+                        <span><i class="fa-solid fa-book-open-reader mr-2"></i>3. Kiến thức chưa học: Định lý
+                            Pythagore</span>
                         <span
-                            class="text-xs bg-purple-100 text-purple-800 font-semibold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lưu
+                            class="text-[10px] md:text-xs bg-purple-100 text-purple-800 font-semibold px-2 md:px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lưu
                             ý GV</span>
                     </h3>
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 flex-1 text-[15.5px]">
@@ -783,7 +854,7 @@
                             </div>
                             <ul class="space-y-3 text-slate-800 flex-1 list-disc ml-5 leading-relaxed">
                                 <li><strong class="text-rose-900">Dùng Pythagore sớm:</strong> Yêu cầu học sinh tính
-                                    cạnh huyền ở HKI (trong khi sách mới học ở HKII).</li>
+                                    cạnh huyền của tam giác vuông (trong khi sách mới học ở HKII).</li>
                             </ul>
                         </div>
 
@@ -798,7 +869,7 @@
                                 KNTT 2018
                             </div>
                             <ul class="space-y-3 text-slate-800 flex-1 list-disc ml-5 leading-relaxed">
-                                <li><strong class="text-emerald-900">Bám sát chương trình:</strong> HKI chỉ ưu tiên dùng
+                                <li><strong class="text-emerald-900">Bám sát chương trình:</strong> Ưu tiên dùng
                                     tính chất tứ giác, song song, tam giác bằng nhau.</li>
                             </ul>
                         </div>
@@ -808,11 +879,11 @@
                 <!-- Topic 4: Đường trung bình -->
                 <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm flex flex-col h-full">
                     <h3
-                        class="text-xl font-bold text-amber-600 mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
-                        <span><i class="fa-solid fa-triangle-exclamation mr-2"></i>4. Đường trung bình: Khi HS chưa được
-                            học</span>
+                        class="text-lg md:text-xl font-bold text-amber-600 mb-4 pb-2 border-b border-slate-200 flex items-center justify-between">
+                        <span><i class="fa-solid fa-triangle-exclamation mr-2"></i>4. Kiến thức chưa học: Đường trung
+                            bình</span>
                         <span
-                            class="text-xs bg-amber-100 text-amber-800 font-semibold px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lưu
+                            class="text-[10px] md:text-xs bg-amber-100 text-amber-800 font-semibold px-2 md:px-3 py-1 rounded-full uppercase tracking-wider shrink-0">Lưu
                             ý GV</span>
                     </h3>
                     <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 flex-1 text-[15.5px]">
@@ -858,9 +929,9 @@
     <!-- SLIDE 8: LỖI SAI THƯỜNG GẶP: VÍ DỤ -->
     <div class="slide bg-white" id="slide-8">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-3xl font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-chalkboard-user mr-3 text-brand-orange"></i>Lỗi sai thường gặp: Ví dụ</h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
         <div class="slide-content p-6 overflow-y-auto flex flex-col">
             <div class="flex flex-col gap-5 w-full max-w-[96rem] mx-auto">
@@ -871,22 +942,22 @@
                     <div class="lg:col-span-8 space-y-2">
                         <strong class="text-brand-blue text-2xl mb-1 flex items-center"><i
                                 class="fa-solid fa-pen-clip mr-3"></i>Ví dụ</strong>
-                        <p class="text-[18px] text-slate-800 font-medium leading-relaxed">
+                        <p class="text-base md:text-[18px] text-slate-800 font-medium leading-relaxed">
                             Cho tam giác $ABC$ vuông tại $A$. Gọi $M, E, F$ lần lượt là trung điểm của $BC, AB, AC$. Lấy
                             điểm $H$ thuộc tia đối của tia $EM$ sao cho $EM = EH$. Lấy điểm $K$ thuộc tia đối của tia
                             $FM$ sao cho $FM = FK$.
                         </p>
-                        <div class="text-[17.5px] text-slate-800 font-semibold space-y-1 pt-1 ml-2">
+                        <div class="text-[15px] md:text-[17.5px] text-slate-800 font-semibold space-y-1 pt-1 ml-2">
                             <p>a) Tứ giác $AEMF$ là hình gì? Vì sao?</p>
                             <p>b) Chứng minh $A$ là trung điểm của $HK$;</p>
                             <p>c) Tam giác vuông $ABC$ có thêm điều kiện gì thì tứ giác $AEMF$ là hình vuông?</p>
                         </div>
                     </div>
-                    <!-- Hình vẽ minh họa Vi du.png -->
+                    <!-- Hình vẽ minh họa Vi-du.webp -->
                     <div class="lg:col-span-4 flex items-center justify-center">
                         <div
                             class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center w-full max-w-[360px]">
-                            <img src="Vi du.png" alt="Hình vẽ minh họa ví dụ"
+                            <img src="Vi-du.webp" alt="Hình vẽ minh họa ví dụ"
                                 class="max-h-[200px] w-auto object-contain">
                         </div>
                     </div>
@@ -900,9 +971,9 @@
                         class="bg-red-50/80 border border-red-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between min-h-[350px]">
                         <div>
                             <strong
-                                class="text-red-600 block mb-3 text-xl uppercase font-bold border-b border-red-200 pb-2.5"><i
+                                class="text-red-600 block mb-3 text-lg md:text-xl uppercase font-bold border-b border-red-200 pb-2.5"><i
                                     class="fa-solid fa-circle-xmark mr-2"></i>Lời giải chưa phù hợp (Câu a)</strong>
-                            <div class="text-[17.5px] text-slate-700 leading-relaxed space-y-3">
+                            <div class="text-[15px] md:text-[17.5px] text-slate-700 leading-relaxed space-y-3">
                                 <p>Ta có $E, M$ lần lượt là trung điểm của $AB, BC$ nên $EM$ là đường trung bình trong
                                     $\Delta ABC$, suy ra $EM \parallel AC, EM = \dfrac{1}{2}AC$.</p>
                                 <p>Mà $AF = \dfrac{1}{2}AC$ nên $EM = AF$.</p>
@@ -911,7 +982,8 @@
                             </div>
                         </div>
                         <div class="pt-4 mt-auto">
-                            <p class="font-bold text-red-900 text-[17.5px]">Nên $AEMF$ là hình chữ nhật (dhnb).</p>
+                            <p class="font-bold text-red-900 text-[15px] md:text-[17.5px]">Nên $AEMF$ là hình chữ nhật
+                                (dhnb).</p>
                         </div>
                     </div>
 
@@ -920,9 +992,9 @@
                         class="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between min-h-[350px]">
                         <div>
                             <strong
-                                class="text-emerald-700 block mb-3 text-xl uppercase font-bold border-b border-emerald-200 pb-2.5"><i
+                                class="text-emerald-700 block mb-3 text-lg md:text-xl uppercase font-bold border-b border-emerald-200 pb-2.5"><i
                                     class="fa-solid fa-circle-check mr-2"></i>Lời giải đúng (Câu a)</strong>
-                            <div class="text-[17.5px] text-slate-800 leading-relaxed space-y-3">
+                            <div class="text-[15px] md:text-[17.5px] text-slate-800 leading-relaxed space-y-3">
                                 <p>Xét $\Delta ABC$ vuông tại $A$ có $AM$ là đường trung tuyến nên $AM = \dfrac{1}{2}BC
                                     = MB$, suy ra $\Delta AMB$ cân tại $M$.</p>
                                 <p>Mà $E$ là trung điểm $AB$ hay $ME$ là đường trung tuyến trong $\Delta AMB$ nên $ME$
@@ -932,56 +1004,186 @@
                             </div>
                         </div>
                         <div class="pt-4 mt-auto">
-                            <p class="font-bold text-emerald-950 text-[17.5px]">Nên $AEMF$ là hình chữ nhật (dhnb).</p>
+                            <p class="font-bold text-emerald-950 text-[15px] md:text-[17.5px]">Nên $AEMF$ là hình chữ
+                                nhật (dhnb).</p>
                         </div>
                     </div>
 
+                </div>
+
+                <!-- Chốt lại Container -->
+                <div class="mt-3 flex flex-row items-center justify-start w-full gap-4 px-2">
+                    <!-- Nút Chốt lại -->
+                    <button onclick="document.getElementById('chot-lai-content').classList.toggle('hidden')"
+                        class="w-12 h-12 shrink-0 flex items-center justify-center bg-yellow-100 hover:bg-yellow-200 text-yellow-800 font-bold rounded-full shadow-sm transition-colors border border-yellow-300 group z-10 relative">
+                        <i
+                            class="fa-solid fa-lightbulb text-yellow-600 text-xl group-hover:scale-110 transition-transform"></i>
+                    </button>
+
+                    <!-- Nội dung Chốt lại (Ẩn/Hiện) -->
+                    <div id="chot-lai-content"
+                        class="hidden bg-yellow-50 border-l-4 border-yellow-400 p-3 md:p-4 rounded-r-lg shadow-sm flex-1 border-y border-r border-yellow-200 transition-all">
+                        <p class="text-slate-800 font-medium text-sm md:text-base leading-relaxed m-0">
+                            Cách giải 1 <strong class="text-red-600">sai vì sử dụng đường trung bình - kiến thức mà học
+                                sinh chưa được học</strong>. Giáo viên tuyệt đối không áp dụng các định lý, tính chất
+                            của học kỳ II (hoặc chưa học tới) để giải bài tập cho học sinh trong giai đoạn này.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDE 9: GÓC RÚT KINH NGHIỆM -->
+    <div class="slide bg-white" id="slide-9">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-microscope mr-3 text-brand-orange"></i>Góc rút kinh nghiệm chuyên môn tuần
+                qua</h2>
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
+        </div>
+        <div class="slide-content p-8 flex flex-col items-center md:justify-center">
+
+            <!-- Image Slider -->
+            <div class="relative w-full max-w-6xl mx-auto flex-1 flex flex-col items-center justify-center min-h-0">
+                <!-- Slider Container -->
+                <div class="relative w-full overflow-hidden rounded-2xl shadow-lg border border-slate-200"
+                    style="aspect-ratio: 16/9;">
+                    <!-- Slide items -->
+                    <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out h-full"
+                        style="width: 400%;">
+                        <div class="w-1/4 h-full flex-shrink-0 relative cursor-pointer"
+                            onclick="openLightbox('Chu%20y.png')">
+                            <img src="Chu%20y.png" class="w-full h-full object-contain bg-slate-50"
+                                alt="Xóa mục Chú ý của giáo viên">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span
+                                    class="bg-yellow-500 text-white px-4 py-1.5 rounded-full font-medium text-sm md:text-base inline-flex items-center shadow-md">
+                                    <i class="fa-solid fa-eraser mr-2"></i>Xóa mục "Chú ý của giáo viên"
+                                </span>
+                            </div>
+                        </div>
+                        <div class="w-1/4 h-full flex-shrink-0 relative cursor-pointer"
+                            onclick="openLightbox('loi%20sai%201.jpg')">
+                            <img src="loi%20sai%201.jpg" class="w-full h-full object-contain bg-slate-50"
+                                alt="Rà soát ký hiệu toán học">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span
+                                    class="bg-rose-500 text-white px-4 py-1.5 rounded-full font-medium text-sm md:text-base inline-flex items-center shadow-md">
+                                    <i class="fa-solid fa-circle-exclamation mr-2"></i>Rà soát ký hiệu toán học
+                                </span>
+                            </div>
+                        </div>
+                        <div class="w-1/4 h-full flex-shrink-0 relative cursor-pointer"
+                            onclick="openLightbox('loi%20sai%202.jpg')">
+                            <img src="loi%20sai%202.jpg" class="w-full h-full object-contain bg-slate-50"
+                                alt="Chỉnh sửa tên giáo viên">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span
+                                    class="bg-amber-500 text-white px-4 py-1.5 rounded-full font-medium text-sm md:text-base inline-flex items-center shadow-md">
+                                    <i class="fa-solid fa-circle-exclamation mr-2"></i>Chỉnh sửa tên giáo viên
+                                </span>
+                            </div>
+                        </div>
+                        <div class="w-1/4 h-full flex-shrink-0 relative cursor-pointer"
+                            onclick="openLightbox('loi%20sai%203.jpg')">
+                            <img src="loi%20sai%203.jpg" class="w-full h-full object-contain bg-slate-50"
+                                alt="Rà soát kí hiệu toán học">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                <span
+                                    class="bg-brand-orange text-white px-4 py-1.5 rounded-full font-medium text-sm md:text-base inline-flex items-center shadow-md">
+                                    <i class="fa-solid fa-circle-exclamation mr-2"></i>Rà soát kí hiệu toán học
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prev / Next buttons -->
+                    <button onclick="moveCarousel(-1)"
+                        class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue text-xl md:text-2xl transition-all hover:scale-110 z-20">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button onclick="moveCarousel(1)"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue text-xl md:text-2xl transition-all hover:scale-110 z-20">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Indicator Dots -->
+                <div class="flex items-center gap-3 mt-5">
+                    <button onclick="goToCarousel(0)"
+                        class="carousel-dot w-3 h-3 rounded-full bg-brand-blue transition-all duration-300 scale-125"
+                        data-index="0"></button>
+                    <button onclick="goToCarousel(1)"
+                        class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300"
+                        data-index="1"></button>
+                    <button onclick="goToCarousel(2)"
+                        class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300"
+                        data-index="2"></button>
+                    <button onclick="goToCarousel(3)"
+                        class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300"
+                        data-index="3"></button>
+                    <span class="ml-3 text-base text-slate-500 font-medium" id="carousel-counter">1 / 4</span>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <!-- SLIDE 9: Q&A -->
-    <div class="slide bg-white" id="slide-9">
+    <!-- SLIDE 10: Q&A -->
+    <div class="slide bg-white" id="slide-10">
         <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
-            <h2 class="text-4xl font-bold text-brand-blue uppercase"><i
+            <h2 class="text-lg md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-comments mr-3 text-brand-orange"></i>Q&A - Giải đáp thắc mắc</h2>
-            <img src="logo.png" class="h-10 object-contain" alt="Logo">
+            <img src="logo.webp" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col items-center justify-center pt-20 text-center">
-            <div class="text-[120px] text-brand-orange mb-6 opacity-80"><i class="fa-regular fa-circle-question"></i>
+        <div class="slide-content flex flex-col items-center md:justify-center pt-20 text-center">
+            <div class="text-[80px] md:text-[120px] text-brand-orange mb-6 opacity-80"><i
+                    class="fa-regular fa-circle-question"></i>
             </div>
-            <h3 class="text-[40px] font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?
+            <h3 class="text-2xl md:text-[40px] font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến
+                nào không ạ?
             </h3>
-            <p class="text-2xl text-slate-600 max-w-3xl leading-relaxed">Bộ phận Chuyên môn luôn sẵn sàng lắng nghe
+            <p class="text-lg md:text-2xl text-slate-600 max-w-4xl leading-relaxed">Bộ phận Chuyên môn luôn sẵn sàng
+                lắng nghe
                 những
                 chia sẻ và đóng góp từ các Thầy Cô để công tác giảng dạy ngày càng hoàn thiện hơn.</p>
         </div>
     </div>
 
-    <!-- SLIDE 10: THANK YOU -->
-    <div class="slide bg-brand-blue" id="slide-10">
+    <!-- SLIDE THANK YOU -->
+    <div class="slide bg-white" id="slide-last">
         <div
-            class="slide-content h-full flex flex-col items-center justify-center text-center p-10 relative overflow-hidden">
-            <!-- Background Decoration -->
+            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden">
             <div
-                class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full opacity-20 blur-3xl print:hidden">
+                class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]">
             </div>
             <div
-                class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-white rounded-full opacity-10 blur-3xl print:hidden">
+                class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]">
             </div>
-
-            <img src="logo.png" class="h-20 object-contain mb-10 brightness-0 invert" alt="Logo">
-
-            <h2 class="text-6xl font-extrabold text-white mb-6 tracking-wide drop-shadow-md leading-[1]">XIN CHÂN THÀNH
-                CẢM
-                ƠN<br><span class="text-brand-orange drop-shadow-none block mt-4">CÁC THẦY CÔ!</span></h2>
-
-            <p class="text-3xl text-blue-100 font-medium max-w-5xl leading-relaxed mt-4">
-                Kính chúc các Thầy Cô dồi dào sức khỏe, luôn giữ mãi ngọn lửa nhiệt huyết và gặt hái thật nhiều thành
-                công trong công tác giảng dạy!
+            <div
+                class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md"
+                    onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'"
+                    src="logo.webp" />
+            </div>
+            <h2
+                class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                CẢM ƠN CÁC THẦY CÔ!
+            </h2>
+            <div
+                class="w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg">
+            </div>
+            <p
+                class="text-2xl md:text-3xl font-medium text-slate-700 max-w-4xl px-4 tracking-wide drop-shadow-sm leading-relaxed">
+                Kính chúc các Thầy Cô dồi dào sức khỏe, luôn giữ vững ngọn lửa nhiệt huyết và có những bài giảng thật
+                hiệu quả!
             </p>
         </div>
     </div>
@@ -1035,34 +1237,6 @@
                     prevSlide();
                 }
             });
-
-            // Touch Swipe Gestures for Mobile Presentation Deck
-            let touchDeckStartX = 0;
-            let touchDeckStartY = 0;
-
-            document.addEventListener('touchstart', (e) => {
-                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, #carousel-track')) return;
-                touchDeckStartX = e.changedTouches[0].clientX;
-                touchDeckStartY = e.changedTouches[0].clientY;
-            }, { passive: true });
-
-            document.addEventListener('touchend', (e) => {
-                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, #carousel-track')) return;
-                const touchDeckEndX = e.changedTouches[0].clientX;
-                const touchDeckEndY = e.changedTouches[0].clientY;
-                const deltaX = touchDeckEndX - touchDeckStartX;
-                const deltaY = touchDeckEndY - touchDeckStartY;
-                const swipeThreshold = 45;
-
-                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
-                    if (deltaX < 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                }
-            }, { passive: true });
-
             updateUI();
 
             // Fix: Overlay trên PDF chuyển tiếp sự kiện cuộn lên slide-content

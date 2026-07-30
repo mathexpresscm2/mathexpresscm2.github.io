@@ -120,6 +120,7 @@
         @media (max-width: 768px) {
             .slide-content {
                 padding: 1rem 1rem 5rem 1rem !important;
+                min-height: 0 !important;
             }
             .slide-header {
                 padding-left: 1rem !important;
@@ -227,7 +228,7 @@
                     class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
             <img src="logo.png" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex items-center justify-center">
+        <div class="slide-content flex justify-center md:items-center">
             <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl">
                 <!-- Mục 1 -->
                 <div
@@ -772,7 +773,7 @@
                     class="fa-solid fa-chalkboard mr-3 text-brand-orange"></i>Vận hành lớp học</h2>
             <img src="logo.png" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col justify-center">
+        <div class="slide-content flex flex-col md:justify-center">
             <!-- Phần 1: 5 Bước Thực Hành Kiến Thức -->
             <div
                 class="mb-8 bg-gradient-to-br from-slate-50 to-blue-50/50 p-8 rounded-3xl border border-blue-100 shadow-sm relative overflow-hidden">
@@ -1439,7 +1440,6 @@
 
         </div>
     </div>
-    </div>
 
     <!-- SLIDE 12: Q&A -->
     <div class="slide bg-white" id="slide-12">
@@ -1448,7 +1448,7 @@
                     class="fa-solid fa-comments mr-3 text-brand-orange"></i>Q&A - Giải đáp thắc mắc</h2>
             <img src="logo.png" class="h-10 object-contain" alt="Logo">
         </div>
-        <div class="slide-content flex flex-col items-center justify-center pt-20 text-center">
+        <div class="slide-content flex flex-col items-center md:justify-center pt-20 text-center">
             <div class="text-[120px] text-brand-orange mb-6 opacity-80"><i class="fa-regular fa-circle-question"></i>
             </div>
             <h3 class="text-4xl font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?</h3>
@@ -1460,7 +1460,7 @@
     <!-- SLIDE 13: THANK YOU -->
     <div class="slide bg-brand-blue" id="slide-13">
         <div
-            class="slide-content h-full flex flex-col items-center justify-center text-center p-10 relative overflow-hidden">
+            class="slide-content h-full flex flex-col items-center md:justify-center text-center p-10 relative">
             <!-- Background Decoration -->
             <div
                 class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-orange rounded-full opacity-20 blur-3xl print:hidden">
