@@ -12,12 +12,20 @@
         rel="stylesheet">
 
     <!-- Tích hợp MathJax để render công thức Toán học chuẩn LaTeX -->
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
         window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            }
         };
     </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- Tích hợp TikzJax để vẽ hình với code TikZ -->
     <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
@@ -1212,6 +1220,10 @@
                 progressBar.style.width = `${progressPercentage}%`;
                 prevBtn.disabled = currentSlideIndex === 0;
                 nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    window.MathJax.typesetPromise();
+                }
             }
 
             function nextSlide() {
