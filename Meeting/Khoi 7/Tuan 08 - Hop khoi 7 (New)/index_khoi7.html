@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MathExpress - Trao đổi Giáo viên 2026-2027</title>
+<!-- STREAMING_CHUNK:Loading libraries and setting up Tailwind CSS... -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tích hợp MathJax để render công thức Toán học chuẩn LaTeX -->
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+<!-- Tích hợp TikzJax để vẽ hình với code TikZ -->
+<link href="https://tikzjax.com/v1/fonts.css" rel="stylesheet" type="text/css"/>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#005b9f', // Xanh dương MathExpress
+                            orange: '#f26522', // Cam MathExpress
+                            light: '#f0f7fb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* STREAMING_CHUNK:Adding custom CSS animations and slide styling... */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(20px) scale(0.98);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex-grow: 1;
+            padding: 2rem 4rem;
+            overflow-y: auto;
+            padding-bottom: 6rem;
+            /* Space for footer */
+        }
+
+        /* Tùy chỉnh Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Hiệu ứng gradient nền nhẹ */
+        .bg-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Cố định Header */
+        .slide-header {
+            border-bottom: 4px solid #f26522;
+        }
+
+        /* Tùy chỉnh Table */
+        .table-custom th,
+        .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 1rem 1rem 5rem 1rem !important;
+                min-height: 0 !important;
+            }
+            .slide-header {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        /* CSS cho chế độ In / Xuất PDF */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 1600px !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: visible !important;
+                background: white !important;
+            }
+
+            .slide {
+                position: relative !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                width: 1600px !important;
+                min-height: 900px !important;
+                height: auto !important;
+                page-break-after: always;
+                break-after: page;
+                overflow: visible !important;
+            }
+
+            .slide-content {
+                overflow: visible !important;
+                padding-bottom: 2rem !important;
+                /* Giảm khoảng trống ở dưới cùng khi in */
+            }
+
+            .fixed {
+                display: none !important;
+            }
+
+            .force-page-break-before {
+                page-break-before: always !important;
+                break-before: page !important;
+                padding-top: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-pattern h-[100dvh] w-full flex flex-col relative print:h-auto print:w-auto">
+<!-- Nút điều hướng -->
+<div class="fixed bottom-6 right-8 z-50 flex gap-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-slate-200">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed" id="prevBtn">
+<i class="fa-solid fa-chevron-left"></i>
+</button>
+<div class="flex items-center font-semibold text-slate-500 min-w-[3rem] justify-center" id="slideCounter">1/15</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-brand-orange text-white hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed" id="nextBtn">
+<i class="fa-solid fa-chevron-right"></i>
+</button>
+</div>
+<!-- Thanh tiến trình -->
+<div class="fixed top-0 left-0 h-1.5 bg-slate-200 w-full z-50">
+<div class="h-full bg-brand-orange transition-all duration-300 w-0" id="progressBar"></div>
+</div>
+<!-- SLIDE 1: TRANG BÌA -->
+<div class="slide active" id="slide-1">
+<div class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden">
+<div class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]"></div>
+<div class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50">
+<img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'" src="data:image/png;base64,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" />
+</div>
+<h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                26 tháng 7 - Họp giáo viên khối 7
+            </h2>
+<div class="w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
+<p class="text-2xl md:text-4xl font-medium text-slate-700 max-w-2xl px-4 tracking-wide drop-shadow-sm">
+                Năm học: 2026 – 2027
+            </p>
+</div>
+</div>
+<!-- SLIDE 2: NỘI DUNG TRAO ĐỔI -->
+<div class="slide bg-white" id="slide-2">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-[40px] font-bold text-brand-blue uppercase"><i class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content flex justify-center md:items-center relative">
+<!-- Background decorations -->
+<div class="absolute top-10 left-10 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl"></div>
+<div class="absolute bottom-10 right-10 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 print:grid-cols-3 gap-10 w-full max-w-[96rem] px-8">
+<!-- Mục 1 -->
+<div class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-brand-orange rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        1</div>
+<h3 class="text-[28px] font-bold text-brand-orange mb-3 leading-tight">Khung chương trình tháng
+                        7-8-9</h3>
+<p class="text-orange-900 text-xl leading-relaxed">Chi tiết phân phối chương trình, nội dung giảng
+                        dạy dự kiến theo từng tuần cho các phân khúc lớp.</p>
+</div>
+<!-- Mục 2 -->
+<div class="bg-gradient-to-br from-blue-50 to-white border-l-[6px] border-brand-blue p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 text-brand-blue rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        2</div>
+<h3 class="text-[28px] font-bold text-brand-blue mb-3 leading-tight">Lớp bổ trợ cho học sinh</h3>
+<p class="text-blue-900 text-xl leading-relaxed">Kế hoạch triển khai, tổ chức lớp bổ trợ nhằm củng
+                        cố và lấp lỗ hổng kiến thức cho học sinh.</p>
+</div>
+<!-- Mục 3 -->
+<div class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+<div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-brand-orange rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        3</div>
+<h3 class="text-[28px] font-bold text-brand-orange mb-3 leading-tight">Các dạng bài điển hình</h3>
+<p class="text-orange-900 text-xl leading-relaxed">Phân tích các dạng toán trọng tâm, cách nhận xét
+                        chi tiết và lưu ý lỗi sai phổ biến của học sinh.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 3: KHUNG CHƯƠNG TRÌNH -->
+<div class="slide bg-white" id="slide-3">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-[44px] font-bold text-brand-blue uppercase"><i class="fa-solid fa-calendar-days mr-3 text-brand-orange"></i>Khung chương trình và bài thi tháng
+            </h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content flex flex-col items-center py-2 px-2">
+<style>
+                #slide-3 .table-custom td {
+                    padding: 0.25rem 0.4rem !important;
+                }
+
+                #slide-3 .table-custom th {
+                    padding: 0.8rem 0.4rem !important;
+                }
+            </style>
+<div class="w-full max-w-[98%] overflow-hidden rounded-xl border border-slate-300 shadow-sm">
+<table class="w-full text-[17px] text-slate-700 table-custom bg-white" style="line-height: 1.15;">
+<thead class="bg-brand-blue text-white text-[17.5px]">
+<tr>
+<th class="w-[20px] py-1">Tháng</th>
+<th class="w-20 py-1">Buổi học</th>
+<th class="w-[25%] py-1">Định hướng chuyên <br/></th>
+<th class="w-[25%] py-1">Nâng cao <br/></th>
+<th class="w-[25%] py-1">Cơ bản và Mở rộng</th>
+</tr>
+</thead>
+<tbody>
+<!-- Tháng 7 -->
+<tr class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors border-b-2 border-slate-300">
+<td class="font-bold text-green-800 bg-emerald-100/50 py-1">Tháng 7<br/>năm 2026</td>
+<td class="font-semibold py-1">5 <br/><span class="text-[17px] font-normal">(27/7 -
+                                    02/8)</span></td>
+<td class="py-1">Góc ở vị trí đặc biệt - Tia phân giác của một góc</td>
+<td class="py-1">Góc ở vị trí đặc biệt - Các góc tạo bởi một đường thẳng cắt hai đường thẳng
+                            </td>
+<td class="py-1">Hai đường thẳng song song và dấu hiệu nhận biết</td>
+</tr>
+<!-- Tháng 8 -->
+<tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors">
+<td class="font-bold text-brand-blue bg-rose-100/50 py-1" rowspan="3">Tháng 8<br/>năm 2026
+                            </td>
+<td class="font-semibold py-1">6 <br/><span class="text-[17px] font-normal">(03/8 -
+                                    09/8)</span></td>
+<td class="py-1">Hai đường thẳng song song</td>
+<td class="py-1">Hai đường thẳng song song</td>
+<td class="py-1">Ôn tập và kiểm tra tháng 7</td>
+</tr>
+<tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors">
+<td class="font-semibold py-1">7 <br/><span class="text-[17px] font-normal">(10/8 -
+                                    16/08)</span></td>
+<td class="py-1">Ôn tập và kiểm tra tháng</td>
+<td class="py-1">Ôn tập và kiểm tra tháng</td>
+<td class="py-1">Tiên đề Euclid. Tính chất hai đường thẳng song song (đưa thêm định lý)</td>
+</tr>
+<tr class="bg-rose-50/70 hover:bg-rose-100/70 transition-colors border-b-2 border-slate-300">
+<td class="font-semibold py-1">8 <br/><span class="text-[17px] font-normal">(17/8 -
+                                    23/8)</span></td>
+<td class="py-1">Tổng ba góc trong một tam giác</td>
+<td class="py-1">Luyện tập hai đường thẳng song song</td>
+<td class="py-1">Ôn tập hình học</td>
+</tr>
+<!-- Tháng 9 -->
+<tr class="bg-yellow-200 hover:bg-yellow-300 transition-colors">
+<td class="font-bold text-green-800 bg-emerald-100/50 py-1" rowspan="4">Tháng 9<br/>năm
+                                2026</td>
+<td class="font-semibold py-1 text-red-600">10 <br/><span class="text-[17px] font-bold">(Lễ
+                                    Quốc khánh)</span></td>
+<td class="py-1 text-red-600 font-bold">Ôn tập tổng hợp</td>
+<td class="py-1 text-red-600 font-bold">Ôn tập tổng hợp</td>
+<td class="py-1 text-red-600 font-bold">Ôn tập tổng hợp</td>
+</tr>
+<tr class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors">
+<td class="font-semibold py-1">11 <br/><span class="text-[17px] font-normal">(07/9 -
+                                    13/9)</span></td>
+<td class="py-1">GTNN, GTLN của biểu thức chứa dấu GTTĐ</td>
+<td class="py-1">Ôn tập số vô tỉ, số thực</td>
+<td class="py-1">Giá trị tuyệt đối của một số thực</td>
+</tr>
+<tr class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors">
+<td class="font-semibold py-1">12 <br/><span class="text-[17px] font-normal">(14/9 -
+                                    20/9)</span></td>
+<td class="py-1">Trường hợp bằng nhau thứ nhất và thứ hai của tam giác</td>
+<td class="py-1">Trường hợp bằng nhau thứ nhất và thứ hai của tam giác</td>
+<td class="py-1">Tổng ba góc trong một tam giác - Hai tam giác bằng nhau</td>
+</tr>
+<tr class="bg-emerald-50/70 hover:bg-emerald-100/70 transition-colors border-b-2 border-slate-300">
+<td class="font-semibold py-1">13 <br/><span class="text-[17px] font-normal">(21/9 -
+                                    27/9)</span></td>
+<td class="py-1">Trường hợp bằng nhau thứ hai và thứ ba của tam giác</td>
+<td class="py-1">Trường hợp bằng nhau thứ hai và thứ ba của tam giác</td>
+<td class="py-1">Trường hợp bằng nhau thứ nhất và thứ hai của tam giác</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- SLIDE 4: LỚP BỔ TRỢ CHO HỌC SINH -->
+<div class="slide bg-white" id="slide-4">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-4xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-graduation-cap mr-3 text-brand-orange"></i>Lớp bổ trợ cho học sinh</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-8 flex flex-col md:justify-center">
+<div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl mx-auto">
+<!-- Card 1: Lớp bổ trợ Học Sinh mới -->
+<div class="bg-gradient-to-br from-orange-50 to-amber-50/40 border-2 border-orange-200 rounded-3xl p-7 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-8 -bottom-8 opacity-10 text-[180px] text-brand-orange/40 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<i class="fa-solid fa-user-plus"></i>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-5 pb-3 border-b border-orange-200/60">
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-orange text-4xl shadow-md border border-orange-100">
+<i class="fa-solid fa-user-plus"></i>
+</div>
+<div>
+<h3 class="text-3xl font-extrabold text-brand-orange leading-tight">Lớp bổ trợ học sinh
+                                    mới</h3>
+</div>
+</div>
+<p class="text-[16px] xl:text-[17px] text-orange-800 leading-relaxed mb-6">
+                            Hỗ trợ riêng biệt nhằm giúp học sinh mới vào sau nhanh chóng làm quen và bắt kịp tiến độ
+                            chương trình học hiện tại.
+                        </p>
+</div>
+<div class="bg-white/85 backdrop-blur-sm p-4 rounded-2xl border border-orange-100/80 mt-auto relative z-10 shadow-sm">
+<span class="font-bold text-brand-orange uppercase block text-sm tracking-wider mb-1"><i class="fa-solid fa-users mr-1.5"></i>Đối tượng áp dụng:</span>
+<p class="text-rose-600 font-bold text-xl">Học sinh mới vào sau.</p>
+</div>
+</div>
+<!-- Card 2: Lớp bổ trợ Học Sinh yếu, Học Sinh học bù -->
+<div class="bg-gradient-to-br from-blue-50 to-indigo-50/40 border-2 border-blue-200 rounded-3xl p-7 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-8 -bottom-8 opacity-10 text-[180px] text-brand-blue/30 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<i class="fa-solid fa-user-clock"></i>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-5 pb-3 border-b border-blue-200/60">
+<div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-blue text-4xl shadow-md border border-blue-100">
+<i class="fa-solid fa-user-clock"></i>
+</div>
+<div>
+<h3 class="text-3xl font-extrabold text-brand-blue leading-tight">Lớp bổ trợ học sinh
+                                    yếu, học sinh học bù</h3>
+</div>
+</div>
+<p class="text-[16px] xl:text-[17px] text-blue-900 leading-relaxed mb-6">
+                            Củng cố các mảng kiến thức chưa vững cho học sinh còn yếu, đồng thời hỗ trợ dạy học bù cho
+                            học sinh nghỉ học.
+                        </p>
+</div>
+<div class="bg-white/85 backdrop-blur-sm p-4 rounded-2xl border border-blue-100/80 mt-auto relative z-10 shadow-sm">
+<span class="font-bold text-brand-blue uppercase block text-sm tracking-wider mb-1"><i class="fa-solid fa-users mr-1.5"></i>Đối tượng áp dụng:</span>
+<p class="text-indigo-600 font-bold text-xl">Học sinh nghỉ học có phép và học sinh còn đuối ở
+                            mỗi
+                            lớp.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slide bg-white" id="slide-5">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-4xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-bullhorn mr-3 text-brand-orange"></i>Căn dặn học sinh</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-8 overflow-y-auto bg-slate-50 flex flex-col md:justify-center">
+<div class="w-full max-w-5xl mx-auto">
+<div class="bg-white border-l-4 border-brand-orange rounded-r-2xl p-8 shadow-sm">
+<ul class="space-y-6 text-2xl text-slate-700 font-medium">
+<li class="flex items-start gap-4">
+<i class="fa-solid fa-check text-brand-orange mt-1"></i>
+<span>Chuẩn bị đầy đủ dụng cụ học tập.</span>
+</li>
+<li class="flex items-start gap-4">
+<i class="fa-solid fa-check text-brand-orange mt-1"></i>
+<span>Thay đổi tư duy: từ hình học trực quan sang hình học chứng minh.</span>
+</li>
+<li class="flex items-start gap-4">
+<i class="fa-solid fa-check text-brand-orange mt-1"></i>
+<span>Kĩ năng vẽ hình là chìa khóa.</span>
+</li>
+<li class="flex items-start gap-4">
+<i class="fa-solid fa-check text-brand-orange mt-1"></i>
+<span>Coi trọng phần giả thiết – kết luận.</span>
+</li>
+<li class="flex items-start gap-4">
+<i class="fa-solid fa-check text-brand-orange mt-1"></i>
+<span>Nắm được các định lý giúp giải quyết tốt các bài hình học.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 5: CÁC DẠNG BÀI ĐIỂN HÌNH -->
+<div class="slide bg-white" id="slide-6">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-shapes mr-3 text-brand-orange"></i>Các dạng bài điển hình - Hình học</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-6 overflow-y-auto">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<!-- Chuyên đề 2 ĐTSS -->
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm relative overflow-hidden">
+<h3 class="text-2xl font-bold text-brand-blue mb-4 pb-2 border-b-2 border-blue-200 relative z-10">
+<i class="fa-solid fa-lines-leaning mr-2"></i>Chuyên đề hai đường thẳng song song
+                    </h3>
+<div class="relative z-10 space-y-4">
+<div class="text-slate-800 text-[17px] leading-relaxed text-justify">
+<ul class="list-disc ml-6 mt-2 space-y-2">
+<li><strong>Mục tiêu:</strong> Giáo viên cần làm rõ sự khác biệt giữa “dấu hiệu nhận
+                                    biết” và “tính chất”. Hướng dẫn học sinh nhận diện các cặp góc so le trong, đồng vị,
+                                    chứng minh song song.</li>
+<li><strong>Tiên đề Euclid:</strong> Nhấn mạnh tính duy nhất của Tiên đề Euclid để chứng
+                                    minh 3 điểm thẳng hàng.</li>
+</ul>
+<strong class="text-brand-orange block mt-4">Dạng 1: Bài toán chứng minh song song, chứng
+                                minh ba điểm thẳng hàng</strong>
+<p class="mt-2 text-rose-600 font-semibold">Lưu ý cho học sinh:</p>
+<ul class="list-disc ml-6 mt-2 space-y-2">
+<li>Học sinh nhầm lẫn vị trí các góc đặc biệt (so le trong, đồng vị).</li>
+<li>Giáo viên nhắc nhở, nhấn mạnh học sinh cần chỉ ra <strong>2 góc bằng nhau và vị trí
+                                        đặc biệt</strong> của chúng mới suy ra song song.</li>
+<li>Giáo viên nhấn mạnh tính ứng dụng của Tiên đề Euclid để chứng minh 3 điểm thẳng
+                                    hàng, nhấn mạnh yếu tố $DE$ và $EF$ có <strong>chung điểm $E$</strong> thì mới dẫn
+                                    đến thẳng hàng được.</li>
+</ul>
+<strong class="text-brand-orange block mt-4">Dạng 2: Bài toán kẻ thêm đường phụ để chứng
+                                minh song song</strong>
+<p class="mt-2">Giáo viên định hướng cách giải “kẻ thêm đường phụ”, giải thích tại sao lại
+                                kẻ thêm tia Om (để chia góc thành các góc nhỏ liên quan đến các đường song song khác).
+                                Nhấn mạnh tính chất bắc cầu: $a \parallel b$ và $b \parallel c$ thì $a \parallel c$.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DẠNG 1: BÀI TOÁN CHỨNG MINH SONG SONG -->
+<div class="slide bg-white" id="slide-7">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-shapes mr-3 text-brand-orange"></i>Ví dụ Dạng 1: Chứng minh song song</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-6 overflow-y-auto">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<div class="grid grid-cols-2 gap-8">
+<!-- Left: Problem & Image -->
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-brand-blue mb-4">Đề bài &amp; Hình vẽ</h3>
+<p class="mb-4 text-slate-800 text-[18px]">
+                            Cho hình bên.<br/>
+                            a) Chứng minh \( DE \parallel BC \)<br/>
+                            b) Chứng minh \( EF \parallel BC \)<br/>
+                            c) Chứng minh ba điểm \( D, E, F \) thẳng hàng.
+                        </p>
+<img alt="Hình Dạng 1" class="w-full object-contain rounded-lg shadow-sm bg-white" src="dang1.png"/>
+</div>
+<!-- Right: Solution -->
+<div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-green-800 mb-4">Hướng dẫn giải</h3>
+<div class="text-slate-800 text-[18px] leading-relaxed space-y-4">
+<p>
+<strong>a)</strong> Ta có: \( \widehat{ADE} = \widehat{ABC} = 48^\circ \)<br/>
+                                Mà hai góc này ở vị trí đồng vị nên suy ra \( DE \parallel BC \) (dhnb)
+                            </p>
+<p>
+<strong>b)</strong> Ta có: \( \widehat{FEC} = \widehat{ECB} = 48^\circ \) (kí hiệu giống nhau trên hình)<br/>
+                                Mà hai góc này ở vị trí so le trong nên suy ra \( EF \parallel BC \) (dhnb)
+                            </p>
+<p>
+<strong>c)</strong> Ta có:<br/>
+                                \( DE \parallel BC \)<br/>
+                                \( EF \parallel BC \)<br/>
+                                \(\Rightarrow D, E, F\) thẳng hàng (Theo tiên đề Euclid)
+                            </p>
+<div class="bg-red-50 border border-red-200 p-3 rounded mt-4">
+<strong class="text-red-600">Lưu ý:</strong><br/>
+                                Giáo viên nhấn mạnh học sinh cần chỉ ra <strong>2 góc bằng nhau và vị trí đặc biệt</strong> của chúng mới suy ra song song. Nhấn mạnh \(DE\) và \(EF\) có <strong>chung điểm \(E\)</strong> thì mới dẫn đến thẳng hàng được.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DẠNG 2: KẺ ĐƯỜNG PHỤ -->
+<div class="slide bg-white" id="slide-8">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-shapes mr-3 text-brand-orange"></i>Ví dụ Dạng 2: Kẻ thêm đường phụ</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-6 overflow-y-auto">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<div class="grid grid-cols-2 gap-8">
+<!-- Left: Problem & Image -->
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-brand-blue mb-4">Đề bài &amp; Hình vẽ</h3>
+<p class="mb-4 text-slate-800 text-[18px]">
+                            Cho hình vẽ. Chứng minh rằng:<br/>
+                            a) \( CO \parallel DE \)<br/>
+                            b) \( BF \parallel OC \)
+                        </p>
+<img alt="Hình Dạng 2" class="w-full object-contain rounded-lg shadow-sm bg-white" src="dang2.png"/>
+</div>
+<!-- Right: Solution -->
+<div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-green-800 mb-4">Hướng dẫn giải</h3>
+<div class="text-slate-800 text-[17px] leading-relaxed space-y-3">
+<p>
+<strong>a)</strong> Vì \( \widehat{COD} = \widehat{ODE} = 90^\circ \)<br/>
+                                Mà hai góc ở vị trí so le trong suy ra \( CO \parallel DE \)
+                            </p>
+<p>
+<strong>b)</strong> Kẻ Om là tia đối của tia OC.<br/>
+                                Vì \( \widehat{COD} + \widehat{mOD} = 180^\circ \) (2 góc kề bù)<br/>
+                                Suy ra \( 90^\circ + \widehat{mOD} = 180^\circ \Rightarrow \widehat{mOD} = 90^\circ \)<br/>
+                                Ta có: \( \widehat{AOm} + \widehat{mOD} = 140^\circ \Rightarrow \widehat{AOm} = 140^\circ - 90^\circ = 50^\circ \)<br/>
+                                Lại có \( \widehat{AOC} + \widehat{AOm} = 180^\circ \) (kề bù) \(\Rightarrow \widehat{AOC} = 180^\circ - 50^\circ = 130^\circ \)<br/>
+                                \(\Rightarrow \widehat{AOC} = \widehat{BAO} = 130^\circ \) và 2 góc ở vị trí so le trong nên \( BF \parallel OC \).
+                            </p>
+<div class="bg-orange-50 border border-orange-200 p-3 rounded mt-2">
+<strong class="text-brand-orange">Giáo viên định hướng:</strong><br/>
+                                Kẻ thêm tia \(Om\) để chia góc \(140^\circ\) thành các góc nhỏ liên quan đến đường song song khác.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 6: HAI TAM GIÁC BẰNG NHAU -->
+<div class="slide bg-white" id="slide-9">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Các dạng bài điển hình - Hai tam
+                giác bằng nhau</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-6 overflow-y-auto">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<div class="bg-orange-50 border border-orange-200 rounded-xl p-5 shadow-sm relative overflow-hidden">
+<h3 class="text-2xl font-bold text-brand-orange mb-4 pb-2 border-b-2 border-orange-200 relative z-10">
+<i class="fa-solid fa-shapes mr-2"></i>Chuyên đề Hai tam giác bằng nhau
+                    </h3>
+<div class="relative z-10">
+<ul class="list-disc ml-6 text-slate-800 text-[17px] leading-relaxed space-y-3">
+<li><strong>Mục tiêu:</strong> Nhấn mạnh sự tương ứng của đỉnh, cạnh. Hướng dẫn học sinh
+                                hiểu, vận dụng các trường hợp bằng nhau của tam giác linh hoạt.</li>
+<li><strong>Lưu ý:</strong> Nhấn mạnh yếu tố “xen giữa” trong 2 trường hợp c-g-c và g-c-g.
+                                Nhấn mạnh cách chứng minh 2 góc, 2 cạnh bằng nhau ta có thể sử dụng hai tam giác bằng
+                                nhau chứa nó.</li>
+<li>Nhắc nhở học sinh viết đầy đủ bước giải: Xét hai tam giác/ các điều kiện bằng nhau/ kết
+                                luận hai tam giác bằng nhau/ suy ra các cạnh, góc bằng nhau tương ứng.</li>
+<li><strong>Phương pháp "Phân tích ngược":</strong> Giáo viên cách hướng dẫn học sinh tư duy
+                                ngược: Để chứng minh $A = B$, ta cần tam giác nào bằng nhau? Trong hai tam giác đó có gì
+                                rồi? Còn thiếu gì?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BÀI 1: TAM GIÁC BẰNG NHAU -->
+<div class="slide bg-white" id="slide-10">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Ví dụ: Hai tam giác bằng nhau</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-6 overflow-y-auto">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<div class="grid grid-cols-2 gap-8">
+<!-- Left -->
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-brand-blue mb-4">Đề bài &amp; Hình vẽ</h3>
+<p class="mb-4 text-slate-800 text-[18px]">
+                            Cho hình bên.<br/>
+                            a) Chứng minh \( \Delta HDB = \Delta HEC \)<br/>
+                            b) Chứng minh \( \widehat{DBH} = \widehat{ECH} \)
+                        </p>
+<img alt="Hình Bài 1" class="w-full object-contain rounded-lg shadow-sm bg-white" src="bai1.png"/>
+</div>
+<!-- Right -->
+<div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-green-800 mb-4">Hướng dẫn giải</h3>
+<div class="text-slate-800 text-[18px] leading-relaxed space-y-4">
+<p>
+<strong>a)</strong> Xét \( \Delta HDB \) và \( \Delta HEC \) có:<br/>
+                                \( \widehat{HDB} = \widehat{HEC} = 90^\circ \)<br/>
+                                \( HD = HE \)<br/>
+                                \( \widehat{BHD} = \widehat{CHE} \) (2 góc đối đỉnh)<br/>
+                                Vậy \( \Delta HDB = \Delta HEC \) (g.c.g) (đpcm)
+                            </p>
+<p>
+<strong>b)</strong> Vì \( \Delta HDB = \Delta HEC \) (cmt)<br/>
+                                Nên \( \widehat{DBH} = \widehat{ECH} \) (2 góc tương ứng) (đpcm).
+                            </p>
+</div>
+
+<!-- Bắt đầu phần Lưu ý cho giáo viên -->
+<button class="mt-6 flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full font-semibold hover:bg-amber-200 transition self-start shadow-sm border border-amber-200" onclick="toggleGhiChu('ghichu-tamgiac')">
+<i class="fa-solid fa-lightbulb animate-pulse"></i>
+        Lưu ý
+    </button>
+<div class="hidden mt-3 bg-yellow-50 border-l-4 border-yellow-500 p-5 rounded-r-xl shadow-md transition-all duration-300" id="ghichu-tamgiac">
+<h4 class="font-bold text-yellow-800 mb-3 text-lg">
+<i class="fa-solid fa-triangle-exclamation mr-2"></i> Nhắc nhở học sinh:
+        </h4>
+<ul class="list-disc ml-6 text-slate-700 space-y-2 text-[17px]">
+<li>Nhấn mạnh yếu tố <strong>“xen giữa”</strong> trong 2 trường hợp c-g-c và g-c-g.</li>
+<li>Nhấn mạnh cách chứng minh 2 góc, 2 cạnh bằng nhau ta có thể sử dụng <strong>hai tam giác bằng nhau chứa nó</strong>.</li>
+<li>Nhắc nhở học sinh viết <strong>đầy đủ bước giải</strong>: Xét hai tam giác $\rightarrow$ các điều kiện bằng nhau $\rightarrow$ kết luận hai tam giác bằng nhau $\rightarrow$ suy ra các cạnh, góc bằng nhau tương ứng.</li>
+<li><strong>Phương pháp "Phân tích ngược":</strong> giáo viên hướng dẫn học sinh tư duy ngược: Để chứng minh $A = B$, ta cần tam giác nào bằng nhau? Trong hai tam giác đó có gì rồi? Còn thiếu gì?</li>
+</ul>
+</div>
+<!-- Kết thúc phần Lưu ý -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- LỖI SAI NGỘ NHẬN HÌNH HỌC -->
+<div class="slide bg-white" id="slide-11">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Ví dụ: Lỗi sai ngộ nhận hình học</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-6 overflow-y-auto">
+<div class="w-full max-w-7xl mx-auto space-y-6">
+<div class="grid grid-cols-2 gap-8">
+<!-- Left -->
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-brand-blue mb-4">Đề bài &amp; Hình vẽ</h3>
+<p class="mb-4 text-slate-800 text-[16px] text-justify">
+                            Cho \(\Delta ABC\) (\(AB &lt; AC\)). Tia phân giác góc \(BAC\) cắt \(BC\) tại \(D\). 
+                            Trên cạnh \(AC\) lấy điểm \(E\) sao cho \(AE = AB\). 
+                            Tia \(AB\) và \(ED\) cắt nhau tại \(M\).<br/>
+                            a) CMR \(\Delta ABD = \Delta AED\)<br/>
+                            b) CMR \(\Delta BDM = \Delta EDC\)<br/>
+                            c) Gọi \(d_1\) là đường thẳng đi qua \(C\) và song song với \(ED\), 
+                            \(d_2\) là đường thẳng qua \(M\) song song với \(BC\). \(d_1, d_2\) cắt nhau tại \(F\). 
+                            CMR 3 điểm \(A, D, F\) thẳng hàng.
+                        </p>
+<img alt="Hình Lỗi Sai" class="w-full object-contain rounded-lg shadow-sm bg-white" src="loi_sai.png"/>
+</div>
+<!-- Right -->
+<div class="bg-red-50 border border-red-200 rounded-xl p-5 shadow-sm">
+<h3 class="text-xl font-bold text-red-600 mb-4">Phân tích lỗi sai</h3>
+<div class="text-slate-800 text-[16px] leading-relaxed space-y-3">
+<p class="font-semibold text-red-600">Lỗi sai câu c (HS ngộ nhận):</p>
+<p>
+                                Chứng minh: \(\widehat{ADM} = \widehat{ADC}\) rồi suy ra \(\widehat{MDF} = \widehat{CDF}\) 
+                                (kề bù với \(\widehat{ADM}\) và \(\widehat{ADC}\))<br/>
+                                Suy ra \(\Delta MDF = \Delta CDF\) (c-g-c) nên \(MF = CF\), chứng minh được \(AM = AC\) từ đó 
+                                chứng minh \(\Delta AMF = \Delta ACF\) (c-g-c) nên \(AF\) là phân giác \(\widehat{MAC}\) mà \(AD\) 
+                                là tia phân giác \(\widehat{MAC}\) suy ra \(A, D, F\) thẳng hàng.
+                            </p>
+<p class="font-semibold text-green-700 mt-4">Lời giải đúng:</p>
+<p>
+                                Chứng minh \(\Delta DFM = \Delta FDC\) (g-c-g) nên từ đó chứng minh được 
+                                \(MF = FC\) \((= DC = MD)\) sau đó chứng minh \(\Delta AMF = \Delta ACF\) (c-g-c) 
+                                nên \(AF\) là tia phân giác \(\widehat{MAC}\) mà \(AD\) là tia phân giác \(\widehat{MAC}\) suy ra \(A, D, F\) thẳng hàng.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE ALBUM LỖI SAI -->
+<div class="slide bg-white" id="slide-12">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-4xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-microscope mr-3 text-brand-orange"></i>Góc rút kinh nghiệm chuyên môn tuần qua</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content p-8 flex flex-col items-center md:justify-center">
+<div class="relative w-full max-w-6xl mx-auto flex-1 flex flex-col items-center justify-center min-h-0">
+<!-- Slider Container -->
+<div class="relative w-full overflow-hidden rounded-2xl shadow-lg border border-slate-200" style="aspect-ratio: 16/9;">
+<div class="flex transition-transform duration-500 ease-in-out h-full" id="carousel-track" style="width: 500%;">
+<!-- Item 1 -->
+<div class="w-1/5 h-full flex-shrink-0 relative cursor-pointer" onclick="openLightbox('Loi%20sai/Loi%20sai%201.jpg')">
+<img alt="Cỡ chữ không đồng nhất" class="w-full h-full object-contain bg-slate-50" src="Loi sai/Loi sai 1.jpg"/>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+<span class="bg-rose-500 text-white px-4 py-1.5 rounded-full font-medium text-base inline-flex items-center shadow-md">
+<i class="fa-solid fa-circle-exclamation mr-2"></i>Cỡ chữ không đồng nhất
+                                </span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="w-1/5 h-full flex-shrink-0 relative cursor-pointer" onclick="openLightbox('Loi%20sai/Loi%20sai%202.jpg')">
+<img alt="Lỗi hiển thị kí hiệu" class="w-full h-full object-contain bg-slate-50" src="Loi sai/Loi sai 2.jpg"/>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+<span class="bg-amber-500 text-white px-4 py-1.5 rounded-full font-medium text-base inline-flex items-center shadow-md">
+<i class="fa-solid fa-circle-exclamation mr-2"></i>Lỗi hiển thị kí hiệu
+                                </span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="w-1/5 h-full flex-shrink-0 relative cursor-pointer" onclick="openLightbox('Loi%20sai/Loi%20sai%203.jpg')">
+<img alt="Thông tin và ghi chú" class="w-full h-full object-contain bg-slate-50" src="Loi sai/Loi sai 3.jpg"/>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+<span class="bg-brand-orange text-white px-4 py-1.5 rounded-full font-medium text-base inline-flex items-center shadow-md">
+<i class="fa-solid fa-circle-exclamation mr-2"></i>Thông tin và ghi chú
+                                </span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="w-1/5 h-full flex-shrink-0 relative cursor-pointer" onclick="openLightbox('Loi%20sai/Loi%20sai%204.jpg')">
+<img alt="Lỗi hiển thị kí hiệu" class="w-full h-full object-contain bg-slate-50" src="Loi sai/Loi sai 4.jpg"/>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+<span class="bg-brand-blue text-white px-4 py-1.5 rounded-full font-medium text-base inline-flex items-center shadow-md">
+<i class="fa-solid fa-circle-exclamation mr-2"></i>Lỗi hiển thị kí hiệu
+                                </span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="w-1/5 h-full flex-shrink-0 relative cursor-pointer" onclick="openLightbox('Loi%20sai/Loi%20sai%206.jpg')">
+<img alt="Nội dung bài học chưa đầy đủ" class="w-full h-full object-contain bg-slate-50" src="Loi sai/Loi sai 6.jpg"/>
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+<span class="bg-purple-500 text-white px-4 py-1.5 rounded-full font-medium text-base inline-flex items-center shadow-md">
+<i class="fa-solid fa-circle-exclamation mr-2"></i>Nội dung bài học chưa đầy đủ
+                                </span>
+</div>
+</div>
+</div>
+<!-- Prev / Next buttons -->
+<button class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue text-2xl transition-all hover:scale-110 z-20" onclick="moveCarousel(-1)">
+<i class="fa-solid fa-chevron-left"></i>
+</button>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center text-brand-blue text-2xl transition-all hover:scale-110 z-20" onclick="moveCarousel(1)">
+<i class="fa-solid fa-chevron-right"></i>
+</button>
+</div>
+<!-- Indicator Dots -->
+<div class="flex items-center gap-3 mt-5">
+<button class="carousel-dot w-3 h-3 rounded-full bg-brand-blue transition-all duration-300 scale-125" data-index="0" onclick="goToCarousel(0)"></button>
+<button class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300" data-index="1" onclick="goToCarousel(1)"></button>
+<button class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300" data-index="2" onclick="goToCarousel(2)"></button>
+<button class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300" data-index="3" onclick="goToCarousel(3)"></button>
+<button class="carousel-dot w-3 h-3 rounded-full bg-slate-300 transition-all duration-300" data-index="4" onclick="goToCarousel(4)"></button>
+<span class="ml-3 text-base text-slate-500 font-medium" id="carousel-counter">1 / 5</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 5: CHUYÊN MÔN - HỌC SINH -->
+<!-- SLIDE 6: CHUYÊN MÔN - GIÁO VIÊN -->
+<!-- SLIDE 7: VÍ DỤ ĐƯỜNG TRUNG BÌNH -->
+<!-- SLIDE 8: Q&A -->
+<div class="slide bg-white" id="slide-13">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-clipboard-check mr-3 text-brand-orange"></i>Bài kiểm tra &amp; Khảo sát</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content flex flex-col pt-4">
+<div class="bg-orange-50 border border-orange-200 rounded-xl p-5 shadow-sm mb-6 relative overflow-hidden transition hover:shadow-md">
+<div class="absolute -right-4 -bottom-4 opacity-5 text-[80px] text-orange-500"><i class="fa-solid fa-chalkboard-user"></i></div>
+<h3 class="text-xl font-bold text-brand-orange mb-4 pb-2 border-b-2 border-orange-200 relative z-10"><i class="fa-solid fa-thumbtack mr-2"></i>Kế hoạch kiểm tra &amp; Khảo sát định kỳ</h3>
+<div class="relative z-10 space-y-4">
+<!-- Item 1 -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-12 bg-brand-orange text-white font-bold text-2xl flex items-center justify-center shrink-0 shadow-sm" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);">
+                            1
+                        </div>
+<div class="border-l-[3px] border-slate-300 pl-4 py-1">
+<p class="text-[16px] xl:text-[17px] text-slate-700 leading-relaxed text-justify">
+                                - Từ tuần thứ 6, 7 các lớp sẽ tổ chức <strong>bài kiểm tra định kỳ tháng</strong> theo kế hoạch.
+                            </p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-12 bg-brand-orange text-white font-bold text-2xl flex items-center justify-center shrink-0 shadow-sm" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);">
+                            2
+                        </div>
+<div class="border-l-[3px] border-slate-300 pl-4 py-1">
+<p class="text-[16px] xl:text-[17px] text-slate-700 leading-relaxed text-justify">
+                                - Trong tuần thứ 9, các lớp sẽ tổ chức <strong class="text-red-600">bài kiểm tra khảo
+                                    sát định kỳ</strong> nhằm đánh giá mức độ tiếp thu kiến thức, kỹ năng và sự tiến bộ
+                                của học sinh sau giai đoạn học tập đầu tiên.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-blue-50 border-2 border-brand-blue rounded-xl p-5 shadow-md flex flex-col relative overflow-hidden transition hover:shadow-lg">
+<div class="absolute -right-4 -bottom-4 opacity-5 text-[120px] text-blue-500"><i class="fa-solid fa-table"></i></div>
+<div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-blue-200 relative z-10">
+<h3 class="text-xl font-bold text-brand-blue flex items-center">
+<span class="bg-brand-blue text-white w-8 h-8 rounded-full flex items-center justify-center mr-3 shadow-sm"><i class="fa-solid fa-pen-clip text-sm"></i></span>
+                        Nhận xét mẫu bài kiểm tra của học sinh
+                    </h3>
+<span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider animate-pulse">Quan
+                        trọng</span>
+</div>
+<div class="bg-white rounded-lg border-2 border-slate-200 overflow-hidden shadow-sm relative z-10">
+<table class="w-full text-[16px]">
+<thead>
+<tr class="bg-brand-blue text-white">
+<th class="p-4 text-left w-[35%] border-r border-blue-400 font-semibold text-[17px]"><i class="fa-solid fa-list-check mr-2"></i>Dạng bài</th>
+<th class="p-4 text-left w-[65%] font-semibold text-[17px]"><i class="fa-solid fa-comment-dots mr-2"></i>Nội dung nhận xét</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="p-5 align-top border-r border-slate-200 bg-slate-50/50">
+<ul class="space-y-3 text-slate-700">
+<li><span class="inline-block w-16 font-bold text-brand-blue">Bài 1:</span>
+<span class="italic">Tính hợp lí</span>
+</li>
+<li><span class="inline-block w-16 font-bold text-brand-blue">Bài 2:</span>
+<span class="italic">Tìm $x$.</span>
+</li>
+<li><span class="inline-block w-16 font-bold text-brand-blue">Bài 3:</span>
+<span class="italic">Giải bài toán có lời văn (sử dụng tính chất của dãy tỉ
+                                                số bằng nhau).</span>
+</li>
+<li><span class="inline-block w-16 font-bold text-brand-blue">Bài 4:</span>
+<span class="italic">Sử dụng tính chất hai đường thẳng song song để tính
+                                                góc, các bài toán liên quan tới tam giác bằng nhau.</span>
+</li>
+<li><span class="inline-block w-16 font-bold text-brand-blue">Bài 5:</span>
+<span class="italic">Bài toán nâng cao.</span>
+</li>
+</ul>
+</td>
+<td class="p-5 align-top">
+<div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg mb-4 shadow-sm">
+<p class="mb-2"><span class="font-bold text-green-700 text-[17px] flex items-center"><i class="fa-solid fa-circle-check mr-2"></i>Con vận dụng tốt:</span>
+</p>
+<p class="text-slate-700 leading-relaxed pl-6">
+                                            Các dạng bài toán tính hợp lí; quy tắc phá dấu giá trị tuyệt đối và các phép
+                                            toán cộng, trừ, nhân, chia số hữu tỉ để tìm x. Giải bài toán có lời văn (sử
+                                            dụng tính chất của dãy tỉ số bằng nhau). Phần hình học con vận dụng tốt kiến
+                                            thức vào làm các dạng bài sử dụng tính chất của hai đường thẳng song song và
+                                            các góc ở vị trí đặc biệt để tính số đo góc; chứng minh hai tam giác bằng
+                                            nhau để chỉ ra các cạnh, các góc tương ứng bằng nhau; chứng minh hai đường
+                                            thẳng vuông góc.
+                                        </p>
+</div>
+<div class="bg-orange-50 border-l-4 border-brand-orange p-4 rounded-r-lg shadow-sm">
+<p class="mb-2"><span class="font-bold text-brand-orange text-[17px] flex items-center"><i class="fa-solid fa-arrow-trend-up mr-2"></i>Con cần ôn tập
+                                                thêm:</span></p>
+<p class="text-slate-700 leading-relaxed pl-6">
+                                            Các dạng bài nâng cao sử dụng tính chất tỉ lệ thức và tính chất chia hết
+                                            trong tập hợp số nguyên.
+                                        </p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="slide bg-white" id="slide-14">
+<div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+<h2 class="text-4xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-comments mr-3 text-brand-orange"></i>Q&amp;A - Giải đáp thắc mắc</h2>
+<img alt="Logo" class="h-10 object-contain" src="/logo.png"/>
+</div>
+<div class="slide-content flex flex-col items-center md:justify-center pt-20 text-center">
+<div class="text-[120px] text-brand-orange mb-6 opacity-80"><i class="fa-regular fa-circle-question"></i>
+</div>
+<h3 class="text-[40px] font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?
+            </h3>
+<p class="text-2xl text-slate-600 max-w-3xl leading-relaxed">Bộ phận Chuyên môn luôn sẵn sàng lắng nghe
+                những
+                chia sẻ và đóng góp từ các Thầy Cô để công tác giảng dạy ngày càng hoàn thiện hơn.</p>
+</div>
+</div>
+<!-- SLIDE 9: THANK YOU -->
+<div class="slide" id="slide-15">
+<div class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden min-h-[90vh]">
+<div class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]"></div>
+<div class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50">
+<img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md" onerror="this.src='https://mathexpress.vn/wp-content/uploads/2021/05/Logo-MathExpress-1.png'" src="data:image/png;base64,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" />
+</div>
+<h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                CẢM ƠN CÁC THẦY CÔ!
+            </h2>
+<div class="w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
+<p class="text-2xl md:text-4xl font-medium text-slate-700 max-w-3xl px-4 tracking-wide drop-shadow-sm">
+                Chúc các thầy cô một năm học mới làm việc hiệu quả và tràn đầy năng&nbsp;lượng.
+            </p>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            let currentSlideIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateUI() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else if (slide.classList.contains('active')) {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `${currentSlideIndex + 1}/${totalSlides}`;
+                const progressPercentage = ((currentSlideIndex + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+            }
+
+            function nextSlide() {
+                if (currentSlideIndex < totalSlides - 1) {
+                    currentSlideIndex++;
+                    updateUI();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    updateUI();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'Space') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+
+            // Touch Swipe Gestures for Mobile Presentation Deck
+            let touchDeckStartX = 0;
+            let touchDeckStartY = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, #carousel-track')) return;
+                touchDeckStartX = e.changedTouches[0].clientX;
+                touchDeckStartY = e.changedTouches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, #carousel-track')) return;
+                const touchDeckEndX = e.changedTouches[0].clientX;
+                const touchDeckEndY = e.changedTouches[0].clientY;
+                const deltaX = touchDeckEndX - touchDeckStartX;
+                const deltaY = touchDeckEndY - touchDeckStartY;
+                const swipeThreshold = 45;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+                    if (deltaX < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }, { passive: true });
+
+            updateUI();
+
+            // Fix: Overlay trên PDF chuyển tiếp sự kiện cuộn lên slide-content
+            const pdfOverlay = document.getElementById('pdf-overlay');
+            if (pdfOverlay) {
+                pdfOverlay.addEventListener('wheel', function (e) {
+                    const activeSlide = document.querySelector('.slide.active');
+                    if (activeSlide) {
+                        const content = activeSlide.querySelector('.slide-content');
+                        if (content) {
+                            content.scrollTop += e.deltaY;
+                        }
+                    }
+                    e.preventDefault();
+                }, { passive: false });
+            }
+        });
+    </script>
+<!-- Lightbox Modal -->
+<div class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300" id="lightbox-modal">
+<button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-orange transition-colors" onclick="closeLightbox()">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<img alt="Phóng to" class="max-w-[90%] max-h-[90%] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300" id="lightbox-img" src=""/>
+</div>
+<script>
+        // Lightbox functionality
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        window.openLightbox = function (imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightboxModal.classList.remove('hidden');
+            // Trigger reflow to apply transition
+            void lightboxModal.offsetWidth;
+            lightboxModal.classList.remove('opacity-0');
+            lightboxImg.classList.remove('scale-95');
+            lightboxImg.classList.add('scale-100');
+        };
+
+        window.closeLightbox = function () {
+            lightboxModal.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                lightboxModal.classList.add('hidden');
+            }, 300);
+        };
+
+        // Close on clicking outside image
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+    </script>
+<script>
+        // Carousel functionality
+        let carouselIndex = 0;
+        const carouselTotal = 5;
+        const carouselTrack = document.getElementById('carousel-track');
+        const carouselDots = document.querySelectorAll('.carousel-dot');
+        const carouselCounter = document.getElementById('carousel-counter');
+
+        function updateCarousel() {
+            if (!carouselTrack) return;
+            carouselTrack.style.transform = `translateX(-${carouselIndex * (100 / carouselTotal)}%)`;
+            carouselDots.forEach((dot, i) => {
+                if (i === carouselIndex) {
+                    dot.classList.remove('bg-slate-300');
+                    dot.classList.add('bg-brand-blue', 'scale-125');
+                } else {
+                    dot.classList.remove('bg-brand-blue', 'scale-125');
+                    dot.classList.add('bg-slate-300');
+                }
+            });
+            if (carouselCounter) carouselCounter.textContent = `${carouselIndex + 1} / ${carouselTotal}`;
+        }
+
+        window.moveCarousel = function (dir) {
+            carouselIndex = (carouselIndex + dir + carouselTotal) % carouselTotal;
+            updateCarousel();
+        };
+
+        window.goToCarousel = function (idx) {
+            carouselIndex = idx;
+            updateCarousel();
+        };
+    </script>
+<script>
+        // Hàm hiển thị Ghi chú cho giáo viên
+        window.toggleGhiChu = function (id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.classList.toggle('hidden');
+            }
+        };
+    </script>
+</body>
+</html>
