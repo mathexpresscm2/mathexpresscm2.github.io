@@ -210,13 +210,13 @@ for i, slide in enumerate(data):
 
                 <!-- Lỗi sai và Hướng dẫn (Hàng dưới) -->
 '''
-    if i < 2:
-        # Dạng 1, 2: 50-50
+    if i < 2 or i >= 5:
+        # Dạng 1, 2, 6, 7: 50-50
         grid_class = "lg:grid-cols-2"
         col_span_ls = "lg:col-span-1"
         col_span_hd = "lg:col-span-1"
     else:
-        # Dạng 3, 4, 5, 6, 7: 30-70
+        # Dạng 3, 4, 5: 30-70
         grid_class = "lg:grid-cols-10"
         col_span_ls = "lg:col-span-3"
         col_span_hd = "lg:col-span-7"
