@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="vi">
 
@@ -673,6 +673,83 @@
         </div>
     </div>
 
+    <!-- Slide 7: Lớp bổ trợ cho học sinh -->
+    <div class="slide bg-white">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-4xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-graduation-cap mr-3 text-brand-orange"></i>Lớp bổ trợ cho học sinh</h2>
+            <img src="../../../logo.png" class="h-10 object-contain" alt="Logo">
+        </div>
+        <div class="slide-content p-8 flex flex-col md:justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-5xl mx-auto">
+
+                <!-- Card 1: Lớp bổ trợ Học Sinh mới -->
+                <div
+                    class="bg-gradient-to-br from-orange-50 to-amber-50/40 border-2 border-orange-200 rounded-3xl p-7 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                    <div
+                        class="absolute -right-8 -bottom-8 opacity-10 text-[180px] text-brand-orange/40 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-5 pb-3 border-b border-orange-200/60">
+                            <div
+                                class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-orange text-4xl shadow-md border border-orange-100">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-extrabold text-brand-orange leading-tight">Lớp bổ trợ học sinh
+                                    mới</h3>
+                            </div>
+                        </div>
+                        <p class="text-[16px] xl:text-[17px] text-slate-600 leading-relaxed mb-6">
+                            Hỗ trợ riêng biệt nhằm giúp học sinh mới vào sau nhanh chóng làm quen và bắt kịp tiến độ
+                            chương trình học hiện tại.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white/85 backdrop-blur-sm p-4 rounded-2xl border border-orange-100/80 mt-auto relative z-10 shadow-sm">
+                        <span class="font-bold text-brand-orange uppercase block text-sm tracking-wider mb-1"><i
+                                class="fa-solid fa-users mr-1.5"></i>Đối tượng áp dụng:</span>
+                        <p class="text-slate-800 font-bold text-xl">Học sinh mới vào sau.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Lớp bổ trợ Học Sinh yếu, Học Sinh học bù -->
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-indigo-50/40 border-2 border-blue-200 rounded-3xl p-7 shadow-lg hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                    <div
+                        class="absolute -right-8 -bottom-8 opacity-10 text-[180px] text-brand-blue/30 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-user-clock"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-5 pb-3 border-b border-blue-200/60">
+                            <div
+                                class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-brand-blue text-4xl shadow-md border border-blue-100">
+                                <i class="fa-solid fa-user-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-extrabold text-brand-blue leading-tight">Lớp bổ trợ học sinh
+                                    yếu, học sinh học bù</h3>
+                            </div>
+                        </div>
+                        <p class="text-[16px] xl:text-[17px] text-slate-600 leading-relaxed mb-6">
+                            Củng cố các mảng kiến thức chưa vững cho học sinh còn yếu, đồng thời hỗ trợ dạy học bù cho
+                            học sinh nghỉ học.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white/85 backdrop-blur-sm p-4 rounded-2xl border border-blue-100/80 mt-auto relative z-10 shadow-sm">
+                        <span class="font-bold text-brand-blue uppercase block text-sm tracking-wider mb-1"><i
+                                class="fa-solid fa-users mr-1.5"></i>Đối tượng áp dụng:</span>
+                        <p class="text-slate-800 font-bold text-xl">Học sinh nghỉ học có phép và học sinh còn đuối ở mỗi
+                            lớp.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -729,11 +806,11 @@
                                     class="fa-solid fa-circle-xmark mr-2"></i>Lỗi sai của học sinh</strong>
                             <div class="text-[15px] md:text-[17.5px] text-slate-700 leading-relaxed space-y-3">
                                 <p>❌ <strong>Nhầm lẫn hệ số của $A$ khi cơ số khác $2$</strong></p>
-                                <p>Lỗi sai: Áp dụng máy móc bài toán $2A - A = A$ cho các bài toán khác cơ số (như $3,
-                                    4, 5$).</p>
+                                <!-- <p>Lỗi sai: Áp dụng máy móc bài toán $2A - A = A$ cho các bài toán khác cơ số (như $3,
+                                    4, 5$).</p> -->
                                 <p>❌ <strong>Nhầm lẫn khi nhân lũy thừa (Sai quy tắc lũy thừa)</strong></p>
-                                <p>Lỗi sai: Khi nhân $2A$, học sinh lấy cơ số nhân với $2$ hoặc cộng nhầm số mũ.</p>
-                                <p>Ví dụ sai: $2 \cdot 2^3 = 4^3$ hoặc $2 \cdot 2^{100} = 2^{200}$</p>
+                                <!-- <p>Lỗi sai: Khi nhân $2A$, học sinh lấy cơ số nhân với $2$ hoặc cộng nhầm số mũ.</p> -->
+                                <!-- <p>Ví dụ sai: $2 \cdot 2^3 = 4^3$ hoặc $2 \cdot 2^{100} = 2^{200}$</p> -->
                             </div>
                         </div>
                     </div>
@@ -807,11 +884,8 @@
                                 class="text-red-600 block mb-3 text-lg md:text-xl uppercase font-bold border-b border-red-200 pb-2.5"><i
                                     class="fa-solid fa-circle-xmark mr-2"></i>Lỗi sai của học sinh</strong>
                             <div class="text-[15px] md:text-[17.5px] text-slate-700 leading-relaxed space-y-3">
-                                <p>❌ <strong>Quên trường hợp $a = 0$:</strong> Học sinh hay có thói quen nghĩ chữ số $a$
-                                    luôn thuộc $\{1; 2; 3; ...; 9\}$ mà quên mất $a$ nằm ở vị trí hàng nghìn (không phải
-                                    hàng cao nhất/hàng chục nghìn) nên $a$ hoàn toàn có thể bằng $0$.</p>
-                                <p>❌ <strong>Bỏ sót điều kiện "$5$ chữ số khác nhau":</strong> Không loại trường hợp $a
-                                    = 6$ (vì đã trùng với $b = 6$), dẫn đến kết luận thừa nghiệm.</p>
+                                <p>❌ <strong>Quên trường hợp $a = 0$.</strong> </p>
+                                <p>❌ <strong>Bỏ sót điều kiện "$5$ chữ số khác nhau".</strong></p>
                                 <p>❌ <strong>Xử lý đoạn tổng chia dư sai:</strong> Khi $20 + a$ chia $3$ dư $2$, học
                                     sinh hay tính nhầm $a$ thay vì lập luận bài bản.</p>
                             </div>
@@ -893,8 +967,8 @@
                                     phép kéo theo một chiều ($A \vdots B \Rightarrow 2A \vdots B$). Đôi khi $2A \vdots
                                     B$ đúng nhưng $A \vdots B$ chưa chắc đúng.</p>
                                 <p>❌ <strong>Sai lầm khi thực hiện phép trừ triệt tiêu $n$</strong></p>
-                                <p>$\left[(6n+10) - (6n+3)\right] \vdots 2n+1$ suy ra $(6n+10 - 6n - 3) \vdots 2n+1$ hay
-                                    $7 \vdots 2n+1$</p>
+                                <!-- <p>$\left[(6n+10) - (6n+3)\right] \vdots 2n+1$ suy ra $(6n+10 - 6n - 3) \vdots 2n+1$ hay
+                                    $7 \vdots 2n+1$</p> -->
                             </div>
                         </div>
                     </div>
@@ -1111,7 +1185,7 @@
                                 class="text-red-600 block mb-3 text-lg md:text-xl uppercase font-bold border-b border-red-200 pb-2.5"><i
                                     class="fa-solid fa-circle-xmark mr-2"></i>Lỗi sai của học sinh</strong>
                             <div class="text-[15px] md:text-[17.5px] text-slate-700 leading-relaxed space-y-3">
-                                <p>❌ Quên xét $p=2$ mà học sinh thường nhảy ngay vào xét $p=3$</p>
+                                <p>❌ Bỏ qua trường hợp $p=2$ mà xét luôn $p=3$</p>
                                 <p>❌ Thử $p=3$ thấy đúng $\rightarrow$ Kết luận luôn $p=3$ là số duy nhất mà không chứng
                                     minh cho trường hợp $p > 3$</p>
                             </div>
@@ -1276,9 +1350,7 @@
                                 <p>❌ Thiếu điều kiện của $d$</p>
                                 <p>❌ Trình bày sai phép trừ triệt tiêu $n$: $\left[(n+2)-(n+1)\right] \vdots d$ suy ra
                                     $(n+2-n+1) \vdots d$ hay $3 \vdots d$</p>
-                                <p>❌ Chưa kết luận đúng yêu cầu đề bài. Sau khi tính ra $d=1$ học sinh dừng lại luôn mà
-                                    không có dòng kết luận cuối cùng: vì ƯCLN$(n+1; n+2) = 1$ nên $n+1$
-                                    và $n+2$ là hai số nguyên tố cùng nhau.</p>
+                                <p>❌ Chưa kết luận đúng yêu cầu đề bài.</p>
                             </div>
                         </div>
                     </div>
