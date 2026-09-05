@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MathExpress - Trao đổi Giáo viên Khối 6 (Tuần 15)</title>
+    <!-- STREAMING_CHUNK:Loading libraries and setting up Tailwind CSS... -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tích hợp MathJax để render công thức Toán học chuẩn LaTeX -->
+    <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <!-- Tích hợp TikzJax để vẽ hình với code TikZ -->
+    <link href="https://tikzjax.com/v1/fonts.css" rel="stylesheet" type="text/css" />
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#005b9f', // Xanh dương MathExpress
+                            orange: '#f26522', // Cam MathExpress
+                            light: '#f0f7fb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* STREAMING_CHUNK:Adding custom CSS animations and slide styling... */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(20px) scale(0.98);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex-grow: 1;
+            padding: 2rem 4rem;
+            overflow-y: auto;
+            padding-bottom: 6rem;
+            /* Space for footer */
+        }
+
+        /* Tùy chỉnh Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Scale MathJax formulas in the Dạng 1-4 slide */
+        .slide-dang14 mjx-container {
+            font-size: 115% !important;
+        }
+
+        /* Hiệu ứng gradient nền nhẹ */
+        .bg-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Cố định Header */
+        .slide-header {
+            border-bottom: 4px solid #f26522;
+        }
+
+        /* Tùy chỉnh Table */
+        .table-custom th,
+        .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 1rem 1rem 5rem 1rem !important;
+                min-height: 0 !important;
+            }
+
+            .slide-header {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        /* CSS cho chế độ In / Xuất PDF */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 1600px !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: visible !important;
+                background: white !important;
+            }
+
+            .slide {
+                position: relative !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                width: 1600px !important;
+                min-height: 900px !important;
+                height: auto !important;
+                page-break-after: always;
+                break-after: page;
+                overflow: visible !important;
+            }
+
+            .slide-content {
+                overflow: visible !important;
+                padding-bottom: 2rem !important;
+                /* Giảm khoảng trống ở dưới cùng khi in */
+            }
+
+            .fixed {
+                display: none !important;
+            }
+
+            .force-page-break-before {
+                page-break-before: always !important;
+                break-before: page !important;
+                padding-top: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 bg-pattern h-[100dvh] w-full flex flex-col relative print:h-auto print:w-auto">
+    <!-- Nút điều hướng -->
+    <div
+        class="fixed bottom-6 right-8 z-50 flex gap-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-slate-200">
+        <button
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            id="prevBtn">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="flex items-center font-semibold text-slate-500 min-w-[3rem] justify-center" id="slideCounter">1/1
+        </div>
+        <button
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-brand-orange text-white hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            id="nextBtn">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+    <!-- Thanh tiến trình -->
+    <div class="fixed top-0 left-0 h-1.5 bg-slate-200 w-full z-50">
+        <div class="h-full bg-brand-orange transition-all duration-300 w-0" id="progressBar"></div>
+    </div>
+
+    
+    <!-- CÁC SLIDE BẮT ĐẦU TỪ ĐÂY -->
+
+    <!-- SLIDE 1: TRANG BÌA -->
+    <div class="slide active" id="slide-1">
+        <div class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden h-[100dvh]">
+            <div class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]"></div>
+            <div class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]"></div>
+
+            <div class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50 z-10">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md" src="../../../logo.png" />
+            </div>
+
+            <h2 class="z-10 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                HỌP CHUYÊN MÔN KHỐI 6
+            </h2>
+
+            <div class="z-10 w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
+
+            <p class="z-10 text-2xl md:text-4xl font-medium text-slate-700 max-w-2xl px-4 tracking-wide drop-shadow-sm">
+                Tháng 9 - 2026
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: NỘI DUNG CUỘC HỌP (MỤC LỤC) -->
+    <div class="slide bg-white" id="slide-2">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-3xl md:text-[40px] font-bold text-brand-blue uppercase"><i class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung cuộc họp</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center items-center relative">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-7 w-full max-w-6xl px-4 relative z-10 mb-5">
+                <!-- Mục 1 -->
+                <div class="bg-gradient-to-br from-rose-50 to-white border-l-[6px] border-rose-500 p-6 md:p-7 rounded-2xl shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">1</div>
+                    <h3 class="text-[22px] md:text-[24px] font-bold text-rose-700 mb-2 leading-tight">Tồn đọng & Hạn chế</h3>
+                    <p class="text-slate-700 text-base md:text-[17px] leading-relaxed">Rà soát các sai sót về kiến thức, tiến độ chương trình, phân bổ thời gian dạy học và tác phong sư phạm.</p>
+                </div>
+
+                <!-- Mục 2 -->
+                <div class="bg-gradient-to-br from-emerald-50 to-white border-l-[6px] border-emerald-600 p-6 md:p-7 rounded-2xl shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">2</div>
+                    <h3 class="text-[22px] md:text-[24px] font-bold text-emerald-800 mb-2 leading-tight">Khung chương trình thời gian tới</h3>
+                    <p class="text-slate-700 text-base md:text-[17px] leading-relaxed">Kế hoạch phân phối chương trình chi tiết Tháng 9 & Tháng 10 theo từng phân lớp (Chuyên, Nâng cao, Mở rộng, Cơ bản).</p>
+                </div>
+
+                <!-- Mục 3 -->
+                <div class="bg-gradient-to-br from-blue-50 to-white border-l-[6px] border-brand-blue p-6 md:p-7 rounded-2xl shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-blue-100 text-brand-blue rounded-2xl flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">3</div>
+                    <h3 class="text-[22px] md:text-[24px] font-bold text-brand-blue mb-2 leading-tight">Kiến thức trọng tâm & Dạng bài lưu ý</h3>
+                    <p class="text-slate-700 text-base md:text-[17px] leading-relaxed">Hệ thống hóa chuyên đề Số học 6 (Số nguyên tố, ƯCLN, BCNN, Số nguyên) và phân tích các dạng bài then chốt.</p>
+                </div>
+
+                <!-- Mục 4 -->
+                <div class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-6 md:p-7 rounded-2xl shadow-md hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+                    <div class="w-14 h-14 bg-orange-100 text-brand-orange rounded-2xl flex items-center justify-center text-3xl font-bold mb-4 shadow-sm">4</div>
+                    <h3 class="text-[22px] md:text-[24px] font-bold text-brand-orange mb-2 leading-tight">Kế hoạch kiểm tra & Nhập điểm</h3>
+                    <p class="text-slate-700 text-base md:text-[17px] leading-relaxed">Tổ chức bài kiểm tra khảo sát định kỳ Quý I, quy chế chấm thi đúng hạn và hướng dẫn viết nhận xét học sinh.</p>
+                </div>
+            </div>
+
+            <!-- Card Chân trang: Thảo luận -->
+            <div class="w-full max-w-6xl px-4 z-10">
+                <div class="bg-slate-100/90 border border-slate-300 rounded-xl px-5 py-3 flex items-center justify-between text-slate-700 text-[15.5px]">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-comments text-brand-blue text-xl"></i>
+                        <span><strong>Mục 5: Thảo luận & Góp ý:</strong> Dành thời lượng cuối buổi để toàn thể Giáo viên thảo luận, đề xuất và tháo gỡ khó khăn cùng BPCM.</span>
+                    </div>
+                    <span class="bg-brand-blue text-white text-xs font-semibold px-2.5 py-1 rounded-full uppercase">Toàn bộ GV</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: TỒN ĐỌNG VÀ HẠN CHẾ -->
+    <div class="slide bg-white" id="slide-3">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-triangle-exclamation mr-3.5 text-brand-orange"></i>1. Các tồn đọng và hạn chế trong thời gian qua</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-7 w-full max-w-[88rem] mx-auto my-auto items-stretch">
+                <!-- Cột Trái: Chuyên môn & Giảng dạy -->
+                <div class="bg-rose-50 rounded-2xl border border-rose-200 shadow-sm p-6 xl:p-7 flex flex-col relative overflow-hidden transition hover:shadow-md">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-rose-500"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3 class="font-bold text-rose-700 text-2xl mb-4 border-b border-rose-200 pb-3 flex items-center relative z-10">
+                        <i class="fa-solid fa-chalkboard-user mr-3 text-2xl"></i> Chuyên môn & Tiến độ bài học
+                    </h3>
+                    <ul class="space-y-3.5 text-[16.5px] text-slate-800 relative z-10 font-medium">
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-rose-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div>
+                                <strong class="text-rose-900 block mb-0.5">Tình trạng dạy sai kiến thức:</strong>
+                                <span>Còn xảy ra tình trạng dạy sai kiến thức dù CLB đã gửi đủ bài dạy. GV cần chủ động nghiên cứu kỹ nội dung, yêu cầu cần đạt và phương pháp triển khai trước mỗi buổi lên lớp.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-rose-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-arrow-down-1-9"></i>
+                            </div>
+                            <div>
+                                <strong class="text-rose-900 block mb-0.5">Dạy chưa đúng thứ tự chương trình:</strong>
+                                <span>Chưa bám sát phân phối (Ví dụ: tuần dạy Bài 7 "Quan hệ chia hết" lại chuyển sang Bài 8 "Ôn tập tổng hợp"). Yêu cầu GV tuân thủ tuyệt đối khung kế hoạch chung.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-rose-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-hourglass-half"></i>
+                            </div>
+                            <div>
+                                <strong class="text-rose-900 block mb-0.5">Phân bổ thời gian chưa hợp lý:</strong>
+                                <span>Dành quá nhiều thời gian cho phần lý thuyết, làm giảm thời lượng thực hành luyện tập và chữa bài, sửa lỗi trực tiếp cho học sinh.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-rose-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <div>
+                                <strong class="text-rose-900 block mb-0.5">Bao quát lớp & Tương tác hạn chế:</strong>
+                                <span>Bao quát lớp chưa tốt, chưa kịp thời phát hiện và hỗ trợ những học sinh gặp khó khăn trong quá trình làm bài tại lớp.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cột Phải: Tác phong & Vận hành -->
+                <div class="bg-orange-50 rounded-2xl border border-orange-200 shadow-sm p-6 xl:p-7 flex flex-col relative overflow-hidden transition hover:shadow-md">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-brand-orange"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3 class="font-bold text-brand-orange text-2xl mb-4 border-b border-orange-200 pb-3 flex items-center relative z-10">
+                        <i class="fa-solid fa-user-check mr-3 text-2xl"></i> Tác phong sư phạm & Kỷ luật vận hành
+                    </h3>
+                    <ul class="space-y-3.5 text-[16.5px] text-slate-800 relative z-10 font-medium">
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-orange-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-id-badge"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Trang phục & Thẻ tên:</strong>
+                                <span>Một số giáo viên chưa đeo thẻ tên mới (thẻ dây); trang phục lên lớp chưa phù hợp môi trường sư phạm (mặc váy ngắn, đi dép lê, dép Crocs,...).</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-orange-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Sử dụng thiết bị cá nhân trong giờ:</strong>
+                                <span>Vẫn còn hiện tượng sử dụng điện thoại, laptop cho mục đích riêng trong thời gian giảng dạy, ảnh hưởng đến chất lượng tiết học.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-orange-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-business-time"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Quy định giờ giấc (Có mặt trước 05 phút):</strong>
+                                <span>Vào lớp muộn, chưa đảm bảo có mặt tại lớp tối thiểu 05 phút trước giờ học làm chậm tiến độ triển khai bài dạy và ổn định nền nếp.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3.5 bg-white/85 p-3.5 rounded-xl border border-orange-100 shadow-sm">
+                            <div class="w-10 h-10 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Phối hợp vận hành & BPCM:</strong>
+                                <span>Một số công tác vận hành và phối hợp phản hồi với Trung tâm, Ban chuyên môn còn chậm hoặc chưa đầy đủ thông tin.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: KHUNG CHƯƠNG TRÌNH TRONG THỜI GIAN TỚI -->
+    <div class="slide bg-white" id="slide-4">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-calendar-days mr-3 text-brand-orange"></i>2. Khung chương trình dự kiến (Tháng 9 & 10)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center items-center py-3 px-4">
+            <div class="w-full max-w-[98%] mx-auto overflow-hidden rounded-xl border border-slate-300 shadow-sm bg-white">
+                <table class="w-full text-[14px] md:text-[15.5px] text-slate-800 border-collapse table-custom" style="line-height: 1.25;">
+                    <thead>
+                        <tr class="bg-brand-blue text-white text-[15px] md:text-[16px]">
+                            <th colspan="2" class="py-2.5 border border-slate-300 w-[16%]">Thời gian</th>
+                            <th class="py-2.5 border border-slate-300 w-[7%]">Buổi</th>
+                            <th class="py-2.5 border border-slate-300 w-[25%]">Phiếu số 1 (Định hướng chuyên)</th>
+                            <th class="py-2.5 border border-slate-300 w-[26%]">Phiếu số 2 (Nâng cao)</th>
+                            <th class="py-2.5 border border-slate-300 w-[26%]">Phiếu số 3 + 4 (Mở rộng & Cơ bản)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tháng 9 -->
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td rowspan="2" class="font-bold text-slate-900 bg-rose-100 border border-slate-300 text-center w-[85px] whitespace-nowrap px-1">
+                                Tháng 9
+                            </td>
+                            <td class="border border-slate-300 text-center py-2 font-medium">14/9 - 20/9</td>
+                            <td class="border border-slate-300 text-center font-bold text-brand-blue py-2">11</td>
+                            <td class="border border-slate-300 px-3 py-2">Ước và bội</td>
+                            <td class="border border-slate-300 px-3 py-2">Phân tích một số ra thừa số nguyên tố. Ước và bội</td>
+                            <td class="border border-slate-300 px-3 py-2">Số nguyên tố - Hợp số</td>
+                        </tr>
+                        <tr class="bg-green-400 font-bold text-slate-900 border-b-2 border-slate-400">
+                            <td class="border border-slate-300 text-center py-2">21/9 - 27/9</td>
+                            <td class="border border-slate-300 text-center font-bold py-2">12</td>
+                            <td class="border border-slate-300 px-3 py-2 text-center uppercase tracking-wide"><i class="fa-solid fa-pen-nib mr-1.5"></i>Kiểm tra quý 1</td>
+                            <td class="border border-slate-300 px-3 py-2 text-center uppercase tracking-wide"><i class="fa-solid fa-pen-nib mr-1.5"></i>Kiểm tra quý 1</td>
+                            <td class="border border-slate-300 px-3 py-2 text-center uppercase tracking-wide"><i class="fa-solid fa-pen-nib mr-1.5"></i>Kiểm tra quý 1</td>
+                        </tr>
+
+                        <!-- Tháng 10 -->
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td rowspan="4" class="font-bold text-slate-900 bg-emerald-100 border border-slate-300 text-center w-[85px] whitespace-nowrap px-1">
+                                Tháng 10
+                            </td>
+                            <td class="border border-slate-300 text-center py-2 font-medium">05/10 - 11/10</td>
+                            <td class="border border-slate-300 text-center font-bold text-brand-blue py-2">14</td>
+                            <td class="border border-slate-300 px-3 py-2">Số nguyên tố - Hợp số (Buổi 1)</td>
+                            <td class="border border-slate-300 px-3 py-2">Số nguyên tố - Hợp số (Buổi 1)</td>
+                            <td class="border border-slate-300 px-3 py-2">Luyện tập SNT - HS. Phân tích một số ra thừa số nguyên tố</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-2 font-medium">12/10 - 18/10</td>
+                            <td class="border border-slate-300 text-center font-bold text-brand-blue py-2">15</td>
+                            <td class="border border-slate-300 px-3 py-2">Số nguyên tố - Hợp số (Buổi 2)</td>
+                            <td class="border border-slate-300 px-3 py-2">Số nguyên tố - Hợp số (Buổi 2)</td>
+                            <td class="border border-slate-300 px-3 py-2">Ước chung - ƯCLN</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-2 font-medium">19/10 - 25/10</td>
+                            <td class="border border-slate-300 text-center font-bold text-brand-blue py-2">16</td>
+                            <td class="border border-slate-300 px-3 py-2">ƯCLN và BCNN</td>
+                            <td class="border border-slate-300 px-3 py-2">ƯCLN và BCNN</td>
+                            <td class="border border-slate-300 px-3 py-2">Bội chung - BCNN</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="border border-slate-300 text-center py-2 font-medium">26/10 - 01/11</td>
+                            <td class="border border-slate-300 text-center font-bold text-brand-blue py-2">17</td>
+                            <td class="border border-slate-300 px-3 py-2">ƯCLN và BCNN (tiếp)</td>
+                            <td class="border border-slate-300 px-3 py-2">ƯCLN và BCNN (tiếp)</td>
+                            <td class="border border-slate-300 px-3 py-2">Ôn tập ước và bội</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Card Chân trang lưu ý -->
+            <div class="w-full max-w-[98%] mt-3.5 bg-orange-50/90 border border-orange-200 rounded-xl p-3 flex items-start shadow-sm relative overflow-hidden group hover:bg-orange-100 transition-colors">
+                <div class="absolute -right-2 -bottom-4 opacity-10 text-6xl text-brand-orange"><i class="fa-solid fa-bullseye"></i></div>
+                <i class="fa-solid fa-lightbulb text-brand-orange text-2xl mt-0.5 mr-3 group-hover:scale-110 transition-transform z-10"></i>
+                <div class="relative z-10">
+                    <h4 class="font-bold text-brand-orange text-[15.5px] mb-0.5">Trọng tâm khung chương trình giai đoạn tới:</h4>
+                    <p class="text-[14.5px] text-slate-700 leading-relaxed">
+                        Toàn bộ các phân lớp tập trung hoàn thiện mảng kiến thức nền tảng Số học: <span class="font-semibold text-brand-blue">Số nguyên tố – Hợp số, Phân tích thừa số nguyên tố, Ước chung & ƯCLN, Bội chung & BCNN</span>. Đề nghị GV theo dõi sát tiến độ phiếu bài được giao để chuẩn bị kỹ càng cho kỳ kiểm tra Quý I.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: KIẾN THỨC TRỌNG TÂM: SỐ NGUYÊN TỐ & PHÂN TÍCH THỪA SỐ NGUYÊN TỐ -->
+    <div class="slide bg-white" id="slide-5">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-brain mr-3 text-brand-orange"></i>3. Trọng tâm: Số nguyên tố & Phân tích thừa số nguyên tố</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-7 w-full max-w-[88rem] mx-auto my-auto items-stretch">
+                <!-- Phần 1: Số nguyên tố & Hợp số -->
+                <div class="border border-brand-blue rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-brand-blue text-white font-bold px-4 py-2.5 text-[17px] flex items-center justify-between">
+                        <span><i class="fa-solid fa-circle-dot mr-2 text-yellow-300"></i>1. Số nguyên tố – Hợp số</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-normal">Lý thuyết & Lỗi sai</span>
+                    </div>
+                    <div class="p-4.5 bg-blue-50/30 flex-1 flex flex-col justify-between space-y-3">
+                        <div class="space-y-2 text-[15.5px] text-slate-800">
+                            <p><strong>Khái niệm cốt lõi:</strong></p>
+                            <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                                <li><strong>Số nguyên tố:</strong> Là số tự nhiên lớn hơn $1$, chỉ có hai ước là $1$ và chính nó.</li>
+                                <li><strong>Hợp số:</strong> Là số tự nhiên lớn hơn $1$, có nhiều hơn hai ước.</li>
+                            </ul>
+                            <div class="bg-amber-50 border-l-4 border-amber-500 p-2.5 rounded-r-lg text-[14.5px] text-amber-900 mt-1">
+                                <p class="font-bold mb-0.5"><i class="fa-solid fa-circle-exclamation mr-1.5 text-amber-600"></i>Quy ước bắt buộc ghi nhớ:</p>
+                                <p>• Số $0$ và số $1$ <strong>không phải</strong> là số nguyên tố, cũng <strong>không phải</strong> hợp số.<br>
+                                   • Số $2$ là số nguyên tố <strong>nhỏ nhất</strong>, và là số nguyên tố <strong>chẵn duy nhất</strong>.</p>
+                            </div>
+                        </div>
+
+                        <!-- Lỗi sai -->
+                        <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
+                            <h4 class="text-rose-700 font-bold text-[15px] flex items-center mb-1"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Lỗi sai học sinh thường mắc:</h4>
+                            <ul class="list-disc pl-5 text-[14px] text-slate-700 space-y-0.5">
+                                <li>Nhầm số $1$ là số nguyên tố.</li>
+                                <li>Cho rằng số nguyên tố bắt buộc là số lẻ $\rightarrow$ quên mất số $2$ chẵn.</li>
+                                <li>Không kiểm tra đầy đủ các ước khi xác định số nguyên tố.</li>
+                                <li>Nhầm lẫn giữa số nguyên tố và hợp số.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phần 2: Phân tích một số ra thừa số nguyên tố -->
+                <div class="border border-emerald-600 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-emerald-600 text-white font-bold px-4 py-2.5 text-[17px] flex items-center justify-between">
+                        <span><i class="fa-solid fa-network-wired mr-2 text-yellow-300"></i>2. Phân tích ra thừa số nguyên tố</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-normal">Kỹ năng tính toán</span>
+                    </div>
+                    <div class="p-4.5 bg-emerald-50/30 flex-1 flex flex-col justify-between space-y-3">
+                        <div class="space-y-2 text-[15.5px] text-slate-800">
+                            <p><strong>Kiến thức trọng tâm:</strong></p>
+                            <ul class="list-disc pl-5 space-y-1.5 text-slate-700">
+                                <li>Phân tích một số tự nhiên lớn hơn $1$ thành tích các thừa số nguyên tố.</li>
+                                <li>Thành thạo sử dụng <strong>sơ đồ cây</strong> hoặc <strong>sơ đồ cột</strong> để phân tích nhanh và chuẩn.</li>
+                                <li>Viết gọn kết quả bằng cách dùng <strong>lũy thừa</strong>, sắp xếp các thừa số theo thứ tự từ nhỏ đến lớn.</li>
+                                <li>Đảm bảo kết quả cuối cùng <strong>chỉ còn các thừa số nguyên tố</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Lỗi sai -->
+                        <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
+                            <h4 class="text-rose-700 font-bold text-[15px] flex items-center mb-1"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Lỗi sai học sinh thường mắc:</h4>
+                            <ul class="list-disc pl-5 text-[14px] text-slate-700 space-y-1">
+                                <li><strong>Dừng phân tích khi vẫn còn thừa số là hợp số:</strong> Ví dụ phân tích $24 = 4 \cdot 6$ hoặc $60 = 6 \cdot 10$ rồi dừng lại, không tiếp tục phân tích $4, 6, 10$.</li>
+                                <li><strong>Nhân nhẩm sai:</strong> Tích các thừa số nguyên tố tìm được không bằng số ban đầu do nhân nhẩm sai nhưng không có thói quen kiểm tra lại trước khi chuyển bài.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Chú ý GV -->
+                        <div class="bg-blue-50 border-l-4 border-brand-blue p-2.5 rounded-r-lg text-[14px] text-brand-blue font-medium">
+                            <i class="fa-solid fa-chalkboard-user mr-1.5"></i><strong>GV lưu ý:</strong> Rèn cho học sinh thói quen nhẩm lại tích lũy thừa bằng cách tính ngược để đảm bảo kết quả chính xác 100%.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: KIẾN THỨC TRỌNG TÂM: ƯCLN VÀ BCNN -->
+    <div class="slide bg-white" id="slide-6">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-code-compare mr-3 text-brand-orange"></i>3. Trọng tâm: Ước chung – ƯCLN & Bội chung – BCNN</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-7 w-full max-w-[88rem] mx-auto my-auto items-stretch">
+                <!-- Khối ƯCLN -->
+                <div class="border border-brand-blue rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-brand-blue text-white font-bold px-4 py-2.5 text-[17px] flex items-center justify-between">
+                        <span><i class="fa-solid fa-compress mr-2 text-yellow-300"></i>3. Ước chung – ƯCLN</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-normal">Quy tắc & Lỗi sai</span>
+                    </div>
+                    <div class="p-4 bg-blue-50/20 flex-1 flex flex-col justify-between space-y-2.5">
+                        <div>
+                            <h4 class="font-bold text-brand-blue text-[15.5px] mb-1.5">Quy tắc 3 bước tìm ƯCLN:</h4>
+                            <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-sm space-y-1 text-[14.5px] text-slate-800 font-medium">
+                                <p><span class="inline-block w-16 font-bold text-brand-blue">Bước 1:</span> Phân tích các số ra thừa số nguyên tố.</p>
+                                <p><span class="inline-block w-16 font-bold text-brand-blue">Bước 2:</span> Chọn ra các thừa số nguyên tố <strong>chung</strong>.</p>
+                                <p><span class="inline-block w-16 font-bold text-brand-blue">Bước 3:</span> Lập tích các thừa số đã chọn, mỗi thừa số lấy với <strong>số mũ nhỏ nhất</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
+                            <h4 class="text-rose-700 font-bold text-[14.5px] flex items-center mb-1"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Lỗi sai học sinh thường mắc:</h4>
+                            <ul class="list-disc pl-5 text-[13.5px] text-slate-700 space-y-1">
+                                <li>Nhầm lẫn giữa tập hợp Ước chung ƯC và giá trị lớn nhất ƯCLN.</li>
+                                <li>Phân tích thừa số nguyên tố sai dẫn đến tìm sai ƯCLN.</li>
+                                <li>Khi lập tích, chọn nhầm cả thừa số riêng thay vì chỉ chọn thừa số chung.</li>
+                                <li>Trong bài toán thực tế, không nhận diện được khi nào cần áp dụng ƯCLN (chia đều phần thưởng, chia nhóm lớn nhất,...).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khối BCNN -->
+                <div class="border border-brand-orange rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-brand-orange text-white font-bold px-4 py-2.5 text-[17px] flex items-center justify-between">
+                        <span><i class="fa-solid fa-expand mr-2 text-yellow-200"></i>4. Bội chung – BCNN</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-normal">Quy tắc & Lỗi sai</span>
+                    </div>
+                    <div class="p-4 bg-orange-50/20 flex-1 flex flex-col justify-between space-y-2.5">
+                        <div>
+                            <h4 class="font-bold text-brand-orange text-[15.5px] mb-1.5">Quy tắc 3 bước tìm BCNN:</h4>
+                            <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-sm space-y-1 text-[14.5px] text-slate-800 font-medium">
+                                <p><span class="inline-block w-16 font-bold text-brand-orange">Bước 1:</span> Phân tích các số ra thừa số nguyên tố.</p>
+                                <p><span class="inline-block w-16 font-bold text-brand-orange">Bước 2:</span> Chọn ra các thừa số nguyên tố <strong>chung và riêng</strong>.</p>
+                                <p><span class="inline-block w-16 font-bold text-brand-orange">Bước 3:</span> Lập tích các thừa số đã chọn, mỗi thừa số lấy với <strong>số mũ lớn nhất</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
+                            <h4 class="text-rose-700 font-bold text-[14.5px] flex items-center mb-1"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Lỗi sai học sinh thường mắc:</h4>
+                            <ul class="list-disc pl-5 text-[13.5px] text-slate-700 space-y-1">
+                                <li>Nhầm số mũ khi tìm BCNN: lấy số mũ nhỏ nhất thay vì số mũ lớn nhất.</li>
+                                <li>Quên không lấy các thừa số nguyên tố riêng.</li>
+                                <li>Không nhận diện được bài toán thực tế nào cần sử dụng BCNN (bài toán lặp lại thời gian, cùng xuất phát, xếp hàng,...).</li>
+                                <li>Tìm được BCNN nhưng không biết vận dụng tìm BC để đối chiếu với điều kiện thực tế của đề bài.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: KIẾN THỨC TRỌNG TÂM: SỐ NGUYÊN & QUY TẮC DẤU NGOẶC -->
+    <div class="slide bg-white" id="slide-7">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-calculator mr-3 text-brand-orange"></i>3. Trọng tâm: Phép toán Số nguyên & Quy tắc Dấu ngoặc</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-7 w-full max-w-[88rem] mx-auto my-auto items-stretch">
+                <!-- Khối Phép toán Số nguyên -->
+                <div class="border border-brand-blue rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-brand-blue text-white font-bold px-4 py-2.5 text-[17px] flex items-center justify-between">
+                        <span><i class="fa-solid fa-plus-minus mr-2 text-yellow-300"></i>5. Phép toán trong tập số nguyên $\mathbb{Z}$</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-normal">Cộng, Trừ, Nhân</span>
+                    </div>
+                    <div class="p-4 bg-blue-50/20 flex-1 flex flex-col justify-between space-y-2.5">
+                        <div class="space-y-2 text-[14.5px] text-slate-800 font-medium">
+                            <div class="bg-white p-2.5 rounded-lg border border-blue-100 shadow-sm">
+                                <p class="text-brand-blue font-bold">1. Phép cộng:</p>
+                                <p>• Cùng dấu: Cộng hai số tự nhiên, giữ nguyên dấu chung.<br>
+                                   • Khác dấu: Lấy phần lớn trừ phần bé, đặt dấu của số có phần lớn hơn trước kết quả.</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-blue-100 shadow-sm">
+                                <p class="text-brand-blue font-bold">2. Phép trừ:</p>
+                                <p>Muốn trừ số nguyên $a$ cho số nguyên $b$, ta cộng $a$ với số đối của $b$:</p>
+                                <p class="text-center font-bold text-rose-700 py-0.5 text-[15.5px]">$a - b = a + (-b)$</p>
+                            </div>
+                            <div class="bg-white p-2.5 rounded-lg border border-blue-100 shadow-sm">
+                                <p class="text-brand-blue font-bold">3. Phép nhân:</p>
+                                <p>• Cùng dấu: $(+) \cdot (+) = (+)$; $(-)\cdot(-) = (+)$<br>
+                                   • Khác dấu: $(+) \cdot (-) = (-)$; $(-)\cdot(+) = (-)$</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 border border-rose-200 p-2.5 rounded-xl">
+                            <h4 class="text-rose-700 font-bold text-[14px] flex items-center mb-0.5"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lỗi sai thường gặp:</h4>
+                            <p class="text-[13px] text-slate-700 leading-snug">Nhầm dấu kết quả khi cộng khác dấu; quên chuyển phép trừ thành cộng số đối; nhầm $(-)\cdot(-) = (-)$; tính nhẩm ẩu không kiểm tra lại.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khối Quy tắc Dấu ngoặc -->
+                <div class="border border-purple-700 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-purple-700 text-white font-bold px-4 py-2.5 text-[17px] flex items-center justify-between">
+                        <span><i class="fa-solid fa-brackets-round mr-2 text-yellow-200"></i>6. Quy tắc Dấu ngoặc</span>
+                        <span class="text-xs bg-white/20 px-2.5 py-0.5 rounded-full font-normal">Quy tắc biến đổi</span>
+                    </div>
+                    <div class="p-4 bg-purple-50/20 flex-1 flex flex-col justify-between space-y-2.5">
+                        <div class="space-y-2 text-[14.5px] text-slate-800 font-medium">
+                            <div class="bg-white p-3 rounded-lg border border-purple-100 shadow-sm">
+                                <p class="text-emerald-700 font-bold flex items-center"><i class="fa-solid fa-circle-check mr-1.5"></i>Dấu "$+$" đằng trước ngoặc: Giữ nguyên dấu</p>
+                                <p class="text-center font-bold text-slate-800 py-1 text-[15px]">
+                                    $a + (b + c) = a + b + c$<br>
+                                    $a + (b - c) = a + b - c$
+                                </p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-purple-100 shadow-sm">
+                                <p class="text-rose-700 font-bold flex items-center"><i class="fa-solid fa-circle-exclamation mr-1.5"></i>Dấu "$-$" đằng trước ngoặc: Đổi dấu tất cả</p>
+                                <p class="text-center font-bold text-rose-700 py-1 text-[15px]">
+                                    $a - (b + c) = a - b - c$<br>
+                                    $a - (b - c) = a - b + c$
+                                </p>
+                                <p class="text-xs text-center text-slate-600 italic">Dấu "$+$" thành "$-$" và dấu "$-$" thành "$+$".</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-rose-50 border border-rose-200 p-2.5 rounded-xl">
+                            <h4 class="text-rose-700 font-bold text-[14px] flex items-center mb-0.5"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lỗi sai thường gặp:</h4>
+                            <ul class="list-disc pl-5 text-[13px] text-slate-700 space-y-0.5">
+                                <li>Quên đổi dấu các số hạng đứng sau: ví dụ viết $a - (b - c) = a - b - c$.</li>
+                                <li>Đổi dấu không đầy đủ các số hạng trong biểu thức dài.</li>
+                                <li>Bỏ ngoặc đúng nhưng bước tính cộng, trừ số nguyên tiếp theo bị sai.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: DẠNG 1: TÌM SỐ TỰ NHIÊN N ĐỂ (3N+5) LÀ BỘI CỦA (2N+1) -->
+    <div class="slide bg-white" id="slide-8">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 1: Tìm số tự nhiên n để (3n + 5) là bội của (2n + 1)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-5 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <!-- Đề bài -->
+                <div class="bg-brand-light border-l-[6px] border-brand-orange p-3.5 rounded-r-lg">
+                    <strong class="text-brand-orange text-lg flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài</strong>
+                    <p class="text-[16.5px] text-slate-800 font-semibold">
+                        Tìm số tự nhiên $n$ để $(3n + 5)$ là bội của $(2n + 1)$, tức là $(3n + 5) \vdots (2n + 1)$.
+                    </p>
+                </div>
+
+                <!-- 2 Cách giải -->
+                <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-b border-slate-200">
+                    <!-- Cách 1 -->
+                    <div class="p-4 bg-blue-50/20">
+                        <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2">
+                            <span class="bg-brand-blue text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">C1</span>
+                            Phương pháp khử $n$
+                        </h4>
+                        <div class="text-[14.5px] text-slate-800 space-y-1.5 leading-relaxed font-medium">
+                            <p>Ta có: $\begin{cases} (3n + 5) \vdots (2n + 1) \\ (2n + 1) \vdots (2n + 1) \end{cases}$</p>
+                            <p>Suy ra $\begin{cases} 2(3n + 5) \vdots (2n + 1) \\ 3(2n + 1) \vdots (2n + 1) \end{cases} \Rightarrow \begin{cases} (6n + 10) \vdots (2n + 1) \\ (6n + 3) \vdots (2n + 1) \end{cases}$</p>
+                            <p>Suy ra $\left[(6n + 10) - (6n + 3)\right] \vdots (2n + 1)$</p>
+                            <p>$\Rightarrow (6n + 10 - 6n - 3) \vdots (2n + 1) \Rightarrow 7 \vdots (2n + 1)$</p>
+                            <p>Do đó $2n + 1 \in$ Ư$(7) = \{1; 7\}$</p>
+                            <p>• $2n + 1 = 1 \Rightarrow 2n = 0 \Rightarrow n = 0$ (TM)<br>
+                               • $2n + 1 = 7 \Rightarrow 2n = 6 \Rightarrow n = 3$ (TM)</p>
+                            <p class="text-emerald-700 font-bold">Thử lại: $n \in \{0; 3\}$ đều thỏa mãn. Vậy $n \in \{0; 3\}$.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cách 2 -->
+                    <div class="p-4 bg-orange-50/20">
+                        <h4 class="text-brand-orange font-bold text-[15.5px] flex items-center mb-2">
+                            <span class="bg-brand-orange text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">C2</span>
+                            Phương pháp biến đổi theo số chia
+                        </h4>
+                        <div class="text-[14.5px] text-slate-800 space-y-1.5 leading-relaxed font-medium">
+                            <p>Ta có: $(3n + 5) \vdots (2n + 1)$</p>
+                            <p>Suy ra $2 \cdot (3n + 5) \vdots (2n + 1) \Rightarrow (6n + 10) \vdots (2n + 1)$</p>
+                            <p>Tách số bị chia xuất hiện $(2n + 1)$:</p>
+                            <p>$\Rightarrow (6n + 3 + 7) \vdots (2n + 1) \Rightarrow \left[3(2n + 1) + 7\right] \vdots (2n + 1)$</p>
+                            <p>Vì $3(2n + 1) \vdots (2n + 1)$ nên $7 \vdots (2n + 1)$</p>
+                            <p>Do đó $2n + 1 \in$ Ư$(7) = \{1; 7\} \Rightarrow n \in \{0; 3\}$</p>
+                            <p class="text-emerald-700 font-bold">Thử lại: $n \in \{0; 3\}$ đều thỏa mãn. Vậy $n \in \{0; 3\}$.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box Lỗi sai & Lưu ý -->
+                <div class="grid grid-cols-1 md:grid-cols-2 p-3.5 bg-slate-50 gap-4">
+                    <div class="bg-rose-50 border border-rose-200 p-2.5 rounded-lg text-[14px]">
+                        <p class="text-rose-700 font-bold mb-1"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lỗi sai của học sinh:</p>
+                        <p>❌ <strong>Quên phép thử lại</strong> sau khi tìm ra $n$.<br>
+                           ❌ <strong>Sai lầm khi trừ triệt tiêu $n$:</strong> Viết $[(6n+10) - (6n+3)] \Rightarrow 6n+10 - 6n + 3 = 13 \vdots (2n+1)$ (quên đổi dấu số hạng thứ hai).</p>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 p-2.5 rounded-lg text-[14px]">
+                        <p class="text-emerald-800 font-bold mb-1"><i class="fa-solid fa-chalkboard-user mr-1.5"></i>Giáo viên lưu ý:</p>
+                        <p>Vì bước nhân $2$ vào $(3n+5)$ là phép biến đổi hệ quả $(\Rightarrow)$ chứ không tương đương $(\Leftrightarrow)$, nên <strong>bắt buộc phải có bước thử lại</strong> để khẳng định kết quả chính xác.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: DẠNG 2: CHỨNG MINH HAI SỐ NGUYÊN TỐ CÙNG NHAU (VÍ DỤ 1) -->
+    <div class="slide bg-white" id="slide-9">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-link mr-3 text-brand-orange"></i>Dạng 2: Số nguyên tố cùng nhau (Ví dụ 1: $n+1$ và $n+2$)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-5 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <!-- Đề bài -->
+                <div class="bg-brand-light border-l-[6px] border-brand-blue p-3.5 rounded-r-lg">
+                    <strong class="text-brand-blue text-lg flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 1)</strong>
+                    <p class="text-[16.5px] text-slate-800 font-semibold">
+                        Chứng minh hai số $(n + 1)$ và $(n + 2)$ là hai số nguyên tố cùng nhau với mọi $n \in \mathbb{N}$.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200">
+                    <!-- Hướng dẫn giải (7/12) -->
+                    <div class="p-4 md:col-span-7 bg-blue-50/20">
+                        <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2.5">
+                            <i class="fa-solid fa-pen-nib mr-2 text-brand-orange"></i>Hướng dẫn giải chuẩn 5 bước:
+                        </h4>
+                        <div class="text-[15px] text-slate-800 space-y-1.5 font-medium leading-relaxed">
+                            <p>• <strong>Bước 1:</strong> Gọi $d =$ ƯCLN$(n+1, n+2) \quad (d \in \mathbb{N}^*)$.</p>
+                            <p>• <strong>Bước 2:</strong> Vì $d$ là ƯCLN nên: $\begin{cases} (n+1) \vdots d \\ (n+2) \vdots d \end{cases}$</p>
+                            <p>• <strong>Bước 3:</strong> Sử dụng tính chất hiệu chia hết: $\left[(n+2) - (n+1)\right] \vdots d$</p>
+                            <p>• <strong>Bước 4:</strong> $\Rightarrow (n + 2 - n - 1) \vdots d \Rightarrow 1 \vdots d \Rightarrow d = 1$ (thỏa mãn).</p>
+                            <p>• <strong>Bước 5:</strong> Do ƯCLN$(n+1, n+2) = 1$.</p>
+                            <p class="text-emerald-700 font-bold pt-1">
+                                $\Rightarrow$ Vậy $(n+1)$ và $(n+2)$ là hai số nguyên tố cùng nhau với mọi $n \in \mathbb{N}$ (đpcm).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lỗi sai thường gặp (5/12) -->
+                    <div class="p-4 md:col-span-5 bg-rose-50/30">
+                        <h4 class="text-rose-700 font-bold text-[15.5px] flex items-center mb-2.5">
+                            <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai học sinh thường gặp:
+                        </h4>
+                        <ul class="space-y-2 text-[14px] text-slate-700 leading-snug">
+                            <li class="bg-white p-2.5 rounded-lg border border-rose-100 shadow-sm">
+                                <strong class="text-rose-800 block mb-0.5">1. Thiếu điều kiện của $d$:</strong>
+                                <span>Quên đặt điều kiện $d \in \mathbb{N}^*$ khi gọi $d$ là ƯCLN.</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-lg border border-rose-100 shadow-sm">
+                                <strong class="text-rose-800 block mb-0.5">2. Trình bày sai phép trừ:</strong>
+                                <span>Viết $[(n+2) - (n+1)] \vdots d \Rightarrow n+2 - n + 1 = 3 \vdots d$ (quên đổi dấu số hạng trong ngoặc).</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-lg border border-rose-100 shadow-sm">
+                                <strong class="text-rose-800 block mb-0.5">3. Chưa kết luận đúng yêu cầu:</strong>
+                                <span>Sau khi tìm ra $d = 1$ học sinh dừng lại luôn mà không có câu kết luận cuối cùng trả lời câu hỏi của đề bài.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chú ý GV -->
+                <div class="p-3 bg-emerald-50 border-t border-emerald-200 text-[14.5px] text-emerald-900 font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-chalkboard-user text-emerald-700 text-lg"></i>
+                    <span><strong>Giáo viên lưu ý:</strong> Rèn cho học sinh nề nếp trình bày đầy đủ cả 5 bước; nhấn mạnh dấu ngoặc khi lập hiệu triệt tiêu để tránh nhầm dấu cơ bản.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: DẠNG 2: TÌM N ĐỂ HAI SỐ NGUYÊN TỐ CÙNG NHAU (VÍ DỤ 2) -->
+    <div class="slide bg-white" id="slide-10">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-filter mr-3 text-brand-orange"></i>Dạng 2: Số nguyên tố cùng nhau (Ví dụ 2: Tìm n)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-5 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <!-- Đề bài -->
+                <div class="bg-brand-light border-l-[6px] border-brand-orange p-3.5 rounded-r-lg">
+                    <strong class="text-brand-orange text-lg flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
+                    <p class="text-[16.5px] text-slate-800 font-semibold">
+                        Tìm số tự nhiên $n$ để $(3n + 1)$ và $(n + 2)$ là hai số nguyên tố cùng nhau.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200">
+                    <!-- Lời giải (7/12) -->
+                    <div class="p-4 md:col-span-7 bg-blue-50/20">
+                        <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2">
+                            <i class="fa-solid fa-calculator mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết:
+                        </h4>
+                        <div class="text-[14.5px] text-slate-800 space-y-1.5 font-medium leading-relaxed">
+                            <p>• Gọi $d =$ ƯCLN$(3n+1, n+2) \quad (d \in \mathbb{N}^*)$.</p>
+                            <p>• Do đó: $\begin{cases} (3n+1) \vdots d \\ (n+2) \vdots d \end{cases} \Rightarrow \begin{cases} (3n+1) \vdots d \\ 3(n+2) \vdots d \end{cases} \Rightarrow \begin{cases} (3n+1) \vdots d \\ (3n+6) \vdots d \end{cases}$</p>
+                            <p>• Suy ra $\left[(3n+6) - (3n+1)\right] \vdots d \Rightarrow 5 \vdots d \Rightarrow d \in$ Ư$(5) = \{1; 5\}$.</p>
+                            <p>• Để $(3n+1)$ và $(n+2)$ là hai số nguyên tố cùng nhau thì $d = 1$, tức là $d \neq 5$.</p>
+                            <p>• Khi đó $(n+2)$ không chia hết cho $5$, tức là:</p>
+                            <p class="text-center font-bold text-rose-700 py-0.5 text-[15.5px]">
+                                $n + 2 \neq 5k \quad (k \in \mathbb{N}^*) \Rightarrow n \neq 5k - 2 \quad (k \in \mathbb{N}^*)$
+                            </p>
+                            <p class="text-emerald-700 font-bold">
+                                Vậy $(3n+1)$ và $(n+2)$ nguyên tố cùng nhau khi $n \neq 5k - 2 \ (k \in \mathbb{N}^*)$.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lỗi sai & Kiến thức chốt (5/12) -->
+                    <div class="p-4 md:col-span-5 bg-amber-50/30">
+                        <h4 class="text-amber-800 font-bold text-[15px] flex items-center mb-2">
+                            <i class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></i>Lỗi sai học sinh thường mắc:
+                        </h4>
+                        <ul class="space-y-1.5 text-[13.5px] text-slate-700">
+                            <li>❌ <strong>Hiểu sai khái niệm:</strong> Nghĩ hai số phải là số nguyên tố.</li>
+                            <li>❌ <strong>Thiếu điều kiện:</strong> Quên $d \in \mathbb{N}^*$.</li>
+                            <li>❌ <strong>Không biết cách khử $n$:</strong> Chưa biết nhân $3$ vào $(n+2)$.</li>
+                            <li>❌ <strong>Viết sai hiệu:</strong> $(3n+6) - (3n+1)$ thành $3n+6 - 3n + 1 = 7$.</li>
+                        </ul>
+
+                        <div class="mt-3 bg-white p-3 rounded-xl border border-amber-200 shadow-sm">
+                            <h5 class="font-bold text-brand-blue text-[14px] mb-1"><i class="fa-solid fa-key mr-1.5 text-brand-orange"></i>Kiến thức trọng tâm cần chốt:</h5>
+                            <p class="text-[13px] text-slate-700 leading-snug">
+                                Gọi ƯCLN là $d \rightarrow$ chia từng biểu thức cho $d \rightarrow$ nhân hệ số tạo hiệu triệt tiêu $n \rightarrow$ tìm ước của số nhỏ $\rightarrow$ <strong>chọn $d = 1$ và loại trường hợp $d > 1$</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: DẠNG 3: BÀI TOÁN THỰC TẾ LIÊN QUAN ĐẾN BCNN -->
+    <div class="slide bg-white" id="slide-11">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-egg mr-3 text-brand-orange"></i>Dạng 3: Bài toán thực tế liên quan đến BCNN</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-5 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <!-- Đề bài -->
+                <div class="bg-brand-light border-l-[6px] border-brand-blue p-3.5 rounded-r-lg">
+                    <strong class="text-brand-blue text-lg flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài</strong>
+                    <p class="text-[16px] text-slate-800 font-semibold leading-relaxed">
+                        Một nông trại có ít hơn $250$ quả trứng. Nếu xếp trứng vào các khay $8$ quả, khay $10$ quả hoặc khay $12$ quả thì đều thừa $5$ quả. Còn nếu xếp vào khay $7$ quả thì vừa đủ. Hỏi nông trại có bao nhiêu quả trứng?
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200">
+                    <!-- Lời giải (7/12) -->
+                    <div class="p-4 md:col-span-7 bg-blue-50/20">
+                        <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2">
+                            <i class="fa-solid fa-pen mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết:
+                        </h4>
+                        <div class="text-[14.5px] text-slate-800 space-y-1.5 font-medium leading-relaxed">
+                            <p>• Gọi số quả trứng của nông trại là $x$ (quả trứng; $x \in \mathbb{N}^*, x < 250$).</p>
+                            <p>• Khi xếp vào khay $8, 10, 12$ quả đều thừa $5$ quả nên:</p>
+                            <p class="text-center font-bold text-brand-blue">
+                                $(x - 5) \vdots 8; \ (x - 5) \vdots 10; \ (x - 5) \vdots 12 \Rightarrow (x - 5) \in$ BC$(8, 10, 12)$
+                            </p>
+                            <p>• Phân tích ra thừa số nguyên tố: $8 = 2^3; \ 10 = 2 \cdot 5; \ 12 = 2^2 \cdot 3$.</p>
+                            <p>• Khi đó BCNN$(8, 10, 12) = 2^3 \cdot 3 \cdot 5 = 120$.</p>
+                            <p>• Suy ra $(x - 5) \in$ B$(120) = \{0; 120; 240; 360; \dots\}$</p>
+                            <p>• Do đó $x \in \{5; 125; 245; 365; \dots\}$.</p>
+                            <p>• Vì $x < 250$ và khi xếp vào khay $7$ quả thì vừa đủ ($x \vdots 7$):</p>
+                            <p class="text-emerald-700 font-bold text-[15px]">
+                                $\Rightarrow x = 245$ (do $245 : 7 = 35$ và $245 < 250$).
+                            </p>
+                            <p class="text-brand-blue font-bold">Vậy số quả trứng của nông trại là $245$ quả.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lỗi sai thường gặp (5/12) -->
+                    <div class="p-4 md:col-span-5 bg-rose-50/30">
+                        <h4 class="text-rose-700 font-bold text-[15.5px] flex items-center mb-2.5">
+                            <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai học sinh thường gặp:
+                        </h4>
+                        <ul class="space-y-2.5 text-[14px] text-slate-700 leading-snug">
+                            <li class="bg-white p-2.5 rounded-lg border border-rose-100 shadow-sm">
+                                <strong class="text-rose-800 block mb-0.5">1. Thiếu đơn vị & điều kiện:</strong>
+                                <span>Đặt thiếu đơn vị (quả trứng) hoặc không chú ý điều kiện $x < 250$ của đề bài.</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-lg border border-rose-100 shadow-sm">
+                                <strong class="text-rose-800 block mb-0.5">2. Tính sai BCNN:</strong>
+                                <span>Phân tích thừa số nguyên tố sai hoặc nhầm lẫn giữa số mũ lớn nhất và nhỏ nhất.</span>
+                            </li>
+                            <li class="bg-white p-2.5 rounded-lg border border-rose-100 shadow-sm">
+                                <strong class="text-rose-800 block mb-0.5">3. Bỏ sót dữ kiện chia hết cho 7:</strong>
+                                <span>Tìm ra tập hợp giá trị của $x$ nhưng quên kiểm tra điều kiện xếp khay $7$ quả vừa đủ.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chú ý GV -->
+                <div class="p-3 bg-emerald-50 border-t border-emerald-200 text-[14px] text-emerald-900 font-medium flex items-center gap-2">
+                    <i class="fa-solid fa-chalkboard-user text-emerald-700 text-lg"></i>
+                    <span><strong>Giáo viên lưu ý:</strong> Rèn cho học sinh phương pháp mô hình hóa bài toán thực tế bằng ký hiệu toán học; gạch chân các từ khóa quan trọng: <em>"ít hơn 250"</em>, <em>"thừa 5 quả"</em>, <em>"vừa đủ 7 quả"</em>.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: KẾ HOẠCH TRONG THỜI GIAN TỚI: KHẢO SÁT & QUY ĐỊNH CHẤM, NHẬP ĐIỂM -->
+    <div class="slide bg-white" id="slide-12">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-clipboard-list mr-3 text-brand-orange"></i>4. Kế hoạch thời gian tới: Khảo sát & Chấm, nhập điểm</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center py-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-7 w-full max-w-[88rem] mx-auto my-auto items-stretch">
+                <!-- Cột Trái: Khảo sát & Nguyên tắc chấm -->
+                <div class="bg-blue-50 rounded-2xl border border-blue-200 shadow-sm p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-brand-blue text-xl mb-4 border-b border-blue-200 pb-2.5 flex items-center">
+                            <i class="fa-solid fa-bullseye mr-2.5 text-2xl text-brand-orange"></i> Bài kiểm tra khảo sát định kỳ (Tuần 11)
+                        </h3>
+                        <p class="text-[15px] text-slate-700 leading-relaxed mb-4">
+                            Đánh giá mức độ tiếp thu kiến thức, kỹ năng và sự tiến bộ của học sinh sau giai đoạn học tập đầu tiên. Kết quả là cơ sở để nắm bắt tình hình học tập và có định hướng hỗ trợ, điều chỉnh phương pháp kịp thời.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-sm">
+                            <h4 class="font-bold text-brand-blue text-[15.5px] flex items-center mb-1">
+                                <i class="fa-solid fa-clock mr-2 text-brand-orange"></i>Timeline hoàn thành (Bắt buộc)
+                            </h4>
+                            <p class="text-[14.5px] text-slate-700 font-medium">
+                                Hoàn thành chấm bài và nhận xét vào ngày <strong>$n + 2$</strong> (sau buổi học 2 ngày).
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-xl border border-blue-100 shadow-sm">
+                            <h4 class="font-bold text-brand-blue text-[15.5px] flex items-center mb-1">
+                                <i class="fa-solid fa-scale-balanced mr-2 text-brand-orange"></i>Nguyên tắc chấm thi
+                            </h4>
+                            <p class="text-[14.5px] text-slate-700 font-medium">
+                                Chấm nghiêm túc, khách quan, công bằng; đúng barem và hướng dẫn chấm đã thống nhất, <strong>tuyệt đối không tự ý thay đổi thang điểm</strong>.
+                            </p>
+                        </div>
+
+                        <div class="bg-red-50 p-3 rounded-xl border border-red-200 shadow-sm">
+                            <h4 class="font-bold text-red-700 text-[15px] flex items-center mb-1">
+                                <i class="fa-solid fa-lock mr-2 text-red-600"></i>Bảo mật điểm ban đầu
+                            </h4>
+                            <p class="text-[14px] text-red-700 leading-snug font-medium">
+                                Điểm bài thi có thể thay đổi sau quá trình rà soát của BPCM $\Rightarrow$ <strong>Giáo viên không đọc điểm cho học sinh theo điểm chấm ban đầu</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột Phải: Quy định nhập điểm -->
+                <div class="bg-orange-50 rounded-2xl border border-orange-200 shadow-sm p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-brand-orange text-xl mb-4 border-b border-orange-200 pb-2.5 flex items-center">
+                            <i class="fa-solid fa-list-check mr-2.5 text-2xl text-brand-blue"></i> Quy định chi tiết khi chấm & nhập điểm
+                        </h3>
+                    </div>
+
+                    <div class="space-y-2.5 text-[14.5px] text-slate-700 font-medium">
+                        <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-sm flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-pen-ruler"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Ghi rõ điểm thành phần:</strong>
+                                <span>Ghi đầy đủ, rõ ràng điểm từng câu/bài rồi tổng hợp điểm cuối cùng để BPCM kiểm tra, đối chiếu thuận lợi.</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-sm flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Đối chiếu thông tin học sinh:</strong>
+                                <span>Trước khi nhập điểm, kiểm tra kỹ Họ tên – Lớp – Mã học sinh để tránh nhầm lẫn học sinh.</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-sm flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-square-check"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Quy tắc điểm danh:</strong>
+                                <span>Có thi: Tích "Có mặt" và nhập điểm thực tế. Không thi: Tích "Vắng", tuyệt đối không nhập điểm.</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-sm flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-comma"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Ký hiệu số thập phân:</strong>
+                                <span>Sử dụng <strong>dấu phẩy (,)</strong> khi nhập điểm thập phân (ví dụ: $8,5$ thay vì $8.5$).</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-xl border border-orange-100 shadow-sm flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <strong class="text-orange-900 block mb-0.5">Học sinh ngoài danh sách:</strong>
+                                <span>Chủ động bổ sung đầy đủ họ tên và thông tin cần thiết vào danh sách trước khi nhập điểm.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: HƯỚNG DẪN NHẬP ĐIỂM & NHẬN XÉT MẪU BÀI KHẢO SÁT -->
+    <div class="slide bg-white" id="slide-13">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-comment-dots mr-3.5 text-brand-orange"></i>4. Hướng dẫn nhập điểm & Nhận xét mẫu bài khảo sát</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-start pt-3 pb-8 max-w-[82rem] mx-auto w-full">
+            <div class="bg-blue-50 border-2 border-brand-blue rounded-xl p-5 shadow-md flex flex-col relative overflow-hidden transition hover:shadow-lg w-full">
+                <div class="absolute -right-4 -bottom-4 opacity-5 text-[120px] text-blue-500"><i class="fa-solid fa-table"></i></div>
+                <div class="flex items-center justify-between mb-3.5 pb-2 border-b-2 border-blue-200 relative z-10">
+                    <h3 class="text-[19px] font-bold text-brand-blue flex items-center">
+                        <span class="bg-brand-blue text-white w-8 h-8 rounded-full flex items-center justify-center mr-2.5 shadow-sm text-sm"><i class="fa-solid fa-pen-clip"></i></span>
+                        Bảng quy chuẩn nhận xét bài kiểm tra khảo sát Quý I (Khối 6)
+                    </h3>
+                    <span class="bg-red-100 text-red-700 text-[13px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider animate-pulse">Bắt buộc theo mẫu</span>
+                </div>
+
+                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm relative z-10">
+                    <table class="w-full text-[15px]">
+                        <thead>
+                            <tr class="bg-brand-blue text-white">
+                                <th class="p-3 text-left w-[35%] border-r border-blue-400 font-semibold text-[16px]"><i class="fa-solid fa-list-check mr-2"></i>Dạng bài kiểm tra</th>
+                                <th class="p-3 text-left w-[65%] font-semibold text-[16px]"><i class="fa-solid fa-comment-dots mr-2"></i>Nội dung nhận xét chi tiết</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-4 align-top border-r border-slate-200 bg-slate-50/60">
+                                    <ul class="space-y-2.5 text-slate-800 font-medium text-[15.5px]">
+                                        <li class="flex items-start gap-2">
+                                            <span class="inline-block w-16 font-bold text-brand-blue flex-shrink-0">Bài 1:</span>
+                                            <span class="italic">Viết tập hợp, tính số phần tử của tập hợp.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="inline-block w-16 font-bold text-brand-blue flex-shrink-0">Bài 2:</span>
+                                            <span class="italic">Tính hợp lí.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="inline-block w-16 font-bold text-brand-blue flex-shrink-0">Bài 3:</span>
+                                            <span class="italic">Tìm $x$.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="inline-block w-16 font-bold text-brand-blue flex-shrink-0">Bài 4:</span>
+                                            <span class="italic">Dấu hiệu chia hết, chia có dư để giải bài toán có lời văn.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="inline-block w-16 font-bold text-brand-blue flex-shrink-0">Bài 5:</span>
+                                            <span class="italic">So sánh lũy thừa.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="inline-block w-16 font-bold text-brand-blue flex-shrink-0">Bài 6:</span>
+                                            <span class="italic">Bài toán nâng cao.</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="p-4 align-top space-y-3">
+                                    <!-- Hộp Vận dụng tốt -->
+                                    <div class="bg-green-50 border-l-4 border-green-500 p-3.5 rounded-r-lg shadow-sm">
+                                        <p class="mb-1.5"><span class="font-bold text-green-700 text-[16.5px] flex items-center"><i class="fa-solid fa-circle-check mr-2"></i>Con vận dụng tốt:</span></p>
+                                        <p class="text-slate-800 leading-relaxed pl-5 text-[15px] font-medium">
+                                            Con vận dụng tốt kiến thức vào làm dạng bài tập hợp: cách viết tập hợp, tính số phần tử của tập hợp. Áp dụng tốt tính chất giao hoán, kết hợp, phân phối vào làm các bài toán tính hợp lí, bài toán tìm $x$, vận dụng tốt vào các bài toán chia hết và chia có dư,...
+                                        </p>
+                                    </div>
+
+                                    <!-- Hộp Cần ôn tập thêm -->
+                                    <div class="bg-orange-50 border-l-4 border-brand-orange p-3.5 rounded-r-lg shadow-sm">
+                                        <p class="mb-1.5"><span class="font-bold text-brand-orange text-[16.5px] flex items-center"><i class="fa-solid fa-arrow-trend-up mr-2"></i>Con cần ôn tập thêm:</span></p>
+                                        <p class="text-slate-800 leading-relaxed pl-5 text-[15px] font-medium">
+                                            Con cần ôn tập thêm dạng bài so sánh lũy thừa (dạng bài đưa về cùng cơ số hoặc đưa về cùng số mũ để so sánh) và các bài toán nâng cao.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: Q&A (THẢO LUẬN VÀ GÓP Ý) -->
+    <div class="slide bg-white" id="slide-14">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i class="fa-solid fa-comments mr-3 text-brand-orange"></i>5. Thảo luận và góp ý</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col items-center justify-center text-center relative overflow-hidden">
+            <div class="absolute top-12 left-12 w-72 h-72 bg-brand-orange/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-12 right-12 w-80 h-80 bg-brand-blue/5 rounded-full blur-3xl"></div>
+
+            <div class="text-[100px] text-brand-orange mb-4 opacity-85 z-10 animate-bounce">
+                <i class="fa-regular fa-circle-question"></i>
+            </div>
+            <h3 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4 z-10">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?</h3>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed z-10 font-medium">
+                Ban Chuyên Môn Khối 6 luôn sẵn sàng lắng nghe những chia sẻ, khó khăn thực tế và đóng góp quý báu từ các Thầy Cô để công tác giảng dạy ngày càng hoàn thiện, chất lượng và đồng bộ trên toàn hệ thống MathExpress.
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 15: CẢM ƠN -->
+    <div class="slide" id="slide-15">
+        <div class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden h-[100dvh]">
+            <div class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]"></div>
+            <div class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]"></div>
+
+            <div class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50 z-10">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md" src="../../../logo.png" />
+            </div>
+
+            <h2 class="z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                CẢM ƠN CÁC THẦY CÔ!
+            </h2>
+
+            <div class="z-10 w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
+
+            <p class="z-10 text-2xl md:text-4xl font-medium text-slate-700 max-w-3xl px-4 tracking-wide drop-shadow-sm">
+                Chúc các Thầy Cô một năm học mới nhiều nhiệt huyết, thành công và tràn đầy năng lượng!
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Controls -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            let currentSlideIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateUI() {
+                if (totalSlides === 0) return;
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else if (slide.classList.contains('active')) {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `${currentSlideIndex + 1}/${totalSlides}`;
+                const progressPercentage = ((currentSlideIndex + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+            }
+
+            function nextSlide() {
+                if (currentSlideIndex < totalSlides - 1) {
+                    currentSlideIndex++;
+                    updateUI();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    updateUI();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'Space') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+
+            // Touch Swipe Gestures for Mobile Presentation Deck
+            let touchDeckStartX = 0;
+            let touchDeckStartY = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, #carousel-track')) return;
+                touchDeckStartX = e.changedTouches[0].clientX;
+                touchDeckStartY = e.changedTouches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal, #carousel-track')) return;
+                const touchDeckEndX = e.changedTouches[0].clientX;
+                const touchDeckEndY = e.changedTouches[0].clientY;
+                const deltaX = touchDeckEndX - touchDeckStartX;
+                const deltaY = touchDeckEndY - touchDeckStartY;
+                const swipeThreshold = 45;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+                    if (deltaX < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }, { passive: true });
+
+            updateUI();
+
+            // Fix: Overlay trên PDF chuyển tiếp sự kiện cuộn lên slide-content
+            const pdfOverlay = document.getElementById('pdf-overlay');
+            if (pdfOverlay) {
+                pdfOverlay.addEventListener('wheel', function (e) {
+                    const activeSlide = document.querySelector('.slide.active');
+                    if (activeSlide) {
+                        const content = activeSlide.querySelector('.slide-content');
+                        if (content) {
+                            content.scrollTop += e.deltaY;
+                        }
+                    }
+                    e.preventDefault();
+                }, { passive: false });
+            }
+        });
+    </script>
+    <!-- Lightbox Modal -->
+    <div class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300"
+        id="lightbox-modal">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-orange transition-colors"
+            onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img alt="Phóng to"
+            class="max-w-[90%] max-h-[90%] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300"
+            id="lightbox-img" src="" />
+    </div>
+    <script>
+        function openLightbox(imgElement) {
+            const modal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgElement.src;
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            const lightboxImg = document.getElementById('lightbox-img');
+            modal.classList.add('opacity-0');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Attach click events to images that are not logos
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img:not([alt*="Logo"])');
+            images.forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    openLightbox(this);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

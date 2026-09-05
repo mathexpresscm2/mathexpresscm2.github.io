@@ -1,5 +1,55 @@
 window.INITIAL_PRESENTATIONS = [
   {
+    "id": "pres-khoi6-tuan15",
+    "title": "Tuần 15 - Họp giáo viên khối 6",
+    "category": "Khối 6",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 6",
+    "speaker": "Ban Chuyên Môn Toán Khối 6 MathExpress",
+    "date": "2026-09-05",
+    "quarter": "Q3-2026",
+    "duration": "60 phút (15 slide tương tác)",
+    "fileSize": "Interactive HTML Deck",
+    "pdfUrl": "Meeting/Khoi 6/Tuan 15 - Hop khoi 6/Tháng 9-2026 Trao đổi chuyên môn.pdf",
+    "pptxUrl": "Meeting/Khoi 6/Tuan 15 - Hop khoi 6/Tháng 9-2026 Trao đổi chuyên môn.docx",
+    "webViewerUrl": "Meeting/Khoi 6/Tuan 15 - Hop khoi 6/index.html",
+    "summary": "Rà soát tồn đọng chuyên môn & tác phong, tiến độ khung chương trình Tháng 9 & 10 (SNT, ƯCLN, BCNN), phương pháp giải các dạng bài điển hình và kế hoạch kiểm tra khảo sát Quý I.",
+    "featured": true,
+    "tags": [
+      "Khối 6",
+      "Toán 6",
+      "Họp giáo viên",
+      "Số nguyên tố",
+      "ƯCLN - BCNN",
+      "Khung chương trình",
+      "Khảo sát Quý I"
+    ],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Họp Chuyên Môn Khối 6 - Tháng 9/2026",
+        "subtitle": "Tuần 15 - Rà soát chuyên môn & Kế hoạch Khảo sát Quý I",
+        "content": "<ul><li><strong>Tồn đọng & Hạn chế:</strong> Chấn chỉnh việc dạy sai kiến thức, dạy sai thứ tự bài học, phân bổ thời gian chưa hợp lý và tác phong sư phạm (trang phục, thẻ tên, có mặt trước 05 phút).</li><li><strong>Khung chương trình:</strong> Rà soát kế hoạch giảng dạy Tháng 9 & 10 cho các phân lớp (Chuyên, Nâng cao, Mở rộng, Cơ bản), chuẩn bị kiểm tra Quý I.</li><li><strong>Kiến thức trọng tâm:</strong> Số nguyên tố, Hợp số, Phân tích thừa số nguyên tố, ƯCLN & BCNN, Phép toán số nguyên và quy tắc dấu ngoặc.</li><li><strong>Dạng bài lưu ý:</strong> Bài toán chia hết (khử n, biến đổi số chia), Chứng minh số nguyên tố cùng nhau và Bài toán thực tế BCNN.</li><li><strong>Kế hoạch thời gian tới:</strong> Tổ chức khảo sát định kỳ Tuần 11, quy chuẩn chấm điểm (deadline n+2) và bảng nhận xét mẫu.</li></ul>",
+        "notes": "Yêu cầu giáo viên nghiên cứu kỹ nội dung bài dạy trước khi lên lớp, đảm bảo có mặt trước tối thiểu 05 phút và hoàn thành chấm khảo sát đúng deadline n+2.",
+        "badge": "Trọng tâm Khối 6"
+      },
+      {
+        "page": 2,
+        "title": "Các Dạng Toán Trọng Tâm Cần Lưu Ý",
+        "subtitle": "Phương pháp giải chuẩn & Phân tích lỗi sai của học sinh",
+        "content": "<ul><li><strong>Dạng 1:</strong> Tìm n để (3n+5) là bội của (2n+1) - Triển khai 2 cách giải (khử n và biến đổi theo số chia), bắt buộc học sinh có bước thử lại.</li><li><strong>Dạng 2:</strong> Chứng minh n+1 và n+2 nguyên tố cùng nhau (5 bước chuẩn); Tìm n để 3n+1 và n+2 nguyên tố cùng nhau.</li><li><strong>Dạng 3:</strong> Bài toán thực tế BCNN (nông trại trứng gà ít hơn 250 quả).</li></ul>",
+        "notes": "Nhấn mạnh dấu ngoặc khi thực hiện phép trừ triệt tiêu n để tránh lỗi sai dấu cơ bản của học sinh.",
+        "badge": "Chuyên môn"
+      }
+    ],
+    "actionItems": [
+      "Nghiên cứu kỹ yêu cầu cần đạt và phương pháp bài dạy trước mỗi buổi lên lớp.",
+      "Bám sát phân phối chương trình, tuyệt đối không tự ý đảo thứ tự bài học.",
+      "Tuân thủ quy chuẩn tác phong: đeo thẻ dây, trang phục sư phạm, có mặt trước 05 phút.",
+      "Hoàn thành chấm bài và nhận xét khảo sát định kỳ Quý I đúng hạn n + 2."
+    ]
+  },
+  {
     "id": "pres-khoi6-tuan5",
     "title": "Tháng 7 - Họp giáo viên khối 6 (Tuần 5)",
     "category": "Khối 6",
@@ -297,6 +347,17 @@ window.INITIAL_PRESENTATIONS = [
 ];
 
 window.INITIAL_ANNOUNCEMENTS = [
+  {
+    "id": "anc-003",
+    "title": "Cập Nhật Bản Trình Chiếu: Tuần 15 - Họp Giáo Viên Khối 6",
+    "date": "2026-09-05",
+    "author": "Ban Chuyên Môn Khối 6",
+    "category": "Tài nguyên mới",
+    "priority": "High",
+    "summary": "Đã cập nhật toàn bộ 15 slide cuộc họp chuyên môn Khối 6 Tháng 9/2026: Rà soát khung chương trình, kiến thức trọng tâm Số học và hướng dẫn nhận xét khảo sát Quý I.",
+    "content": "Toàn bộ Giáo viên Khối 6 có thể xem trực tiếp bản trình chiếu tương tác (HTML) hoặc tải file PDF/DOCX tài liệu cuộc họp.",
+    "badge": "MỚI"
+  },
   {
     "id": "anc-001",
     "title": "Thông Báo Lịch Họp Chuyên Môn Toán Quý 3 & Tập Huấn Trợ Giảng Mới K2026",

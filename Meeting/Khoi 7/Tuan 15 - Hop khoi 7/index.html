@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MathExpress - Trao đổi Giáo viên Khối 7 (Tuần 15)</title>
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- MathJax -->
+    <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+
+    <!-- TikzJax -->
+    <link href="https://tikzjax.com/v1/fonts.css" rel="stylesheet" type="text/css" />
+    <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#005b9f',
+                            orange: '#f26522',
+                            light: '#f0f7fb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f8fafc;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(20px) scale(0.98);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+            z-index: 10;
+        }
+
+        .slide-content {
+            flex-grow: 1;
+            padding: 2rem 3.5rem;
+            overflow-y: auto;
+            padding-bottom: 5.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .slide-header {
+            border-bottom: 4px solid #f26522;
+        }
+
+        .table-custom th,
+        .table-custom td {
+            border: 1px solid #cbd5e1;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                padding: 1rem 1rem 5rem 1rem !important;
+                min-height: 0 !important;
+            }
+
+            .slide-header {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+        }
+
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 1600px !important;
+                height: auto !important;
+                min-height: auto !important;
+                overflow: visible !important;
+                background: white !important;
+            }
+
+            .slide {
+                position: relative !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                width: 1600px !important;
+                min-height: 900px !important;
+                height: auto !important;
+                page-break-after: always;
+                break-after: page;
+                overflow: visible !important;
+            }
+
+            .slide-content {
+                overflow: visible !important;
+                padding-bottom: 2rem !important;
+            }
+
+            .fixed {
+                display: none !important;
+            }
+
+            .force-page-break-before {
+                page-break-before: always !important;
+                break-before: page !important;
+                padding-top: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 bg-pattern h-[100dvh] w-full flex flex-col relative print:h-auto print:w-auto">
+    <!-- Nút điều hướng -->
+    <div
+        class="fixed bottom-6 right-8 z-50 flex gap-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-slate-200">
+        <button
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-brand-blue hover:text-white transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            id="prevBtn">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="flex items-center font-semibold text-slate-500 min-w-[3rem] justify-center" id="slideCounter">1/14
+        </div>
+        <button
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-brand-orange text-white hover:bg-orange-600 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            id="nextBtn">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Thanh tiến trình -->
+    <div class="fixed top-0 left-0 h-1.5 bg-slate-200 w-full z-50">
+        <div class="h-full bg-brand-orange transition-all duration-300 w-0" id="progressBar"></div>
+    </div>
+
+    <!-- CÁC SLIDE BẮT ĐẦU TỪ ĐÂY -->
+
+    <!-- SLIDE 1: TRANG BÌA -->
+    <div class="slide active" id="slide-1">
+        <div
+            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden h-[100dvh]">
+            <div
+                class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]">
+            </div>
+            <div
+                class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]">
+            </div>
+
+            <div
+                class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50 z-10">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md"
+                    src="../../../logo.png" />
+            </div>
+
+            <h2
+                class="z-10 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                HỌP CHUYÊN MÔN KHỐI 7
+            </h2>
+
+            <div
+                class="z-10 w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg">
+            </div>
+
+            <p class="z-10 text-2xl md:text-4xl font-medium text-slate-700 max-w-2xl px-4 tracking-wide drop-shadow-sm">
+                Tháng 9 - 2026
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: NỘI DUNG TRAO ĐỔI -->
+    <div class="slide bg-white" id="slide-2">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-3xl md:text-[40px] font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-list-check mr-3 text-brand-orange"></i>Nội dung trao đổi</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex justify-center md:items-center relative">
+            <!-- Background decorations -->
+            <div class="absolute top-10 left-10 w-64 h-64 bg-brand-orange/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-6xl px-4 relative z-10">
+                <!-- Mục 1 -->
+                <div
+                    class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-7 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-brand-orange rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        1</div>
+                    <h3 class="text-[24px] md:text-[26px] font-bold text-brand-orange mb-3 leading-tight">
+                        Khung chương trình trong thời gian tới</h3>
+                    <p class="text-orange-950/80 text-base md:text-lg leading-relaxed">
+                        Kế hoạch phân phối chương trình Tháng 9 & Tháng 10 theo từng cấp độ lớp.</p>
+                </div>
+
+                <!-- Mục 2 -->
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-white border-l-[6px] border-brand-blue p-7 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 text-brand-blue rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        2</div>
+                    <h3 class="text-[24px] md:text-[26px] font-bold text-brand-blue mb-3 leading-tight">
+                        Tồn tại, hạn chế</h3>
+                    <p class="text-blue-950/80 text-base md:text-lg leading-relaxed">
+                        Đánh giá các lỗi về phiếu bài và những tồn tại trong công tác giảng dạy.</p>
+                </div>
+
+                <!-- Mục 3 -->
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-white border-l-[6px] border-brand-blue p-7 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 text-brand-blue rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        3</div>
+                    <h3 class="text-[24px] md:text-[26px] font-bold text-brand-blue mb-3 leading-tight">
+                        Nhập điểm & Nhận xét</h3>
+                    <p class="text-blue-950/80 text-base md:text-lg leading-relaxed">
+                        Lưu ý công tác coi thi, chấm điểm và hướng dẫn nhận xét khảo sát Quý I.</p>
+                </div>
+
+                <!-- Mục 4 -->
+                <div
+                    class="bg-gradient-to-br from-orange-50 to-white border-l-[6px] border-brand-orange p-7 md:p-8 rounded-2xl shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-brand-orange rounded-2xl flex items-center justify-center text-4xl font-bold mb-5 shadow-sm">
+                        4</div>
+                    <h3 class="text-[24px] md:text-[26px] font-bold text-brand-orange mb-3 leading-tight">
+                        Trao đổi chuyên môn</h3>
+                    <p class="text-orange-950/80 text-base md:text-lg leading-relaxed">
+                        Chuyên đề Tam giác bằng nhau, Tỉ lệ thức và phân tích các ngộ nhận hình học.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: KHUNG CHƯƠNG TRÌNH TRONG THỜI GIAN TỚI -->
+    <div class="slide bg-white" id="slide-3">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-calendar-days mr-3 text-brand-orange"></i>1. Khung chương trình trong thời gian tới</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center items-center py-3 px-4">
+            <div class="w-full max-w-[98%] mx-auto overflow-hidden rounded-xl border border-slate-300 shadow-sm bg-white">
+                <table class="w-full text-[14.5px] md:text-[15.5px] text-slate-800 border-collapse table-custom"
+                    style="line-height: 1.3;">
+                    <thead>
+                        <tr class="bg-brand-blue text-white text-[15px] md:text-[16px]">
+                            <th colspan="2" class="py-2.5 border border-slate-300 w-[15%]">Thời gian</th>
+                            <th class="py-2.5 border border-slate-300 w-[7%]">Buổi học</th>
+                            <th class="py-2.5 border border-slate-300 w-[26%]">Định hướng chuyên</th>
+                            <th class="py-2.5 border border-slate-300 w-[26%]">Nâng cao</th>
+                            <th class="py-2.5 border border-slate-300 w-[26%]">Mở rộng & Cơ bản</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tháng 9 -->
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td rowspan="4"
+                                class="font-bold text-slate-900 bg-rose-100 border border-slate-300 text-center w-[75px] whitespace-nowrap px-1">
+                                Tháng 9
+                            </td>
+                            <td class="border border-slate-300 text-center py-1.5">03/09 - 09/09</td>
+                            <td class="border border-slate-300 text-center font-semibold text-red-600 py-1.5">9</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Giá trị tuyệt đối của một số thực</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Giá trị tuyệt đối của một số thực</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Giá trị tuyệt đối của một số thực</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-1.5">10/09 - 16/09</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">10</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Trường hợp bằng nhau thứ nhất và thứ hai của tam giác</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Trường hợp bằng nhau thứ nhất và thứ hai của tam giác</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Tổng ba góc trong 1 tam giác</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-1.5">17/09 - 23/09</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">11</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Trường hợp bằng nhau thứ hai và thứ ba của tam giác</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Trường hợp bằng nhau thứ hai và thứ ba của tam giác</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Ôn tập tổng hợp</td>
+                        </tr>
+                        <tr class="bg-green-400 font-bold text-slate-900 border-b-2 border-slate-400">
+                            <td class="border border-slate-300 text-center py-1.5">24/09 - 30/09</td>
+                            <td class="border border-slate-300 text-center py-1.5">12</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5 text-center">Kiểm tra quý 1</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5 text-center">Kiểm tra quý 1</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5 text-center">Kiểm tra quý 1</td>
+                        </tr>
+
+                        <!-- Tháng 10 -->
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td rowspan="5"
+                                class="font-bold text-slate-900 bg-emerald-100 border border-slate-300 text-center w-[75px] whitespace-nowrap px-1">
+                                Tháng 10
+                            </td>
+                            <td class="border border-slate-300 text-center py-1.5">01/10 - 07/10</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">13</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Các bài toán về chia hết với số nguyên</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Các bài toán về chia hết với số nguyên</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Hai tam giác bằng nhau. Trường hợp bằng nhau thứ nhất</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-1.5">08/10 - 14/10</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">14</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Các bài toán về số nguyên tố</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Các bài toán về số nguyên tố</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Trường hợp bằng nhau thứ hai</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-1.5">15/10 - 21/10</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">15</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Tam giác cân, Tam giác đều</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Tam giác cân, Tam giác đều</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Trường hợp bằng nhau thứ ba của tam giác</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 border-b border-slate-300">
+                            <td class="border border-slate-300 text-center py-1.5">22/10 - 28/10</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">16</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Luyện tập tam giác cân, tam giác đều</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Luyện tập tam giác cân, tam giác đều</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Tỉ lệ thức - TC dãy tỉ số bằng nhau (buổi 1)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="border border-slate-300 text-center py-1.5">29/10 - 04/11</td>
+                            <td class="border border-slate-300 text-center font-semibold py-1.5">17</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Ôn tập và kiểm tra tháng</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Ôn tập và kiểm tra tháng</td>
+                            <td class="border border-slate-300 px-2.5 py-1.5">Tỉ lệ thức - TC dãy tỉ số bằng nhau (buổi 2)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Card Chân trang chuẩn Tuần 02 -->
+            <div
+                class="w-full max-w-[98%] mt-4 bg-orange-50/90 border border-orange-200 rounded-xl p-3.5 flex items-start shadow-sm relative overflow-hidden group hover:bg-orange-100 transition-colors">
+                <div class="absolute -right-2 -bottom-4 opacity-10 text-6xl text-brand-orange"><i
+                        class="fa-solid fa-bullseye"></i></div>
+                <i
+                    class="fa-solid fa-lightbulb text-brand-orange text-2xl mt-0.5 mr-3.5 group-hover:scale-110 transition-transform z-10"></i>
+                <div class="relative z-10">
+                    <h4 class="font-bold text-brand-orange text-[16px] mb-0.5">Các chuyên đề trọng tâm trong thời gian tới:</h4>
+                    <p class="text-[15px] text-slate-700 leading-relaxed">
+                        Chương trình trong 2 tháng tới sẽ tập trung vào các chuyên đề: <span
+                            class="font-semibold text-brand-blue">Giá trị tuyệt đối của số thực, Tam giác bằng nhau, Tam giác cân & tam giác đều, Tỉ lệ thức và Tính chất dãy tỉ số bằng nhau</span> bám sát định hướng của từng mức độ phân lớp.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: TỒN TẠI VÀ HẠN CHẾ -->
+    <div class="slide bg-white" id="slide-4">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-3xl md:text-[38px] font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-triangle-exclamation mr-3.5 text-brand-orange"></i>2. Tồn tại và hạn chế</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center py-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-[86rem] mx-auto my-auto items-stretch">
+                <!-- Cột Trái: Lỗi phiếu bài -->
+                <div class="bg-rose-50 rounded-2xl border border-rose-200 shadow-sm p-7 xl:p-8 flex flex-col relative overflow-hidden transition hover:shadow-md">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-rose-500"><i
+                            class="fa-solid fa-print"></i></div>
+                    <h3 class="font-bold text-rose-700 text-2xl mb-5 border-b border-rose-200 pb-3.5 flex items-center relative z-10">
+                        <i class="fa-solid fa-print mr-3.5 text-3xl"></i> Các lỗi về phiếu bài
+                    </h3>
+                    <ul class="space-y-4 text-[19.5px] text-slate-800 relative z-10 font-medium">
+                        <li class="flex items-center gap-4 bg-white/80 py-3.5 px-4 rounded-2xl border border-rose-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-xl shadow-sm">
+                                <i class="fa-solid fa-user-pen"></i>
+                            </div>
+                            <span>Giáo viên quên điền họ tên ở phiếu bài.</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-white/80 py-3.5 px-4 rounded-2xl border border-rose-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-xl shadow-sm">
+                                <i class="fa-solid fa-square-root-variable"></i>
+                            </div>
+                            <span>Phiếu bài còn lỗi kí hiệu toán học.</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-white/80 py-3.5 px-4 rounded-2xl border border-rose-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-xl shadow-sm">
+                                <i class="fa-solid fa-file-lines"></i>
+                            </div>
+                            <span>Hình thức chưa chuẩn.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cột Phải: Hạn chế giảng dạy -->
+                <div class="bg-orange-50 rounded-2xl border border-orange-200 shadow-sm p-7 xl:p-8 flex flex-col relative overflow-hidden transition hover:shadow-md">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-brand-orange"><i
+                            class="fa-solid fa-clock"></i></div>
+                    <h3 class="font-bold text-brand-orange text-2xl mb-5 border-b border-orange-200 pb-3.5 flex items-center relative z-10">
+                        <i class="fa-solid fa-clock mr-3.5 text-3xl"></i> Các tồn tại trong giảng dạy
+                    </h3>
+                    <ul class="space-y-3.5 text-[18px] text-slate-800 relative z-10 font-medium leading-snug">
+                        <li class="flex items-start gap-4 bg-white/80 py-3 px-4 rounded-2xl border border-orange-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-xl shadow-sm mt-0.5">
+                                <i class="fa-solid fa-stopwatch-20"></i>
+                            </div>
+                            <span><strong>Phân bổ thời gian chưa hợp lý:</strong> Nhiều GV mất quá nhiều thời gian ở bài tập cơ bản, dẫn đến cháy giáo án ở các bài chốt.</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-white/80 py-3 px-4 rounded-2xl border border-orange-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-xl shadow-sm">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <span>GV không nêu mục tiêu của buổi học mà học sinh cần nắm được.</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-white/80 py-3 px-4 rounded-2xl border border-orange-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-xl shadow-sm">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <span>Bao quát lớp chưa tốt, chưa hỗ trợ học sinh trong quá trình giảng dạy.</span>
+                        </li>
+                        <li class="flex items-center gap-4 bg-white/80 py-3 px-4 rounded-2xl border border-orange-100 shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-xl shadow-sm">
+                                <i class="fa-solid fa-pen-ruler"></i>
+                            </div>
+                            <span>Kĩ năng trình bày bảng chưa chỉn chu (vẽ hình không dùng thước kẻ, không chia bố cục bảng,…).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: NHẬP ĐIỂM & NHẬN XÉT BÀI THI (KẾT HỢP) -->
+    <div class="slide bg-white" id="slide-5">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-[26px] md:text-[34px] font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-pen-clip mr-3.5 text-brand-orange"></i>3. Nhập điểm & Nhận xét bài thi KS Quý I</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-start pt-3 pb-8 max-w-[79rem] mx-auto w-full">
+            <!-- Phần 1: Lưu ý Coi thi & Chấm điểm (2 cột) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full mb-3.5">
+                <!-- Coi thi -->
+                <div class="bg-rose-50 border border-rose-200 rounded-xl p-4 flex items-start gap-3.5 shadow-sm">
+                    <div class="w-11 h-11 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center text-xl flex-shrink-0 mt-0.5 shadow-sm">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-rose-700 text-[16.5px] mb-1">Công tác coi thi</h4>
+                        <p class="text-[16px] text-slate-800 leading-snug font-medium">
+                            Giáo viên coi thi chưa chặt, còn sử dụng điện thoại thời gian dài trong quá trình coi thi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chấm thi & Nhập điểm -->
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-start gap-3.5 shadow-sm">
+                    <div class="w-11 h-11 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl flex-shrink-0 mt-0.5 shadow-sm">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-emerald-800 text-[16.5px] mb-1">Chấm thi & Nhập điểm</h4>
+                        <ul class="space-y-1 text-[15.5px] text-slate-800 font-medium leading-snug list-disc pl-4">
+                            <li>Chấm đúng theo thang điểm của CLB, không chấm sai, chấm nhầm điểm của học sinh.</li>
+                            <li>Ghi đầy đủ, rõ ràng <strong>điểm thành phần</strong> của từng bài để BPCM thuận tiện kiểm soát, đối chiếu.</li>
+                            <li>Thực hiện nhập điểm và nhận xét bài kiểm tra đúng hạn.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phần 2: Nhận xét mẫu bài kiểm tra -->
+            <div
+                class="bg-blue-50 border-2 border-brand-blue rounded-xl p-4.5 shadow-md flex flex-col relative overflow-hidden transition hover:shadow-lg w-full">
+                <div class="absolute -right-4 -bottom-4 opacity-5 text-[120px] text-blue-500"><i
+                        class="fa-solid fa-table"></i></div>
+                <div class="flex items-center justify-between mb-3 pb-2 border-b-2 border-blue-200 relative z-10">
+                    <h3 class="text-[19px] font-bold text-brand-blue flex items-center">
+                        <span
+                            class="bg-brand-blue text-white w-8 h-8 rounded-full flex items-center justify-center mr-2.5 shadow-sm text-sm"><i
+                                class="fa-solid fa-pen-clip"></i></span>
+                        Nhận xét mẫu bài kiểm tra của học sinh
+                    </h3>
+                    <span
+                        class="bg-red-100 text-red-700 text-[13px] font-bold px-3.5 py-1 rounded-full uppercase tracking-wider animate-pulse">Quan
+                        trọng</span>
+                </div>
+
+                <div class="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm relative z-10">
+                    <table class="w-full text-[15px]">
+                        <thead>
+                            <tr class="bg-brand-blue text-white">
+                                <th class="p-3 text-left w-[32%] border-r border-blue-400 font-semibold text-[16.5px]"><i
+                                        class="fa-solid fa-list-check mr-2"></i>Dạng bài</th>
+                                <th class="p-3 text-left w-[68%] font-semibold text-[16.5px]"><i
+                                        class="fa-solid fa-comment-dots mr-2"></i>Nội dung nhận xét</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-3.5 align-top border-r border-slate-200 bg-slate-50/50">
+                                    <ul class="space-y-2.5 text-slate-800 font-medium text-[15.5px]">
+                                        <li><span class="inline-block w-16 font-bold text-brand-blue">Bài 1:</span>
+                                            <span class="italic">Tính hợp lí</span>
+                                        </li>
+                                        <li><span class="inline-block w-16 font-bold text-brand-blue">Bài 2:</span>
+                                            <span class="italic">Tìm $x$.</span>
+                                        </li>
+                                        <li><span class="inline-block w-16 font-bold text-brand-blue">Bài 3:</span>
+                                            <span class="italic">Giải bài toán có lời văn (sử dụng tính chất của dãy tỉ số bằng nhau).</span>
+                                        </li>
+                                        <li><span class="inline-block w-16 font-bold text-brand-blue">Bài 4:</span>
+                                            <span class="italic">Sử dụng tính chất hai đường thẳng song song để tính góc, các bài toán liên quan tới tam giác bằng nhau.</span>
+                                        </li>
+                                        <li><span class="inline-block w-16 font-bold text-brand-blue">Bài 5:</span>
+                                            <span class="italic">Bài toán nâng cao.</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="p-3.5 align-top">
+                                    <div
+                                        class="bg-green-50 border-l-4 border-green-500 p-3 rounded-r-lg mb-2.5 shadow-sm">
+                                        <p class="mb-1.5"><span
+                                                class="font-bold text-green-700 text-[16.5px] flex items-center"><i
+                                                    class="fa-solid fa-circle-check mr-2"></i>Con vận dụng tốt:</span>
+                                        </p>
+                                        <p class="text-slate-800 leading-relaxed pl-5 text-[15px]">
+                                            Các dạng bài toán tính hợp lí; quy tắc phá dấu giá trị tuyệt đối và các phép toán cộng, trừ, nhân, chia số hữu tỉ để tìm x. Giải bài toán có lời văn (sử dụng tính chất của dãy tỉ số bằng nhau).<br>
+                                            Phần hình học con vận dụng tốt kiến thức vào làm các dạng bài sử dụng tính chất của hai đường thẳng song song và các góc ở vị trí đặc biệt để tính số đo góc; chứng minh hai tam giác bằng nhau để chỉ ra các cạnh, các góc tương ứng bằng nhau; chứng minh hai đường thẳng vuông góc.
+                                        </p>
+                                    </div>
+                                    <div class="bg-orange-50 border-l-4 border-brand-orange p-3 rounded-r-lg shadow-sm">
+                                        <p class="mb-1.5"><span
+                                                class="font-bold text-brand-orange text-[16.5px] flex items-center"><i
+                                                    class="fa-solid fa-arrow-trend-up mr-2"></i>Con cần ôn tập thêm:</span></p>
+                                        <p class="text-slate-800 leading-relaxed pl-5 text-[15px]">
+                                            Các dạng bài nâng cao sử dụng tính chất tỉ lệ thức và tính chất chia hết trong tập hợp số nguyên.
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: CHUYÊN MÔN: TAM GIÁC BẰNG NHAU (MỤC TIÊU) -->
+    <div class="slide bg-white" id="slide-6">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-draw-polygon mr-3 text-brand-orange"></i>4. Chuyên môn: Tam giác bằng nhau</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center max-w-5xl mx-auto w-full">
+            <div class="bg-blue-50 border-l-[6px] border-brand-blue p-6 rounded-r-2xl shadow-sm w-full mb-6">
+                <strong class="text-brand-blue text-2xl mb-3 flex items-center"><i class="fa-solid fa-bullseye mr-3"></i>Mục tiêu chuyên đề Hai tam giác bằng nhau:</strong>
+                <ul class="list-disc pl-6 text-[17.5px] text-slate-800 space-y-2.5 font-medium leading-relaxed">
+                    <li>Nhấn mạnh sự tương ứng của đỉnh, cạnh.</li>
+                    <li>Hướng dẫn học sinh hiểu, vận dụng các trường hợp bằng nhau của tam giác linh hoạt.</li>
+                    <li>Nhấn mạnh mục đích của việc chứng minh tam giác bằng nhau là để chứng minh các đoạn thẳng bằng nhau, các góc bằng nhau, hoặc chứng minh các tính chất song song, vuông góc, trung điểm, …</li>
+                </ul>
+            </div>
+
+            <div class="bg-orange-50 border-l-[6px] border-brand-orange p-6 rounded-r-2xl shadow-sm w-full">
+                <strong class="text-brand-orange text-2xl mb-2 flex items-center"><i class="fa-solid fa-star mr-3"></i>Các dạng bài điển hình:</strong>
+                <p class="text-[18px] text-slate-800 font-semibold ml-9">
+                    Dạng 1: Chứng minh tam giác bằng nhau, chứng minh cạnh, góc bằng nhau.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: DẠNG 1: TAM GIÁC BẰNG NHAU (BÀI 1) -->
+    <div class="slide bg-white" id="slide-7">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-shapes mr-3 text-brand-orange"></i>Dạng 1: Tam giác bằng nhau (Bài 1)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-6 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <div class="bg-brand-blue text-white font-bold px-4 py-2 text-[16px] flex items-center">
+                    <span class="bg-white text-brand-blue rounded-md w-6 h-6 flex items-center justify-center mr-2.5 text-[14px]">1</span>
+                    BÀI TOÁN CHỨNG MINH TAM GIÁC BẰNG NHAU
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                    <!-- Cột Đề bài + Hình vẽ (5/12) -->
+                    <div class="p-4 md:col-span-5 bg-slate-50/60 flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-brand-blue font-bold text-[14.5px] flex items-center mb-2"><i class="fa-solid fa-file-signature mr-1.5"></i> ĐỀ BÀI (BÀI 1)</h4>
+                            <p class="text-[15.5px] text-slate-800 leading-relaxed font-medium">
+                                Cho hình bên.<br>
+                                a) Chứng minh $\Delta HDB = \Delta HEC$;<br>
+                                b) Chứng minh $\widehat{DBH} = \widehat{ECH}$.
+                            </p>
+                        </div>
+                        <!-- Hình vẽ SVG nhúng trực tiếp -->
+                        <div class="mt-3 flex justify-center bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+                            <img src="hinh_bai1.svg" class="h-44 xl:h-48 object-contain" alt="Hình minh họa Bài 1" />
+                        </div>
+                    </div>
+                    <!-- Cột Hướng dẫn giải (7/12) -->
+                    <div class="p-4 md:col-span-7 bg-blue-50/20">
+                        <h4 class="text-blue-700 font-bold text-[14.5px] flex items-center mb-2"><i class="fa-solid fa-pen mr-1.5"></i> HƯỚNG DẪN GIẢI (HDG)</h4>
+                        <div class="text-[15px] text-slate-800 space-y-2 leading-relaxed font-medium">
+                            <p>a) Xét $\Delta HDB$ và $\Delta HEC$ có:<br>
+                               $\quad \widehat{HDB} = \widehat{HEC} = 90^\circ$<br>
+                               $\quad HD = HE$<br>
+                               $\quad \widehat{BHD} = \widehat{CHE}$ (2 góc đối đỉnh)<br>
+                               Vậy $\Delta HDB = \Delta HEC$ (g.c.g) (đpcm)
+                            </p>
+                            <p class="pt-1">b) Vì $\Delta HDB = \Delta HEC$ (cmt)<br>
+                               Nên $\widehat{DBH} = \widehat{ECH}$ (2 góc tương ứng) (đpcm).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Box Lưu ý chân card -->
+                <div class="p-3.5 bg-emerald-50 border-t border-emerald-200">
+                    <h4 class="text-emerald-800 font-bold text-[14.5px] flex items-center mb-1.5"><i class="fa-solid fa-chalkboard-user mr-2"></i> GIÁO VIÊN LƯU Ý</h4>
+                    <ul class="list-disc pl-5 text-[14.5px] text-slate-700 space-y-1 leading-snug">
+                        <li>Nhấn mạnh yếu tố “xen giữa” trong 2 trường hợp c-g-c và g-c-g.</li>
+                        <li>Nhấn mạnh cách chứng minh 2 góc, 2 cạnh bằng nhau ta có thể sử dụng hai tam giác bằng nhau chứa nó.</li>
+                        <li>Nhắc nhở học sinh viết đầy đủ bước giải: Xét hai tam giác / các điều kiện bằng nhau / kết luận hai tam giác bằng nhau / suy ra các cạnh, góc bằng nhau tương ứng.</li>
+                        <li>Phương pháp "Phân tích ngược": Hướng dẫn học sinh tư duy: Để chứng minh $A = B$, cần tam giác nào bằng nhau? Đã có gì và còn thiếu gì?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: DẠNG 1: NGỘ NHẬN HÌNH HỌC (VÍ DỤ 1) -->
+    <div class="slide bg-white" id="slide-8">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Dạng 1: Ngộ nhận hình học (Ví dụ 1)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-6 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <div class="bg-brand-blue text-white font-bold px-4 py-2 text-[16px] flex items-center">
+                    <span class="bg-white text-brand-blue rounded-md w-6 h-6 flex items-center justify-center mr-2.5 text-[14px]">!</span>
+                    LỖI SAI THƯỜNG GẶP: NGỘ NHẬN CÁC YẾU TỐ HÌNH HỌC
+                </div>
+                <!-- Đề bài + Hình vẽ SVG bên cạnh -->
+                <div class="p-3.5 bg-slate-50 border-b border-slate-200 flex flex-col md:flex-row items-center gap-5">
+                    <div class="flex-1">
+                        <h4 class="text-brand-blue font-bold text-[14px] flex items-center mb-1"><i class="fa-solid fa-file-signature mr-1.5"></i> ĐỀ BÀI (VÍ DỤ 1)</h4>
+                        <p class="text-[15px] text-slate-800 leading-relaxed font-medium">
+                            Cho $\Delta ABC$ ($AB < AC$). Tia phân giác của góc $\widehat{BAC}$ cắt cạnh $BC$ tại $D$. Trên cạnh $AC$ lấy điểm $E$ sao cho $AE = AB$. Tia $AB$ và $ED$ cắt nhau tại $M$.<br>
+                            a) Chứng minh $\Delta ABD = \Delta AED$; $\quad$ b) Chứng minh $\Delta BDM = \Delta EDC$;<br>
+                            c) Gọi $d_1$ là đường thẳng đi qua $C$ và song song với $ED$, $d_2$ là đường thẳng đi qua $M$ và song song với $BC$. Hai đường thẳng $d_1$ và $d_2$ cắt nhau tại $F$. Chứng minh 3 điểm $A, D, F$ thẳng hàng.
+                        </p>
+                    </div>
+                    <!-- Hình vẽ SVG -->
+                    <div class="flex-shrink-0 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center">
+                        <img src="hinh_ngonhan.svg" class="h-44 xl:h-48 object-contain drop-shadow-sm" alt="Hình minh họa Ví dụ 1" />
+                    </div>
+                </div>
+                <!-- 2 Cột: Lời giải đúng vs Ngộ nhận sai -->
+                <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                    <!-- Lời giải đúng -->
+                    <div class="p-4 bg-blue-50/30">
+                        <h4 class="text-blue-700 font-bold text-[14.5px] flex items-center mb-2"><i class="fa-solid fa-circle-check mr-1.5 text-green-600"></i> LỜI GIẢI ĐÚNG (CÂU C)</h4>
+                        <p class="text-[15px] text-slate-800 leading-relaxed font-medium">
+                            Chứng minh $\Delta DFM = \Delta FDC$ ($g-c-g$) nên từ đó chứng minh được $MF = FC (= DC = MD)$ sau đó chứng minh $\Delta AMF = \Delta ACF$ ($c-g-c$) nên $AF$ là tia phân giác $\widehat{MAC}$ mà $AD$ là tia phân giác $\widehat{MAC}$ suy ra $A, D, F$ thẳng hàng.
+                        </p>
+                    </div>
+                    <!-- Ngộ nhận -->
+                    <div class="p-4 bg-red-50/40">
+                        <h4 class="text-red-600 font-bold text-[14.5px] flex items-center mb-2"><i class="fa-solid fa-circle-xmark mr-1.5 text-red-600"></i> LỖI SAI / NGỘ NHẬN THƯỜNG GẶP</h4>
+                        <div class="text-[15px] text-slate-800 leading-relaxed font-medium space-y-1">
+                            <p class="text-red-700 font-semibold">Giáo viên hướng dẫn học sinh theo hướng:</p>
+                            <p>Chứng minh: $\widehat{ADM} = \widehat{ADC}$ rồi suy ra $\widehat{MDF} = \widehat{CDF}$ (kề bù với $\widehat{ADM}$ và $\widehat{ADC}$).</p>
+                            <p>Suy ra $\Delta MDF = \Delta CDF$ ($c-g-c$) nên $MF = CF$, chứng minh được $AM = AC$ từ đó suy ra $\Delta AMF = \Delta ACF$ ($c-g-c$) nên $AF$ là phân giác $\widehat{MAC}$ mà $AD$ là phân giác suy ra $A, D, F$ thẳng hàng.</p>
+                            <p class="text-red-600 font-bold italic pt-1"><i class="fa-solid fa-ban mr-1"></i> Đây là sự ngộ nhận điểm thẳng hàng trước khi chứng minh!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: CHUYÊN MÔN: TỈ LỆ THỨC (MỤC TIÊU & DẠNG BÀI) -->
+    <div class="slide bg-white" id="slide-9">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-scale-balanced mr-3 text-brand-orange"></i>4. Chuyên môn: Tỉ lệ thức</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col justify-center max-w-5xl mx-auto w-full">
+            <div class="bg-blue-50 border-l-[6px] border-brand-blue p-6 rounded-r-2xl shadow-sm w-full mb-6">
+                <strong class="text-brand-blue text-2xl mb-3 flex items-center"><i class="fa-solid fa-bullseye mr-3"></i>Mục tiêu trọng tâm:</strong>
+                <ul class="list-disc pl-6 text-[17.5px] text-slate-800 space-y-2.5 font-medium leading-relaxed">
+                    <li>Học sinh phát biểu được định nghĩa tỉ lệ thức và các tính chất của dãy tỉ số bằng nhau.</li>
+                    <li>Hiểu rõ điều kiện để các tỉ số tồn tại.</li>
+                    <li>Rèn luyện kỹ năng biến đổi linh hoạt giữa các tỉ số.</li>
+                </ul>
+            </div>
+
+            <div class="bg-orange-50 border-l-[6px] border-brand-orange p-6 rounded-r-2xl shadow-sm w-full">
+                <strong class="text-brand-orange text-2xl mb-3 flex items-center"><i class="fa-solid fa-star mr-3"></i>Các dạng bài điển hình:</strong>
+                <ul class="list-disc pl-6 text-[17.5px] text-slate-800 space-y-2 font-medium leading-relaxed">
+                    <li><strong>Dạng 1:</strong> Chứng minh tỉ lệ thức (dùng các tỉ lệ thức đơn giản chứng minh các tỉ lệ thức phức tạp).</li>
+                    <li><strong>Dạng 2:</strong> Tìm số $x, y, z$ khi biết dãy tỉ số và tổng, hiệu, tích, bình phương, ...</li>
+                    <li><strong>Dạng 3:</strong> Tìm số, tính giá trị biểu thức, .. ở các tỉ lệ thức có dạng phức tạp.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: TỈ LỆ THỨC - DẠNG 1 (VÍ DỤ 1) -->
+    <div class="slide bg-white" id="slide-10">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-superscript mr-3 text-brand-orange"></i>Dạng 1: Chứng minh tỉ lệ thức (Ví dụ 1)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-6 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+                <div class="bg-brand-blue text-white font-bold px-4 py-2 text-[16px] flex items-center">
+                    <span class="bg-white text-brand-blue rounded-md w-6 h-6 flex items-center justify-center mr-2.5 text-[14px]">1</span>
+                    CHỨNG MINH CÁC ĐẲNG THỨC TỈ LỆ
+                </div>
+                <!-- Đề bài -->
+                <div class="p-3.5 bg-slate-50 border-b border-slate-200">
+                    <h4 class="text-brand-blue font-bold text-[14px] flex items-center mb-1"><i class="fa-solid fa-file-signature mr-1.5"></i> ĐỀ BÀI</h4>
+                    <p class="text-[16px] text-slate-800 leading-relaxed font-medium">
+                        Cho tỉ lệ thức $\dfrac{a}{b} = \dfrac{c}{d}$. Chứng minh rằng ta có các tỉ lệ thức:<br>
+                        a) $\dfrac{a+b}{b} = \dfrac{c+d}{d}$; $\quad$ b) $\dfrac{5a+3b}{3a-7b} = \dfrac{5c+3d}{3c-7d}$; $\quad$ c) $\dfrac{a^2}{b^2} = \dfrac{c^2}{d^2} = \dfrac{ac}{bd}$.
+                    </p>
+                </div>
+                <!-- Lời giải -->
+                <div class="p-4 bg-blue-50/20">
+                    <h4 class="text-blue-700 font-bold text-[14px] flex items-center mb-2"><i class="fa-solid fa-pen mr-1.5"></i> LỜI GIẢI CHI TIẾT</h4>
+                    <div class="text-[15.5px] text-slate-800 space-y-2 leading-relaxed font-medium">
+                        <p><strong>a)</strong> Ta có $\dfrac{a}{b} = \dfrac{c}{d}$ hay $\dfrac{a}{c} = \dfrac{b}{d}$. Áp dụng tính chất dãy tỉ số bằng nhau, ta có: $\dfrac{a}{c} = \dfrac{b}{d} = \dfrac{a+b}{c+d}$. Suy ra $\dfrac{a+b}{b} = \dfrac{c+d}{d}$ (Đpcm)</p>
+                        <hr class="border-slate-200">
+                        <p><strong>b)</strong> Áp dụng tính chất dãy tỉ số bằng nhau, ta có: $\dfrac{a}{c} = \dfrac{b}{d} = \dfrac{5a+3b}{5c+3d} = \dfrac{3a-7b}{3c-7d}$. Suy ra $\dfrac{5a+3b}{3a-7b} = \dfrac{5c+3d}{3c-7d}$ (Đpcm)</p>
+                        <hr class="border-slate-200">
+                        <p><strong>c)</strong> Áp dụng tính chất dãy tỉ số bằng nhau, ta có: $\dfrac{a}{b} = \dfrac{c}{d}$ nên $\left(\dfrac{a}{b}\right)^2 = \left(\dfrac{c}{d}\right)^2 = \dfrac{c}{d} \cdot \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{c}{d}$. Suy ra $\dfrac{a^2}{b^2} = \dfrac{c^2}{d^2} = \dfrac{ac}{bd}$ (Đpcm)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: TỈ LỆ THỨC - DẠNG 2: TÌM X, Y, Z (VÍ DỤ 2) -->
+    <div class="slide bg-white" id="slide-11">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 2: Tìm x, y, z (Ví dụ 2)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-5 flex flex-col justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-6xl mx-auto w-full">
+                <!-- Card 1: Câu a, b -->
+                <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-brand-blue text-white font-bold px-3.5 py-1.5 text-[15px] flex items-center">
+                        <span class="bg-white text-brand-blue rounded-md w-5 h-5 flex items-center justify-center mr-2 text-[13px]">2a</span>
+                        DẠNG TỔNG, HIỆU CƠ BẢN
+                    </div>
+                    <div class="p-3 bg-slate-50 border-b border-slate-200">
+                        <p class="text-[14.5px] text-slate-800 font-semibold">
+                            a) $\dfrac{x}{3} = \dfrac{y}{5}$ và $x+y=16$; $\quad$ b) $4x=3y$ và $x-y=11$.
+                        </p>
+                        <p class="text-[13px] text-brand-orange italic mt-0.5">* GV giới thiệu thêm phương pháp đặt hằng số k</p>
+                    </div>
+                    <div class="p-3.5 bg-blue-50/20 text-[14.5px] text-slate-800 space-y-2 font-medium flex-1">
+                        <p><strong>a)</strong> $\dfrac{x}{3} = \dfrac{y}{5} = \dfrac{x+y}{3+5} = \dfrac{16}{8} = 2$.<br>
+                           Suy ra $x = 2 \cdot 3 = 6$, $y = 2 \cdot 5 = 10$. Vậy $(x;y) = (6;10)$.
+                        </p>
+                        <hr class="border-slate-200">
+                        <p><strong>b)</strong> $4x=3y \Rightarrow \dfrac{x}{3} = \dfrac{y}{4} = \dfrac{x-y}{3-4} = \dfrac{11}{-1} = -11$.<br>
+                           Suy ra $x = -11 \cdot 3 = -33$, $y = -11 \cdot 4 = -44$. Vậy $(x;y) = (-33;-44)$.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Câu c, d -->
+                <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white">
+                    <div class="bg-brand-blue text-white font-bold px-3.5 py-1.5 text-[15px] flex items-center">
+                        <span class="bg-white text-brand-blue rounded-md w-5 h-5 flex items-center justify-center mr-2 text-[13px]">2b</span>
+                        DẠNG BÌNH PHƯƠNG & TÍCH
+                    </div>
+                    <div class="p-3 bg-slate-50 border-b border-slate-200">
+                        <p class="text-[14.5px] text-slate-800 font-semibold">
+                            c) $\dfrac{x}{4} = \dfrac{y}{7}$ và $x^2-y^2=-33$; $\quad$ d) $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2}$ và $xyz = -648$.
+                        </p>
+                    </div>
+                    <div class="p-3.5 bg-blue-50/20 text-[14px] text-slate-800 space-y-1.5 font-medium flex-1">
+                        <p><strong>c)</strong> $\dfrac{x}{4} = \dfrac{y}{7} \Rightarrow \dfrac{x^2}{16} = \dfrac{y^2}{49} = \dfrac{x^2-y^2}{16-49} = \dfrac{-33}{-33} = 1$.<br>
+                           Suy ra $x^2=16 \Rightarrow x=\pm 4$, $y^2=49 \Rightarrow y=\pm 7$.<br>
+                           Vì $x, y$ cùng dấu $\Rightarrow (x;y) \in \{(4;7); (-4;-7)\}$.
+                        </p>
+                        <hr class="border-slate-200">
+                        <p><strong>d)</strong> Đặt $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = k \Rightarrow x=4k, y=3k, z=2k$.<br>
+                           $xyz = -648 \Rightarrow 24k^3 = -648 \Rightarrow k^3 = -27 \Rightarrow k = -3$.<br>
+                           Suy ra $x = -12, y = -9, z = -6$. Vậy $(x;y;z) = (-12;-9;-6)$.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: TỈ LỆ THỨC - DẠNG 3: TÍNH GIÁ TRỊ BIỂU THỨC (VÍ DỤ 3) -->
+    <div class="slide bg-white" id="slide-12">
+        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-brain mr-3 text-brand-orange"></i>Dạng 3: Tính giá trị biểu thức (Ví dụ 3)</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content p-6 flex flex-col justify-center">
+            <div class="border border-brand-blue rounded-xl overflow-hidden shadow-sm flex flex-col bg-white max-w-5xl mx-auto w-full">
+                <div class="bg-brand-blue text-white font-bold px-4 py-2 text-[16px] flex items-center">
+                    <span class="bg-white text-brand-blue rounded-md w-6 h-6 flex items-center justify-center mr-2.5 text-[14px]">3</span>
+                    DÃY TỈ SỐ BẰNG NHAU NÂNG CAO
+                </div>
+                <!-- Đề bài -->
+                <div class="p-4 bg-slate-50 border-b border-slate-200">
+                    <h4 class="text-brand-blue font-bold text-[14px] flex items-center mb-1.5"><i class="fa-solid fa-file-signature mr-1.5"></i> ĐỀ BÀI (VÍ DỤ 3)</h4>
+                    <p class="text-[16px] text-slate-800 leading-relaxed font-medium">
+                        Cho dãy tỉ số bằng nhau: $\dfrac{a_1}{a_2} = \dfrac{a_2}{a_3} = \dots = \dfrac{a_{2019}}{a_{2020}} = \dfrac{a_{2020}}{a_1}$<br>
+                        Tính giá trị biểu thức $B = \dfrac{(a_1+a_2+\dots+a_{2020})^2}{a_1^2+a_2^2+a_3^2+\dots+a_{2020}^2}$
+                    </p>
+                </div>
+                <!-- Lời giải -->
+                <div class="p-5 bg-blue-50/20 text-[15.5px] text-slate-800 space-y-3 font-medium">
+                    <div>
+                        <p class="font-bold text-brand-blue">Trường hợp 1: $a_1+a_2+a_3+\dots+a_{2020} \neq 0$</p>
+                        <p class="mt-1">Áp dụng tính chất dãy tỉ số bằng nhau ta có:<br>
+                           $\dfrac{a_1}{a_2} = \dfrac{a_2}{a_3} = \dots = \dfrac{a_{2019}}{a_{2020}} = \dfrac{a_{2020}}{a_1} = \dfrac{a_1+a_2+\dots+a_{2019}+a_{2020}}{a_2+a_3+\dots+a_{2020}+a_1} = 1$<br>
+                           Suy ra $a_1 = a_2 = a_3 = \dots = a_{2020}$.<br>
+                           Khi đó: $B = \dfrac{(2020a_1)^2}{2020 \cdot a_1^2} = 2020$.
+                        </p>
+                    </div>
+                    <hr class="border-slate-200">
+                    <div>
+                        <p class="font-bold text-brand-blue">Trường hợp 2: $a_1+a_2+a_3+\dots+a_{2020} = 0$</p>
+                        <p class="mt-1">Khi đó $B = 0$.</p>
+                    </div>
+                    <div class="bg-orange-50 border-l-4 border-brand-orange p-3 rounded-r-lg text-brand-orange font-semibold">
+                        <i class="fa-solid fa-check-circle mr-1.5"></i> Kết luận: $B = 2020$ nếu $a_1+a_2+\dots+a_{2020} \neq 0$, và $B = 0$ nếu $a_1+a_2+\dots+a_{2020} = 0$.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: Q&A (GIẢI ĐÁP THẮC MẮC - CHUẨN TUẦN 02) -->
+    <div class="slide bg-white" id="slide-13">
+        <div class="slide-header p-6 bg-brand-light flex items-center justify-between">
+            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
+                    class="fa-solid fa-comments mr-3 text-brand-orange"></i>Q&A - Giải đáp thắc mắc</h2>
+            <img alt="Logo" class="h-10 object-contain" src="../../../logo.png" />
+        </div>
+        <div class="slide-content flex flex-col items-center justify-center text-center">
+            <div class="text-[110px] text-brand-orange mb-4 opacity-85">
+                <i class="fa-regular fa-circle-question"></i>
+            </div>
+            <h3 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Thầy Cô có câu hỏi hay đóng góp ý kiến nào không ạ?</h3>
+            <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed">
+                Bộ phận Chuyên môn luôn sẵn sàng lắng nghe những chia sẻ, khó khăn thực tế và đóng góp quý báu từ các Thầy Cô để công tác giảng dạy ngày càng hoàn thiện và hiệu quả hơn.
+            </p>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: CẢM ƠN -->
+    <div class="slide" id="slide-14">
+        <div
+            class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden h-[100dvh]">
+            <div
+                class="absolute -top-32 -left-32 md:-top-48 md:-left-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-orange/30 rounded-full blur-[100px]">
+            </div>
+            <div
+                class="absolute -bottom-32 -right-32 md:-bottom-48 md:-right-48 w-96 h-96 md:w-[40rem] md:h-[40rem] bg-brand-blue/20 rounded-full blur-[100px]">
+            </div>
+
+            <div
+                class="bg-white/95 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-[0_0_50px_rgba(255,255,255,0.3)] mb-10 md:mb-12 flex items-center justify-center transform transition-transform hover:scale-105 border border-white/50 z-10">
+                <img alt="MathExpress Logo" class="h-24 md:h-32 lg:h-40 object-contain drop-shadow-md"
+                    src="../../../logo.png" />
+            </div>
+
+            <h2
+                class="z-10 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
+                CẢM ƠN CÁC THẦY CÔ!
+            </h2>
+
+            <div
+                class="z-10 w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg">
+            </div>
+
+            <p class="z-10 text-2xl md:text-4xl font-medium text-slate-700 max-w-3xl px-4 tracking-wide drop-shadow-sm">
+                Chúc các thầy cô một năm học mới làm việc hiệu quả và tràn đầy năng&nbsp;lượng.
+            </p>
+        </div>
+    </div>
+
+    <!-- SCRIPT ĐIỀU KHIỂN CHUYỂN SLIDE -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideCounter = document.getElementById('slideCounter');
+            const progressBar = document.getElementById('progressBar');
+
+            let currentSlideIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateUI() {
+                slides.forEach((slide, index) => {
+                    if (index === currentSlideIndex) {
+                        slide.classList.add('active');
+                    } else if (slide.classList.contains('active')) {
+                        slide.classList.remove('active');
+                    }
+                });
+                slideCounter.textContent = `${currentSlideIndex + 1}/${totalSlides}`;
+                const progressPercentage = ((currentSlideIndex + 1) / totalSlides) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                prevBtn.disabled = currentSlideIndex === 0;
+                nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+            }
+
+            function nextSlide() {
+                if (currentSlideIndex < totalSlides - 1) {
+                    currentSlideIndex++;
+                    updateUI();
+                }
+            }
+
+            function prevSlide() {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    updateUI();
+                }
+            }
+
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' || e.key === 'Space') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+
+            // Touch Swipe Gestures
+            let touchDeckStartX = 0;
+            let touchDeckStartY = 0;
+
+            document.addEventListener('touchstart', (e) => {
+                if (e.target.closest('button, input, select, textarea, a')) return;
+                touchDeckStartX = e.changedTouches[0].clientX;
+                touchDeckStartY = e.changedTouches[0].clientY;
+            }, { passive: true });
+
+            document.addEventListener('touchend', (e) => {
+                if (e.target.closest('button, input, select, textarea, a')) return;
+                const touchDeckEndX = e.changedTouches[0].clientX;
+                const touchDeckEndY = e.changedTouches[0].clientY;
+                const deltaX = touchDeckEndX - touchDeckStartX;
+                const deltaY = touchDeckEndY - touchDeckStartY;
+                const swipeThreshold = 45;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+                    if (deltaX < 0) {
+                        nextSlide();
+                    } else {
+                        prevSlide();
+                    }
+                }
+            }, { passive: true });
+
+            updateUI();
+        });
+    </script>
+</body>
+
+</html>

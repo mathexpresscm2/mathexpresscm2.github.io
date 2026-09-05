@@ -1,5 +1,16 @@
 [
   {
+    "id": "anc-003",
+    "title": "Cập Nhật Bản Trình Chiếu: Tuần 15 - Họp Giáo Viên Khối 6",
+    "date": "2026-09-05",
+    "author": "Ban Chuyên Môn Khối 6",
+    "category": "Tài nguyên mới",
+    "priority": "High",
+    "summary": "Đã cập nhật toàn bộ 15 slide cuộc họp chuyên môn Khối 6 Tháng 9/2026: Rà soát khung chương trình, kiến thức trọng tâm Số học và hướng dẫn nhận xét khảo sát Quý I.",
+    "content": "Toàn bộ Giáo viên Khối 6 có thể xem trực tiếp bản trình chiếu tương tác (HTML) hoặc tải file PDF/DOCX tài liệu cuộc họp.",
+    "badge": "MỚI"
+  },
+  {
     "id": "anc-001",
     "title": "Thông Báo Lịch Họp Chuyên Môn Toán Quý 3 & Tập Huấn Trợ Giảng Mới K2026",
     "date": "2026-07-25",
