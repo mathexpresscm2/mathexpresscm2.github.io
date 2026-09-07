@@ -50,6 +50,57 @@ window.INITIAL_PRESENTATIONS = [
     ]
   },
   {
+    "id": "pres-khoi7-tuan10",
+    "title": "Tuần 10 - Họp giáo viên khối 7",
+    "category": "Khối 7",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 7",
+    "speaker": "Ban Chuyên Môn Toán Khối 7 MathExpress",
+    "date": "2026-09-07",
+    "quarter": "Q3-2026",
+    "duration": "60 phút (16 slide tương tác)",
+    "fileSize": "Interactive HTML Deck",
+    "pdfUrl": "Meeting/Khoi 7/Tuan 10 - Hop khoi 7/Khoi 7.pdf",
+    "pptxUrl": "Meeting/Khoi 7/Tuan 10 - Hop khoi 7/Khoi 7.docx",
+    "webViewerUrl": "Meeting/Khoi 7/Tuan 10 - Hop khoi 7/index.html",
+    "summary": "Rà soát 9 tồn đọng chuyên môn & tác phong, tiến độ khung chương trình Tháng 9 & 10, trọng tâm Tam giác bằng nhau, Tỉ lệ thức & Dãy tỉ số bằng nhau, kế hoạch khảo sát Quý I và quy chuẩn nhập điểm.",
+    "featured": true,
+    "tags": [
+      "Khối 7",
+      "Toán 7",
+      "Họp giáo viên",
+      "Tam giác bằng nhau",
+      "Tỉ lệ thức",
+      "Dãy tỉ số bằng nhau",
+      "Khung chương trình",
+      "Khảo sát Quý I"
+    ],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Họp Chuyên Môn Giáo Viên Khối 7",
+        "subtitle": "Tuần 10 - Rà soát chuyên môn & Kế hoạch Khảo sát Quý I",
+        "content": "<ul><li><strong>Tồn đọng & Hạn chế:</strong> Chấn chỉnh 5 tồn tại chuyên môn (dạy sai kiến thức, sai thứ tự bài 8-9, phân bổ thời gian, bao quát lớp, tương tác) và 4 quy định tác phong (thẻ tên, điện thoại, đúng giờ, phối hợp BPCM).</li><li><strong>Khung chương trình:</strong> Chi tiết tiến độ 9 tuần (Tháng 9 & 10) phân hóa 3 luồng lớp (Chuyên, Nâng cao, Mở rộng & Cơ bản).</li><li><strong>Trọng tâm Hình học:</strong> Tam giác bằng nhau, các trường hợp bằng nhau, lỗi ngộ nhận thẳng hàng (ví dụ minh họa trực quan SVG).</li><li><strong>Trọng tâm Đại số:</strong> Tỉ lệ thức & Dãy tỉ số bằng nhau, đối sánh 2 cách giải song song (Dãy tỉ số vs Đặt hằng số k), tìm x-y-z, dạng vòng.</li><li><strong>Kế hoạch khảo sát:</strong> Lịch thi Tuần 11, hoàn thành chấm hạn n + 2, giao diện nhập điểm thực tế và ma trận nhận xét mẫu BPCM.</li></ul>",
+        "notes": "Toàn thể giáo viên nghiêm túc chấn chỉnh tác phong sư phạm, tuân thủ đúng phân phối chương trình và nộp điểm nhận xét khảo sát đúng hạn n + 2.",
+        "badge": "Trọng tâm Khối 7"
+      },
+      {
+        "page": 2,
+        "title": "Các Dạng Toán Trọng Tâm & Phương Pháp Then Chốt",
+        "subtitle": "Tam giác bằng nhau, Tỉ lệ thức & Kỹ năng biến đổi chuẩn",
+        "content": "<ul><li><strong>Hình học:</strong> Chứng minh tam giác bằng nhau đủ 4 bước; tránh ngộ nhận yếu tố hình học khi chưa chứng minh (ví dụ 3 điểm thẳng hàng).</li><li><strong>Đại số - Dạng 1:</strong> Chứng minh tỉ lệ thức bằng 2 cách (Dãy tỉ số bằng nhau vs Đặt k) - nhận định ưu thế của phương pháp đặt k.</li><li><strong>Đại số - Dạng 2:</strong> Tìm x, y, z theo điều kiện hiệu bậc nhất, hiệu bình phương (chú ý x, y cùng dấu), và tích 3 biến.</li><li><strong>Đại số - Dạng 3:</strong> Tỉ lệ thức phức tạp - Dạng vòng a1 đến a2020 (chia 2 trường hợp tổng mẫu khác 0 và bằng 0).</li></ul>",
+        "notes": "Rèn cho học sinh thói quen gạch chân ký hiệu đỉnh tương ứng và kiểm tra điều kiện xen giữa khi chứng minh tam giác bằng nhau.",
+        "badge": "Chuyên môn Khối 7"
+      }
+    ],
+    "actionItems": [
+      "Chủ động nghiên cứu kỹ nội dung bài học và phương pháp trước khi lên lớp.",
+      "Bám sát phân phối chương trình, không dạy nhảy cóc hoặc đảo thứ tự bài học.",
+      "Đeo thẻ dây mới, trang phục sư phạm, có mặt tại lớp trước tối thiểu 05 phút.",
+      "Hoàn thành chấm bài và nhập nhận xét chi tiết bài thi khảo sát Quý I đúng hạn n + 2."
+    ]
+  },
+  {
     "id": "pres-khoi6-tuan5",
     "title": "Tháng 7 - Họp giáo viên khối 6 (Tuần 5)",
     "category": "Khối 6",
@@ -347,6 +398,17 @@ window.INITIAL_PRESENTATIONS = [
 ];
 
 window.INITIAL_ANNOUNCEMENTS = [
+  {
+    "id": "anc-004",
+    "title": "Cập Nhật Bản Trình Chiếu: Tuần 10 - Họp Giáo Viên Khối 7",
+    "date": "2026-09-07",
+    "author": "Ban Chuyên Môn Khối 7",
+    "category": "Tài nguyên mới",
+    "priority": "High",
+    "summary": "Đã cập nhật toàn bộ 16 slide cuộc họp chuyên môn Khối 7 Tháng 9/2026: Rà soát khung chương trình, trọng tâm Tam giác bằng nhau, Tỉ lệ thức và kế hoạch khảo sát Quý I.",
+    "content": "Toàn bộ Giáo viên Khối 7 có thể xem trực tiếp bản trình chiếu tương tác (HTML) hoặc tải file PDF/DOCX tài liệu cuộc họp.",
+    "badge": "MỚI"
+  },
   {
     "id": "anc-003",
     "title": "Cập Nhật Bản Trình Chiếu: Tuần 15 - Họp Giáo Viên Khối 6",

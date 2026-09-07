@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.2);">
           <a href="${activePresentation.webViewerUrl}" target="_blank" class="btn btn-primary" style="width: 100%; text-decoration: none;">
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Mở Bản Trình Chiếu Tương Tác Khối 8 (Toàn Màn Hình)
+            Mở Bản Trình Chiếu Tương Tác ${activePresentation.category || ''} (Toàn Màn Hình)
           </a>
         </div>
       `;
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             </div>
             <div>
-              <div style="font-weight: 700; font-size: 0.9rem; color: var(--primary);">Slide Web Tương Tác Khối 8 (.html)</div>
+              <div style="font-weight: 700; font-size: 0.9rem; color: var(--primary);">Slide Web Tương Tác ${activePresentation.category || ''} (.html)</div>
               <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">MathJax + TikZ Enabled</div>
             </div>
           </div>
