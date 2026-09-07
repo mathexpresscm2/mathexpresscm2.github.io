@@ -108,6 +108,17 @@
             font-size: 105% !important;
         }
 
+        /* Phóng to nội dung slide 15% */
+        .zoom-115 {
+            zoom: 1.15;
+        }
+        @supports not (zoom: 1.15) {
+            .zoom-115 {
+                transform: scale(1.15);
+                transform-origin: center center;
+            }
+        }
+
         /* Tùy chỉnh Table */
         .table-custom th,
         .table-custom td {
@@ -805,11 +816,11 @@
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
-            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-7xl mx-auto w-full p-6 space-y-4 zoom-115" style="zoom: 1.15;">
                 <!-- Đề bài + Hình vẽ SVG -->
-                <div class="p-4 bg-slate-50 border-b border-slate-200 flex flex-col md:flex-row items-center gap-5">
+                <div class="p-4 bg-slate-50/70 border border-slate-200/80 rounded-xl shadow-xs flex flex-col md:flex-row items-center gap-5">
                     <div class="flex-1">
-                        <div class="bg-brand-light border-l-[5px] border-brand-blue p-3 rounded-r-lg shadow-sm">
+                        <div class="bg-brand-light border-l-[5px] border-brand-blue p-3.5 rounded-r-xl shadow-xs">
                             <strong class="text-brand-blue text-[16px] flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
                             <p class="text-[15px] text-slate-800 leading-relaxed font-semibold">
                                 Cho $\Delta ABC$ ($AB < AC$). Tia phân giác của góc $\widehat{BAC}$ cắt cạnh $BC$ tại $D$. Trên cạnh $AC$ lấy điểm $E$ sao cho $AE = AB$. Tia $AB$ và $ED$ cắt nhau tại $M$.<br>
@@ -824,28 +835,14 @@
                     </div>
                 </div>
 
-                <!-- 2 Cột: Lời giải đúng vs Ngộ nhận sai -->
-                <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
-                    <!-- Lời giải đúng -->
-                    <div class="p-4.5 bg-blue-50/20">
-                        <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2">
-                            <i class="fa-solid fa-circle-check mr-2 text-green-600"></i>Hướng dẫn giải đúng (Câu c):
-                        </h4>
-                        <div class="text-[14.5px] text-slate-800 leading-relaxed font-medium space-y-2">
-                            <p>• Chứng minh $\Delta DFM = \Delta FDC$ ($g-c-g$) nên từ đó suy ra $MF = FC$ ($= DC = MD$).</p>
-                            <p>• Sau đó chứng minh $\Delta AMF = \Delta ACF$ ($c-g-c$) suy ra $AF$ là tia phân giác của $\widehat{MAC}$.</p>
-                            <p class="text-emerald-700 font-bold">
-                                • Mà $AD$ cũng là tia phân giác của $\widehat{MAC} \Rightarrow A, D, F$ thẳng hàng (đpcm).
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Ngộ nhận -->
-                    <div class="p-4.5 bg-rose-50/30">
+                <!-- 2 Cột: Lỗi sai ngộ nhận (Trái) vs Hướng dẫn giải đúng (Phải) -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+                    <!-- Cột Trái: Lỗi sai ngộ nhận điển hình (Câu c) -->
+                    <div class="p-5 bg-rose-50/40 border border-rose-200/80 rounded-xl md:col-span-5 shadow-xs flex flex-col justify-between">
                         <h4 class="text-rose-700 font-bold text-[15.5px] flex items-center mb-2">
                             <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai ngộ nhận điển hình (Câu c):
                         </h4>
-                        <div class="text-[14px] text-slate-800 leading-relaxed font-medium space-y-1.5">
+                        <div class="text-[14px] text-slate-800 leading-relaxed font-medium space-y-2">
                             <p class="text-rose-900 font-semibold">Giáo viên hướng dẫn học sinh theo hướng:</p>
                             <p>Chứng minh: $\widehat{ADM} = \widehat{ADC}$ rồi suy ra $\widehat{MDF} = \widehat{CDF}$ (kề bù với $\widehat{ADM}$ và $\widehat{ADC}$).</p>
                             <p>Suy ra $\Delta MDF = \Delta CDF$ ($c-g-c$) nên $MF = CF$, chứng minh được $AM = AC$ từ đó suy ra $\Delta AMF = \Delta ACF$ ($c-g-c$) nên $AF$ là phân giác $\widehat{MAC}$ mà $AD$ là phân giác $\Rightarrow A, D, F$ thẳng hàng.</p>
@@ -854,9 +851,21 @@
                             </p>
                         </div>
                     </div>
+
+                    <!-- Cột Phải: Hướng dẫn giải đúng (Câu c) - Mỗi nội dung nằm trên 1 dòng -->
+                    <div class="p-5 bg-blue-50/30 border border-blue-200/80 rounded-xl md:col-span-7 shadow-xs flex flex-col justify-center">
+                        <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2.5">
+                            <i class="fa-solid fa-circle-check mr-2 text-green-600"></i>Hướng dẫn giải đúng (Câu c):
+                        </h4>
+                        <div class="text-[14px] text-slate-800 leading-relaxed font-medium space-y-3">
+                            <p class="whitespace-nowrap">• Chứng minh $\Delta DFM = \Delta FDC$ ($g-c-g$) suy ra $MF = FC$ ($= DC = MD$).</p>
+                            <p class="whitespace-nowrap">• Chứng minh $\Delta AMF = \Delta ACF$ ($c-c-c$) suy ra $AF$ là tia phân giác của $\widehat{MAC}$.</p>
+                            <p class="whitespace-nowrap text-emerald-700 font-bold">• Mà $AD$ là tia phân giác của $\widehat{MAC} \Rightarrow A, D, F$ thẳng hàng (đpcm).</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="p-3 bg-slate-50 border-t border-slate-200 text-xs text-slate-600 italic text-center">
+                <div class="p-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-xs text-slate-600 italic text-center shadow-xs">
                     Ghi chú: Để chứng minh thẳng hàng có thể sử dụng Tiên đề Euclid, hai góc đối đỉnh bằng nhau, hoặc chứng minh cùng là tia phân giác của một góc.
                 </div>
             </div>
@@ -1077,64 +1086,106 @@
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
-            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-7xl mx-auto w-full p-5 space-y-3.5 zoom-115" style="zoom: 1.15;">
                 <!-- Đề bài -->
-                <div class="bg-brand-light border-l-[6px] border-brand-orange p-3.5 rounded-r-lg">
-                    <strong class="text-brand-orange text-lg flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
-                    <p class="text-[16px] text-slate-800 font-semibold">
+                <div class="p-3.5 bg-brand-light/30 border-2 border-brand-orange/40 rounded-xl shadow-sm">
+                    <strong class="text-brand-orange text-[16px] flex items-center mb-1.5"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
+                    <p class="text-[15px] text-slate-800 leading-relaxed font-semibold">
                         Tìm các số $x, y, z$ biết:<br>
                         a) $4x = 3y$ và $x - y = -11$; $\qquad$ b) $\dfrac{x}{4} = \dfrac{y}{7}$ và $x^2 - y^2 = -33$; $\qquad$ c) $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2}$ và $x \cdot y \cdot z = -648$.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200">
-                    <!-- Lời giải chi tiết (7/12 cột) -->
-                    <div class="p-4.5 md:col-span-7 bg-blue-50/20">
-                        <h4 class="text-brand-blue font-bold text-[16px] flex items-center mb-2">
-                            <i class="fa-solid fa-pen mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết:
+                <!-- Tiêu đề 2 cột -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <div class="md:col-span-7 bg-blue-50/70 border border-blue-200 rounded-xl px-4 py-2 flex items-center justify-between shadow-xs">
+                        <h4 class="text-brand-blue font-bold text-[15px] flex items-center">
+                            <i class="fa-solid fa-pen mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết
                         </h4>
-                        <div class="text-[14.5px] text-slate-800 space-y-2 font-medium leading-relaxed">
-                            <div>
-                                <p class="font-bold text-brand-blue">a) Dạng hiệu bậc nhất:</p>
+                        <span class="text-xs bg-brand-blue text-white px-2.5 py-0.5 rounded-full font-semibold">Lời giải chuẩn</span>
+                    </div>
+                    <div class="md:col-span-5 bg-rose-50/70 border border-rose-200 rounded-xl px-4 py-2 flex items-center justify-between shadow-xs">
+                        <h4 class="text-rose-700 font-bold text-[15px] flex items-center">
+                            <i class="fa-solid fa-triangle-exclamation mr-2 text-rose-600"></i>Lỗi sai học sinh thường mắc
+                        </h4>
+                        <span class="text-xs bg-rose-600 text-white px-2.5 py-0.5 rounded-full font-semibold">Cảnh báo lỗi</span>
+                    </div>
+                </div>
+
+                <!-- 3 Cặp Dòng (a, b, c) Dóng Thẳng Hàng Tuyệt Đối -->
+                <div class="space-y-3">
+                    <!-- CẶP a -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+                        <!-- Giải a -->
+                        <div class="md:col-span-7 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+                            <div class="text-[14.5px] text-slate-800 font-medium leading-relaxed">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="w-6 h-6 rounded-md bg-brand-blue text-white text-xs font-bold flex items-center justify-center">a</span>
+                                    <strong class="text-brand-blue text-[15px]">Dạng hiệu bậc nhất:</strong>
+                                </div>
                                 <p>Ta có $4x = 3y \Rightarrow \dfrac{x}{3} = \dfrac{y}{4} = \dfrac{x-y}{3-4} = \dfrac{-11}{-1} = 11$.</p>
-                                <p>$\Rightarrow x = 11 \cdot 3 = 33; \quad y = 11 \cdot 4 = 44$. Vậy $(x; y) = (33; 44)$.</p>
+                                <p class="text-emerald-700 font-bold">$\Rightarrow x = 11 \cdot 3 = 33; \quad y = 11 \cdot 4 = 44$. Vậy $(x; y) = (33; 44)$.</p>
                             </div>
-                            <hr class="border-slate-200">
-                            <div>
-                                <p class="font-bold text-brand-blue">b) Dạng hiệu bình phương (chú ý $x, y$ cùng dấu):</p>
+                        </div>
+                        <!-- Lỗi a -->
+                        <div class="md:col-span-5 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
+                            <strong class="text-rose-900 text-[14.5px] flex items-center gap-1.5 mb-1">
+                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Biến đổi sai tỉ số (Câu a):
+                            </strong>
+                            <p class="text-[13.5px] text-slate-700 leading-snug">
+                                Viết $4x = 3y \Rightarrow \dfrac{x}{4} = \dfrac{y}{3}$ (nhầm lẫn giữa trung tỉ và ngoại tỉ khi chuyển đổi).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CẶP b -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+                        <!-- Giải b -->
+                        <div class="md:col-span-7 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+                            <div class="text-[14.5px] text-slate-800 font-medium leading-relaxed">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="w-6 h-6 rounded-md bg-brand-blue text-white text-xs font-bold flex items-center justify-center">b</span>
+                                    <strong class="text-brand-blue text-[15px]">Dạng hiệu bình phương (chú ý $x, y$ cùng dấu):</strong>
+                                </div>
                                 <p>Ta có $\dfrac{x}{4} = \dfrac{y}{7} \Rightarrow \dfrac{x^2}{16} = \dfrac{y^2}{49} = \dfrac{x^2-y^2}{16-49} = \dfrac{-33}{-33} = 1$.</p>
                                 <p>$\Rightarrow x^2 = 16 \Rightarrow x = \pm 4; \quad y^2 = 49 \Rightarrow y = \pm 7$.</p>
-                                <p>Vì $x, y$ cùng dấu $\Rightarrow (x; y) \in \{(4; 7); (-4; -7)\}$.</p>
+                                <p class="text-emerald-700 font-bold">Vì $x, y$ cùng dấu $\Rightarrow (x; y) \in \{(4; 7); (-4; -7)\}$.</p>
                             </div>
-                            <hr class="border-slate-200">
-                            <div>
-                                <p class="font-bold text-brand-blue">c) Dạng tích 3 biến (Phương pháp đặt $k$):</p>
+                        </div>
+                        <!-- Lỗi b -->
+                        <div class="md:col-span-5 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
+                            <strong class="text-rose-900 text-[14.5px] flex items-center gap-1.5 mb-1">
+                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Quên bình phương mẫu số (Câu b):
+                            </strong>
+                            <p class="text-[13.5px] text-slate-700 leading-snug">
+                                Biến đổi $\dfrac{x}{4} = \dfrac{y}{7} \Rightarrow \dfrac{x^2-y^2}{4-7}$ (quên bình phương mẫu) và kết luận thiếu nghiệm âm (quên xét điều kiện $x, y$ cùng dấu).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CẶP c -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+                        <!-- Giải c -->
+                        <div class="md:col-span-7 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+                            <div class="text-[14.5px] text-slate-800 font-medium leading-relaxed">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="w-6 h-6 rounded-md bg-brand-blue text-white text-xs font-bold flex items-center justify-center">c</span>
+                                    <strong class="text-brand-blue text-[15px]">Dạng tích 3 biến (Phương pháp đặt $k$):</strong>
+                                </div>
                                 <p>Đặt $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = k \Rightarrow x = 4k, y = 3k, z = 2k$.</p>
                                 <p>Mà $xyz = -648 \Rightarrow 4k \cdot 3k \cdot 2k = 24k^3 = -648 \Rightarrow k^3 = -27 \Rightarrow k = -3$.</p>
                                 <p>$\Rightarrow x = 4(-3) = -12; \ y = 3(-3) = -9; \ z = 2(-3) = -6$.</p>
                                 <p class="text-emerald-700 font-bold">Vậy $(x; y; z) = (-12; -9; -6)$.</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Lỗi sai thường gặp (5/12 cột) -->
-                    <div class="p-4.5 md:col-span-5 bg-rose-50/30">
-                        <h4 class="text-rose-700 font-bold text-[16px] flex items-center mb-2.5">
-                            <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai học sinh thường mắc:
-                        </h4>
-                        <div class="space-y-3 text-[14px] text-slate-700 leading-snug">
-                            <div class="bg-white p-2.5 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-900 block mb-0.5">Câu a: Biến đổi sai tỉ số:</strong>
-                                <span>$4x = 3y \Rightarrow \dfrac{x}{4} = \dfrac{y}{3}$ (nhầm lẫn giữa trung tỉ và ngoại tỉ).</span>
-                            </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-900 block mb-0.5">Câu b: Quên bình phương mẫu số:</strong>
-                                <span>Biến đổi $\dfrac{x}{4} = \dfrac{y}{7} \Rightarrow \dfrac{x^2-y^2}{4-7}$ (quên bình phương mẫu) và kết luận thiếu trường hợp âm (quên điều kiện $x, y$ cùng dấu).</span>
-                            </div>
-                            <div class="bg-white p-2.5 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-900 block mb-0.5">Câu c: Áp dụng sai tính chất nhân:</strong>
-                                <span>Tự ý viết $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = \dfrac{xyz}{4 \cdot 3 \cdot 2}$, hoặc khi đặt $k$ quên dấu ngoặc khi tính $(-3)^3$.</span>
-                            </div>
+                        <!-- Lỗi c -->
+                        <div class="md:col-span-5 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
+                            <strong class="text-rose-900 text-[14.5px] flex items-center gap-1.5 mb-1">
+                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Áp dụng sai tính chất nhân (Câu c):
+                            </strong>
+                            <p class="text-[13.5px] text-slate-700 leading-snug">
+                                Tự ý viết $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = \dfrac{xyz}{4 \cdot 3 \cdot 2}$ (sai bản chất dãy tỉ số), hoặc khi đặt $k$ tính nhầm $(-3)^3 = 27$.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1201,48 +1252,60 @@
         </div>
         <div class="slide-content flex flex-col justify-center py-4">
             <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-[94rem] mx-auto my-auto items-stretch">
-                <!-- Cột Trái: Mục đích khảo sát & Timeline (Xanh dương & Cam) -->
-                <div class="bg-blue-50/70 rounded-2xl border border-blue-200 shadow-sm p-6 flex flex-col justify-between space-y-4">
+                <!-- Cột Trái: Kế hoạch khảo sát định kỳ (3 Thẻ: Xanh dương -> Tím -> Cam) -->
+                <div class="bg-blue-50/70 rounded-2xl border-2 border-brand-blue/30 shadow-md p-6 flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-brand-blue text-2xl mb-4 border-b border-blue-200 pb-3 flex items-center">
-                            <i class="fa-solid fa-bullseye mr-3 text-2xl text-brand-orange"></i> Bài kiểm tra khảo sát định kỳ (Tuần 11)
+                        <h3 class="font-bold text-brand-blue text-2xl mb-4 border-b border-blue-200 pb-3 flex items-center justify-between">
+                            <span class="flex items-center"><i class="fa-solid fa-bullseye mr-3 text-2xl text-brand-orange"></i>Bài kiểm tra khảo sát định kỳ (Tuần 11)</span>
+                            <span class="text-xs bg-brand-blue text-white px-3 py-1 rounded-full font-semibold">Kế hoạch khảo sát</span>
                         </h3>
+                    </div>
 
+                    <div class="space-y-4 text-[15.5px] text-slate-800 font-medium">
                         <!-- Mục 1: Xanh Dương (Mục đích khảo sát) -->
-                        <div class="relative overflow-hidden bg-white p-4.5 rounded-xl border-l-4 border-brand-blue border border-blue-100 shadow-sm flex items-start gap-4 hover:-translate-y-0.5 hover:shadow-md transition group mb-4">
+                        <div class="relative overflow-hidden bg-white p-4 rounded-xl border-l-4 border-brand-blue border border-blue-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                             <div class="absolute -left-2 -top-2 text-6xl font-black text-blue-200/40 select-none pointer-events-none leading-none">1</div>
                             <div class="w-11 h-11 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5 relative z-10 border border-blue-200 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-bullseye"></i>
                             </div>
                             <div class="relative z-10">
-                                <strong class="text-blue-950 block text-[16.5px] mb-1">Mục đích & Ý nghĩa khảo sát:</strong>
-                                <p class="text-[15px] text-slate-700 leading-relaxed font-medium">
-                                    Đánh giá mức độ tiếp thu kiến thức, kỹ năng và sự tiến bộ của học sinh sau giai đoạn học tập đầu tiên. Kết quả là cơ sở quan trọng để giáo viên xác định nội dung học sinh còn yếu nhằm kịp thời hỗ trợ và điều chỉnh phương pháp giảng dạy.
-                                </p>
+                                <strong class="text-blue-950 block text-[16px] mb-0.5">Mục đích & Ý nghĩa khảo sát:</strong>
+                                <span class="text-slate-700 text-[14.5px] leading-relaxed">Đánh giá thực chất mức độ tiếp thu kiến thức, kỹ năng và sự tiến bộ của học sinh sau giai đoạn học tập; là cơ sở quan trọng để giáo viên kịp thời củng cố kiến thức còn hổng và điều chỉnh phương pháp giảng dạy.</span>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Mục 2: Cam (Timeline n+2) -->
-                    <div class="relative overflow-hidden bg-white p-4.5 rounded-xl border-l-4 border-brand-orange border border-orange-200 shadow-sm flex items-start gap-4 hover:-translate-y-0.5 hover:shadow-md transition group">
-                        <div class="absolute -left-2 -top-2 text-6xl font-black text-orange-200/40 select-none pointer-events-none leading-none">2</div>
-                        <div class="w-11 h-11 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5 relative z-10 border border-orange-200 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-business-time"></i>
+                        <!-- Mục 2: Tím (Quy mô & Đề thi) -->
+                        <div class="relative overflow-hidden bg-white p-4 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
+                            <div class="absolute -left-2 -top-2 text-6xl font-black text-purple-200/40 select-none pointer-events-none leading-none">2</div>
+                            <div class="w-11 h-11 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-file-lines"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <strong class="text-purple-950 block text-[16px] mb-0.5">Quy mô & Cấu trúc bài khảo sát:</strong>
+                                <span class="text-slate-700 text-[14.5px] leading-relaxed">Khảo sát toàn bộ học sinh Khối 7 theo các phân hệ lớp (Chuyên, Nâng cao, Mở rộng & Cơ bản). Đề thi kiểm tra toàn diện trắc nghiệm và tự luận (Đại số & Hình học), bám sát trọng tâm đã học.</span>
+                            </div>
                         </div>
-                        <div class="relative z-10 w-full">
-                            <strong class="text-orange-950 block text-[16.5px] mb-1">Timeline hoàn thành (Bắt buộc ngày $n + 2$):</strong>
-                            <div class="bg-orange-50/80 p-3 rounded-lg border border-orange-100 text-slate-800 text-[14.5px] leading-relaxed">
-                                Hoàn tất công tác chấm thi và nhập nhận xét chi tiết sau buổi học <strong>02 ngày</strong>, đảm bảo đúng tiến độ quy định toàn hệ thống MathExpress.
+
+                        <!-- Mục 3: Cam (Timeline n+2) -->
+                        <div class="relative overflow-hidden bg-white p-4 rounded-xl border-l-4 border-brand-orange border border-orange-200 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
+                            <div class="absolute -left-2 -top-2 text-6xl font-black text-orange-200/40 select-none pointer-events-none leading-none">3</div>
+                            <div class="w-11 h-11 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-lg shadow-sm mt-0.5 relative z-10 border border-orange-200 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-business-time"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <strong class="text-orange-950 block text-[16px] mb-0.5">Timeline hoàn thành (Bắt buộc ngày $n + 2$):</strong>
+                                <span class="text-slate-700 text-[14.5px] leading-relaxed">Hoàn tất toàn bộ công tác chấm thi và nhập điểm, nhận xét chi tiết sau buổi học <strong>02 ngày</strong> ($n + 2$), đảm bảo đúng tiến độ quy định toàn hệ thống MathExpress để BPCM kịp thời rà soát.</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cột Phải: Nguyên tắc chấm & Bảo mật (Đa sắc: Xanh lục -> Cam -> Đỏ) -->
-                <div class="bg-orange-50/40 rounded-2xl border border-orange-200/80 shadow-sm p-6 flex flex-col justify-between">
+                <!-- Cột Phải: Nguyên tắc chấm & Bảo mật (3 Thẻ: Xanh lục -> Cam -> Đỏ) -->
+                <div class="bg-orange-50/40 rounded-2xl border-2 border-orange-200/80 shadow-md p-6 flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-brand-orange text-2xl mb-4 border-b border-orange-200 pb-3 flex items-center">
-                            <i class="fa-solid fa-scale-balanced mr-3 text-2xl text-brand-blue"></i> Nguyên tắc vàng khi chấm bài
+                        <h3 class="font-bold text-brand-orange text-2xl mb-4 border-b border-orange-200 pb-3 flex items-center justify-between">
+                            <span class="flex items-center"><i class="fa-solid fa-scale-balanced mr-3 text-2xl text-brand-blue"></i>Nguyên tắc vàng khi chấm bài</span>
+                            <span class="text-xs bg-brand-orange text-white px-3 py-1 rounded-full font-semibold">Quy chế chấm</span>
                         </h3>
                     </div>
 
@@ -1305,9 +1368,9 @@
                         <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Bấm vào ảnh để phóng to
                     </span>
                 </div>
-                <!-- Ảnh chụp thực tế -->
+                <!-- Ảnh chụp thực tế (Vector SVG sắc nét 100%) -->
                 <div class="w-full flex justify-center bg-white p-3 rounded-xl border border-slate-200 shadow-inner overflow-hidden group">
-                    <img alt="Giao diện nhập điểm khảo sát mẫu Khối 7" class="max-h-52 md:max-h-56 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer" src="nhap_diem_mau.png" onclick="openLightbox(this)" />
+                    <img alt="Giao diện nhập điểm khảo sát mẫu Khối 7" class="max-h-52 md:max-h-56 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer shadow-sm" src="nhap_diem_mau.svg" onclick="openLightbox(this)" />
                 </div>
             </div>
 
@@ -1490,8 +1553,8 @@
 
             <div class="z-10 w-32 h-2 md:h-3 bg-gradient-to-r from-brand-orange to-yellow-400 rounded-full mb-6 md:mb-10 shadow-lg"></div>
 
-            <p class="z-10 text-2xl md:text-4xl font-medium text-slate-700 max-w-3xl px-4 tracking-wide drop-shadow-sm">
-                Chúc các Thầy Cô một năm học mới nhiều nhiệt huyết, thành công và tràn đầy năng lượng!
+            <p class="z-10 text-2xl md:text-3xl lg:text-4xl font-medium text-slate-700 max-w-4xl px-4 tracking-wide drop-shadow-sm leading-relaxed">
+                Kính chúc các Thầy Cô luôn dồi dào sức khỏe, tràn đầy nhiệt huyết và gặt hái thật nhiều thành công trong công tác giảng dạy!
             </p>
         </div>
     </div>
