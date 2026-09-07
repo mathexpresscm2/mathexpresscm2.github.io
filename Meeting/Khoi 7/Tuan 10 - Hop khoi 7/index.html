@@ -119,6 +119,17 @@
             }
         }
 
+        /* Phóng to nội dung slide 8% */
+        .zoom-108 {
+            zoom: 1.08;
+        }
+        @supports not (zoom: 1.08) {
+            .zoom-108 {
+                transform: scale(1.08);
+                transform-origin: center center;
+            }
+        }
+
         /* Tùy chỉnh Table */
         .table-custom th,
         .table-custom td {
@@ -519,7 +530,7 @@
                                 Tháng 9
                             </td>
                             <td class="border border-slate-300 text-center py-1 font-medium">03/09 - 09/09</td>
-                            <td class="border border-slate-300 text-center font-bold text-red-600 py-1">9</td>
+                            <td class="border border-slate-300 text-center font-semibold text-slate-900 py-1">9</td>
                             <td class="border border-slate-300 px-2 py-1 text-left">Giá trị tuyệt đối của một số thực</td>
                             <td class="border border-slate-300 px-2 py-1 text-left">Giá trị tuyệt đối của một số thực</td>
                             <td class="border border-slate-300 px-2 py-1 text-left">Giá trị tuyệt đối của một số thực</td>
@@ -745,7 +756,7 @@
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
-            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full">
+            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-6xl mx-auto w-full zoom-115" style="zoom: 1.15;">
                 <!-- Đề bài + Hình vẽ -->
                 <div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200">
                     <!-- Cột Đề bài + Hình vẽ (5/12) -->
@@ -1200,7 +1211,7 @@
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
-            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-5xl mx-auto w-full">
+            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-5xl mx-auto w-full zoom-108" style="zoom: 1.08;">
                 <!-- Đề bài -->
                 <div class="bg-brand-light border-l-[6px] border-brand-blue p-4 rounded-r-lg">
                     <strong class="text-brand-blue text-lg flex items-center mb-1"><i class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 3)</strong>
