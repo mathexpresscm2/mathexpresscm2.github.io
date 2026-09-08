@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" width="100%" height="100%">
+    <defs>
+        <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+            <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15" />
+        </filter>
+    </defs>
+
+    <!-- Background nhẹ -->
+    <rect width="560" height="320" fill="#ffffff" rx="12" />
+
+    <!-- Tứ giác AMBP (Hình thoi) fill -->
+    <polygon points="220,260 360,170 220,80 80,170" fill="#ea580c" fill-opacity="0.12" stroke="#ea580c" stroke-width="2" stroke-dasharray="none" filter="url(#shadow)" />
+
+    <!-- Tứ giác ADME (Hình chữ nhật) fill -->
+    <polygon points="220,260 220,170 360,170 360,260" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-width="2" />
+
+    <!-- Tam giác ABC -->
+    <polygon points="220,260 220,80 500,260" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Đường chéo & Đoạn thẳng phụ -->
+    <!-- Đường PM -->
+    <line x1="80" y1="170" x2="360" y2="170" stroke="#ea580c" stroke-width="2" />
+    <!-- Đoạn ME -->
+    <line x1="360" y1="170" x2="360" y2="260" stroke="#0284c7" stroke-width="2" />
+    <!-- Cạnh BP, AP -->
+    <line x1="220" y1="80" x2="80" y2="170" stroke="#ea580c" stroke-width="2" />
+    <line x1="220" y1="260" x2="80" y2="170" stroke="#ea580c" stroke-width="2" />
+    <!-- Cạnh AM -->
+    <line x1="220" y1="260" x2="360" y2="170" stroke="#4338ca" stroke-width="1.8" stroke-dasharray="4,3" />
+    <!-- Đoạn PC (chứng minh APMC là hình bình hành) -->
+    <line x1="80" y1="170" x2="500" y2="260" stroke="#059669" stroke-width="1.8" stroke-dasharray="4,3" />
+
+    <!-- Ký hiệu góc vuông tại A (220, 260) -->
+    <path d="M 220,244 L 236,244 L 236,260" fill="none" stroke="#dc2626" stroke-width="1.8" />
+    <!-- Ký hiệu góc vuông tại D (220, 170) -->
+    <path d="M 220,154 L 236,154 L 236,170" fill="none" stroke="#dc2626" stroke-width="1.8" />
+    <!-- Ký hiệu góc vuông tại E (360, 260) -->
+    <path d="M 360,244 L 344,244 L 344,260" fill="none" stroke="#dc2626" stroke-width="1.8" />
+
+    <!-- Ký hiệu bằng nhau trên các đoạn thẳng -->
+    <!-- PD = DM: 2 gạch chéo -->
+    <line x1="148" y1="164" x2="152" y2="176" stroke="#ea580c" stroke-width="1.6" />
+    <line x1="152" y1="164" x2="156" y2="176" stroke="#ea580c" stroke-width="1.6" />
+    <line x1="288" y1="164" x2="292" y2="176" stroke="#ea580c" stroke-width="1.6" />
+    <line x1="292" y1="164" x2="296" y2="176" stroke="#ea580c" stroke-width="1.6" />
+
+    <!-- BD = DA: 1 gạch ngang -->
+    <line x1="214" y1="125" x2="226" y2="125" stroke="#1e3a8a" stroke-width="1.6" />
+    <line x1="214" y1="215" x2="226" y2="215" stroke="#1e3a8a" stroke-width="1.6" />
+
+    <!-- BM = MC: 1 gạch chéo -->
+    <line x1="286" y1="120" x2="294" y2="130" stroke="#1e3a8a" stroke-width="1.6" />
+    <line x1="426" y1="210" x2="434" y2="220" stroke="#1e3a8a" stroke-width="1.6" />
+
+    <!-- Các điểm (Circles) -->
+    <circle cx="220" cy="260" r="4" fill="#1e3a8a" />
+    <circle cx="220" cy="80" r="4" fill="#1e3a8a" />
+    <circle cx="500" cy="260" r="4" fill="#1e3a8a" />
+    <circle cx="360" cy="170" r="4.5" fill="#ea580c" />
+    <circle cx="220" cy="170" r="4" fill="#0284c7" />
+    <circle cx="360" cy="260" r="4" fill="#0284c7" />
+    <circle cx="80" cy="170" r="4" fill="#ea580c" />
+
+    <!-- Nhãn các điểm (Text) -->
+    <text x="202" y="280" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1e3a8a">A</text>
+    <text x="215" y="65" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1e3a8a">B</text>
+    <text x="508" y="278" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#1e3a8a">C</text>
+    <text x="368" y="165" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#ea580c">M</text>
+    <text x="198" y="165" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#0284c7">D</text>
+    <text x="355" y="282" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#0284c7">E</text>
+    <text x="60" y="175" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#ea580c">P</text>
+</svg>

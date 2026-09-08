@@ -1,167 +1,122 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1186 275" width="1186" height="275" style="background-color:#ffffff;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1474 312" width="1474" height="312" style="background-color:#ffffff;">
   <defs>
     <style>
-      .font-sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Arial', sans-serif; }
-      .header-text { font-size: 13px; font-weight: 700; fill: #000000; text-anchor: middle; dominant-baseline: central; }
-      .sub-header-text { font-size: 12.5px; font-weight: 700; fill: #000000; text-anchor: middle; dominant-baseline: central; }
-      .italic-text { font-size: 11.5px; font-style: italic; fill: #000000; text-anchor: middle; dominant-baseline: central; }
-      .cell-text { font-size: 13px; font-weight: 400; fill: #000000; text-anchor: middle; dominant-baseline: central; }
-      .cell-text-start { font-size: 12.5px; font-weight: 400; fill: #000000; text-anchor: start; dominant-baseline: central; }
-      .cell-text-bold { font-size: 14px; font-weight: 700; fill: #000000; text-anchor: middle; dominant-baseline: central; }
+      .font-serif { font-family: 'Times New Roman', Times, 'Liberation Serif', serif; }
+      .font-sans { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif; }
+      .hdr-text { font-size: 12px; font-weight: bold; fill: #000000; text-anchor: middle; dominant-baseline: central; }
+      .row-num { font-size: 11px; fill: #595959; text-anchor: middle; dominant-baseline: central; font-family: Arial, sans-serif; }
+      .cell-text-c { font-size: 12.5px; fill: #000000; text-anchor: middle; dominant-baseline: central; }
+      .cell-text-l { font-size: 12.5px; fill: #000000; text-anchor: start; dominant-baseline: central; }
+      .cell-text-bold { font-size: 13.5px; font-weight: bold; fill: #000000; text-anchor: middle; dominant-baseline: central; }
+      .cmt-text { font-size: 12px; fill: #000000; text-anchor: start; dominant-baseline: auto; }
       .grid-line { stroke: #000000; stroke-width: 1; shape-rendering: crispEdges; }
-      .grid-light { stroke: #d4d4d4; stroke-width: 1; shape-rendering: crispEdges; }
-      .thick-line { stroke: #000000; stroke-width: 1.8; shape-rendering: crispEdges; }
+      .grid-gray { stroke: #bfbfbf; stroke-width: 1; shape-rendering: crispEdges; }
+      .thick-line { stroke: #000000; stroke-width: 2.2; shape-rendering: crispEdges; }
     </style>
   </defs>
 
-  <!-- ==================== BACKGROUND ==================== -->
-  <rect x="0" y="0" width="1186" height="275" fill="#ffffff" />
+  <!-- Background -->
+  <rect x="0" y="0" width="1474" height="312" fill="#ffffff" />
 
-  <!-- ==================== ROW 1: UPPER INSTRUCTION & SUMMARY ROW (y: 1 - 24) ==================== -->
-  <!-- Subtle Excel gridlines in top-left cells above STT to SĐT -->
-  <line x1="49" y1="1" x2="49" y2="24" class="grid-light" />
-  <line x1="144" y1="1" x2="144" y2="24" class="grid-light" />
-  <line x1="261" y1="1" x2="261" y2="24" class="grid-light" />
-  <line x1="441" y1="1" x2="441" y2="24" class="grid-light" />
+  <!-- ================= HEADER ROW (y: 1 to 26) ================= -->
+  <rect x="0" y="1" width="26" height="26" fill="#f3f3f3" class="grid-gray" />
+  <rect x="26" y="1" width="36" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="62" y="1" width="86" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="148" y="1" width="102" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="250" y="1" width="148" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="398" y="1" width="88" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="486" y="1" width="152" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="638" y="1" width="88" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="726" y="1" width="80" height="26" fill="#fff2cc" class="grid-line" />
+  <rect x="806" y="1" width="48" height="26" fill="#c9daf8" class="grid-line" />
+  <rect x="854" y="1" width="48" height="26" fill="#c9daf8" class="grid-line" />
+  <rect x="902" y="1" width="48" height="26" fill="#c9daf8" class="grid-line" />
+  <rect x="950" y="1" width="48" height="26" fill="#c9daf8" class="grid-line" />
+  <rect x="998" y="1" width="48" height="26" fill="#c9daf8" class="grid-line" />
+  <rect x="1046" y="1" width="68" height="26" fill="#ff9900" class="grid-line" />
+  <rect x="1114" y="1" width="360" height="26" fill="#6d9eeb" class="grid-line" />
 
-  <!-- Upper Row: Tổng HS đi thi (Col 6: 524 - 660) -->
-  <rect x="524" y="1" width="136" height="23" fill="#ed7d31" class="grid-line" />
-  <text x="592" y="12.5" class="font-sans sub-header-text">Tổng HS đi thi</text>
+  <!-- ================= DATA ROW (y: 26 to 312) ================= -->
+  <rect x="0" y="26" width="26" height="286" fill="#f3f3f3" class="grid-gray" />
+  <rect x="26" y="26" width="36" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="62" y="26" width="86" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="148" y="26" width="102" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="250" y="26" width="148" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="398" y="26" width="88" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="486" y="26" width="152" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="638" y="26" width="88" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="726" y="26" width="80" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="806" y="26" width="48" height="286" fill="#c9daf8" class="grid-line" />
+  <rect x="854" y="26" width="48" height="286" fill="#c9daf8" class="grid-line" />
+  <rect x="902" y="26" width="48" height="286" fill="#c9daf8" class="grid-line" />
+  <rect x="950" y="26" width="48" height="286" fill="#c9daf8" class="grid-line" />
+  <rect x="998" y="26" width="48" height="286" fill="#c9daf8" class="grid-line" />
+  <rect x="1046" y="26" width="68" height="286" fill="#ffffff" class="grid-line" />
+  <rect x="1114" y="26" width="360" height="286" fill="#ffffff" class="grid-line" />
 
-  <!-- Upper Row: 25 (Col 7: 660 - 767) -->
-  <rect x="660" y="1" width="107" height="23" fill="#f8cbad" class="grid-line" />
-  <text x="713.5" y="12.5" class="font-sans header-text">25</text>
+  <!-- ================= HEADER TEXT ================= -->
+  <text x="13.0" y="13.5" class="row-num">4</text>
+  <text x="44.0" y="13.5" class="hdr-text font-serif">STT</text>
+  <text x="105.0" y="13.5" class="hdr-text font-serif">Mã lớp</text>
+  <text x="199.0" y="13.5" class="hdr-text font-serif">Số báo danh</text>
+  <text x="324.0" y="13.5" class="hdr-text font-serif">Họ tên học sinh</text>
+  <text x="442.0" y="13.5" class="hdr-text font-serif">Ngày sinh</text>
+  <text x="562.0" y="13.5" class="hdr-text font-serif">Họ tên phụ huynh</text>
+  <text x="682.0" y="13.5" class="hdr-text font-serif">SĐT</text>
+  <text x="766.0" y="13.5" class="hdr-text font-serif">Điểm danh</text>
+  <text x="830.0" y="13.5" class="hdr-text font-serif">Câu 1</text>
+  <text x="878.0" y="13.5" class="hdr-text font-serif">Câu 2</text>
+  <text x="926.0" y="13.5" class="hdr-text font-serif">Câu 3</text>
+  <text x="974.0" y="13.5" class="hdr-text font-serif">Câu 4</text>
+  <text x="1022.0" y="13.5" class="hdr-text font-serif">Câu 5</text>
+  <text x="1080.0" y="13.5" class="hdr-text font-serif">Tổng điểm</text>
+  <text x="1294.0" y="13.5" class="hdr-text font-serif">Giáo viên nhận xét bài làm tự luận</text>
 
-  <!-- Upper Row: Merged Cols 8-12 (767 - 1102) -->
-  <rect x="767" y="1" width="335" height="23" fill="#b4c6e7" class="grid-line" />
-  <text x="934.5" y="12.5" class="font-sans sub-header-text">Nhập giá trị từ 0 đến điểm tối đa/<tspan fill="#c00000" font-weight="bold">BÀI</tspan> tự luận</text>
-
-  <!-- Upper Row: Max: 10 điểm (Col 13: 1102 - 1185) -->
-  <rect x="1102" y="1" width="83" height="23" fill="#ffffff" class="grid-line" />
-  <text x="1143.5" y="12.5" class="font-sans italic-text">Max: 10 điểm</text>
-
-
-  <!-- ==================== ROW 2: COLUMN HEADERS (y: 24 - 48) ==================== -->
-  <!-- Col 1: STT (0 - 49) -->
-  <rect x="1" y="24" width="48" height="24" fill="#f4b084" class="grid-line" />
-  <text x="25" y="36" class="font-sans header-text">STT</text>
-
-  <!-- Col 2: Mã lớp (49 - 144) -->
-  <rect x="49" y="24" width="95" height="24" fill="#f4b084" class="grid-line" />
-  <text x="96.5" y="36" class="font-sans header-text">Mã lớp</text>
-
-  <!-- Col 3: Số báo danh (144 - 261) -->
-  <rect x="144" y="24" width="117" height="24" fill="#f4b084" class="grid-line" />
-  <text x="202.5" y="36" class="font-sans header-text">Số báo danh</text>
-
-  <!-- Col 4: Họ tên học sinh (261 - 441) -->
-  <rect x="261" y="24" width="180" height="24" fill="#f4b084" class="grid-line" />
-  <text x="351" y="36" class="font-sans header-text">Họ tên học sinh</text>
-
-  <!-- Col 5: SĐT (441 - 524) -->
-  <rect x="441" y="24" width="83" height="24" fill="#f4b084" class="grid-line" />
-  <text x="482.5" y="36" class="font-sans header-text">SĐT</text>
-
-  <!-- Col 6: Ghi chú (524 - 660) -->
-  <rect x="524" y="24" width="136" height="24" fill="#8ea9db" class="grid-line" />
-  <text x="592" y="36" class="font-sans header-text">Ghi chú</text>
-
-  <!-- Col 7: Điểm danh (660 - 767) -->
-  <rect x="660" y="24" width="107" height="24" fill="#ffe699" class="grid-line" />
-  <text x="713.5" y="36" class="font-sans header-text">Điểm danh</text>
-
-  <!-- Col 8: Câu 1 (767 - 834) -->
-  <rect x="767" y="24" width="67" height="24" fill="#b4c6e7" class="grid-line" />
-  <text x="800.5" y="36" class="font-sans header-text">Câu 1</text>
-
-  <!-- Col 9: Câu 2 (834 - 901) -->
-  <rect x="834" y="24" width="67" height="24" fill="#b4c6e7" class="grid-line" />
-  <text x="867.5" y="36" class="font-sans header-text">Câu 2</text>
-
-  <!-- Col 10: Câu 3 (901 - 968) -->
-  <rect x="901" y="24" width="67" height="24" fill="#b4c6e7" class="grid-line" />
-  <text x="934.5" y="36" class="font-sans header-text">Câu 3</text>
-
-  <!-- Col 11: Câu 4 (968 - 1035) -->
-  <rect x="968" y="24" width="67" height="24" fill="#b4c6e7" class="grid-line" />
-  <text x="1001.5" y="36" class="font-sans header-text">Câu 4</text>
-
-  <!-- Col 12: Câu 5 (1035 - 1102) -->
-  <rect x="1035" y="24" width="67" height="24" fill="#b4c6e7" class="grid-line" />
-  <text x="1068.5" y="36" class="font-sans header-text">Câu 5</text>
-
-  <!-- Col 13: Tổng điểm (1102 - 1185) -->
-  <rect x="1102" y="24" width="83" height="24" fill="#f4b084" class="grid-line" />
-  <text x="1143.5" y="36" class="font-sans header-text">Tổng điểm</text>
-
-
-  <!-- ==================== ROW 3: STUDENT DATA ROW (y: 48 - 273) ==================== -->
-  <!-- Col 1: STT -->
-  <rect x="1" y="48" width="48" height="225" fill="#ffffff" class="grid-line" />
-  <text x="25" y="160.5" class="font-sans cell-text">1</text>
-
-  <!-- Col 2: Mã lớp -->
-  <rect x="49" y="48" width="95" height="225" fill="#ffffff" class="grid-line" />
-  <text x="96.5" y="160.5" class="font-sans cell-text">Láng Hạ-6.4B</text>
-
-  <!-- Col 3: Số báo danh -->
-  <rect x="144" y="48" width="117" height="225" fill="#ffffff" class="grid-line" />
-  <text x="202.5" y="160.5" class="font-sans cell-text">LH0825171</text>
-
-  <!-- Col 4: Họ tên học sinh -->
-  <rect x="261" y="48" width="180" height="225" fill="#ffffff" class="grid-line" />
-  <text x="271" y="160.5" class="font-sans cell-text-start">NGUYỄN TRẦN CHÂU ANH</text>
-
-  <!-- Col 5: SĐT -->
-  <rect x="441" y="48" width="83" height="225" fill="#ffffff" class="grid-line" />
-  <text x="482.5" y="160.5" class="font-sans cell-text">904469319</text>
-
-  <!-- Col 6: Ghi chú -->
-  <rect x="524" y="48" width="136" height="225" fill="#ffffff" class="grid-line" />
-
-  <!-- Col 7: Điểm danh (Pill button) -->
-  <rect x="660" y="48" width="107" height="225" fill="#ffffff" class="grid-line" />
-  <!-- Dropdown Pill button -->
-  <g transform="translate(671, 149.5)">
-    <rect x="0" y="0" width="86" height="22" rx="11" fill="#2d7d46" stroke="#236337" stroke-width="0.5" />
-    <text x="36" y="11" fill="#ffffff" font-size="12px" font-weight="600" class="font-sans" text-anchor="middle" dominant-baseline="central">Có mặt</text>
-    <!-- Dropdown Chevron -->
-    <polygon points="69,9.5 77,9.5 73,14.5" fill="#ffffff" />
+  <!-- ================= DATA CELL TEXT ================= -->
+  <text x="13.0" y="169.0" class="row-num">5</text>
+  <text x="44.0" y="169.0" class="cell-text-c font-serif">1</text>
+  <text x="68" y="169.0" class="cell-text-l font-serif">Láng Hạ-7.4B</text>
+  <text x="199.0" y="169.0" class="cell-text-c font-serif">LH0625-00545</text>
+  <text x="258" y="169.0" class="cell-text-l font-serif" font-weight="bold">Nguyễn Văn B</text>
+  <text x="442.0" y="169.0" class="cell-text-c font-serif">16/08/2013</text>
+  <text x="494" y="169.0" class="cell-text-l font-serif">Nguyễn Văn A</text>
+  <text x="682.0" y="169.0" class="cell-text-c font-serif">0123456JQK</text>
+  <!-- Dropdown Pill Có mặt -->
+  <g transform="translate(732.0, 159.0)">
+    <rect x="0" y="0" width="68" height="20" rx="10" ry="10" fill="#11734b" />
+    <text x="30" y="10.5" fill="#ffffff" font-size="11.5px" font-weight="500" class="font-sans" text-anchor="middle" dominant-baseline="central">Có mặt</text>
+    <polygon points="54,8.5 61,8.5 57.5,13" fill="#ffffff" />
   </g>
+  <text x="830" y="169.0" class="cell-text-c font-serif">1,00</text>
+  <text x="878" y="169.0" class="cell-text-c font-serif">1,00</text>
+  <text x="926" y="169.0" class="cell-text-c font-serif">1,50</text>
+  <text x="974" y="169.0" class="cell-text-c font-serif">1,50</text>
+  <text x="1022" y="169.0" class="cell-text-c font-serif">0,00</text>
+  <text x="1080.0" y="169.0" class="cell-text-bold font-serif" font-size="13.5px">5,00</text>
+  <!-- Nhận xét chi tiết -->
+  <text x="1120" y="43" class="cmt-text font-serif">
+    <tspan x="1120" dy="0">- Con vận dụng được kiến thức cơ bản để thực hiện</tspan>
+    <tspan x="1120" dy="17.6">dạng bài cơ bản viết đa thức theo yêu cầu của đề</tspan>
+    <tspan x="1120" dy="17.6">bài.</tspan>
+    <tspan x="1120" dy="17.6">- Con áp dụng được kiến thức để thực hiện dạng</tspan>
+    <tspan x="1120" dy="17.6">bài về tỉ lệ thức, tính chất dãy tỉ số bằng nhau.</tspan>
+    <tspan x="1120" dy="17.6">- Con vận dụng được kiến thức để chứng minh hai</tspan>
+    <tspan x="1120" dy="17.6">tam giác bằng nhau, chứng minh hai đường thẳng</tspan>
+    <tspan x="1120" dy="17.6">song song.</tspan>
+    <tspan x="1120" dy="17.6">- Con chưa vận dụng được kiến thức để thực hiện</tspan>
+    <tspan x="1120" dy="17.6">các bài cơ bản về cộng, trừ và tìm nghiệm của đa</tspan>
+    <tspan x="1120" dy="17.6">thức.</tspan>
+    <tspan x="1120" dy="17.6">- Con chưa vận dụng được kiến thức để thực hiện</tspan>
+    <tspan x="1120" dy="17.6">bài mở rộng về: tính chất trọng tâm của tam giác</tspan>
+    <tspan x="1120" dy="17.6">để chứng minh ba đường thẳng đồng quy.</tspan>
+    <tspan x="1120" dy="17.6">- Con cần cẩn thận hơn trong quá trình tính toán.</tspan>
+  </text>
 
-  <!-- Col 8: Câu 1 -->
-  <rect x="767" y="48" width="67" height="225" fill="#d9e1f2" class="grid-line" />
-  <text x="800.5" y="160.5" class="font-sans cell-text">1,25</text>
-
-  <!-- Col 9: Câu 2 -->
-  <rect x="834" y="48" width="67" height="225" fill="#d9e1f2" class="grid-line" />
-  <text x="867.5" y="160.5" class="font-sans cell-text">2,00</text>
-
-  <!-- Col 10: Câu 3 -->
-  <rect x="901" y="48" width="67" height="225" fill="#d9e1f2" class="grid-line" />
-  <text x="934.5" y="160.5" class="font-sans cell-text">1,50</text>
-
-  <!-- Col 11: Câu 4 -->
-  <rect x="968" y="48" width="67" height="225" fill="#d9e1f2" class="grid-line" />
-  <text x="1001.5" y="160.5" class="font-sans cell-text">3,00</text>
-
-  <!-- Col 12: Câu 5 -->
-  <rect x="1035" y="48" width="67" height="225" fill="#d9e1f2" class="grid-line" />
-  <text x="1068.5" y="160.5" class="font-sans cell-text">0,00</text>
-
-  <!-- Col 13: Tổng điểm -->
-  <rect x="1102" y="48" width="83" height="225" fill="#ffffff" class="grid-line" />
-  <text x="1143.5" y="160.5" class="font-sans cell-text-bold">7,75</text>
-
-  <!-- ==================== HORIZONTAL BORDER BETWEEN ROW 1 & 2 FOR COLS 1-5 ==================== -->
-  <line x1="1" y1="24" x2="524" y2="24" class="grid-line" />
-
-  <!-- ==================== BOTTOM HORIZONTAL TABLE BORDER ==================== -->
-  <line x1="1" y1="273" x2="1185" y2="273" class="grid-line" />
-
-  <!-- ==================== SEPARATION VERTICAL LINE (COL 5 & 6) ==================== -->
-  <line x1="524" y1="1" x2="524" y2="273" class="thick-line" />
-
-  <!-- ==================== OUTER TABLE BORDER ==================== -->
-  <rect x="1" y="1" width="1184" height="272" fill="none" stroke="#000000" stroke-width="1" shape-rendering="crispEdges" />
+  <!-- Thick vertical separator lines -->
+  <line x1="726" y1="1" x2="726" y2="312" class="thick-line" />
+  <line x1="1046" y1="1" x2="1046" y2="312" class="thick-line" />
+  <line x1="1114" y1="1" x2="1114" y2="312" class="thick-line" />
+  <line x1="1" y1="26" x2="1474" y2="26" class="grid-line" />
+  <line x1="1" y1="312" x2="1474" y2="312" class="grid-line" />
+  <rect x="0.5" y="0.5" width="1473" height="311" fill="none" stroke="#000000" stroke-width="1.2" shape-rendering="crispEdges" />
 </svg>

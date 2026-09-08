@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>MathExpress - Tuần 10 - Họp giáo viên khối 7</title>
+    <title>MathExpress - Tuần 10 - Họp giáo viên khối 8</title>
     <!-- Tailwind CSS & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
@@ -39,7 +39,8 @@
         }
     </script>
     <style>
-        body {
+        html, body {
+            height: 100%;
             margin: 0;
             overflow: hidden;
             background-color: #f8fafc;
@@ -137,7 +138,7 @@
         .table-custom th,
         .table-custom td {
             border: 1px solid #cbd5e1;
-            padding: 0.6rem 0.75rem;
+            padding: 0.55rem 0.75rem;
             text-align: center;
         }
 
@@ -151,52 +152,13 @@
                 padding-right: 1rem !important;
             }
         }
-
-        /* In ấn và xuất PDF */
-        @media print {
-            @page {
-                size: landscape;
-                margin: 0;
-            }
-
-            html,
-            body {
-                width: 1600px !important;
-                height: auto !important;
-                min-height: auto !important;
-                overflow: visible !important;
-                background: white !important;
-            }
-
-            .slide {
-                position: relative !important;
-                opacity: 1 !important;
-                visibility: visible !important;
-                transform: none !important;
-                width: 1600px !important;
-                min-height: 900px !important;
-                height: auto !important;
-                page-break-after: always;
-                break-after: page;
-                overflow: visible !important;
-            }
-
-            .slide-content {
-                overflow: visible !important;
-                padding-bottom: 2rem !important;
-            }
-
-            .fixed {
-                display: none !important;
-            }
-        }
     </style>
 </head>
 
-<body class="text-slate-800 bg-pattern h-[100dvh] w-full flex flex-col relative print:h-auto print:w-auto">
-    <!-- Nút điều hướng -->
+<body class="text-slate-800 bg-pattern h-[100dvh] w-full flex flex-col relative print:h-auto print:w-auto select-none">
+    <!-- Nút điều hướng cố định góc dưới bên phải -->
     <div
-        class="fixed bottom-6 right-8 z-50 flex gap-4 bg-white/95 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-slate-200">
+        class="fixed bottom-4 right-6 z-50 flex items-center gap-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg border border-slate-200">
         <button
             class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
             id="prevBtn" title="Slide trước (Mũi tên trái)">
@@ -219,7 +181,7 @@
 
     <!-- ================= CÁC SLIDE ================= -->
 
-    <!-- SLIDE 1: TRANG BÌA (COMPONENT 1) -->
+        <!-- SLIDE 1: TRANG BÌA (COMPONENT 1) -->
     <div class="slide active" id="slide-1">
         <div
             class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden h-[100dvh]">
@@ -238,12 +200,12 @@
 
             <div
                 class="z-10 inline-flex items-center gap-2 bg-brand-orange/15 text-brand-orange px-6 py-2 rounded-full font-bold text-lg md:text-xl mb-4 border border-brand-orange/30 shadow-sm">
-                <i class="fa-solid fa-calendar-check"></i> TUẦN 10 - HỌP GIÁO VIÊN KHỐI 7
+                <i class="fa-solid fa-calendar-check"></i> TUẦN 10 - 11 | HỌP GIÁO VIÊN KHỐI 8 (14/09 - 20/09/2026)
             </div>
 
             <h2
                 class="z-10 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 leading-tight max-w-full tracking-tight text-brand-blue drop-shadow-sm uppercase whitespace-nowrap">
-                HỌP CHUYÊN MÔN GIÁO VIÊN KHỐI 7
+                HỌP CHUYÊN MÔN GIÁO VIÊN KHỐI 8
             </h2>
 
             <div
@@ -256,7 +218,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 2: NỘI DUNG CUỘC HỌP (MỤC LỤC 5 MỤC - COMPONENT 3B) -->
+        <!-- SLIDE 2: NỘI DUNG CUỘC HỌP (MỤC LỤC 5 MỤC) -->
     <div class="slide bg-white" id="slide-2">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
@@ -304,11 +266,9 @@
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-emerald-900 relative z-10">Khung chương trình thời gian tới
-                        </h3>
-                        <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Kế hoạch
-                            phân phối chương trình chi tiết Tháng 9 & Tháng 10 theo từng phân lớp (Chuyên, Nâng cao, Mở
-                            rộng & Cơ bản).</p>
+                        <h3 class="text-xl font-bold text-emerald-900 relative z-10">Rà soát tiến độ CT</h3>
+                        <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Theo dõi
+                            tiến độ Khối 8: Đã hoàn thành Buổi 9 (Hình chữ nhật); trọng tâm thời gian tới: Buổi 11, Kiểm tra Quý I (Tuần 12) & Tháng 10.</p>
                     </div>
 
                     <!-- Mục 3 -->
@@ -316,73 +276,67 @@
                         class="bg-blue-50 p-5 rounded-2xl border border-blue-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
                         <div
                             class="absolute -right-6 -bottom-6 opacity-10 text-[90px] text-brand-blue group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-brain"></i>
+                            <i class="fa-solid fa-chalkboard-user"></i>
                         </div>
                         <div class="flex items-center justify-between mb-2.5 relative z-10">
                             <div class="text-4xl font-extrabold text-blue-300">03</div>
                             <div
                                 class="w-11 h-11 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue text-lg shadow-sm">
-                                <i class="fa-solid fa-brain"></i>
+                                <i class="fa-solid fa-shapes"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-blue-900 relative z-10">Kiến thức trọng tâm & Dạng bài lưu ý
-                        </h3>
-                        <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Trọng tâm
-                            chương Tam giác bằng nhau, Tỉ lệ thức & Dãy tỉ số bằng nhau cùng phương pháp các bài toán
-                            then chốt.</p>
+                        <h3 class="text-xl font-bold text-blue-950 relative z-10">Trọng tâm chuyên môn</h3>
+                        <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Hình học:
+                            Hình thoi - Hình vuông & Ôn tập Tứ giác; Đại số: Phân tích đa thức nâng cao & Chuyên đề Chia hết số nguyên.</p>
                     </div>
 
                     <!-- Mục 4 -->
                     <div
-                        class="bg-orange-50 p-5 rounded-2xl border border-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
+                        class="bg-amber-50 p-5 rounded-2xl border border-amber-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
                         <div
-                            class="absolute -right-6 -bottom-6 opacity-10 text-[90px] text-brand-orange group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-clipboard-check"></i>
+                            class="absolute -right-6 -bottom-6 opacity-10 text-[90px] text-amber-500 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-clipboard-list"></i>
                         </div>
                         <div class="flex items-center justify-between mb-2.5 relative z-10">
-                            <div class="text-4xl font-extrabold text-orange-300">04</div>
+                            <div class="text-4xl font-extrabold text-amber-300">04</div>
                             <div
-                                class="w-11 h-11 rounded-full bg-orange-100 flex items-center justify-center text-brand-orange text-lg shadow-sm">
+                                class="w-11 h-11 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 text-lg shadow-sm">
                                 <i class="fa-solid fa-clipboard-check"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-orange-900 relative z-10">Kế hoạch kiểm tra, chấm & nhập điểm
-                        </h3>
-                        <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Tổ chức
-                            khảo sát định kỳ Quý I (Tuần 12), giao diện nhập điểm chuẩn và bảng nhận xét mẫu theo từng
-                            dạng bài.</p>
+                        <h3 class="text-xl font-bold text-amber-950 relative z-10">Kế hoạch & Quy chế chấm</h3>
+                        <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Kế hoạch
+                            khảo sát định kỳ Quý 1 Tuần 12, quy chế chấm bài nghiêm túc $n+2$, hướng dẫn nhập điểm &
+                            nhận xét chuẩn.</p>
                     </div>
                 </div>
 
-                <!-- Hàng 2: Mục 5 Thảo luận & Góp ý (Full width hài hòa) -->
+                <!-- Hàng 2: Thảo luận & Góp ý (Full width) -->
                 <div
-                    class="bg-purple-50 p-4.5 rounded-2xl border border-purple-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group flex items-center justify-between">
-                    <div
-                        class="absolute -right-4 -bottom-6 opacity-10 text-[90px] text-purple-600 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
+                    class="bg-indigo-50/70 p-4 rounded-2xl border border-indigo-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group flex items-center justify-between">
                     <div class="flex items-center gap-4 relative z-10">
                         <div
-                            class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-xl font-bold shadow-sm flex-shrink-0">
-                            05
+                            class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shadow-sm">
+                            <i class="fa-solid fa-comments"></i>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-purple-900 flex items-center gap-2">
-                                <i class="fa-solid fa-comments text-purple-600"></i> Thảo luận và Góp ý
-                            </h3>
-                            <p class="text-slate-700 font-medium text-[14.5px] mt-0.5">Dành thời lượng trao đổi, tháo gỡ
-                                vướng mắc giảng dạy thực tế và tiếp thu đề xuất của các Thầy Cô.</p>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold bg-indigo-200 text-indigo-800 px-2 py-0.5 rounded">Mục
+                                    05</span>
+                                <h3 class="text-lg font-bold text-indigo-950">Thảo luận & Góp ý</h3>
+                            </div>
+                            <p class="text-slate-600 text-[14px] mt-0.5">Trao đổi cởi mở, giải đáp thắc mắc chuyên môn,
+                                chia sẻ kinh nghiệm giảng dạy và đề xuất giải pháp nâng cao chất lượng.</p>
                         </div>
                     </div>
-                    <span
-                        class="relative z-10 bg-purple-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm flex-shrink-0">Toàn
-                        bộ GV</span>
+                    <div class="text-3xl font-extrabold text-indigo-200 mr-4 group-hover:scale-110 transition-transform">
+                        05</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 3: TỒN ĐỌNG VÀ HẠN CHẾ (COMPONENT 17 - WATERMARK & CONTEXTUAL COLOR PALETTE) -->
+    <!-- SLIDE 3: 1. CÁC TỒN ĐỌNG VÀ HẠN CHẾ TRONG THỜI GIAN QUA -->
     <div class="slide bg-white" id="slide-3">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
@@ -393,7 +347,7 @@
         <div class="slide-content flex flex-col justify-center py-3">
             <div
                 class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-6 w-full max-w-[94rem] mx-auto my-auto items-stretch">
-                <!-- Cột Trái: Chuyên môn & Giảng dạy (4 mục phân cấp đa màu) -->
+                <!-- Cột Trái: Chuyên môn & Giảng dạy -->
                 <div
                     class="bg-rose-50/40 rounded-2xl border border-rose-200/80 shadow-sm p-5 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-rose-500"><i
@@ -407,7 +361,7 @@
                                 tại chính</span>
                         </h3>
                         <div class="space-y-3 text-[15px] text-slate-800 relative z-10 font-medium">
-                            <!-- Mục 1: Xanh Dương (Bao quát lớp chưa tốt) -->
+                            <!-- Mục 1: Xanh Dương (Bao quát lớp) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-brand-blue border border-blue-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -421,24 +375,11 @@
                                     <strong class="text-blue-950 block text-[15px]">Bao quát lớp chưa tốt:</strong>
                                     <span class="text-slate-700 text-[14px] leading-snug">Chưa kịp thời quan sát, phát
                                         hiện và hỗ trợ những học sinh gặp khó khăn trong quá trình tiếp thu và làm
-                                        bài.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span class="font-bold text-slate-500">Lớp ghi nhận:</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-blue-50 text-blue-800 font-semibold border border-blue-200">7D2
-                                            MĐ</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-blue-50 text-blue-800 font-semibold border border-blue-200">7.3D
-                                            LH</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-blue-50 text-blue-800 font-semibold border border-blue-200">7.3C
-                                            LH</span>
-                                        <span class="text-slate-400 italic font-medium">...</span>
-                                    </div>
+                                        bài; một số em còn ngồi thụ động.</span>
                                 </div>
                             </div>
 
-                            <!-- Mục 2: Vàng Hổ Phách (Phân bổ thời gian chưa hợp lý) -->
+                            <!-- Mục 2: Vàng Hổ Phách (Phân bổ thời gian) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-amber-500 border border-amber-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -451,164 +392,106 @@
                                 <div class="relative z-10 w-full">
                                     <strong class="text-amber-950 block text-[15px]">Phân bổ thời gian chưa hợp
                                         lý:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Dành quá nhiều thời gian cho
-                                        lý thuyết, làm giảm thời lượng thực hành luyện tập và chữa bài, sửa lỗi trực
-                                        tiếp cho học sinh.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span class="font-bold text-slate-500">Lớp ghi nhận:</span>
-                                        <span
-                                            class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7B3
-                                            HBT</span>
-                                        <span
-                                            class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7A1
-                                            XL</span>
-                                        <span
-                                            class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7A1
-                                            LĐ</span>
-                                        <span
-                                            class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7B1
-                                            LĐ</span>
-                                        <span
-                                            class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7B2
-                                            CG</span>
-                                        <span
-                                            class="px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7B2
-                                            MĐ</span>
-                                        <span class="text-slate-400 italic font-medium">...</span>
-                                    </div>
+                                    <span class="text-slate-700 text-[14px] leading-snug">Dành quá nhiều thời gian chữa
+                                        bài tập về nhà dẫn đến thiếu thời gian luyện tập bài mới trên lớp; chưa đủ thời
+                                        gian cho học sinh tự rèn luyện.</span>
                                 </div>
                             </div>
 
-                            <!-- Mục 3: Tím (Tương tác và hỗ trợ học sinh còn hạn chế) -->
+                            <!-- Mục 3: Xanh Lục (Tương tác học sinh) -->
                             <div
-                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-purple-500 border border-purple-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-emerald-600 border border-emerald-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
-                                    class="absolute -left-2 -top-2 text-6xl font-black text-purple-200/40 select-none pointer-events-none leading-none">
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-emerald-200/40 select-none pointer-events-none leading-none">
                                     3</div>
                                 <div
-                                    class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
+                                    class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-emerald-200 group-hover:scale-105 transition-transform">
                                     <i class="fa-solid fa-comments"></i>
                                 </div>
                                 <div class="relative z-10 w-full">
-                                    <strong class="text-purple-950 block text-[15px]">Tương tác và hỗ trợ học sinh còn
-                                        hạn chế:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Mức độ tương tác còn ít, thiếu
-                                        sự theo sát, kiểm tra vở và đồng hành khi học sinh làm bài tập tại lớp.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span class="font-bold text-slate-500">Lớp ghi nhận:</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-purple-50 text-purple-800 font-semibold border border-purple-200">7.2A2</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-purple-50 text-purple-800 font-semibold border border-purple-200">7T3B</span>
-                                        <span class="text-slate-400 italic font-medium">...</span>
-                                    </div>
+                                    <strong class="text-emerald-950 block text-[15px]">Tương tác chưa đồng đều:</strong>
+                                    <span class="text-slate-700 text-[14px] leading-snug">Chưa khích lệ, động viên học
+                                        sinh phát biểu xây dựng bài tích cực; việc gọi học sinh trả lời còn tập trung
+                                        vào một vài em khá giỏi.</span>
                                 </div>
                             </div>
 
-                            <!-- Mục 4: Đỏ (Lỗi file NDBH, HDBTVN khi đăng nhóm lớp) -->
+                            <!-- Mục 4: Tím (Chuẩn bị bài dạy) -->
                             <div
-                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-rose-500 border border-rose-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
-                                    class="absolute -left-2 -top-2 text-6xl font-black text-rose-200/40 select-none pointer-events-none leading-none">
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-purple-200/40 select-none pointer-events-none leading-none">
                                     4</div>
                                 <div
-                                    class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-rose-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-file-circle-exclamation"></i>
+                                    class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-file-powerpoint"></i>
                                 </div>
                                 <div class="relative z-10 w-full">
-                                    <strong class="text-rose-950 block text-[15px]">Lỗi file NDBH & HDBTVN khi đăng nhóm
-                                        lớp:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Lỗi thiếu kí hiệu Toán học,
-                                        hình thức chưa chuẩn, nội dung chưa chính xác khi gửi tài liệu lên nhóm
-                                        lớp.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span class="font-bold text-rose-700">Chi tiết:</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-rose-50 text-rose-800 font-semibold border border-rose-200">7C3
-                                            CG (thiếu kí hiệu góc)</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-rose-50 text-rose-800 font-semibold border border-rose-200">7B1
-                                            LB (file NDBH không có HDG, in 2 mặt/trang)</span>
-                                        <span class="text-slate-400 italic font-medium">...</span>
-                                    </div>
+                                    <strong class="text-purple-950 block text-[15px]">Chuẩn bị bài & File giảng
+                                        dạy:</strong>
+                                    <span class="text-slate-700 text-[14px] leading-snug">File bài dạy chưa bám sát theo
+                                        chuẩn phân phối của khối; chưa rà soát kỹ các bài tập phân hóa và câu hỏi gợi
+                                        mở trước giờ lên lớp.</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cột Phải: Tác phong & Kỷ luật vận hành (3 quy định đa màu + Banner chốt) -->
+                <!-- Cột Phải: Tác phong & Kỷ luật vận hành -->
                 <div
-                    class="bg-orange-50/40 rounded-2xl border border-orange-200/80 shadow-sm p-5 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-brand-orange"><i
+                    class="bg-blue-50/40 rounded-2xl border border-blue-200/80 shadow-sm p-5 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-5 text-[140px] text-brand-blue"><i
                             class="fa-solid fa-user-tie"></i></div>
                     <div>
                         <h3
-                            class="font-bold text-brand-orange text-xl mb-3 border-b border-orange-200 pb-2.5 flex items-center justify-between relative z-10">
-                            <span class="flex items-center"><i class="fa-solid fa-user-check mr-2.5 text-xl"></i> Tác
+                            class="font-bold text-brand-blue text-xl mb-3 border-b border-blue-200 pb-2.5 flex items-center justify-between relative z-10">
+                            <span class="flex items-center"><i class="fa-solid fa-user-tie mr-2.5 text-xl"></i> Tác
                                 phong & Kỷ luật vận hành</span>
-                            <span class="text-xs bg-orange-200 text-orange-800 px-2.5 py-0.5 rounded-full font-bold">3
-                                quy định bắt buộc</span>
+                            <span class="text-xs bg-blue-200 text-blue-900 px-2.5 py-0.5 rounded-full font-bold">4 quy
+                                chuẩn</span>
                         </h3>
-                        <div class="space-y-3.5 text-[15px] text-slate-800 relative z-10 font-medium">
-                            <!-- Mục 1: Vàng Hổ Phách (Trang phục và thẻ tên) -->
+                        <div class="space-y-3 text-[15px] text-slate-800 relative z-10 font-medium">
+                            <!-- Mục 1: Xanh Dương (Đúng giờ) -->
                             <div
-                                class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-amber-500 border border-amber-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-brand-blue border border-blue-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
-                                    class="absolute -left-2 -top-2 text-6xl font-black text-amber-200/40 select-none pointer-events-none leading-none">
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-blue-200/40 select-none pointer-events-none leading-none">
                                     1</div>
                                 <div
-                                    class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-amber-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-id-badge"></i>
+                                    class="w-10 h-10 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-blue-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-clock"></i>
                                 </div>
                                 <div class="relative z-10 w-full">
-                                    <strong class="text-amber-950 block text-[15.5px]">Trang phục và thẻ tên:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-relaxed">Giáo viên chưa đeo thẻ tên
-                                        khi giảng dạy trên lớp. Bắt buộc đeo thẻ tên chuẩn MathExpress trong suốt ca
-                                        dạy.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span class="font-bold text-slate-500">Lớp ghi nhận:</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7.1C</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">7.4B</span>
-                                        <span class="text-slate-400 italic font-medium">...</span>
-                                    </div>
+                                    <strong class="text-blue-950 block text-[15px]">Kỷ luật giờ giấc lên lớp:</strong>
+                                    <span class="text-slate-700 text-[14px] leading-snug">Một số giáo viên đi dạy chưa
+                                        đảm bảo có mặt trước giờ học 15 phút; còn hiện tượng kết thúc buổi dạy muộn ảnh
+                                        hưởng đến việc đón con của phụ huynh.</span>
                                 </div>
                             </div>
 
-                            <!-- Mục 2: Cam (Quy định giờ giấc) -->
+                            <!-- Mục 2: Cam (Trang phục) -->
                             <div
-                                class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-brand-orange border border-orange-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-brand-orange border border-orange-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
                                     class="absolute -left-2 -top-2 text-6xl font-black text-orange-200/40 select-none pointer-events-none leading-none">
                                     2</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-orange-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-clock-rotate-left"></i>
+                                    <i class="fa-solid fa-shirt"></i>
                                 </div>
                                 <div class="relative z-10 w-full">
-                                    <strong class="text-orange-950 block text-[15.5px]">Quy định giờ giấc (Có mặt trước
-                                        05 phút):</strong>
-                                    <span class="text-slate-700 text-[14px] leading-relaxed">Giáo viên cần có mặt tại
-                                        lớp <strong>trước 5 phút</strong>. Vẫn còn giáo viên tới muộn, cho lớp nghỉ sớm
-                                        làm ảnh hưởng tiến độ và nề nếp chung.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span class="font-bold text-slate-500">Lớp ghi nhận:</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-orange-50 text-orange-800 font-semibold border border-orange-200">7A1
-                                            LĐ</span>
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-orange-50 text-orange-800 font-semibold border border-orange-200">7.3D
-                                            LH</span>
-                                        <span class="text-slate-400 italic font-medium">...</span>
-                                    </div>
+                                    <strong class="text-orange-950 block text-[15px]">Trang phục & Tác phong sư
+                                        phạm:</strong>
+                                    <span class="text-slate-700 text-[14px] leading-snug">Chưa đeo thẻ giáo viên; trang
+                                        phục chưa đúng quy định (áo đồng phục hoặc sơ mi lịch sự); tác phong đi đứng
+                                        và giao tiếp cần chuẩn mực hơn.</span>
                                 </div>
                             </div>
 
-                            <!-- Mục 3: Xanh Lục (Phối hợp vận hành & BPCM) -->
+                            <!-- Mục 3: Xanh Lục (Tương tác PH) -->
                             <div
-                                class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-emerald-600 border border-emerald-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-emerald-600 border border-emerald-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
                                     class="absolute -left-2 -top-2 text-6xl font-black text-emerald-200/40 select-none pointer-events-none leading-none">
                                     3</div>
@@ -617,41 +500,40 @@
                                     <i class="fa-solid fa-headset"></i>
                                 </div>
                                 <div class="relative z-10 w-full">
-                                    <strong class="text-emerald-950 block text-[15.5px]">Phối hợp vận hành và
-                                        BPCM:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-relaxed">Một số công tác vận hành và
-                                        phối hợp phản hồi Trung tâm, Bộ phận chuyên môn còn chậm hoặc chưa đầy đủ thông
-                                        tin.</span>
-                                    <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
-                                        <span
-                                            class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-semibold border border-emerald-200"><i
-                                                class="fa-solid fa-arrows-rotate mr-1 text-emerald-600"></i> Yêu cầu cập
-                                            nhật kịp thời & đầy đủ thông tin phản hồi</span>
-                                    </div>
+                                    <strong class="text-emerald-950 block text-[15px]">Giao tiếp & Phản hồi phụ
+                                        huynh:</strong>
+                                    <span class="text-slate-700 text-[14px] leading-snug">Chưa chủ động trao đổi nhanh
+                                        tình hình học sinh với phụ huynh sau giờ tan học; tin nhắn nhận xét hàng tuần còn
+                                        sơ sài, chưa mang tính khích lệ.</span>
+                                </div>
+                            </div>
+
+                            <!-- Mục 4: Tím (Kỷ luật phòng học) -->
+                            <div
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                <div
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-purple-200/40 select-none pointer-events-none leading-none">
+                                    4</div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-door-closed"></i>
+                                </div>
+                                <div class="relative z-10 w-full">
+                                    <strong class="text-purple-950 block text-[15px]">Kỷ luật & Bảo quản phòng
+                                        học:</strong>
+                                    <span class="text-slate-700 text-[14px] leading-snug">Sau buổi học chưa nhắc học sinh
+                                        kê lại bàn ghế, tắt máy chiếu, điều hòa và xóa bảng trước khi ra về; giữ gìn vệ
+                                        sinh chung lớp học.</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Banner Thông điệp chốt tác phong chuẩn MathExpress -->
-                    <div
-                        class="mt-4 bg-gradient-to-r from-amber-500/10 via-orange-500/15 to-rose-500/10 border-2 border-brand-orange/40 rounded-xl p-3 text-center shadow-sm relative z-10">
-                        <div
-                            class="flex items-center justify-center gap-2 text-brand-orange font-black text-[14.5px] uppercase tracking-wide mb-1">
-                            <i class="fa-solid fa-circle-exclamation text-base animate-pulse"></i>
-                            <span>Yêu cầu chấn chỉnh tác phong</span>
-                        </div>
-                        <p class="text-slate-800 text-[13.5px] font-bold leading-relaxed">
-                            Đề nghị toàn thể Giáo viên nghiêm túc chấn chỉnh và thực hiện đúng tác phong chuẩn
-                            MathExpress.
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 4: KHUNG CHƯƠNG TRÌNH DỰ KIẾN (COMPONENT 6) -->
+        <!-- SLIDE 4: 2. RÀ SOÁT TIẾN ĐỘ KHUNG CHƯƠNG TRÌNH THỜI GIAN TỚI -->
     <div class="slide bg-white" id="slide-4">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
@@ -662,15 +544,15 @@
         <div class="slide-content flex flex-col justify-center items-center py-3 px-4">
             <div
                 class="w-full max-w-[98%] mx-auto overflow-hidden rounded-xl border border-slate-300 shadow-sm bg-white">
-                <table class="w-full text-[14px] md:text-[15px] text-slate-800 border-collapse table-custom"
+                <table class="w-full text-[13.5px] md:text-[14.5px] text-slate-800 border-collapse table-custom"
                     style="line-height: 1.25;">
                     <thead>
-                        <tr class="bg-brand-blue text-white text-[15px] md:text-[16px]">
-                            <th colspan="2" class="py-2.5 border border-slate-300 w-[16%]">Thời gian</th>
-                            <th class="py-2.5 border border-slate-300 w-[8%]">Buổi học</th>
-                            <th class="py-2.5 border border-slate-300 w-[26%]">Định hướng chuyên</th>
-                            <th class="py-2.5 border border-slate-300 w-[25%]">Nâng cao</th>
-                            <th class="py-2.5 border border-slate-300 w-[25%]">Mở rộng & Cơ bản</th>
+                        <tr class="bg-brand-blue text-white text-[14.5px] md:text-[15.5px]">
+                            <th colspan="2" class="py-2 border border-slate-300 w-[16%]">Thời gian</th>
+                            <th class="py-2 border border-slate-300 w-[7%]">Buổi học</th>
+                            <th class="py-2 border border-slate-300 w-[25%]">Định hướng chuyên</th>
+                            <th class="py-2 border border-slate-300 w-[26%]">Nâng cao</th>
+                            <th class="py-2 border border-slate-300 w-[26%]">Mở rộng & Cơ bản</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -682,34 +564,27 @@
                             </td>
                             <td class="border border-slate-300 text-center py-1 font-medium">03/09 - 09/09</td>
                             <td class="border border-slate-300 text-center font-semibold text-slate-900 py-1">9</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Giá trị tuyệt đối của một số thực
-                            </td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Giá trị tuyệt đối của một số thực
-                            </td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Giá trị tuyệt đối của một số thực
-                            </td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Hình chữ nhật</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Hình chữ nhật</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Hình chữ nhật</td>
                         </tr>
                         <tr class="hover:bg-slate-50 border-b border-slate-300">
                             <td class="border border-slate-300 text-center py-1 font-medium">10/09 - 16/09</td>
                             <td class="border border-slate-300 text-center font-semibold py-1">10</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">TH bằng nhau thứ nhất & thứ hai của
-                                tam giác</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">TH bằng nhau thứ nhất & thứ hai của
-                                tam giác</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Tổng ba góc trong một tam giác</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Hình thoi - Hình vuông</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Phân tích đa thức thành nhân tử (buổi 1)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Hình thoi - Hình vuông</td>
                         </tr>
                         <tr class="hover:bg-slate-50 border-b border-slate-300">
                             <td class="border border-slate-300 text-center py-1 font-medium">17/09 - 23/09</td>
-                            <td class="border border-slate-300 text-center font-semibold py-1">11</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">TH bằng nhau thứ hai & thứ ba của
-                                tam giác</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">TH bằng nhau thứ hai & thứ ba của
-                                tam giác</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập tổng hợp</td>
+                            <td class="border border-slate-300 text-center font-semibold text-slate-900 py-1">11</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập tứ giác đặc biệt</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Phân tích đa thức thành nhân tử (buổi 2)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập tổng hợp (Phép tính đa thức + HĐT + Tứ giác)</td>
                         </tr>
                         <tr class="bg-green-100/80 font-bold text-slate-900 border-b-2 border-slate-400">
                             <td class="border border-slate-300 text-center py-1 font-medium">24/09 - 30/09</td>
-                            <td class="border border-slate-300 text-center py-1 text-green-800">12</td>
+                            <td class="border border-slate-300 text-center py-1 text-green-800 font-bold">12</td>
                             <td class="border border-slate-300 px-2 py-1 text-center text-green-800 font-bold"><i
                                     class="fa-solid fa-pen-ruler mr-1.5"></i>Kiểm tra quý I</td>
                             <td class="border border-slate-300 px-2 py-1 text-center text-green-800 font-bold"><i
@@ -726,46 +601,37 @@
                             </td>
                             <td class="border border-slate-300 text-center py-1 font-medium">01/10 - 07/10</td>
                             <td class="border border-slate-300 text-center font-semibold py-1">13</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Các bài toán về chia hết với số
-                                nguyên</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Các bài toán về chia hết với số
-                                nguyên</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Hai tam giác bằng nhau. TH bằng nhau
-                                thứ nhất</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Tính chất chia hết với số nguyên (buổi 1)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Hình thoi - Hình vuông</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn thi giữa kì I</td>
                         </tr>
                         <tr class="hover:bg-slate-50 border-b border-slate-300">
                             <td class="border border-slate-300 text-center py-1 font-medium">08/10 - 14/10</td>
                             <td class="border border-slate-300 text-center font-semibold py-1">14</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Các bài toán về số nguyên tố</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Các bài toán về số nguyên tố</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Trường hợp bằng nhau thứ hai (c-g-c)
-                            </td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Tính chất chia hết với số nguyên (buổi 2)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Tính chất chia hết với số nguyên</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Phân tích đa thức thành nhân tử (buổi 1)</td>
                         </tr>
                         <tr class="hover:bg-slate-50 border-b border-slate-300">
                             <td class="border border-slate-300 text-center py-1 font-medium">15/10 - 21/10</td>
                             <td class="border border-slate-300 text-center font-semibold py-1">15</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Tam giác cân, Tam giác đều</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Tam giác cân, Tam giác đều</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Trường hợp bằng nhau thứ ba (g-c-g)
-                            </td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Định lí Thales</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập tứ giác đặc biệt</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Phân tích đa thức thành nhân tử (buổi 2)</td>
                         </tr>
                         <tr class="hover:bg-slate-50 border-b border-slate-300">
                             <td class="border border-slate-300 text-center py-1 font-medium">22/10 - 28/10</td>
                             <td class="border border-slate-300 text-center font-semibold py-1">16</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Luyện tập tam giác cân, tam giác đều
-                            </td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Luyện tập tam giác cân, tam giác đều
-                            </td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Tỉ lệ thức - TC dãy tỉ số bằng nhau
-                                (buổi 1)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Bất đẳng thức (Phần 1)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập các bài toán biến đổi đại số (ứng dụng của hđt và phân tích đt, biến đổi đại số để CM chia hết)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập tứ giác đặc biệt</td>
                         </tr>
                         <tr class="hover:bg-slate-50">
                             <td class="border border-slate-300 text-center py-1 font-medium">29/10 - 04/11</td>
                             <td class="border border-slate-300 text-center font-semibold py-1">17</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập và kiểm tra tháng</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Ôn tập và kiểm tra tháng</td>
-                            <td class="border border-slate-300 px-2 py-1 text-left">Tỉ lệ thức - TC dãy tỉ số bằng nhau
-                                (buổi 2)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Bất đẳng thức (Phần 2)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Định lí Thales (Phần 1)</td>
+                            <td class="border border-slate-300 px-2 py-1 text-left">Phân thức Đại số (buổi 1)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -773,44 +639,41 @@
 
             <!-- Card Chân trang lưu ý chuyên môn -->
             <div
-                class="w-full max-w-[98%] mt-3 bg-orange-50 border border-orange-200 rounded-xl p-3 flex items-start shadow-sm relative overflow-hidden">
+                class="w-full max-w-[98%] mt-2.5 bg-orange-50 border border-orange-200 rounded-xl p-3 flex items-start shadow-sm relative overflow-hidden">
                 <i class="fa-solid fa-lightbulb text-brand-orange text-xl mt-0.5 mr-3 flex-shrink-0"></i>
                 <div>
-                    <h4 class="font-bold text-brand-orange text-[15px] mb-0.5">Các chuyên đề trọng tâm trong thời gian
-                        tới:</h4>
-                    <p class="text-[14.5px] text-slate-700 leading-snug">
-                        Chương trình 2 tháng tới tập trung vào: <strong class="text-brand-blue">Giá trị tuyệt đối của số
-                            thực, Tam giác bằng nhau, Tam giác cân & đều, Tỉ lệ thức và Tính chất dãy tỉ số bằng
-                            nhau</strong> theo đúng chuẩn phân hóa từng mức độ lớp.
+                    <h4 class="font-bold text-brand-orange text-[15px] mb-0.5">Thời điểm họp (14/09 - 20/09) & Định hướng chuyên môn:</h4>
+                    <p class="text-[14px] text-slate-700 leading-snug">
+                        Nội dung <strong class="text-slate-600">Buổi 9 (Hình chữ nhật)</strong> đã học qua, không nhắc lại trong phần trao đổi chuyên môn. Trọng tâm cuộc họp tập trung giải quyết: <strong class="text-brand-blue">Hình thoi - Hình vuông & Ôn tập Tứ giác đặc biệt</strong>, <strong class="text-brand-blue">Phân tích đa thức nâng cao & Giải phương trình tích</strong> (chuẩn bị đợt <strong class="text-emerald-700">Kiểm tra Quý I (Tuần 12)</strong>), và đón đầu <strong class="text-purple-700">Chuyên đề Tính chất chia hết số nguyên & Định lí Thales</strong> trong Tháng 10.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 5: TRỌNG TÂM: TAM GIÁC BẰNG NHAU (COMPONENT 17 - WATERMARK & CONTEXTUAL COLOR PALETTE) -->
+        <!-- SLIDE 5: TRỌNG TÂM: HÌNH THOI - HÌNH VUÔNG & ÔN TẬP TỨ GIÁC ĐẶC BIỆT -->
     <div class="slide bg-white" id="slide-5">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-shapes mr-3 text-brand-orange"></i>3. Trọng tâm: Chương Tam giác bằng nhau</h2>
+                    class="fa-solid fa-shapes mr-3 text-brand-orange"></i>3. Trọng tâm: Hình thoi - Hình vuông & Ôn tập Tứ giác đặc biệt</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content flex flex-col justify-center py-4">
             <div
                 class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-[94rem] mx-auto my-auto items-stretch">
-                <!-- Khối Trái: Kiến thức cốt lõi & Mục đích (Đa sắc: Xanh dương -> Xanh lục -> Tím) -->
+                <!-- Khối Trái: Kiến thức cốt lõi & Kỹ năng -->
                 <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
                     <div
                         class="bg-brand-blue text-white font-bold px-6 py-3.5 text-[19px] flex items-center justify-between">
                         <span><i class="fa-solid fa-draw-polygon mr-2.5 text-yellow-300"></i>1. Kiến thức trọng tâm & Kỹ
                             năng</span>
-                        <span class="text-xs bg-white/20 px-3.5 py-1 rounded-full font-semibold">Cốt lõi hình học</span>
+                        <span class="text-xs bg-white/20 px-3.5 py-1 rounded-full font-semibold">Cốt lõi Hình học 8</span>
                     </div>
-                    <div class="p-6 bg-blue-50/20 flex-1 flex flex-col justify-between space-y-4">
-                        <div class="space-y-3 text-[15.5px] text-slate-800">
-                            <p class="font-bold text-brand-blue text-[17px] mb-1">Nội dung giáo viên cần khắc sâu:</p>
+                    <div class="p-6 bg-blue-50/20 flex-1 flex flex-col justify-between space-y-3.5">
+                        <div class="space-y-3 text-[15px] text-slate-800">
+                            <p class="font-bold text-brand-blue text-[16.5px] mb-1">Nội dung giáo viên cần khắc sâu (Buổi 11 & Ôn KT Quý 1):</p>
 
-                            <!-- Ý 1: Xanh Dương (Sự tương ứng) -->
+                            <!-- Ý 1: Xanh Dương (Sơ đồ chuyển hóa) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-brand-blue border border-blue-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -818,16 +681,15 @@
                                     1</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-blue-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-bullseye"></i>
+                                    <i class="fa-solid fa-diagram-project"></i>
                                 </div>
                                 <div class="relative z-10">
-                                    <strong class="text-blue-950 block text-[15.5px]">Nhấn mạnh sự tương ứng:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Bắt buộc xác định đúng đỉnh
-                                        tương ứng, cạnh tương ứng và góc tương ứng trước khi kết luận.</span>
+                                    <strong class="text-blue-950 block text-[15px]">Hình thoi - Hình vuông & Sơ đồ chuyển hóa:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Khắc sâu con đường chứng minh: Tứ giác &rarr; Hình bình hành / Hình thang cân &rarr; Hình chữ nhật / Hình thoi &rarr; Hình vuông. Hình thoi có 2 đường chéo vuông góc và là phân giác; Hình vuông hội tụ toàn bộ tính chất của cả HCN và Hình thoi.</span>
                                 </div>
                             </div>
 
-                            <!-- Ý 2: Xanh Lục (Các trường hợp bằng nhau) -->
+                            <!-- Ý 2: Xanh Lục (Dấu hiệu nhận biết) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-emerald-600 border border-emerald-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -835,14 +697,11 @@
                                     2</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-emerald-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-shapes"></i>
+                                    <i class="fa-solid fa-list-check"></i>
                                 </div>
                                 <div class="relative z-10">
-                                    <strong class="text-emerald-950 block text-[15.5px]">Vận dụng linh hoạt các trường
-                                        hợp:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Nắm chắc và áp dụng linh hoạt
-                                        $c-c-c$, $c-g-c$, $g-c-g$ và các trường hợp bằng nhau đặc thù của tam giác
-                                        vuông.</span>
+                                    <strong class="text-emerald-950 block text-[15px]">Hệ thống dấu hiệu nhận biết then chốt:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">4 dấu hiệu hình thoi (HBH có 2 cạnh kề bằng nhau, 2 đường chéo vuông góc, 1 đường chéo là phân giác). 5 dấu hiệu hình vuông (HCN có 2 cạnh kề bằng nhau, 2 đường chéo vuông góc, hoặc 1 đường chéo là phân giác; Hình thoi có 1 góc vuông hoặc 2 đường chéo bằng nhau).</span>
                                 </div>
                             </div>
 
@@ -854,38 +713,24 @@
                                     3</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-diagram-project"></i>
+                                    <i class="fa-solid fa-compass-drafting"></i>
                                 </div>
                                 <div class="relative z-10">
-                                    <strong class="text-purple-950 block text-[15.5px]">Mục đích chứng minh tam giác
-                                        bằng nhau:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Để chứng minh đoạn thẳng/góc
-                                        bằng nhau; hoặc suy ra quan hệ song song, vuông góc, trung điểm, tia phân
-                                        giác,...</span>
+                                    <strong class="text-purple-950 block text-[15px]">Bài toán tìm điều kiện để tứ giác là hình vuông:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Rèn cho học sinh kỹ năng lập luận 2 chiều (Thuận: giả sử là hình vuông để suy ra điều kiện tam giác/hình bình hành; Đảo: có điều kiện chứng minh ngược lại thỏa mãn cả 2 yếu tố góc vuông và cạnh bằng nhau).</span>
                                 </div>
-                            </div>
-
-                            <div
-                                class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r-xl text-[14.5px] text-amber-900 shadow-sm mt-2">
-                                <p class="font-bold mb-0.5"><i
-                                        class="fa-solid fa-circle-exclamation mr-1.5 text-amber-600"></i>Quy ước trình
-                                    bày chuẩn mực:</p>
-                                <p class="leading-relaxed">Viết đúng thứ tự đỉnh tương ứng: $\Delta ABC = \Delta MNP
-                                    \Rightarrow A \leftrightarrow M, B \leftrightarrow N, C \leftrightarrow P$.</p>
                             </div>
                         </div>
 
-                        <!-- Chú ý GV -->
+                        <!-- Chú ý GV KNTT 2018 -->
                         <div
-                            class="bg-emerald-100/80 border-l-4 border-emerald-600 p-3 rounded-r-xl text-[14.5px] text-emerald-950 font-medium shadow-sm">
-                            <i class="fa-solid fa-chalkboard-user mr-1.5 text-emerald-700"></i><strong>Phương pháp "Phân
-                                tích ngược":</strong> Hướng dẫn học sinh tư duy: Để chứng minh $A = B$, cần tam giác nào
-                            bằng nhau? Trong hai tam giác đó đã có gì và còn thiếu gì?
+                            class="bg-amber-100/90 border-l-4 border-amber-600 p-3 rounded-r-xl text-[14px] text-amber-950 font-medium shadow-sm">
+                            <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-700"></i><strong>Lưu ý chương trình mới (KNTT):</strong> Tuyệt đối <strong>KHÔNG dùng Đường trung bình hoặc Định lý Pythagore</strong> trong Học kỳ 1. Hướng dẫn học sinh đưa về <strong>chứng minh hai tam giác bằng nhau</strong> hoặc dùng <strong>tính chất hình bình hành</strong> để chứng minh song song và bằng nhau.
                         </div>
                     </div>
                 </div>
 
-                <!-- Khối Phải: Lỗi sai học sinh thường mắc (Đa sắc: Đỏ -> Cam -> Vàng -> Tím) -->
+                <!-- Khối Phải: Lỗi sai học sinh thường mắc -->
                 <div class="border-2 border-rose-500/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
                     <div
                         class="bg-rose-600 text-white font-bold px-6 py-3.5 text-[19px] flex items-center justify-between">
@@ -893,11 +738,11 @@
                             thường mắc</span>
                         <span class="text-xs bg-white/20 px-3.5 py-1 rounded-full font-semibold">Cảnh báo sai sót</span>
                     </div>
-                    <div class="p-6 bg-rose-50/20 flex-1 flex flex-col justify-between space-y-3.5">
+                    <div class="p-6 bg-rose-50/20 flex-1 flex flex-col justify-between space-y-3">
                         <div class="space-y-2.5">
-                            <p class="font-bold text-rose-700 text-[17px]">4 Nhóm sai lầm điển hình:</p>
-                            <div class="space-y-2.5 text-[15px] text-slate-800 font-medium">
-                                <!-- Sai lầm 1: Đỏ (Sai thứ tự đỉnh) -->
+                            <p class="font-bold text-rose-700 text-[16.5px]">4 Nhóm sai lầm điển hình:</p>
+                            <div class="space-y-2.5 text-[14.5px] text-slate-800 font-medium">
+                                <!-- Sai lầm 1: Đỏ (Ngộ nhận dấu hiệu) -->
                                 <div
                                     class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-rose-500 border border-rose-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                     <div
@@ -905,18 +750,15 @@
                                         1</div>
                                     <div
                                         class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-rose-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-arrow-down-1-9"></i>
+                                        <i class="fa-solid fa-ban"></i>
                                     </div>
                                     <div class="relative z-10">
-                                        <strong class="text-rose-900 block text-[15px]">Viết sai thứ tự đỉnh tương
-                                            ứng:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Ghi tên tam giác không
-                                            đúng thứ tự các đỉnh tương ứng dẫn đến suy ra các cặp cạnh/góc tương ứng bị
-                                            sai lệch.</span>
+                                        <strong class="text-rose-900 block text-[15px]">Ngộ nhận dấu hiệu hình thoi:</strong>
+                                        <span class="text-slate-700 text-[13.5px] leading-snug">Thấy tứ giác có 2 đường chéo vuông góc kết luận ngay là hình thoi (thiếu điều kiện cắt nhau tại trung điểm mỗi đường hoặc là hình bình hành).</span>
                                     </div>
                                 </div>
 
-                                <!-- Sai lầm 2: Cam (Sai góc xen giữa) -->
+                                <!-- Sai lầm 2: Cam (Vẽ hình đặc biệt) -->
                                 <div
                                     class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-orange-500 border border-orange-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                     <div
@@ -924,18 +766,15 @@
                                         2</div>
                                     <div
                                         class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-orange-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-code-branch"></i>
+                                        <i class="fa-solid fa-pencil"></i>
                                     </div>
                                     <div class="relative z-10">
-                                        <strong class="text-orange-950 block text-[15px]">Sai góc xen giữa, cạnh xen
-                                            giữa:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Trong TH $c-g-c$, góc
-                                            không nằm xen giữa 2 cạnh; trong TH $g-c-g$, cạnh không nằm xen giữa 2 góc
-                                            nhưng vẫn áp dụng.</span>
+                                        <strong class="text-orange-950 block text-[15px]">Vẽ hình rơi vào trường hợp đặc biệt:</strong>
+                                        <span class="text-slate-700 text-[13.5px] leading-snug">Đề bài cho hình bình hành thường vẽ thành HCN/hình thoi dẫn đến ngộ nhận các yếu tố bằng nhau và vuông góc chưa hề được chứng minh.</span>
                                     </div>
                                 </div>
 
-                                <!-- Sai lầm 3: Vàng Hổ Phách (Lỗi ngộ nhận) -->
+                                <!-- Sai lầm 3: Vàng Hổ Phách (Lập luận thiếu điều kiện) -->
                                 <div
                                     class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-amber-500 border border-amber-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                     <div
@@ -943,17 +782,15 @@
                                         3</div>
                                     <div
                                         class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-amber-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-eye-slash"></i>
+                                        <i class="fa-solid fa-rotate-left"></i>
                                     </div>
                                     <div class="relative z-10">
-                                        <strong class="text-amber-950 block text-[15px]">Lỗi ngộ nhận hình học:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Nhìn hình vẽ "thấy thẳng
-                                            hàng" hoặc "thấy bằng nhau" rồi coi như đã có, thừa nhận yếu tố hình học khi
-                                            chưa chứng minh.</span>
+                                        <strong class="text-amber-950 block text-[15px]">Suy luận thiếu điều kiện hình vuông:</strong>
+                                        <span class="text-slate-700 text-[13.5px] leading-snug">Tìm điều kiện để một tứ giác là hình vuông nhưng chỉ tìm điều kiện để có 1 góc vuông (thành HCN) mà bỏ quên điều kiện để 2 cạnh kề bằng nhau (thành Hình thoi).</span>
                                     </div>
                                 </div>
 
-                                <!-- Sai lầm 4: Tím (Tam giác vuông) -->
+                                <!-- Sai lầm 4: Tím (Bỏ qua bước trung gian) -->
                                 <div
                                     class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                     <div
@@ -961,23 +798,19 @@
                                         4</div>
                                     <div
                                         class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-ruler-combined"></i>
+                                        <i class="fa-solid fa-stairs"></i>
                                     </div>
                                     <div class="relative z-10">
-                                        <strong class="text-purple-950 block text-[15px]">Sai trường hợp tam giác
-                                            vuông:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Quên chỉ ra góc vuông
-                                            hoặc nhầm lẫn giữa cạnh huyền - góc nhọn với cạnh huyền - cạnh góc
-                                            vuông.</span>
+                                        <strong class="text-purple-950 block text-[15px]">Bỏ qua bước chứng minh trung gian:</strong>
+                                        <span class="text-slate-700 text-[13.5px] leading-snug">Khi chứng minh một tứ giác là hình thoi, học sinh thường quên chứng minh nó là hình bình hành trước, dẫn đến việc bị trừ điểm trình bày rất nặng.</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div
-                            class="bg-rose-100/70 border-l-4 border-rose-600 p-3 rounded-r-xl text-[14px] text-rose-950 font-medium">
-                            <strong>Giáo viên lưu ý:</strong> Rèn cho học sinh thói quen gạch chân ký hiệu đỉnh tương
-                            ứng và kiểm tra điều kiện "xen giữa" trước khi kết luận.
+                            class="bg-rose-100/70 border-l-4 border-rose-600 p-2.5 rounded-r-xl text-[13.5px] text-rose-950 font-medium">
+                            <strong>Biện pháp khắc phục:</strong> Rèn cho học sinh thói quen viết sơ đồ tư duy phân tích ngược (Cần CM hình gì? &rarr; Dùng dấu hiệu nào? &rarr; Đã có yếu tố gì và cần bổ sung yếu tố gì?).
                         </div>
                     </div>
                 </div>
@@ -985,11 +818,11 @@
         </div>
     </div>
 
-    <!-- SLIDE 6: DẠNG 1: TAM GIÁC BẰNG NHAU (BÀI 1) (COMPONENT 5B) -->
+        <!-- SLIDE 6: DẠNG 1: CHỨNG MINH HÌNH THOI, HÌNH VUÔNG & ÔN TẬP TỨ GIÁC (BÀI 1) -->
     <div class="slide bg-white" id="slide-6">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-shapes mr-3 text-brand-orange"></i>Dạng 1: Chứng minh tam giác bằng nhau (Bài 1)
+                    class="fa-solid fa-shapes mr-3 text-brand-orange"></i>Dạng 1: Chứng minh Hình thoi, Hình vuông & Ôn tập Tứ giác (Bài 1)
             </h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
@@ -1005,180 +838,175 @@
                                 class="bg-brand-light border-l-[5px] border-brand-orange p-3 rounded-r-lg mb-3 shadow-sm">
                                 <strong class="text-brand-orange text-[16.5px] flex items-center mb-1"><i
                                         class="fa-solid fa-file-signature mr-2"></i>Đề bài (Bài 1)</strong>
-                                <p class="text-[15.5px] text-slate-800 leading-relaxed font-semibold">
-                                    Cho hình bên.<br>
-                                    a) Chứng minh $\Delta HDB = \Delta HEC$;<br>
-                                    b) Chứng minh $\widehat{DBH} = \widehat{ECH}$.
+                                <p class="text-[14.5px] text-slate-800 leading-relaxed font-semibold">
+                                    Cho $\Delta ABC$ vuông tại $A$ ($AB < AC$). Gọi $M$ là trung điểm của cạnh huyền $BC$. Kẻ $MD \perp AB$ tại $D$. Gọi $P$ là điểm đối xứng với $M$ qua $D$.<br>
+                                    a) Chứng minh tứ giác $AMBP$ là hình thoi;<br>
+                                    b) Tứ giác $APMC$ là hình gì? Vì sao?<br>
+                                    c) Tam giác vuông $ABC$ cần thêm điều kiện gì để tứ giác $AMBP$ là hình vuông?
                                 </p>
                             </div>
-                            <p class="text-xs text-slate-600 italic">Phương pháp: Liệt kê yếu tố cạnh, góc bằng nhau sẵn
-                                có từ giả thiết, tìm thêm điều kiện còn thiếu.</p>
+                            <p class="text-xs text-slate-600 italic">Phương pháp: Dùng hình bình hành có 2 đường chéo vuông góc và tìm điều kiện để hình thoi là hình vuông.</p>
                         </div>
 
                         <!-- Hình vẽ SVG -->
-                        <div class="mt-3 flex justify-center bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
-                            <img src="hinh_bai1.svg" class="h-44 xl:h-48 object-contain cursor-pointer"
-                                alt="Hình minh họa Bài 1" onclick="openLightbox(this)" />
+                        <div class="mt-2 flex justify-center bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+                            <img src="hinh_bai1_k8.svg" class="h-44 xl:h-48 object-contain cursor-pointer"
+                                alt="Hình minh họa Bài 1 Hình học 8" title="Click để phóng to ảnh"
+                                onclick="window.open(this.src, '_blank')" />
                         </div>
                     </div>
 
                     <!-- Cột Lời giải chi tiết (7/12) -->
-                    <div class="p-5 md:col-span-7 bg-blue-50/20 flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-brand-blue font-bold text-[16.5px] flex items-center mb-2.5">
-                                <i class="fa-solid fa-pen mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết:
+                    <div class="p-4.5 md:col-span-7 bg-white flex flex-col justify-between">
+                        <div class="space-y-2.5 text-[14px] text-slate-800 leading-normal font-medium">
+                            <h4 class="text-brand-blue font-bold text-[16px] flex items-center mb-1">
+                                <i class="fa-solid fa-square-check mr-2 text-emerald-600"></i>Hướng dẫn giải chi tiết:
                             </h4>
-                            <div class="text-[15px] text-slate-800 space-y-2 font-medium leading-relaxed">
-                                <p><strong>a)</strong> Xét $\Delta HDB$ và $\Delta HEC$ có:</p>
-                                <p class="pl-4">
-                                    • $\widehat{HDB} = \widehat{HEC} = 90^\circ$<br>
-                                    • $HD = HE$ (theo giả thiết)<br>
-                                    • $\widehat{BHD} = \widehat{CHE}$ ($2$ góc đối đỉnh)
-                                </p>
-                                <p class="text-emerald-700 font-bold text-[15.5px]">
-                                    $\Rightarrow \Delta HDB = \Delta HEC$ ($g-c-g$) (đpcm).
-                                </p>
-                                <hr class="border-slate-200 my-2">
-                                <p><strong>b)</strong> Vì $\Delta HDB = \Delta HEC$ (chứng minh ở câu a)</p>
-                                <p class="text-emerald-700 font-bold text-[15.5px]">
-                                    $\Rightarrow \widehat{DBH} = \widehat{ECH}$ ($2$ góc tương ứng) (đpcm).
-                                </p>
+
+                            <!-- Câu a: Hình thoi -->
+                            <div>
+                                <p class="font-bold text-brand-blue text-[14.5px]">a) Chứng minh $AMBP$ là hình thoi:</p>
+                                <p class="pl-2.5">• Vì $P$ đối xứng $M$ qua $D \Rightarrow D$ là trung điểm $PM$ và $PM \perp AB$ tại $D$.</p>
+                                <p class="pl-2.5">• Xét $\Delta ADM$ và $\Delta BDM$ vuông tại $D$: có $MD$ chung, $MA = MB = \dfrac{1}{2}BC$ (trung tuyến ứng với cạnh huyền tam giác vuông) $\Rightarrow \Delta ADM = \Delta BDM$ (cạnh huyền - cạnh góc vuông) $\Rightarrow DA = DB \Rightarrow D$ là trung điểm $AB$.</p>
+                                <p class="pl-2.5">• Tứ giác $AMBP$ có 2 đường chéo $AB$ và $PM$ cắt nhau tại trung điểm $D$ mỗi đường $\Rightarrow AMBP$ là hình bình hành.</p>
+                                <p class="pl-2.5 text-emerald-700 font-bold">• Lại có $AB \perp PM$ tại $D \Rightarrow AMBP$ là hình thoi (đpcm).</p>
+                            </div>
+
+                            <hr class="border-slate-200 my-1">
+
+                            <!-- Câu b: Hình bình hành APMC -->
+                            <div>
+                                <p class="font-bold text-brand-blue text-[14.5px]">b) Tứ giác $APMC$ là hình gì? Vì sao?</p>
+                                <p class="pl-2.5">• Vì $AMBP$ là hình thoi $\Rightarrow AP \parallel MB$ và $AP = MB$.</p>
+                                <p class="pl-2.5">• Vì $M$ là trung điểm $BC \Rightarrow MB = MC$. Suy ra $AP \parallel MC$ và $AP = MC$.</p>
+                                <p class="pl-2.5 text-emerald-700 font-bold">• Tứ giác $APMC$ có một cặp cạnh đối song song và bằng nhau $\Rightarrow APMC$ là hình bình hành (đpcm).</p>
+                            </div>
+
+                            <hr class="border-slate-200 my-1">
+
+                            <!-- Câu c: Điều kiện hình vuông -->
+                            <div>
+                                <p class="font-bold text-brand-blue text-[14.5px]">c) Điều kiện để $AMBP$ là hình vuông:</p>
+                                <p class="pl-2.5">• Để hình thoi $AMBP$ là hình vuông thì $\widehat{AMB} = 90^\circ$, tức là $AM \perp BC$.</p>
+                                <p class="pl-2.5">• Trong $\Delta ABC$, đường trung tuyến $AM$ đồng thời là đường cao, suy ra $\Delta ABC$ cân tại $A$.</p>
+                                <p class="pl-2.5 text-emerald-700 font-bold">• Kết hợp giả thiết $\Delta ABC$ vuông tại $A$, suy ra $\Delta ABC$ phải là tam giác vuông cân tại $A$ (đpcm).</p>
                             </div>
                         </div>
 
-                        <!-- Lỗi sai học sinh -->
-                        <div class="mt-3 bg-rose-50 border border-rose-200 p-3 rounded-xl text-[14.5px]">
-                            <p class="text-rose-700 font-bold mb-1"><i
-                                    class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lỗi sai của học sinh:</p>
-                            <p class="text-slate-700 leading-snug">Sử dụng trường hợp $c-g-c$, $g-c-g$ nhưng sai yếu tố
-                                xen giữa; viết sai thứ tự đỉnh, cạnh tương ứng khi làm bài.</p>
+                        <!-- Lưu ý sư phạm KNTT -->
+                        <div class="mt-2 p-2 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-950">
+                            <strong>Lưu ý KNTT:</strong> Để chứng minh $D$ là trung điểm $AB$, hướng dẫn học sinh chứng minh $\Delta ADM = \Delta BDM$ (chuẩn HKI), không được tự ý sử dụng đường trung bình khi chưa học.
                         </div>
                     </div>
-                </div>
-
-                <!-- Box Lưu ý chân card -->
-                <div
-                    class="p-3.5 bg-emerald-50 border-t border-emerald-200 text-[14.5px] text-emerald-950 font-medium flex items-center gap-2">
-                    <i class="fa-solid fa-chalkboard-user text-emerald-700 text-lg flex-shrink-0"></i>
-                    <span><strong>Giáo viên lưu ý:</strong> Nhắc học sinh viết đầy đủ 4 bước giải: (1) Xét 2 tam giác
-                        $\rightarrow$ (2) Liệt kê các điều kiện bằng nhau $\rightarrow$ (3) Kết luận 2 tam giác bằng
-                        nhau $\rightarrow$ (4) Suy ra các cạnh, góc tương ứng bằng nhau.</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 7: DẠNG 2: NGỘ NHẬN HÌNH HỌC (VÍ DỤ 2) (COMPONENT 5B) -->
+    <!-- SLIDE 7: DẠNG 2: BÀI TOÁN TỔNG HỢP & LỖI NGỘ NHẬN (VÍ DỤ 2) -->
     <div class="slide bg-white" id="slide-7">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Dạng 2: Yếu tố hình học khác &
-                Lỗi ngộ nhận (Ví dụ 2)</h2>
+                    class="fa-solid fa-triangle-exclamation mr-3 text-brand-orange"></i>Dạng 2: Bài toán tổng hợp Tứ giác & Lỗi ngộ nhận (Ví dụ 2)</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
-            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-7xl mx-auto w-full p-6 space-y-4 zoom-115"
-                style="zoom: 1.15;">
+            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-7xl mx-auto w-full p-5 space-y-3.5"
+                style="zoom: 1.08;">
                 <!-- Đề bài + Hình vẽ SVG -->
                 <div
-                    class="p-4 bg-slate-50/70 border border-slate-200/80 rounded-xl shadow-xs flex flex-col md:flex-row items-center gap-5">
+                    class="p-3.5 bg-slate-50/70 border border-slate-200/80 rounded-xl shadow-xs flex flex-col md:flex-row items-center gap-5">
                     <div class="flex-1">
                         <div class="bg-brand-light border-l-[5px] border-brand-blue p-3.5 rounded-r-xl shadow-xs">
                             <strong class="text-brand-blue text-[16px] flex items-center mb-1"><i
                                     class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
                             <p class="text-[15px] text-slate-800 leading-relaxed font-semibold">
-                                Cho $\Delta ABC$ ($AB < AC$). Tia phân giác của góc $\widehat{BAC}$ cắt cạnh $BC$ tại
-                                    $D$. Trên cạnh $AC$ lấy điểm $E$ sao cho $AE=AB$. Tia $AB$ và $ED$ cắt nhau tại
-                                    $M$.<br>
-                                    a) Chứng minh $\Delta ABD = \Delta AED$; $\quad$ b) Chứng minh $\Delta BDM = \Delta
-                                    EDC$;<br>
-                                    c) Gọi $d_1$ là đường thẳng đi qua $C$ và song song với $ED$, $d_2$ là đường thẳng
-                                    đi qua $M$ và song song với $BC$. Hai đường thẳng $d_1$ và $d_2$ cắt nhau tại $F$.
-                                    Chứng minh 3 điểm $A, D, F$ thẳng hàng.
+                                Cho hình bình hành $ABCD$ ($AB > BC$). Gọi $M, N$ lần lượt là trung điểm của $AB$ và $CD$. Giao điểm của $AN$ và $DM$ là $P$; giao điểm của $BN$ và $CM$ là $Q$.<br>
+                                a) Chứng minh $AMCN$ là hình bình hành; suy ra $PMQN$ là hình bình hành;<br>
+                                b) Hình bình hành $ABCD$ cần thêm điều kiện gì để tứ giác $PMQN$ là hình vuông?
                             </p>
                         </div>
                     </div>
                     <!-- Hình vẽ SVG -->
                     <div
                         class="flex-shrink-0 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center">
-                        <img src="hinh_ngonhan.svg" class="h-44 xl:h-48 object-contain cursor-pointer"
+                        <img src="hinh_ngonhan_k8.svg" class="h-40 xl:h-44 object-contain cursor-pointer"
                             alt="Hình minh họa Ví dụ 2" onclick="openLightbox(this)" />
                     </div>
                 </div>
 
-                <!-- 2 Cột: Lỗi sai ngộ nhận (Trái) vs Hướng dẫn giải đúng (Phải) -->
+                <!-- 2 Cột: Lỗi ngộ nhận (Trái) & Hướng dẫn đúng (Phải) -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
-                    <!-- Cột Trái: Lỗi sai ngộ nhận điển hình (Câu c) -->
+                    <!-- Cột Trái: Lỗi sai ngộ nhận điển hình (Câu b) -->
                     <div
-                        class="p-5 bg-rose-50/40 border border-rose-200/80 rounded-xl md:col-span-5 shadow-xs flex flex-col justify-between">
-                        <h4 class="text-rose-700 font-bold text-[15.5px] flex items-center mb-2">
-                            <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai ngộ nhận điển hình (Câu
-                            c):
-                        </h4>
-                        <div class="text-[14px] text-slate-800 leading-relaxed font-medium space-y-2">
-                            <p class="text-rose-900 font-semibold">Giáo viên hướng dẫn học sinh theo hướng:</p>
-                            <p>Chứng minh: $\widehat{ADM} = \widehat{ADC}$ rồi suy ra $\widehat{MDF} = \widehat{CDF}$
-                                (kề bù với $\widehat{ADM}$ và $\widehat{ADC}$).</p>
-                            <p>Suy ra $\Delta MDF = \Delta CDF$ ($c-g-c$) nên $MF = CF$, chứng minh được $AM = AC$ từ đó
-                                suy ra $\Delta AMF = \Delta ACF$ ($c-g-c$) nên $AF$ là phân giác $\widehat{MAC}$ mà $AD$
-                                là phân giác $\Rightarrow A, D, F$ thẳng hàng.</p>
-                            <p class="text-rose-700 font-bold italic pt-1">
-                                <i class="fa-solid fa-ban mr-1 text-rose-600"></i> Đây là sự ngộ nhận điểm $A, D, F$
-                                thẳng hàng trước khi chứng minh!
-                            </p>
+                        class="p-4 bg-rose-50/40 border border-rose-200/80 rounded-xl md:col-span-5 shadow-xs flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-rose-700 font-bold text-[15.5px] flex items-center mb-2">
+                                <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai ngộ nhận điển hình (Câu b):
+                            </h4>
+                            <div class="text-[13.5px] text-slate-800 leading-snug space-y-2 font-medium">
+                                <p class="text-rose-900 font-semibold">Học sinh suy luận cảm tính:</p>
+                                <p class="flex items-start gap-1.5">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-1 flex-shrink-0"></i>
+                                    <span>Cho rằng: <em>"Để $PMQN$ là hình vuông thì chỉ cần hình bình hành $ABCD$ là hình vuông"</em> (ngộ nhận sai!).</span>
+                                </p>
+                                <p class="flex items-start gap-1.5">
+                                    <i class="fa-solid fa-xmark text-rose-500 mt-1 flex-shrink-0"></i>
+                                    <span>Hoặc suy luận thiếu điều kiện: <em>"Để $PMQN$ có góc vuông thì $AN \perp DM \Rightarrow ADMN$ là hình thoi $\Rightarrow AD = AM = \dfrac{1}{2}AB \Rightarrow AB = 2AD$"</em> rồi kết luận ngay mà quên xét điều kiện để $PM = PN$!</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-2.5 p-2 bg-rose-100/70 rounded-lg text-rose-950 font-bold text-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-ban text-rose-600"></i>
+                            <span>Bỏ sót 1 trong 2 yếu tố cấu thành hình vuông (vừa là HCN, vừa là Hình thoi), không chứng minh chiều đảo!</span>
                         </div>
                     </div>
 
-                    <!-- Cột Phải: Hướng dẫn giải đúng (Câu c) - Mỗi nội dung nằm trên 1 dòng -->
+                    <!-- Cột Phải: Hướng dẫn giải đúng (Câu b) - Từng bước chặt chẽ -->
                     <div
                         class="p-5 bg-blue-50/30 border border-blue-200/80 rounded-xl md:col-span-7 shadow-xs flex flex-col justify-center">
                         <h4 class="text-brand-blue font-bold text-[15.5px] flex items-center mb-2.5">
-                            <i class="fa-solid fa-circle-check mr-2 text-green-600"></i>Hướng dẫn giải đúng (Câu c):
+                            <i class="fa-solid fa-circle-check mr-2 text-green-600"></i>Hướng dẫn giải đúng (Câu b):
                         </h4>
-                        <div class="text-[14px] text-slate-800 leading-relaxed font-medium space-y-3">
-                            <p class="whitespace-nowrap">• Chứng minh $\Delta DFM = \Delta FDC$ ($g-c-g$) suy ra $MF =
-                                FC$ ($= DC = MD$).</p>
-                            <p class="whitespace-nowrap">• Chứng minh $\Delta AMF = \Delta ACF$ ($c-c-c$) suy ra $AF$ là
-                                tia phân giác của $\widehat{MAC}$.</p>
-                            <p class="whitespace-nowrap text-emerald-700 font-bold">• Mà $AD$ là tia phân giác của
-                                $\widehat{MAC} \Rightarrow A, D, F$ thẳng hàng (đpcm).</p>
+                        <div class="text-[13.5px] text-slate-800 leading-relaxed font-medium space-y-2">
+                            <p>• Để $PMQN$ là hình vuông thì $PMQN$ phải vừa là <strong>hình chữ nhật</strong> vừa là <strong>hình thoi</strong>.</p>
+                            <p>• $PMQN$ là hình chữ nhật khi $\widehat{MPN} = 90^\circ \Rightarrow AN \perp DM \Rightarrow AD = AM = \dfrac{1}{2}AB$, do đó $\mathbf{AB = 2AD}$.</p>
+                            <p>• $PMQN$ là hình thoi khi $PM = PN \Rightarrow AMND$ là hình chữ nhật, suy ra $\mathbf{\widehat{DAB} = 90^\circ}$ ($ABCD$ là hình chữ nhật).</p>
+                            <p class="text-emerald-700 font-bold">• Kết luận: Hình bình hành $ABCD$ phải là <strong>hình chữ nhật có $AB = 2AD$</strong> (đpcm).</p>
                         </div>
                     </div>
                 </div>
 
                 <div
-                    class="p-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-xs text-slate-600 italic text-center shadow-xs">
-                    Ghi chú: Để chứng minh thẳng hàng có thể sử dụng Tiên đề Euclid, hai góc đối đỉnh bằng nhau, hoặc
-                    chứng minh cùng là tia phân giác của một góc.
+                    class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 italic text-center shadow-xs">
+                    * Lưu ý quy chuẩn SGK mới: Tuyệt đối không dùng ký hiệu tương đương. Khi tìm điều kiện, học sinh lập luận chặt chẽ 2 chiều (Thuận - Đảo) bằng lời dẫn từng bước.
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 8: TRỌNG TÂM: TỈ LỆ THỨC & DÃY TỈ SỐ BẰNG NHAU (COMPONENT 17 - WATERMARK & CONTEXTUAL COLOR PALETTE) -->
+        <!-- SLIDE 8: TRỌNG TÂM: PHÂN TÍCH ĐA THỨC NÂNG CAO & CHUYÊN ĐỀ CHIA HẾT SỐ NGUYÊN -->
     <div class="slide bg-white" id="slide-8">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>3. Trọng tâm: Tỉ lệ thức & Dãy tỉ số bằng
-                nhau</h2>
+                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>3. Trọng tâm: Phân tích đa thức nâng cao & Chuyên đề Chia hết số nguyên</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content flex flex-col justify-center py-4">
             <div
                 class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-[94rem] mx-auto my-auto items-stretch">
-                <!-- Khối Trái: Kiến thức cốt lõi & Tính chất (Đa sắc: Xanh dương -> Xanh lục -> Tím) -->
+                <!-- Khối Trái: Phương pháp trọng tâm -->
                 <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
                     <div
                         class="bg-brand-blue text-white font-bold px-6 py-3.5 text-[19px] flex items-center justify-between">
-                        <span><i class="fa-solid fa-scale-balanced mr-2.5 text-yellow-300"></i>1. Định nghĩa & Tính chất
-                            cốt lõi</span>
-                        <span class="text-xs bg-white/20 px-3.5 py-1 rounded-full font-semibold">Đại số 7</span>
+                        <span><i class="fa-solid fa-square-root-variable mr-2.5 text-yellow-300"></i>1. Các phương pháp then chốt</span>
+                        <span class="text-xs bg-white/20 px-3.5 py-1 rounded-full font-semibold">Cốt lõi Đại số 8</span>
                     </div>
-                    <div class="p-6 bg-blue-50/20 flex-1 flex flex-col justify-between space-y-4">
-                        <div class="space-y-3 text-[15.5px] text-slate-800">
-                            <p class="font-bold text-brand-blue text-[17px] mb-1">Kiến thức học sinh cần nắm vững:</p>
+                    <div class="p-6 bg-blue-50/20 flex-1 flex flex-col justify-between space-y-3.5">
+                        <div class="space-y-3 text-[15px] text-slate-800">
+                            <p class="font-bold text-brand-blue text-[16.5px] mb-1">Phương pháp Buổi 11 & Chuyên đề Tháng 10:</p>
 
-                            <!-- Ý 1: Xanh Dương (Định nghĩa) -->
+                            <!-- Ý 1: Xanh Dương (Phương pháp nâng cao Buổi 11) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-brand-blue border border-blue-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -1186,17 +1014,15 @@
                                     1</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-blue-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-calculator"></i>
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
                                 </div>
                                 <div class="relative z-10">
-                                    <strong class="text-blue-950 block text-[15.5px]">Định nghĩa tỉ lệ thức:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Tỉ lệ thức là đẳng thức của
-                                        hai tỉ số: $\dfrac{a}{b} = \dfrac{c}{d}$ (suy ra tích chéo $a \cdot d = b \cdot
-                                        c$ với $b, d \neq 0$).</span>
+                                    <strong class="text-blue-950 block text-[15px]">Kỹ thuật phân tích nâng cao (Buổi 11):</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Tách hạng tử tam thức bậc hai $ax^2+bx+c$ (tìm $p, q$ sao cho $p+q=b, pq=ac$); tách hạng tử đa thức 2 biến; thêm bớt cùng hạng tử tạo hiệu hai bình phương ($A^2 - B^2$); phương pháp đặt ẩn phụ đối với đa thức bậc cao.</span>
                                 </div>
                             </div>
 
-                            <!-- Ý 2: Xanh Lục (Tính chất dãy tỉ số) -->
+                            <!-- Ý 2: Xanh Lục (Ứng dụng phương trình tích) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-emerald-600 border border-emerald-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -1204,21 +1030,15 @@
                                     2</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-emerald-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-diagram-project"></i>
+                                    <i class="fa-solid fa-calculator"></i>
                                 </div>
                                 <div class="relative z-10">
-                                    <strong class="text-emerald-950 block text-[15.5px]">Tính chất dãy tỉ số bằng
-                                        nhau:</strong>
-                                    <div class="text-center py-1 font-semibold text-emerald-800 text-[15px]">
-                                        $$\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{e}{f} = \dfrac{a+c+e}{b+d+f} =
-                                        \dfrac{a-c+e}{b-d+f}$$
-                                    </div>
-                                    <span class="text-slate-600 text-[13px] italic block text-center">(với giả thiết các
-                                        mẫu số đều có nghĩa và khác $0$)</span>
+                                    <strong class="text-emerald-950 block text-[15px]">Ứng dụng giải phương trình tích & Tìm $x$ (Kiểm tra Quý I):</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Rèn phản xạ đưa phương trình về dạng tích $A(x) \cdot B(x) = 0$, suy ra $A(x)=0$ hoặc $B(x)=0$. Tuyệt đối không chia cả hai vế cho biểu thức chứa biến làm mất nghiệm.</span>
                                 </div>
                             </div>
 
-                            <!-- Ý 3: Tím (Phương pháp biến đổi) -->
+                            <!-- Ý 3: Tím (Chuyên đề Tháng 10) -->
                             <div
                                 class="relative overflow-hidden bg-white p-3.5 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
@@ -1226,29 +1046,24 @@
                                     3</div>
                                 <div
                                     class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
-                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <i class="fa-solid fa-divide"></i>
                                 </div>
                                 <div class="relative z-10">
-                                    <strong class="text-purple-950 block text-[15.5px]">Phương pháp biến đổi then
-                                        chốt:</strong>
-                                    <span class="text-slate-700 text-[14px] leading-snug">Nhân thêm hệ số vào tử và mẫu,
-                                        nghịch đảo tỉ số, hoán đổi trung tỉ/ngoại tỉ, và phương pháp đặt hằng số
-                                        $k$.</span>
+                                    <strong class="text-purple-950 block text-[15px]">Đón đầu Chuyên đề Tính chất chia hết số nguyên (Tháng 10):</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Ứng dụng phân tích đa thức đưa biểu thức về tích các số nguyên liên tiếp: tích 2 số liên tiếp chia hết cho 2, tích 3 số liên tiếp chia hết cho 6 ($n^3-n \ \vdots \ 6$), tích $k$ số liên tiếp chia hết cho $k!$.</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Chú ý GV -->
                         <div
-                            class="bg-blue-100/70 border-l-4 border-brand-blue p-3.5 rounded-r-xl text-[14.5px] text-blue-950 font-medium shadow-sm">
-                            <i class="fa-solid fa-chalkboard-user mr-1.5 text-brand-blue"></i><strong>Giáo viên lưu
-                                ý:</strong> Rèn cho học sinh kỹ năng nhận diện nhanh: khi gặp tổng/hiệu bậc 1 ưu tiên
-                            dùng tính chất dãy tỉ số bằng nhau; khi gặp tích hoặc bậc cao ưu tiên phương pháp đặt $k$.
+                            class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r-xl text-[13.5px] text-amber-950 font-medium shadow-sm leading-snug">
+                            <i class="fa-solid fa-triangle-exclamation mr-1.5 text-amber-600"></i><strong>Lưu ý quy chuẩn SGK mới (GDPT 2018):</strong> Tuyệt đối <strong>KHÔNG dùng ký hiệu tương đương</strong> khi biến đổi phương trình/hình học. Hướng dẫn học sinh trình bày biến đổi theo từng dòng liên tiếp, dùng từ liên kết <em>"suy ra" ($\Rightarrow$)</em>, <em>"do đó"</em>, <em>"hay"</em>, <em>"hoặc"</em>.
                         </div>
                     </div>
                 </div>
 
-                <!-- Khối Phải: Lỗi sai thường gặp (Đa sắc: Đỏ -> Cam -> Vàng -> Tím) -->
+                <!-- Khối Phải: Lỗi sai học sinh thường mắc -->
                 <div class="border-2 border-rose-500/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white">
                     <div
                         class="bg-rose-600 text-white font-bold px-6 py-3.5 text-[19px] flex items-center justify-between">
@@ -1256,91 +1071,76 @@
                             thường mắc</span>
                         <span class="text-xs bg-white/20 px-3.5 py-1 rounded-full font-semibold">Cảnh báo sai sót</span>
                     </div>
-                    <div class="p-6 bg-rose-50/20 flex-1 flex flex-col justify-between space-y-3.5">
+                    <div class="p-6 bg-rose-50/20 flex-1 flex flex-col justify-between space-y-3">
                         <div class="space-y-2.5">
-                            <p class="font-bold text-rose-700 text-[17px]">4 Nhóm sai lầm thường gặp:</p>
-                            <div class="space-y-2.5 text-[15px] text-slate-800 font-medium">
-                                <!-- Sai lầm 1: Đỏ (Sai thứ tự ở mẫu) -->
+                            <!-- Sai lầm 1: Đỏ (Chia cả 2 vế) -->
+                            <div
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-rose-600 border border-rose-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
-                                    class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-rose-500 border border-rose-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
-                                    <div
-                                        class="absolute -left-2 -top-2 text-6xl font-black text-rose-200/40 select-none pointer-events-none leading-none">
-                                        1</div>
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-rose-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-arrow-down-short-wide"></i>
-                                    </div>
-                                    <div class="relative z-10">
-                                        <strong class="text-rose-900 block text-[15px]">Thực hiện sai thứ tự phép tính ở
-                                            mẫu:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Quy tắc vàng: <em>"Tử
-                                                thực hiện phép tính gì thì mẫu phải thực hiện phép tính đó theo đúng thứ
-                                                tự"</em>. Học sinh hay nhầm dấu giữa các tỉ số.</span>
-                                    </div>
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-rose-200/40 select-none pointer-events-none leading-none">
+                                    1</div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-rose-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-circle-xmark"></i>
                                 </div>
-
-                                <!-- Sai lầm 2: Cam (Ngộ nhận phép nhân) -->
-                                <div
-                                    class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-orange-500 border border-orange-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
-                                    <div
-                                        class="absolute -left-2 -top-2 text-6xl font-black text-orange-200/40 select-none pointer-events-none leading-none">
-                                        2</div>
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-orange-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </div>
-                                    <div class="relative z-10">
-                                        <strong class="text-orange-950 block text-[15px]">Ngộ nhận tính chất nhân tỉ lệ
-                                            thức:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Dãy tỉ số bằng nhau
-                                            <strong>không có tính chất nhân</strong> (tỉ số ban đầu không bằng $\dfrac{a
-                                            \cdot c}{b \cdot d}$). Muốn nhân phải đặt $k$ hoặc tính lũy thừa.</span>
-                                    </div>
+                                <div class="relative z-10">
+                                    <strong class="text-rose-950 block text-[15px]">Chia cả 2 vế làm mất nghiệm khi tìm $x$:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Gặp $2x(x - 5) = x - 5$, tự ý chia 2 vế cho $(x - 5)$ dẫn đến mất hẳn nghiệm $x = 5$. Phải chuyển vế đặt nhân tử chung.</span>
                                 </div>
+                            </div>
 
-                                <!-- Sai lầm 3: Vàng Hổ Phách (Quên dấu ngoặc) -->
+                            <!-- Sai lầm 2: Cam (Bỏ bình phương) -->
+                            <div
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-brand-orange border border-orange-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
-                                    class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-amber-500 border border-amber-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
-                                    <div
-                                        class="absolute -left-2 -top-2 text-6xl font-black text-amber-200/40 select-none pointer-events-none leading-none">
-                                        3</div>
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-amber-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-code"></i>
-                                    </div>
-                                    <div class="relative z-10">
-                                        <strong class="text-amber-950 block text-[15px]">Lỗi quên đóng mở ngoặc biểu
-                                            thức:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Khi nhân hoặc trừ đa
-                                            thức, thiếu dấu ngoặc dẫn đến tính sai dấu toàn bộ bài toán.</span>
-                                    </div>
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-orange-200/40 select-none pointer-events-none leading-none">
+                                    2</div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-orange-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-plus-minus"></i>
                                 </div>
+                                <div class="relative z-10">
+                                    <strong class="text-amber-950 block text-[15px]">Bỏ bình phương quên trường hợp số đối:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Gặp $A^2 = B^2$ chỉ suy ra $A = B$ mà quên trường hợp $A = -B$; hoặc chuyển về $A^2 - B^2 = 0$ nhưng đổi dấu sai khi phá ngoặc.</span>
+                                </div>
+                            </div>
 
-                                <!-- Sai lầm 4: Tím (Chưa xét điều kiện mẫu khác 0) -->
+                            <!-- Sai lầm 3: Vàng (Phân tích chưa triệt để) -->
+                            <div
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-amber-500 border border-amber-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
                                 <div
-                                    class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
-                                    <div
-                                        class="absolute -left-2 -top-2 text-6xl font-black text-purple-200/40 select-none pointer-events-none leading-none">
-                                        4</div>
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-ban"></i>
-                                    </div>
-                                    <div class="relative z-10">
-                                        <strong class="text-purple-950 block text-[15px]">Chưa xét điều kiện mẫu khác
-                                            0:</strong>
-                                        <span class="text-slate-700 text-[13.5px] leading-snug">Áp dụng tính chất khi
-                                            chưa xét trường hợp tổng các mẫu số bằng $0$, dẫn đến bỏ sót trường hợp
-                                            nghiệm.</span>
-                                    </div>
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-amber-200/40 select-none pointer-events-none leading-none">
+                                    3</div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-amber-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-hourglass-end"></i>
+                                </div>
+                                <div class="relative z-10">
+                                    <strong class="text-amber-950 block text-[15px]">Phân tích chưa triệt để:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Sau khi đặt ẩn phụ hoặc tách hạng tử, dừng lại ở kết quả chứa nhân tử bậc 2 mà nhân tử đó vẫn phân tích tiếp được thành các nhị thức bậc nhất.</span>
+                                </div>
+                            </div>
+
+                            <!-- Sai lầm 4: Tím (Lập luận chia hết thiếu chặt chẽ) -->
+                            <div
+                                class="relative overflow-hidden bg-white p-3 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3 hover:-translate-y-0.5 hover:shadow-md transition group">
+                                <div
+                                    class="absolute -left-2 -top-2 text-6xl font-black text-purple-200/40 select-none pointer-events-none leading-none">
+                                    4</div>
+                                <div
+                                    class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 text-base shadow-sm mt-0.5 relative z-10 border border-purple-200 group-hover:scale-105 transition-transform">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <div class="relative z-10">
+                                    <strong class="text-purple-950 block text-[15px]">Lập luận bài toán chia hết thiếu cơ sở:</strong>
+                                    <span class="text-slate-700 text-[13.5px] leading-snug">Kết luận biểu thức chia hết cho 6 mà không nêu rõ vì sao chia hết cho 2 và chia hết cho 3 với $\gcd(2, 3) = 1$; hoặc quên điều kiện $n$ là số nguyên lẻ.</span>
                                 </div>
                             </div>
                         </div>
 
                         <div
-                            class="bg-rose-100/70 border-l-4 border-rose-600 p-3 rounded-r-xl text-[14px] text-rose-950 font-medium">
-                            <strong>Giáo viên lưu ý:</strong> Khi chữa bài, luôn yêu cầu học sinh viết rõ điều kiện mẫu
-                            số khác 0 trước khi cộng trừ các tỉ số.
+                            class="bg-rose-100/70 border-l-4 border-rose-600 p-2.5 rounded-r-xl text-[13.5px] text-rose-950 font-medium">
+                            <strong>Giáo viên lưu ý:</strong> Kiên quyết trừ điểm các lỗi: lạm dụng ký hiệu tương đương theo thói quen cũ, tự tiện chia biến làm mất nghiệm, và kết luận nghiệm thiếu dấu ngoặc nhọn tập hợp.
                         </div>
                     </div>
                 </div>
@@ -1348,11 +1148,11 @@
         </div>
     </div>
 
-    <!-- SLIDE 9: DẠNG 1: CHỨNG MINH TỈ LỆ THỨC (COMPONENT 11) -->
+        <!-- SLIDE 9: DẠNG 1: KỸ THUẬT PHÂN TÍCH ĐA THỨC NÂNG CAO (VÍ DỤ 1) -->
     <div class="slide bg-white" id="slide-9">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 1: Chứng minh tỉ lệ thức (Ví dụ 1)
+                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 1: Kỹ thuật phân tích đa thức nâng cao (Ví dụ 1)
             </h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
@@ -1362,91 +1162,91 @@
                 <!-- Đề bài -->
                 <div class="bg-brand-light border-l-[6px] border-brand-orange p-4 rounded-r-lg">
                     <strong class="text-brand-orange text-lg flex items-center mb-1"><i
-                            class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 1)</strong>
-                    <p class="text-[17px] text-slate-800 font-semibold">
-                        Cho tỉ lệ thức $\dfrac{a}{b} = \dfrac{c}{d}$. Chứng minh rằng ta có các tỉ lệ thức sau:<br>
-                        a) $\dfrac{a+b}{b} = \dfrac{c+d}{d}$; $\qquad\qquad$ b) $\dfrac{a^2+c^2}{b^2+d^2} =
-                        \dfrac{ac}{bd}$.
+                            class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 1 - Trọng tâm Buổi 11 & Ôn thi Quý 1)</strong>
+                    <p class="text-[16px] text-slate-800 font-semibold">
+                        Phân tích các đa thức sau thành nhân tử:<br>
+                        a) $A = 2x^2 + 5x - 3$; $\qquad\qquad$ b) $B = x^2 - 4xy + 3y^2$;<br>
+                        c) $C = x^4 + 4$; $\qquad\qquad\qquad$ d) $D = (x^2 + x)^2 - 2(x^2 + x) - 8$.
                     </p>
                 </div>
 
-                <!-- 2 Cách giải song song -->
+                <!-- 2 Cột bài giải song song -->
                 <div
                     class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-b border-slate-200">
-                    <!-- Cách 1 (Màu Blue) -->
+                    <!-- Cột Trái (a & b: Tách hạng tử) -->
                     <div class="p-5 bg-blue-50/20">
-                        <h4 class="text-brand-blue font-bold text-[16.5px] flex items-center mb-2.5">
+                        <h4 class="text-brand-blue font-bold text-[16.5px] flex items-center mb-3">
                             <span
-                                class="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs mr-2 font-bold shadow-sm">C1</span>
-                            Phương pháp Dãy tỉ số bằng nhau
+                                class="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs mr-2 font-bold shadow-sm">I</span>
+                            Phương pháp Tách hạng tử (Tam thức & Đa thức 2 biến)
                         </h4>
-                        <div class="text-[15px] text-slate-800 space-y-2 leading-relaxed font-medium">
-                            <p><strong>a)</strong> Ta có $\dfrac{a}{b} = \dfrac{c}{d} \Rightarrow \dfrac{a}{c} =
-                                \dfrac{b}{d}$.</p>
-                            <p>Áp dụng tính chất dãy tỉ số bằng nhau, ta có:</p>
-                            <p class="text-center font-bold text-brand-blue">$\dfrac{a}{c} = \dfrac{b}{d} =
-                                \dfrac{a+b}{c+d} \Rightarrow \dfrac{a+b}{b} = \dfrac{c+d}{d}$ (đpcm).</p>
+                        <div class="text-[15px] text-slate-800 space-y-2.5 leading-relaxed font-medium">
+                            <div>
+                                <p class="font-bold text-brand-blue">a) $A = 2x^2 + 5x - 3$ (Tách hạng tử bậc nhất)</p>
+                                <p class="pl-3">• Tìm $p, q$ sao cho $p + q = 5$ và $p \cdot q = 2 \cdot (-3) = -6 \Rightarrow p = 6, q = -1$.</p>
+                                <p class="pl-3">• Tách $5x = 6x - x$: $A = (2x^2 + 6x) - (x + 3) = 2x(x + 3) - (x + 3)$</p>
+                                <p class="pl-3 text-emerald-700 font-bold">$\Rightarrow A = (x + 3)(2x - 1)$.</p>
+                            </div>
                             <hr class="border-slate-200 my-1">
-                            <p><strong>b)</strong> Từ $\dfrac{a}{b} = \dfrac{c}{d} \Rightarrow
-                                \left(\dfrac{a}{b}\right)^2 = \left(\dfrac{c}{d}\right)^2 = \dfrac{a}{b} \cdot
-                                \dfrac{c}{d} = \dfrac{ac}{bd}$.</p>
-                            <p>Mà $\dfrac{a^2}{b^2} = \dfrac{c^2}{d^2} = \dfrac{a^2+c^2}{b^2+d^2}$</p>
-                            <p class="text-emerald-700 font-bold">$\Rightarrow \dfrac{a^2+c^2}{b^2+d^2} =
-                                \dfrac{ac}{bd}$ (đpcm).</p>
+                            <div>
+                                <p class="font-bold text-brand-blue">b) $B = x^2 - 4xy + 3y^2$ (Đa thức 2 biến)</p>
+                                <p class="pl-3">• Tách $-4xy = -xy - 3xy$:</p>
+                                <p class="pl-3">• $B = (x^2 - xy) - (3xy - 3y^2) = x(x - y) - 3y(x - y)$</p>
+                                <p class="pl-3 text-emerald-700 font-bold">$\Rightarrow B = (x - y)(x - 3y)$.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Cách 2 (Màu Orange) -->
+                    <!-- Cột Phải (c & d: Thêm bớt & Đặt ẩn phụ) -->
                     <div class="p-5 bg-orange-50/20">
-                        <h4 class="text-brand-orange font-bold text-[16.5px] flex items-center mb-2.5">
+                        <h4 class="text-brand-orange font-bold text-[16.5px] flex items-center mb-3">
                             <span
-                                class="bg-brand-orange text-white w-7 h-7 rounded-full flex items-center justify-center text-xs mr-2 font-bold shadow-sm">C2</span>
-                            Phương pháp đặt hằng số $k$
+                                class="bg-brand-orange text-white w-7 h-7 rounded-full flex items-center justify-center text-xs mr-2 font-bold shadow-sm">II</span>
+                            Phương pháp Thêm bớt hạng tử & Đặt ẩn phụ
                         </h4>
-                        <div class="text-[15px] text-slate-800 space-y-2 leading-relaxed font-medium">
-                            <p>Đặt $\dfrac{a}{b} = \dfrac{c}{d} = k \Rightarrow a = bk; \ c = dk$.</p>
-                            <p><strong>a)</strong> Thay vào biểu thức ta được:</p>
-                            <p>$\text{VT} = \dfrac{a+b}{b} = \dfrac{bk+b}{b} = \dfrac{b(k+1)}{b} = k+1$.</p>
-                            <p>$\text{VP} = \dfrac{c+d}{d} = \dfrac{dk+d}{d} = \dfrac{d(k+1)}{d} = k+1$.</p>
-                            <p class="text-emerald-700 font-bold">Vì $\text{VT} = \text{VP} = k+1 \Rightarrow
-                                \dfrac{a+b}{b} = \dfrac{c+d}{d}$ (đpcm).</p>
+                        <div class="text-[15px] text-slate-800 space-y-2.5 leading-relaxed font-medium">
+                            <div>
+                                <p class="font-bold text-brand-orange">c) $C = x^4 + 4$ (Thêm bớt tạo hiệu hai bình phương)</p>
+                                <p class="pl-3">• Thêm và bớt $4x^2$: $C = (x^4 + 4x^2 + 4) - 4x^2 = (x^2 + 2)^2 - (2x)^2$</p>
+                                <p class="pl-3">• Áp dụng HĐT $A^2 - B^2 = (A - B)(A + B)$:</p>
+                                <p class="pl-3 text-emerald-700 font-bold">$\Rightarrow C = (x^2 - 2x + 2)(x^2 + 2x + 2)$.</p>
+                            </div>
                             <hr class="border-slate-200 my-1">
-                            <p><strong>b)</strong> $\text{VT} = \dfrac{b^2 k^2 + d^2 k^2}{b^2 + d^2} =
-                                \dfrac{k^2(b^2+d^2)}{b^2+d^2} = k^2$.</p>
-                            <p>$\text{VP} = \dfrac{bk \cdot dk}{bd} = \dfrac{bd \cdot k^2}{bd} = k^2 \Rightarrow
-                                \text{VT} = \text{VP}$ (đpcm).</p>
+                            <div>
+                                <p class="font-bold text-brand-orange">d) $D = (x^2 + x)^2 - 2(x^2 + x) - 8$ (Đặt ẩn phụ)</p>
+                                <p class="pl-3">• Đặt $t = x^2 + x$. Khi đó đa thức trở thành: $t^2 - 2t - 8 = (t - 4)(t + 2)$.</p>
+                                <p class="pl-3">• Thay $t = x^2 + x$ trở lại:</p>
+                                <p class="pl-3 text-emerald-700 font-bold">$\Rightarrow D = (x^2 + x - 4)(x^2 + x + 2)$.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Box Lỗi sai & Lưu ý -->
                 <div class="grid grid-cols-1 md:grid-cols-2 p-4 bg-slate-50 gap-4">
-                    <div class="bg-rose-50 border border-rose-200 p-3.5 rounded-xl text-[15px]">
-                        <p class="text-rose-700 font-bold mb-1.5"><i
+                    <div class="bg-rose-50 border border-rose-200 p-3.5 rounded-xl text-[14.5px]">
+                        <p class="text-rose-700 font-bold mb-1"><i
                                 class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lỗi sai của học sinh:</p>
-                        <p class="leading-relaxed">
-                            ❌ Giữ nguyên $\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{a+b}{b+d}$ (viết sai mẫu).<br>
-                            ❌ Lỗi ngộ nhận: cho rằng $\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{ac}{bd}$ rồi bình phương lên
-                            cho ra điều phải chứng minh.
+                        <p class="leading-relaxed text-slate-700">
+                            ❌ Câu a tách nhầm $5x = 2x + 3x$ (vì $2 \cdot 3 = 6 \ne -6$) dẫn đến không nhóm được nhân tử chung.<br>
+                            ❌ Câu d đặt ẩn phụ xong quên không thay ngược lại biến $x$ ban đầu; hoặc phân tích chưa hết nhân tử.
                         </p>
                     </div>
-                    <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-[15px]">
-                        <p class="text-emerald-800 font-bold mb-1.5"><i
+                    <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-[14.5px]">
+                        <p class="text-emerald-800 font-bold mb-1"><i
                                 class="fa-solid fa-chalkboard-user mr-1.5"></i>Giáo viên lưu ý:</p>
-                        <p class="leading-relaxed">Phương pháp đặt $k$ là phương pháp "vạn năng" giúp học sinh giải
-                            quyết được hầu hết các bài toán chứng minh tỉ lệ thức phức tạp hoặc chứa bậc cao.</p>
+                        <p class="leading-relaxed text-slate-700">Hướng dẫn học sinh bấm máy tính Casio giải phương trình bậc hai $ax^2+bx+c=0$ ra nghiệm $x_1, x_2$ để suy ra cách tách $a(x-x_1)(x-x_2)$ cực nhanh và tránh sai dấu.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 10: DẠNG 2: TÌM X, Y, Z THEO ĐIỀU KIỆN (COMPONENT 5B) -->
+    <!-- SLIDE 10: DẠNG 2: TÌM X & GIẢI PHƯƠNG TRÌNH TÍCH (VÍ DỤ 2) -->
     <div class="slide bg-white" id="slide-10">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 2: Tìm x, y, z theo điều kiện (Ví dụ
-                2)</h2>
+                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 2: Tìm x & Giải phương trình tích (Ví dụ 2)</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
@@ -1457,24 +1257,23 @@
                     <strong class="text-brand-orange text-[16px] flex items-center mb-1.5"><i
                             class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
                     <p class="text-[15px] text-slate-800 leading-relaxed font-semibold">
-                        Tìm các số $x, y, z$ biết:<br>
-                        a) $4x = 3y$ và $x - y = -11$; $\qquad$ b) $\dfrac{x}{4} = \dfrac{y}{7}$ và $x^2 - y^2 = -33$;
-                        $\qquad$ c) $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2}$ và $x \cdot y \cdot z = -648$.
+                        Tìm $x$, biết:<br>
+                        a) $2x(x - 5) - x + 5 = 0$; $\qquad$ b) $(2x - 3)^2 - (x + 1)^2 = 0$;
+                        $\qquad$ c) $x^3 - 4x^2 - x + 4 = 0$.
                     </p>
                 </div>
 
                 <!-- Tiêu đề 2 cột -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div
-                        class="md:col-span-7 bg-blue-50/70 border border-blue-200 rounded-xl px-4 py-2 flex items-center justify-between shadow-xs">
+                        class="md:col-span-6 bg-blue-50/70 border border-blue-200 rounded-xl px-4 py-2 flex items-center justify-between shadow-xs">
                         <h4 class="text-brand-blue font-bold text-[15px] flex items-center">
                             <i class="fa-solid fa-pen mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết
                         </h4>
-                        <span class="text-xs bg-brand-blue text-white px-2.5 py-0.5 rounded-full font-semibold">Lời giải
-                            chuẩn</span>
+                        <span class="text-xs bg-brand-blue text-white px-2.5 py-0.5 rounded-full font-semibold">Lời giải chuẩn (GDPT 2018)</span>
                     </div>
                     <div
-                        class="md:col-span-5 bg-rose-50/70 border border-rose-200 rounded-xl px-4 py-2 flex items-center justify-between shadow-xs">
+                        class="md:col-span-6 bg-rose-50/70 border border-rose-200 rounded-xl px-4 py-2 flex items-center justify-between shadow-xs">
                         <h4 class="text-rose-700 font-bold text-[15px] flex items-center">
                             <i class="fa-solid fa-triangle-exclamation mr-2 text-rose-600"></i>Lỗi sai học sinh thường
                             mắc
@@ -1490,29 +1289,26 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
                         <!-- Giải a -->
                         <div
-                            class="md:col-span-7 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+                            class="md:col-span-6 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
                             <div class="text-[14.5px] text-slate-800 font-medium leading-relaxed">
                                 <div class="flex items-center gap-2 mb-1">
                                     <span
                                         class="w-6 h-6 rounded-md bg-brand-blue text-white text-xs font-bold flex items-center justify-center">a</span>
-                                    <strong class="text-brand-blue text-[15px]">Dạng hiệu bậc nhất:</strong>
+                                    <strong class="text-brand-blue text-[15px]">Đặt nhân tử chung đưa về phương trình tích:</strong>
                                 </div>
-                                <p>Ta có $4x = 3y \Rightarrow \dfrac{x}{3} = \dfrac{y}{4} = \dfrac{x-y}{3-4} =
-                                    \dfrac{-11}{-1} = 11$.</p>
-                                <p class="text-emerald-700 font-bold">$\Rightarrow x = 11 \cdot 3 = 33; \quad y = 11
-                                    \cdot 4 = 44$. Vậy $(x; y) = (33; 44)$.</p>
+                                <p>Ta có: $2x(x - 5) - (x - 5) = 0$</p>
+                                <p class="pl-3">$(x - 5)(2x - 1) = 0$</p>
+                                <p class="text-emerald-700 font-bold">Suy ra $x - 5 = 0$ hoặc $2x - 1 = 0 \Rightarrow x = 5$ hoặc $x = \dfrac{1}{2}$. Vậy $x \in \left\{5; \dfrac{1}{2}\right\}$.</p>
                             </div>
                         </div>
                         <!-- Lỗi a -->
                         <div
-                            class="md:col-span-5 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
+                            class="md:col-span-6 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
                             <strong class="text-rose-900 text-[14.5px] flex items-center gap-1.5 mb-1">
-                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Biến đổi sai tỉ số (Câu
-                                a):
+                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Chia 2 vế làm mất nghiệm (Câu a):
                             </strong>
                             <p class="text-[13.5px] text-slate-700 leading-snug">
-                                Viết $4x = 3y \Rightarrow \dfrac{x}{4} = \dfrac{y}{3}$ (nhầm lẫn giữa trung tỉ và ngoại
-                                tỉ khi chuyển đổi).
+                                Nhóm $2x(x-5) = x-5$ rồi tự tiện chia cả hai vế cho $(x-5)$, kết luận $2x = 1 \Rightarrow x = \dfrac{1}{2}$ (mất hoàn toàn nghiệm $x = 5$).
                             </p>
                         </div>
                     </div>
@@ -1521,32 +1317,26 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
                         <!-- Giải b -->
                         <div
-                            class="md:col-span-7 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+                            class="md:col-span-6 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
                             <div class="text-[14.5px] text-slate-800 font-medium leading-relaxed">
                                 <div class="flex items-center gap-2 mb-1">
                                     <span
                                         class="w-6 h-6 rounded-md bg-brand-blue text-white text-xs font-bold flex items-center justify-center">b</span>
-                                    <strong class="text-brand-blue text-[15px]">Dạng hiệu bình phương (chú ý $x, y$ cùng
-                                        dấu):</strong>
+                                    <strong class="text-brand-blue text-[15px]">Áp dụng HĐT hiệu hai bình phương $A^2 - B^2 = 0$:</strong>
                                 </div>
-                                <p>Ta có $\dfrac{x}{4} = \dfrac{y}{7} \Rightarrow \dfrac{x^2}{16} = \dfrac{y^2}{49} =
-                                    \dfrac{x^2-y^2}{16-49} = \dfrac{-33}{-33} = 1$.</p>
-                                <p>$\Rightarrow x^2 = 16 \Rightarrow x = \pm 4; \quad y^2 = 49 \Rightarrow y = \pm 7$.
-                                </p>
-                                <p class="text-emerald-700 font-bold">Vì $x, y$ cùng dấu $\Rightarrow (x; y) \in \{(4;
-                                    7); (-4; -7)\}$.</p>
+                                <p>Ta có: $[(2x - 3) - (x + 1)][(2x - 3) + (x + 1)] = 0$</p>
+                                <p class="pl-3">$(x - 4)(3x - 2) = 0$</p>
+                                <p class="text-emerald-700 font-bold">Suy ra $x - 4 = 0$ hoặc $3x - 2 = 0 \Rightarrow x = 4$ hoặc $x = \dfrac{2}{3}$. Vậy $x \in \left\{4; \dfrac{2}{3}\right\}$.</p>
                             </div>
                         </div>
                         <!-- Lỗi b -->
                         <div
-                            class="md:col-span-5 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
+                            class="md:col-span-6 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
                             <strong class="text-rose-900 text-[14.5px] flex items-center gap-1.5 mb-1">
-                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Quên bình phương mẫu số
-                                (Câu b):
+                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Bỏ bình phương thiếu trường hợp (Câu b):
                             </strong>
                             <p class="text-[13.5px] text-slate-700 leading-snug">
-                                Biến đổi $\dfrac{x}{4} = \dfrac{y}{7} \Rightarrow \dfrac{x^2-y^2}{4-7}$ (quên bình
-                                phương mẫu) và kết luận thiếu nghiệm âm (quên xét điều kiện $x, y$ cùng dấu).
+                                Cho $(2x - 3)^2 = (x + 1)^2 \Rightarrow 2x - 3 = x + 1$ (quên trường hợp số đối $2x - 3 = -(x + 1)$); hoặc khai triển bình phương bị nhầm dấu.
                             </p>
                         </div>
                     </div>
@@ -1555,32 +1345,26 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
                         <!-- Giải c -->
                         <div
-                            class="md:col-span-7 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
+                            class="md:col-span-6 bg-blue-50/30 border border-blue-200/80 rounded-xl p-3.5 flex flex-col justify-between shadow-sm">
                             <div class="text-[14.5px] text-slate-800 font-medium leading-relaxed">
                                 <div class="flex items-center gap-2 mb-1">
                                     <span
                                         class="w-6 h-6 rounded-md bg-brand-blue text-white text-xs font-bold flex items-center justify-center">c</span>
-                                    <strong class="text-brand-blue text-[15px]">Dạng tích 3 biến (Phương pháp đặt
-                                        $k$):</strong>
+                                    <strong class="text-brand-blue text-[15px]">Nhóm hạng tử đa thức bậc 3:</strong>
                                 </div>
-                                <p>Đặt $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = k \Rightarrow x = 4k, y = 3k, z =
-                                    2k$.</p>
-                                <p>Mà $xyz = -648 \Rightarrow 4k \cdot 3k \cdot 2k = 24k^3 = -648 \Rightarrow k^3 = -27
-                                    \Rightarrow k = -3$.</p>
-                                <p>$\Rightarrow x = 4(-3) = -12; \ y = 3(-3) = -9; \ z = 2(-3) = -6$.</p>
-                                <p class="text-emerald-700 font-bold">Vậy $(x; y; z) = (-12; -9; -6)$.</p>
+                                <p>Ta có: $x^2(x - 4) - (x - 4) = 0$</p>
+                                <p class="pl-3">$(x - 4)(x^2 - 1) = 0$, hay $(x - 4)(x - 1)(x + 1) = 0$</p>
+                                <p class="text-emerald-700 font-bold">Suy ra $x - 4 = 0$ hoặc $x - 1 = 0$ hoặc $x + 1 = 0 \Rightarrow x \in \{4; 1; -1\}$.</p>
                             </div>
                         </div>
                         <!-- Lỗi c -->
                         <div
-                            class="md:col-span-5 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
+                            class="md:col-span-6 bg-rose-50/30 border border-rose-200/80 rounded-xl p-3.5 flex flex-col justify-center shadow-sm">
                             <strong class="text-rose-900 text-[14.5px] flex items-center gap-1.5 mb-1">
-                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Áp dụng sai tính chất nhân
-                                (Câu c):
+                                <i class="fa-solid fa-circle-xmark text-rose-500 text-sm"></i>Sót nghiệm âm ở bậc 2 (Câu c):
                             </strong>
                             <p class="text-[13.5px] text-slate-700 leading-snug">
-                                Tự ý viết $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = \dfrac{xyz}{4 \cdot 3 \cdot 2}$
-                                (sai bản chất dãy tỉ số), hoặc khi đặt $k$ tính nhầm $(-3)^3 = 27$.
+                                Phân tích được $(x - 4)(x^2 - 1) = 0 \Rightarrow x^2 = 1 \Rightarrow x = 1$ (quên nghiệm âm $x = -1$); hoặc nhóm sai $x^3 - 4x^2 - (x - 4)$ dẫn đến bế tắc.
                             </p>
                         </div>
                     </div>
@@ -1589,74 +1373,73 @@
         </div>
     </div>
 
-    <!-- SLIDE 11: DẠNG 3: TỈ LỆ THỨC PHỨC TẠP (DẠNG VÒNG) (COMPONENT 5B) -->
+        <!-- SLIDE 11: DẠNG 3: ỨNG DỤNG PHÂN TÍCH ĐA THỨC CHỨNG MINH CHIA HẾT SỐ NGUYÊN (VÍ DỤ 3) -->
     <div class="slide bg-white" id="slide-11">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-brain mr-3 text-brand-orange"></i>Dạng 3: Tỉ lệ thức phức tạp - Dạng vòng (Ví dụ
-                3)</h2>
+                    class="fa-solid fa-brain mr-3 text-brand-orange"></i>Dạng 3: Ứng dụng Phân tích đa thức chứng minh Chia hết số nguyên (Ví dụ 3)</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
-        <div class="slide-content p-5 flex flex-col justify-center">
-            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-5xl mx-auto w-full zoom-108"
-                style="zoom: 1.08;">
+        <div class="slide-content p-4 flex flex-col justify-center">
+            <div class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-5xl mx-auto w-full">
                 <!-- Đề bài -->
-                <div class="bg-brand-light border-l-[6px] border-brand-blue p-4 rounded-r-lg">
-                    <strong class="text-brand-blue text-lg flex items-center mb-1"><i
-                            class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 3)</strong>
-                    <p class="text-[16px] text-slate-800 leading-relaxed font-semibold">
-                        Cho dãy tỉ số bằng nhau: $\dfrac{a_1}{a_2} = \dfrac{a_2}{a_3} = \dots =
-                        \dfrac{a_{2019}}{a_{2020}} = \dfrac{a_{2020}}{a_1}$<br>
-                        Tính giá trị biểu thức: $B =
-                        \dfrac{(a_1+a_2+\dots+a_{2020})^2}{a_1^2+a_2^2+a_3^2+\dots+a_{2020}^2}$
+                <div class="bg-brand-light border-l-[6px] border-brand-blue p-3.5 rounded-r-lg">
+                    <strong class="text-brand-blue text-[17px] flex items-center mb-1"><i
+                            class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 3 - Đón đầu Chuyên đề Tháng 10: Buổi 13, 14, 16)</strong>
+                    <p class="text-[15px] text-slate-800 leading-relaxed font-semibold">
+                        Cho $n$ là số nguyên.<br>
+                        a) Chứng minh rằng: $A = n^3 - n \ \vdots \ 6$ với mọi $n \in \mathbb{Z}$;<br>
+                        b) Chứng minh rằng: $B = n^3 + 3n^2 - n - 3 \ \vdots \ 48$ với mọi số nguyên lẻ $n$;<br>
+                        c) Cho các số nguyên $a, b, c$ thỏa mãn $a + b + c \ \vdots \ 6$. Chứng minh: $a^3 + b^3 + c^3 \ \vdots \ 6$.
                     </p>
                 </div>
 
-                <!-- Lời giải 2 trường hợp -->
-                <div class="p-5 bg-blue-50/20 text-[15px] text-slate-800 space-y-3.5 font-medium">
+                <!-- Lời giải 3 câu -->
+                <div class="p-4 bg-blue-50/20 text-[14px] text-slate-800 space-y-2 font-medium leading-relaxed">
                     <div>
-                        <p class="font-bold text-brand-blue text-[16px]">Trường hợp 1: Nếu $a_1 + a_2 + a_3 + \dots +
-                            a_{2020} \neq 0$</p>
-                        <p class="mt-1 leading-relaxed">
-                            Áp dụng tính chất dãy tỉ số bằng nhau ta có:<br>
-                            $\dfrac{a_1}{a_2} = \dfrac{a_2}{a_3} = \dots = \dfrac{a_{2019}}{a_{2020}} =
-                            \dfrac{a_{2020}}{a_1} = \dfrac{a_1+a_2+\dots+a_{2019}+a_{2020}}{a_2+a_3+\dots+a_{2020}+a_1}
-                            = 1$<br>
-                            $\Rightarrow a_1 = a_2 = a_3 = \dots = a_{2020}$.<br>
-                            Khi đó: $B = \dfrac{(2020 a_1)^2}{2020 \cdot a_1^2} = \dfrac{2020^2 \cdot a_1^2}{2020 \cdot
-                            a_1^2} = 2020$.
+                        <p class="font-bold text-brand-blue text-[15px]">a) Chứng minh $A = n^3 - n \ \vdots \ 6$ với mọi $n \in \mathbb{Z}$:</p>
+                        <p class="mt-0.5">
+                            Ta có: $A = n(n^2 - 1) = (n - 1)n(n + 1)$.<br>
+                            Vì $(n - 1), n, (n + 1)$ là ba số nguyên liên tiếp nên luôn có ít nhất một số chia hết cho 2 và một số chia hết cho 3.<br>
+                            Do $\gcd(2, 3) = 1 \Rightarrow (n - 1)n(n + 1) \ \vdots \ (2 \cdot 3) = 6$
+                            <span class="text-emerald-700 font-bold">$\Rightarrow A \ \vdots \ 6$ với mọi $n \in \mathbb{Z}$ (đpcm).</span>
                         </p>
                     </div>
                     <hr class="border-slate-200">
                     <div>
-                        <p class="font-bold text-brand-blue text-[16px]">Trường hợp 2: Nếu $a_1 + a_2 + a_3 + \dots +
-                            a_{2020} = 0$</p>
-                        <p class="mt-1 leading-relaxed">
-                            Khi đó $(a_1 + a_2 + \dots + a_{2020})^2 = 0^2 = 0 \Rightarrow B = 0$.
+                        <p class="font-bold text-brand-blue text-[15px]">b) Chứng minh $B = n^3 + 3n^2 - n - 3 \ \vdots \ 48$ với mọi $n$ lẻ:</p>
+                        <p class="mt-0.5">
+                            Phân tích đa thức thành nhân tử: $B = n^2(n + 3) - (n + 3) = (n + 3)(n^2 - 1) = (n - 1)(n + 1)(n + 3)$.<br>
+                            Vì $n$ là số lẻ $\Rightarrow n = 2k + 1$ ($k \in \mathbb{Z}$). Thay vào biểu thức ta được:<br>
+                            $B = (2k)(2k + 2)(2k + 4) = 2k \cdot 2(k + 1) \cdot 2(k + 2) = 8k(k + 1)(k + 2)$.<br>
+                            Vì $k(k + 1)(k + 2)$ là tích 3 số nguyên liên tiếp $\Rightarrow k(k + 1)(k + 2) \ \vdots \ 6 \Rightarrow 8k(k + 1)(k + 2) \ \vdots \ (8 \cdot 6) = 48$.<br>
+                            <span class="text-emerald-700 font-bold">$\Rightarrow B \ \vdots \ 48$ với mọi $n$ lẻ (đpcm).</span>
+                        </p>
+                    </div>
+                    <hr class="border-slate-200">
+                    <div>
+                        <p class="font-bold text-brand-blue text-[15px]">c) Chứng minh $a^3 + b^3 + c^3 \ \vdots \ 6$ khi $a + b + c \ \vdots \ 6$:</p>
+                        <p class="mt-0.5">
+                            Xét hiệu: $(a^3 + b^3 + c^3) - (a + b + c) = (a^3 - a) + (b^3 - b) + (c^3 - c)$.<br>
+                            Theo kết quả câu a: với mọi số nguyên $x$ thì $x^3 - x \ \vdots \ 6$.<br>
+                            $\Rightarrow (a^3 - a) \ \vdots \ 6$; $\ (b^3 - b) \ \vdots \ 6$; $\ (c^3 - c) \ \vdots \ 6 \Rightarrow [(a^3 + b^3 + c^3) - (a + b + c)] \ \vdots \ 6$.<br>
+                            Mà theo giả thiết: $a + b + c \ \vdots \ 6$
+                            <span class="text-emerald-700 font-bold">$\Rightarrow a^3 + b^3 + c^3 \ \vdots \ 6$ (đpcm).</span>
                         </p>
                     </div>
 
-                    <!-- Kết luận -->
-                    <div
-                        class="bg-orange-50 border-l-4 border-brand-orange p-3 rounded-r-lg text-brand-orange font-bold text-[15.5px]">
-                        <i class="fa-solid fa-circle-check mr-1.5"></i> Kết luận: $B = 2020$ nếu $a_1+a_2+\dots+a_{2020}
-                        \neq 0$, và $B = 0$ nếu $a_1+a_2+\dots+a_{2020} = 0$.
-                    </div>
-
-                    <!-- Box Lỗi sai -->
-                    <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl text-[14px] text-slate-700">
+                    <!-- Box Lỗi sai & Gợi ý GV -->
+                    <div class="bg-rose-50 border border-rose-200 p-2.5 rounded-xl text-[13.5px] text-slate-700">
                         <strong class="text-rose-700 block mb-0.5"><i
-                                class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lỗi sai học sinh thường
-                            gặp:</strong>
-                        <span>Học sinh thường bỏ sót Trường hợp 2 do khi áp dụng tính chất dãy tỉ số bằng nhau quên kiểm
-                            tra điều kiện tổng các mẫu số tạo thành phải khác 0.</span>
+                                class="fa-solid fa-triangle-exclamation mr-1.5"></i>Lưu ý chuyên môn:</strong>
+                        Đây là bài toán kinh điển trong Chuyên đề Tính chất chia hết số nguyên (Buổi 13, 14, 16). Kỹ thuật phân tích đa thức thành nhân tử để đưa về tích các số nguyên liên tiếp là công cụ giải quyết then chốt. Yêu cầu giáo viên hướng dẫn học sinh lập luận chặt chẽ tính chia hết cho các số nguyên tố cùng nhau.
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SLIDE 12: KẾ HOẠCH KHẢO SÁT & QUY CHẾ CHẤM (COMPONENT 17 - WATERMARK & CONTEXTUAL COLOR PALETTE) -->
+    <!-- SLIDE 12: 4. KẾ HOẠCH THỜI GIAN TỚI: KHẢO SÁT & QUY CHẾ CHẤM BÀI -->
     <div class="slide bg-white" id="slide-12">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
@@ -1667,7 +1450,7 @@
         <div class="slide-content flex flex-col justify-center py-4">
             <div
                 class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-8 w-full max-w-[94rem] mx-auto my-auto items-stretch">
-                <!-- Cột Trái: Kế hoạch khảo sát định kỳ (3 Thẻ: Xanh dương -> Tím -> Cam) -->
+                <!-- Cột Trái: Kế hoạch khảo sát định kỳ (Tuần 12) -->
                 <div
                     class="bg-blue-50/70 rounded-2xl border-2 border-brand-blue/30 shadow-md p-6 flex flex-col justify-between">
                     <div>
@@ -1696,13 +1479,13 @@
                                 <strong class="text-blue-950 block text-[16px] mb-0.5">Mục đích & Ý nghĩa khảo
                                     sát:</strong>
                                 <span class="text-slate-700 text-[14.5px] leading-relaxed">Đánh giá thực chất mức độ
-                                    tiếp thu kiến thức, kỹ năng và sự tiến bộ của học sinh sau giai đoạn học tập; là cơ
+                                    tiếp thu kiến thức, kỹ năng Đại số và Hình học của học sinh Khối 8 sau giai đoạn 1; là cơ
                                     sở quan trọng để giáo viên kịp thời củng cố kiến thức còn hổng và điều chỉnh phương
-                                    pháp giảng dạy.</span>
+                                    pháp giảng dạy trước kỳ thi giữa kỳ.</span>
                             </div>
                         </div>
 
-                        <!-- Mục 2: Tím (Quy mô & Đề thi) -->
+                        <!-- Mục 2: Tím (Quy mô & Cấu trúc) -->
                         <div
                             class="relative overflow-hidden bg-white p-4 rounded-xl border-l-4 border-purple-600 border border-purple-100 shadow-sm flex items-start gap-3.5 hover:-translate-y-0.5 hover:shadow-md transition group">
                             <div
@@ -1716,9 +1499,7 @@
                                 <strong class="text-purple-950 block text-[16px] mb-0.5">Quy mô & Cấu trúc bài khảo
                                     sát:</strong>
                                 <span class="text-slate-700 text-[14.5px] leading-relaxed">Khảo sát toàn bộ học sinh
-                                    Khối 7 theo các phân hệ lớp (Chuyên, Nâng cao, Mở rộng & Cơ bản). Đề thi kiểm tra
-                                    toàn diện trắc nghiệm và tự luận (Đại số & Hình học), bám sát trọng tâm đã
-                                    học.</span>
+                                    Khối 8 theo đúng phân hệ (Chuyên, Nâng cao, Mở rộng & Cơ bản). Đề kiểm tra gồm 5 bài tự luận chuẩn hóa: Rút gọn HĐT, Phân tích đa thức, Tìm $x$, Hình học Tứ giác đặc biệt và Bài toán nâng cao.</span>
                             </div>
                         </div>
 
@@ -1744,7 +1525,7 @@
                     </div>
                 </div>
 
-                <!-- Cột Phải: Nguyên tắc chấm & Bảo mật (3 Thẻ: Xanh lục -> Cam -> Đỏ) -->
+                <!-- Cột Phải: Nguyên tắc chấm & Bảo mật -->
                 <div
                     class="bg-orange-50/40 rounded-2xl border-2 border-orange-200/80 shadow-md p-6 flex flex-col justify-between">
                     <div>
@@ -1793,7 +1574,7 @@
                                 <strong class="text-orange-950 block text-[16px] mb-0.5">Ghi rõ điểm thành phần từng
                                     bài:</strong>
                                 <span class="text-slate-700 text-[14.5px] leading-relaxed">Ghi đầy đủ, rõ ràng điểm
-                                    thành phần của từng bài, sau đó tổng hợp và ghi chính xác điểm cuối cùng nhằm tạo
+                                    thành phần của từng câu (a, b, c), sau đó tổng hợp và ghi chính xác điểm cuối cùng nhằm tạo
                                     thuận lợi cho BPCM kiểm soát, đối chiếu và hạn chế tối đa sai sót.</span>
                             </div>
                         </div>
@@ -1822,7 +1603,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 13: HƯỚNG DẪN GIAO DIỆN & QUY CHUẨN NHẬP ĐIỂM (COMPONENT 17 - WATERMARK & CONTEXTUAL COLOR PALETTE) -->
+    <!-- SLIDE 13: 4. HƯỚNG DẪN GIAO DIỆN & QUY CHUẨN NHẬP ĐIỂM -->
     <div class="slide bg-white" id="slide-13">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
@@ -1845,7 +1626,7 @@
                 <!-- Ảnh chụp thực tế (Vector SVG sắc nét 100%) -->
                 <div
                     class="w-full flex justify-center bg-white p-3 rounded-xl border border-slate-200 shadow-inner overflow-hidden group">
-                    <img alt="Giao diện nhập điểm khảo sát mẫu Khối 7"
+                    <img alt="Giao diện nhập điểm khảo sát mẫu Khối 8"
                         class="max-h-52 md:max-h-56 w-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01] cursor-pointer shadow-sm"
                         src="nhap_diem_mau.svg" onclick="openLightbox(this)" />
                 </div>
@@ -1973,12 +1754,12 @@
         </div>
     </div>
 
-    <!-- SLIDE 14: QUY CHUẨN NHẬN XÉT BÀI THI KHẢO SÁT (COMPONENT 14) -->
+    <!-- SLIDE 14: 4. QUY CHUẨN VIẾT NHẬN XÉT BÀI KHẢO SÁT QUÝ I (KHỐI 8) -->
     <div class="slide bg-white" id="slide-14">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
                     class="fa-solid fa-comment-dots mr-3.5 text-brand-orange"></i>4. Quy chuẩn viết nhận xét bài khảo
-                sát Quý I</h2>
+                sát Quý I (Khối 8)</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content flex flex-col justify-center py-4 max-w-[94rem] mx-auto w-full">
@@ -1989,7 +1770,7 @@
                         <span
                             class="bg-brand-blue text-white w-9 h-9 rounded-full flex items-center justify-center mr-3 shadow-sm text-base"><i
                                 class="fa-solid fa-pen-clip"></i></span>
-                        Bảng quy chuẩn nhận xét bài kiểm tra khảo sát Quý I (Khối 7)
+                        Bảng quy chuẩn nhận xét bài kiểm tra khảo sát Quý I (Khối 8)
                     </h3>
                     <span
                         class="bg-red-100 text-red-700 text-[14px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">Quan
@@ -2001,7 +1782,7 @@
                         <thead>
                             <tr class="bg-brand-blue text-white">
                                 <th class="p-4 text-left w-[36%] border-r border-blue-400 font-bold text-[17px]"><i
-                                        class="fa-solid fa-list-check mr-2"></i>Dạng bài kiểm tra</th>
+                                        class="fa-solid fa-list-check mr-2"></i>Dạng bài kiểm tra Khối 8</th>
                                 <th class="p-4 text-left w-[64%] font-bold text-[17px]"><i
                                         class="fa-solid fa-comment-dots mr-2"></i>Nội dung nhận xét chi tiết mẫu</th>
                             </tr>
@@ -2013,29 +1794,27 @@
                                         <li class="flex items-start gap-2">
                                             <span class="inline-block w-20 font-bold text-brand-blue flex-shrink-0">Bài
                                                 1:</span>
-                                            <span>Tính hợp lí.</span>
+                                            <span>Phép tính đa thức & Hằng đẳng thức đáng nhớ.</span>
                                         </li>
                                         <li class="flex items-start gap-2">
                                             <span class="inline-block w-20 font-bold text-brand-blue flex-shrink-0">Bài
                                                 2:</span>
-                                            <span>Tìm $x$.</span>
+                                            <span>Phân tích đa thức thành nhân tử (Đặt NTC, HĐT, Nhóm, Tách hạng tử).</span>
                                         </li>
                                         <li class="flex items-start gap-2">
                                             <span class="inline-block w-20 font-bold text-brand-blue flex-shrink-0">Bài
                                                 3:</span>
-                                            <span>Giải bài toán có lời văn (sử dụng tính chất của dãy tỉ số bằng
-                                                nhau).</span>
+                                            <span>Tìm $x$ (Giải phương trình tích).</span>
                                         </li>
                                         <li class="flex items-start gap-2">
                                             <span class="inline-block w-20 font-bold text-brand-blue flex-shrink-0">Bài
                                                 4:</span>
-                                            <span>Sử dụng tính chất hai đường thẳng song song để tính góc, các bài toán
-                                                liên quan tới tam giác bằng nhau.</span>
+                                            <span>Tứ giác đặc biệt: Hình bình hành, Hình chữ nhật, Hình thoi, Hình vuông.</span>
                                         </li>
                                         <li class="flex items-start gap-2">
                                             <span class="inline-block w-20 font-bold text-brand-blue flex-shrink-0">Bài
                                                 5:</span>
-                                            <span>Bài toán nâng cao.</span>
+                                            <span>Bài toán nâng cao (Tìm GTLN-GTNN / Chia hết / Đẳng thức điều kiện).</span>
                                         </li>
                                     </ul>
                                 </td>
@@ -2047,13 +1826,7 @@
                                                     class="fa-solid fa-circle-check mr-2"></i>Con vận dụng tốt:</span>
                                         </p>
                                         <p class="text-slate-800 leading-relaxed pl-5 text-[15.5px] font-medium">
-                                            Các dạng bài toán tính hợp lí; quy tắc phá dấu giá trị tuyệt đối và các phép
-                                            toán cộng, trừ, nhân, chia số hữu tỉ để tìm x. Giải bài toán có lời văn (sử
-                                            dụng tính chất của dãy tỉ số bằng nhau). Phần hình học con vận dụng tốt kiến
-                                            thức vào làm các dạng bài sử dụng tính chất của hai đường thẳng song song và
-                                            các góc ở vị trí đặc biệt để tính số đo góc; chứng minh hai tam giác bằng
-                                            nhau để chỉ ra các cạnh, các góc tương ứng bằng nhau; chứng minh hai đường
-                                            thẳng vuông góc.
+                                            Các dạng bài toán nhân đơn thức với đa thức, khai triển và rút gọn hằng đẳng thức đáng nhớ; áp dụng thành thạo các phương pháp đặt nhân tử chung, nhóm hạng tử và dùng hằng đẳng thức để phân tích đa thức thành nhân tử; giải bài toán tìm x đưa về dạng phương trình tích. Phần hình học con nhận biết tốt tính chất và dấu hiệu nhận biết của hình chữ nhật, hình thoi; biết vẽ hình chuẩn xác và lập luận chứng minh chặt chẽ.
                                         </p>
                                     </div>
 
@@ -2065,8 +1838,7 @@
                                                     class="fa-solid fa-arrow-trend-up mr-2"></i>Con cần ôn tập
                                                 thêm:</span></p>
                                         <p class="text-slate-800 leading-relaxed pl-5 text-[15.5px] font-medium">
-                                            Các dạng bài nâng cao sử dụng tính chất tỉ lệ thức và tính chất chia hết
-                                            trong tập hợp số nguyên.
+                                            Phương pháp tách hạng tử tam thức bậc hai và thêm bớt hạng tử nâng cao; cẩn thận dấu âm trước dấu ngoặc; các bài toán tìm điều kiện để tứ giác là hình vuông và bài toán tìm giá trị lớn nhất, nhỏ nhất của biểu thức đại số.
                                         </p>
                                     </div>
                                 </td>
@@ -2087,7 +1859,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 15: THẢO LUẬN VÀ GÓP Ý (Q&A) (COMPONENT 15) -->
+    <!-- SLIDE 15: THẢO LUẬN VÀ GÓP Ý (Q&A) -->
     <div class="slide bg-white" id="slide-15">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
@@ -2105,13 +1877,13 @@
                 nào không ạ?</h3>
             <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed z-10 font-medium">
                 Bộ Phận Chuyên Môn luôn sẵn sàng lắng nghe những chia sẻ, khó khăn thực tế và đóng góp quý báu từ các
-                Thầy Cô để công tác giảng dạy ngày càng hoàn thiện, chất lượng và đồng bộ trên toàn hệ thống
+                Thầy Cô giáo viên Khối 8 để công tác giảng dạy ngày càng hoàn thiện, chất lượng và đồng bộ trên toàn hệ thống
                 MathExpress.
             </p>
         </div>
     </div>
 
-    <!-- SLIDE 16: CẢM ƠN (COMPONENT 16 - ENDING) -->
+    <!-- SLIDE 16: CẢM ƠN -->
     <div class="slide" id="slide-16">
         <div
             class="flex-1 w-full flex flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 text-slate-800 relative overflow-hidden h-[100dvh]">
@@ -2142,6 +1914,24 @@
                 Kính chúc các Thầy Cô luôn dồi dào sức khỏe, tràn đầy nhiệt huyết và gặt hái thật nhiều thành công trong
                 công tác giảng dạy!
             </p>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal để xem ảnh SVG phóng to -->
+    <div class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 transition-all duration-300"
+        id="imageLightbox" onclick="closeLightbox(event)">
+        <div class="relative max-w-5xl max-h-[90vh] bg-white rounded-2xl p-4 shadow-2xl overflow-hidden flex flex-col items-center"
+            onclick="event.stopPropagation()">
+            <button
+                class="absolute top-3 right-3 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-lg font-bold transition shadow-sm"
+                onclick="closeLightbox()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h4 class="text-brand-blue font-bold text-lg mb-2 self-start pr-12" id="lightboxTitle">Hình ảnh chi tiết</h4>
+            <div class="overflow-auto max-h-[78vh] w-full flex items-center justify-center p-2">
+                <img alt="Phóng to hình ảnh" class="max-w-full max-h-[74vh] object-contain rounded-lg"
+                    id="lightboxImage" src="" />
+            </div>
         </div>
     </div>
 
@@ -2197,70 +1987,26 @@
                 }
             });
 
-            // Touch Swipe Gestures
-            let touchDeckStartX = 0;
-            let touchDeckStartY = 0;
-
-            document.addEventListener('touchstart', (e) => {
-                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal')) return;
-                touchDeckStartX = e.changedTouches[0].clientX;
-                touchDeckStartY = e.changedTouches[0].clientY;
-            }, { passive: true });
-
-            document.addEventListener('touchend', (e) => {
-                if (e.target.closest('button, input, select, textarea, a, #lightbox-modal')) return;
-                const touchDeckEndX = e.changedTouches[0].clientX;
-                const touchDeckEndY = e.changedTouches[0].clientY;
-                const deltaX = touchDeckEndX - touchDeckStartX;
-                const deltaY = touchDeckEndY - touchDeckStartY;
-                const swipeThreshold = 45;
-
-                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
-                    if (deltaX < 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                }
-            }, { passive: true });
-
             updateUI();
         });
 
-        // Lightbox Modal
         function openLightbox(imgElement) {
-            const modal = document.getElementById('lightbox-modal');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imgElement.src;
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                lightboxImg.classList.remove('scale-95');
-            }, 10);
+            const lightbox = document.getElementById('imageLightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxTitle = document.getElementById('lightboxTitle');
+
+            lightboxImage.src = imgElement.src;
+            lightboxTitle.textContent = imgElement.alt || 'Hình ảnh chi tiết';
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
         }
 
-        function closeLightbox() {
-            const modal = document.getElementById('lightbox-modal');
-            const lightboxImg = document.getElementById('lightbox-img');
-            modal.classList.add('opacity-0');
-            lightboxImg.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+        function closeLightbox(event) {
+            const lightbox = document.getElementById('imageLightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
         }
     </script>
-
-    <!-- Lightbox Modal DOM -->
-    <div class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300"
-        id="lightbox-modal">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-orange transition-colors"
-            onclick="closeLightbox()">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img alt="Phóng to ảnh"
-            class="max-w-[92%] max-h-[92%] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300"
-            id="lightbox-img" src="" />
-    </div>
 </body>
 
 </html>
