@@ -1,0 +1,303 @@
+[
+  {
+    "slide": 1,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 0,
+    "contentClientHeight": 0,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "",
+    "lastChildBottom": 0,
+    "navTop": 762,
+    "overflowingElementsCount": 2,
+    "overflowingElements": [
+      {
+        "tag": "DIV",
+        "cls": "flex-1 w-full flex flex-col items-center",
+        "scrollWidth": 561,
+        "clientWidth": 390
+      },
+      {
+        "tag": "H2",
+        "cls": "z-10 text-3xl sm:text-4xl md:text-5xl lg",
+        "scrollWidth": 529,
+        "clientWidth": 326
+      }
+    ],
+    "scroll_performed": false
+  },
+  {
+    "slide": 2,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1270,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1225.140625,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 3,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1962,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1917.8316116333008,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 4,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1016,
+    "contentClientHeight": 780,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 951.7548828125,
+    "navTop": 762,
+    "overflowingElementsCount": 13,
+    "overflowingElements": [
+      {
+        "tag": "DIV",
+        "cls": "w-full max-w-[98%] mx-auto overflow-hidd",
+        "scrollWidth": 580,
+        "clientWidth": 360
+      },
+      {
+        "tag": "THEAD",
+        "cls": "",
+        "scrollWidth": 579,
+        "clientWidth": 579
+      },
+      {
+        "tag": "TR",
+        "cls": "bg-brand-blue text-white text-[15px] md:",
+        "scrollWidth": 579,
+        "clientWidth": 579
+      }
+    ],
+    "scroll_performed": true
+  },
+  {
+    "slide": 5,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1950,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1905.703125,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 6,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1082,
+    "contentClientHeight": 772,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1100.296875,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 7,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1402,
+    "contentClientHeight": 780,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1345.90625,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 8,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1855,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1810.257251739502,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 9,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 800,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 756,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": false
+  },
+  {
+    "slide": 10,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 800,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 756.0423316955566,
+    "navTop": 762,
+    "overflowingElementsCount": 9,
+    "overflowingElements": [
+      {
+        "tag": "DIV",
+        "cls": "border-2 border-brand-blue/30 rounded-2x",
+        "scrollWidth": 470,
+        "clientWidth": 311
+      },
+      {
+        "tag": "DIV",
+        "cls": "space-y-3",
+        "scrollWidth": 450,
+        "clientWidth": 271
+      },
+      {
+        "tag": "DIV",
+        "cls": "grid grid-cols-1 md:grid-cols-12 gap-4 i",
+        "scrollWidth": 450,
+        "clientWidth": 271
+      }
+    ],
+    "scroll_performed": false
+  },
+  {
+    "slide": 11,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 780,
+    "contentClientHeight": 780,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 756.0420303344727,
+    "navTop": 762,
+    "overflowingElementsCount": 7,
+    "overflowingElements": [
+      {
+        "tag": "DIV",
+        "cls": "border-2 border-brand-blue/30 rounded-2x",
+        "scrollWidth": 490,
+        "clientWidth": 331
+      },
+      {
+        "tag": "DIV",
+        "cls": "p-5 bg-blue-50/20 text-[15px] text-slate",
+        "scrollWidth": 490,
+        "clientWidth": 331
+      },
+      {
+        "tag": "DIV",
+        "cls": "",
+        "scrollWidth": 470,
+        "clientWidth": 291
+      }
+    ],
+    "scroll_performed": false
+  },
+  {
+    "slide": 12,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1994,
+    "contentClientHeight": 780,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1970.21875,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 13,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1135,
+    "contentClientHeight": 780,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1111.1866455078125,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 14,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 1243,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "auto",
+    "lastChildBottom": 1198.390625,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": true
+  },
+  {
+    "slide": 15,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 800,
+    "contentClientHeight": 800,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "hidden",
+    "lastChildBottom": 474.015625,
+    "navTop": 762,
+    "overflowingElementsCount": 0,
+    "overflowingElements": [],
+    "scroll_performed": false
+  },
+  {
+    "slide": 16,
+    "slideScrollHeight": 844,
+    "slideClientHeight": 844,
+    "contentScrollHeight": 0,
+    "contentClientHeight": 0,
+    "slideOverflowY": "visible",
+    "contentOverflowY": "",
+    "lastChildBottom": 0,
+    "navTop": 762,
+    "overflowingElementsCount": 1,
+    "overflowingElements": [
+      {
+        "tag": "DIV",
+        "cls": "flex-1 w-full flex flex-col items-center",
+        "scrollWidth": 518,
+        "clientWidth": 390
+      }
+    ],
+    "scroll_performed": false
+  }
+]

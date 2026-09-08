@@ -1,0 +1,194 @@
+[
+  {
+    "slide": 1,
+    "title": "HỌP CHUYÊN MÔN GIÁO VIÊN KHỐI 7",
+    "scrollable": false,
+    "contentScrollHeight": 844,
+    "contentClientHeight": 844,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 0,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 2,
+    "title": "Nội dung cuộc họp",
+    "scrollable": true,
+    "contentScrollHeight": 1266,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 725,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 3,
+    "title": "1. Các tồn đọng và hạn chế trong thời gian qua",
+    "scrollable": true,
+    "contentScrollHeight": 2034,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 726,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 4,
+    "title": "2. Rà soát tiến độ khung chương trình thời gian tới",
+    "scrollable": true,
+    "contentScrollHeight": 1048,
+    "contentClientHeight": 780,
+    "hiddenOverflows": [],
+    "horizOverflows": [
+      {
+        "tag": "TABLE",
+        "cls": "w-full text-[14px] md:text-[15px] text-s",
+        "right": 594
+      },
+      {
+        "tag": "THEAD",
+        "cls": "",
+        "right": 594
+      },
+      {
+        "tag": "TR",
+        "cls": "bg-brand-blue text-white text-[15px] md:",
+        "right": 594
+      }
+    ],
+    "lastChildBottom": 686,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 5,
+    "title": "3. Trọng tâm: Chương Tam giác bằng nhau",
+    "scrollable": true,
+    "contentScrollHeight": 2022,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 725,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 6,
+    "title": "Dạng 1: Chứng minh tam giác bằng nhau (Bài 1)",
+    "scrollable": true,
+    "contentScrollHeight": 1186,
+    "contentClientHeight": 780,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 687,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 7,
+    "title": "Dạng 2: Yếu tố hình học khác & Lỗi ngộ nhận (Ví dụ 2)",
+    "scrollable": true,
+    "contentScrollHeight": 1442,
+    "contentClientHeight": 780,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 686,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 8,
+    "title": "3. Trọng tâm: Tỉ lệ thức & Dãy tỉ số bằng nhau",
+    "scrollable": true,
+    "contentScrollHeight": 1927,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 725,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 9,
+    "title": "Dạng 1: Chứng minh tỉ lệ thức (Ví dụ 1)",
+    "scrollable": true,
+    "contentScrollHeight": 1310,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 686,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 10,
+    "title": "Dạng 2: Tìm x, y, z theo điều kiện (Ví dụ 2)",
+    "scrollable": true,
+    "contentScrollHeight": 1395,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 688,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 11,
+    "title": "Dạng 3: Tỉ lệ thức phức tạp - Dạng vòng (Ví dụ 3)",
+    "scrollable": true,
+    "contentScrollHeight": 995,
+    "contentClientHeight": 780,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 686,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 12,
+    "title": "4. Kế hoạch thời gian tới: Khảo sát & Quy chế chấm bài",
+    "scrollable": true,
+    "contentScrollHeight": 2066,
+    "contentClientHeight": 780,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 727,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 13,
+    "title": "4. Hướng dẫn giao diện & Quy chuẩn nhập điểm",
+    "scrollable": true,
+    "contentScrollHeight": 1207,
+    "contentClientHeight": 780,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 726,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 14,
+    "title": "4. Quy chuẩn viết nhận xét bài khảo sát Quý I",
+    "scrollable": true,
+    "contentScrollHeight": 1347,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 685,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 15,
+    "title": "5. Thảo luận và góp ý",
+    "scrollable": false,
+    "contentScrollHeight": 800,
+    "contentClientHeight": 800,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 476,
+    "isCoveredByNav": false
+  },
+  {
+    "slide": 16,
+    "title": "CẢM ƠN CÁC THẦY CÔ!",
+    "scrollable": false,
+    "contentScrollHeight": 844,
+    "contentClientHeight": 844,
+    "hiddenOverflows": [],
+    "horizOverflows": [],
+    "lastChildBottom": 0,
+    "isCoveredByNav": false
+  }
+]
