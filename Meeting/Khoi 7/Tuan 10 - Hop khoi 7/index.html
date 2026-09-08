@@ -301,6 +301,28 @@
                 min-width: 580px !important;
             }
 
+            /* Đảm bảo nút tab đang active luôn có chữ trắng trên nền xanh, kể cả khi chạm/hover/focus trên điện thoại */
+            .track-tab-btn.active,
+            .track-tab-btn.active:hover,
+            .track-tab-btn.active:focus,
+            .track-tab-btn.active:active {
+                background-color: #005b9f !important;
+                color: #ffffff !important;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+            }
+
+            .track-tab-btn:not(.active) {
+                background-color: transparent !important;
+                color: #475569 !important;
+            }
+
+            @media (hover: hover) {
+                .track-tab-btn:not(.active):hover {
+                    color: #005b9f !important;
+                    background-color: rgba(255, 255, 255, 0.6) !important;
+                }
+            }
+
             /* Tối ưu Slide 4: Bảng Khung chương trình cuộn 2 chiều mượt mà */
             #slide-4 .slide-content {
                 justify-content: flex-start !important;
@@ -1130,23 +1152,23 @@
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content flex flex-col justify-center items-center py-3 px-4">
-                        <!-- Bộ lọc chọn hệ lớp trên Mobile (Segmented Tabs - Phương án 2) -->
+            <!-- Bộ lọc chọn hệ lớp trên Mobile (Segmented Tabs - Phương án 2) -->
             <div
                 class="mobile-track-tabs flex md:hidden items-center justify-between gap-1 p-1 bg-slate-100 border border-slate-200 rounded-xl mb-2 w-full max-w-[98%] shadow-2xs">
                 <button type="button" onclick="switchTrack('all', this)"
-                    class="track-tab-btn active flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center bg-brand-blue text-white shadow-xs">
+                    class="track-tab-btn active flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center">
                     Tất cả
                 </button>
                 <button type="button" onclick="switchTrack('chuyen', this)"
-                    class="track-tab-btn flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center text-slate-600 hover:text-brand-blue">
+                    class="track-tab-btn flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center">
                     Chuyên
                 </button>
                 <button type="button" onclick="switchTrack('nangcao', this)"
-                    class="track-tab-btn flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center text-slate-600 hover:text-brand-blue">
+                    class="track-tab-btn flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center">
                     Nâng cao
                 </button>
                 <button type="button" onclick="switchTrack('coban', this)"
-                    class="track-tab-btn flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center text-slate-600 hover:text-brand-blue">
+                    class="track-tab-btn flex-1 py-1.5 px-1 text-[11.5px] font-bold rounded-lg transition-all text-center">
                     Cơ bản
                 </button>
             </div>
@@ -2727,11 +2749,9 @@
 
             const btns = slide4.querySelectorAll('.track-tab-btn');
             btns.forEach(b => {
-                b.classList.remove('bg-brand-blue', 'text-white', 'shadow-xs');
-                b.classList.add('text-slate-600');
+                b.classList.remove('active');
             });
-            btn.classList.add('bg-brand-blue', 'text-white', 'shadow-xs');
-            btn.classList.remove('text-slate-600');
+            btn.classList.add('active');
 
             const hint = document.getElementById('slide-4-swipe-hint');
             if (hint) {
