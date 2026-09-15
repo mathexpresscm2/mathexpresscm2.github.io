@@ -595,11 +595,9 @@
                                 <i class="fa-solid fa-brain"></i>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-blue-900 relative z-10">Kiến thức trọng tâm &amp; Dạng bài lưu
-                            ý</h3>
+                        <h3 class="text-xl font-bold text-blue-900 relative z-10">Kiến thức trọng tâm chuyên môn</h3>
                         <p class="text-slate-700 mt-1.5 font-medium relative z-10 text-[15px] leading-relaxed">Hệ thống
-                            hóa chuyên đề Số học 6 (Số nguyên tố, ƯCLN, BCNN, Số nguyên) và phương pháp giải 3 dạng toán
-                            then chốt.</p>
+                            hóa chuyên đề Số học 6 (Số nguyên tố, ƯCLN, BCNN, Số nguyên) và bài toán thực tế liên quan đến BCNN.</p>
                     </div>
 
                     <!-- Mục 4 -->
@@ -913,7 +911,7 @@
                                     <strong class="text-emerald-950 block text-[15.5px]">Phối hợp vận hành &amp;
                                         BPCM:</strong>
                                     <span class="text-slate-700 text-[14px] leading-relaxed">Một số công tác vận hành và
-                                        phối hợp phản hồi Trung tâm, Ban chuyên môn còn chậm hoặc chưa đầy đủ, ảnh hưởng
+                                        phối hợp phản hồi Trung tâm, Bộ phận chuyên môn còn chậm hoặc chưa đầy đủ, ảnh hưởng
                                         tiến độ công việc chung.</span>
                                     <div class="mt-1.5 flex flex-wrap items-center gap-1.5 text-xs">
                                         <span
@@ -1408,283 +1406,11 @@
             </div>
         </div>
     </div>
-
-    <!-- SLIDE 8: DẠNG 1: TÌM N (COMPONENT 11 - 2 CÁCH GIẢI SONG SONG) -->
-    <div class="slide bg-white" id="slide-8">
-        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
-            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-calculator mr-3 text-brand-orange"></i>Dạng 1: Tìm số tự nhiên $n$ để $(3n + 5)$
-                là bội của $(2n + 1)$</h2>
-            <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
-        </div>
-        <div class="slide-content p-5 flex flex-col justify-center">
-            <div
-                class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-[85rem] mx-auto w-full zoom-112">
-                <!-- Đề bài -->
-                <div class="bg-brand-light border-l-[6px] border-brand-orange p-4 rounded-r-lg">
-                    <strong class="text-brand-orange text-lg flex items-center mb-1"><i
-                            class="fa-solid fa-file-signature mr-2"></i>Đề bài</strong>
-                    <p class="text-[17.5px] text-slate-800 font-semibold">
-                        Tìm số tự nhiên $n$ để $(3n + 5)$ là bội của $(2n + 1)$.
-                    </p>
-                </div>
-
-                <!-- 2 Cách giải -->
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-b border-slate-200">
-                    <!-- Cách 1 -->
-                    <div class="p-5 bg-blue-50/20">
-                        <h4 class="text-brand-blue font-bold text-[16.5px] flex items-center mb-2.5">
-                            <span
-                                class="bg-brand-blue text-white w-7 h-7 rounded-full flex items-center justify-center text-xs mr-2 font-bold shadow-sm">C1</span>
-                            Phương pháp khử $n$
-                        </h4>
-                        <div class="text-[15px] text-slate-800 space-y-2 leading-relaxed font-medium">
-                            <p class="text-xs text-slate-500 italic mb-1">Ý tưởng: Triệt tiêu biến $n$ để đưa về dạng
-                                chỉ còn số tự nhiên chia hết cho $(2n+1)$.</p>
-                            <p>Ta có: $\begin{cases} (3n + 5) \ \vdots \ (2n + 1) \\ (2n + 1) \ \vdots \ (2n + 1)
-                                \end{cases}$</p>
-                            <p>Suy ra $\begin{cases} 2(3n + 5) \ \vdots \ (2n + 1) \\ 3(2n + 1) \ \vdots \ (2n + 1)
-                                \end{cases} \Rightarrow \begin{cases} (6n + 10) \ \vdots \ (2n + 1) \\ (6n + 3) \ \vdots
-                                \ (2n + 1) \end{cases}$</p>
-                            <p>Suy ra $\left[(6n + 10) - (6n + 3)\right] \ \vdots \ (2n + 1)$</p>
-                            <p>$\Rightarrow (6n + 10 - 6n - 3) \ \vdots \ (2n + 1) \Rightarrow 7 \ \vdots \ (2n + 1)$
-                            </p>
-                            <p>Do đó $2n + 1 \in \text{Ư}(7) = \{1; 7\}$ nên $2n \in \{0; 6\} \Rightarrow n \in \{0;
-                                3\}$</p>
-                            <p class="text-emerald-700 font-bold text-[15.5px]">Thử lại: $n \in \{0; 3\}$ đều thỏa mãn.
-                                Vậy $n \in \{0; 3\}$.</p>
-                        </div>
-                    </div>
-
-                    <!-- Cách 2 -->
-                    <div class="p-5 bg-orange-50/20">
-                        <h4 class="text-brand-orange font-bold text-[16.5px] flex items-center mb-2.5">
-                            <span
-                                class="bg-brand-orange text-white w-7 h-7 rounded-full flex items-center justify-center text-xs mr-2 font-bold shadow-sm">C2</span>
-                            Phương pháp biến đổi theo số chia
-                        </h4>
-                        <div class="text-[15px] text-slate-800 space-y-2 leading-relaxed font-medium">
-                            <p class="text-xs text-slate-500 italic mb-1">Ý tưởng: Tách số bị chia $(3n+5)$ sao cho xuất
-                                hiện $(2n+1)$.</p>
-                            <p>Ta có: $(3n + 5) \ \vdots \ (2n + 1)$</p>
-                            <p>Suy ra $2 \cdot (3n + 5) \ \vdots \ (2n + 1) \Rightarrow (6n + 10) \ \vdots \ (2n + 1)$
-                            </p>
-                            <p>Tách số bị chia: $\Rightarrow (6n + 3 + 7) \ \vdots \ (2n + 1)$</p>
-                            <p>$\Rightarrow \left[3(2n + 1) + 7\right] \ \vdots \ (2n + 1)$</p>
-                            <p>Vì $3(2n + 1) \ \vdots \ (2n + 1)$ nên để $(3n+5) \ \vdots \ (2n+1)$ thì $7 \ \vdots \
-                                (2n + 1)$</p>
-                            <p>Do đó $2n + 1 \in \text{Ư}(7) = \{1; 7\} \Rightarrow n \in \{0; 3\}$</p>
-                            <p class="text-emerald-700 font-bold text-[15.5px]">Thử lại: $n \in \{0; 3\}$ đều thỏa mãn.
-                                Vậy $n \in \{0; 3\}$.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Box Lỗi sai & Lưu ý -->
-                <div class="p-4 bg-slate-50 border-t border-slate-200">
-                    <div class="bg-rose-50 border border-rose-200 p-3.5 rounded-xl text-[15px] shadow-sm">
-                        <p class="text-rose-700 font-bold mb-2 flex items-center">
-                            <i class="fa-solid fa-triangle-exclamation mr-2"></i>Lỗi sai của học sinh:
-                        </p>
-                        <div class="space-y-1.5 text-slate-800 leading-relaxed">
-                            <p class="flex items-start">
-                                <span class="mr-2 shrink-0">❌</span>
-                                <span><strong>Quên phép thử lại</strong> sau khi tìm ra $n$.</span>
-                            </p>
-                            <p class="flex items-start">
-                                <span class="mr-2 shrink-0">❌</span>
-                                <span><strong>Sai lầm khi thực hiện phép trừ triệt tiêu $n$:</strong> Viết $[(6n+10) -
-                                    (6n+3)] \ \vdots \ (2n+1) \Rightarrow 6n+10 - 6n + 3 = 13 \ \vdots \ (2n+1)$ (quên
-                                    đổi dấu số hạng thứ hai).</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 9: DẠNG 2 (VÍ DỤ 1): SỐ NGUYÊN TỐ CÙNG NHAU (COMPONENT 5B) -->
-    <div class="slide bg-white" id="slide-9">
-        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
-            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-link mr-3 text-brand-orange"></i>Dạng 2: Số nguyên tố cùng nhau (Ví dụ 1: $n+1$
-                và $n+2$)</h2>
-            <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
-        </div>
-        <div class="slide-content p-5 flex flex-col justify-center">
-            <div
-                class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-[88rem] mx-auto w-full zoom-120">
-                <!-- Đề bài -->
-                <div class="bg-brand-light border-l-[6px] border-brand-blue p-4 rounded-r-lg">
-                    <strong class="text-brand-blue text-lg flex items-center mb-1"><i
-                            class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 1)</strong>
-                    <p class="text-[17.5px] text-slate-800 font-semibold">
-                        Chứng minh hai số sau là hai số nguyên tố cùng nhau: $(n + 1)$ và $(n + 2)$ với mọi $n \in
-                        \mathbb{N}$.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200">
-                    <!-- Hướng dẫn giải chuẩn 5 bước (50%) -->
-                    <div class="p-5 bg-blue-50/20">
-                        <h4 class="text-brand-blue font-bold text-[16.5px] flex items-center mb-2.5">
-                            <i class="fa-solid fa-pen-nib mr-2 text-brand-orange"></i>Hướng dẫn giải chuẩn 5 bước:
-                        </h4>
-                        <div class="text-[15px] text-slate-800 space-y-2 font-medium leading-relaxed">
-                            <p>• <strong>Bước 1:</strong> Gọi $d =$ <strong>ƯCLN</strong>$(n+1, n+2) \quad (d \in
-                                \mathbb{N}^*)$.
-                            </p>
-                            <p>• <strong>Bước 2:</strong> Vì $d$ là <strong>ƯCLN</strong> nên: $\begin{cases} (n+1) \
-                                \vdots \ d \\ (n+2)
-                                \ \vdots \ d \end{cases}$</p>
-                            <p>• <strong>Bước 3:</strong> Sử dụng tính chất hiệu chia hết: $\left[(n+2) - (n+1)\right] \
-                                \vdots \ d$</p>
-                            <p>• <strong>Bước 4:</strong> $\Rightarrow (n + 2 - n - 1) \ \vdots \ d \Rightarrow 1 \
-                                \vdots \ d \Rightarrow d = 1$ (thỏa mãn).</p>
-                            <p>• <strong>Bước 5:</strong> Do đó <strong>ƯCLN</strong>$(n+1, n+2) = 1$.</p>
-                            <p class="text-emerald-700 font-bold pt-1 text-[15.5px]">
-                                $\Rightarrow$ Vậy $(n+1)$ và $(n+2)$ là hai số nguyên tố cùng nhau với mọi $n \in
-                                \mathbb{N}$ (đpcm).
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lỗi sai thường gặp (50%) -->
-                    <div class="p-5 bg-rose-50/30">
-                        <h4 class="text-rose-700 font-bold text-[16.5px] flex items-center mb-2.5">
-                            <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai học sinh thường gặp:
-                        </h4>
-                        <ul class="space-y-2.5 text-[14.5px] text-slate-700 leading-snug">
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">1. Thiếu điều kiện của $d$:</strong>
-                                <span>Quên đặt điều kiện $d \in \mathbb{N}^*$ khi gọi $d$ là
-                                    <strong>ƯCLN</strong>.</span>
-                            </li>
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">2. Trình bày sai phép trừ triệt tiêu
-                                    $n$:</strong>
-                                <span>Viết $[(n+2) - (n+1)] \ \vdots \ d \Rightarrow n+2 - n + 1 = 3 \ \vdots \ d$ (quên
-                                    đổi dấu số hạng trong ngoặc).</span>
-                            </li>
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">3. Chưa kết luận đúng yêu cầu đề
-                                    bài:</strong>
-                                <span>Sau khi tính ra $d = 1$ học sinh dừng lại luôn mà không có dòng kết luận: vì
-                                    <strong>ƯCLN</strong>$(n+1, n+2) = 1$ nên $(n+1)$ và $(n+2)$ là hai số nguyên tố
-                                    cùng
-                                    nhau.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Chú ý GV -->
-                <div
-                    class="p-3.5 bg-emerald-50 border-t border-emerald-200 text-[15px] text-emerald-900 font-medium flex items-center gap-2">
-                    <i class="fa-solid fa-chalkboard-user text-emerald-700 text-lg"></i>
-                    <span><strong>Giáo viên lưu ý:</strong> Rèn cho học sinh nề nếp trình bày đầy đủ cả 5 bước; nhấn
-                        mạnh dấu ngoặc khi lập hiệu triệt tiêu để tránh nhầm dấu cơ bản.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 10: DẠNG 2 (VÍ DỤ 2): TÌM N ĐỂ NGUYÊN TỐ CÙNG NHAU (COMPONENT 5B) -->
-    <div class="slide bg-white" id="slide-10">
-        <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
-            <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-filter mr-3 text-brand-orange"></i>Dạng 2: Số nguyên tố cùng nhau (Ví dụ 2: Tìm
-                $n$)</h2>
-            <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
-        </div>
-        <div class="slide-content p-5 flex flex-col justify-center">
-            <div
-                class="border-2 border-brand-blue/30 rounded-2xl overflow-hidden shadow-sm flex flex-col bg-white max-w-[88rem] mx-auto w-full zoom-122">
-                <!-- Đề bài -->
-                <div class="bg-brand-light border-l-[6px] border-brand-orange p-4 rounded-r-lg">
-                    <strong class="text-brand-orange text-lg flex items-center mb-1"><i
-                            class="fa-solid fa-file-signature mr-2"></i>Đề bài (Ví dụ 2)</strong>
-                    <p class="text-[17.5px] text-slate-800 font-semibold">
-                        Tìm số tự nhiên $n$ để $(3n + 1)$ và $(n + 2)$ là hai số nguyên tố cùng nhau.
-                    </p>
-                </div>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 border-t border-slate-200">
-                    <!-- Hướng dẫn giải chi tiết (50%) -->
-                    <div class="p-5 bg-blue-50/20">
-                        <h4 class="text-brand-blue font-bold text-[16.5px] flex items-center mb-2.5">
-                            <i class="fa-solid fa-calculator mr-2 text-brand-orange"></i>Hướng dẫn giải chi tiết:
-                        </h4>
-                        <div class="text-[15px] text-slate-800 space-y-2 font-medium leading-relaxed">
-                            <p>• Gọi $d =$ <strong>ƯCLN</strong>$(3n+1, n+2) \quad (d \in \mathbb{N}^*)$.</p>
-                            <p>• Do đó: $\begin{cases} (3n+1) \ \vdots \ d \\ (n+2) \ \vdots \ d \end{cases} \Rightarrow
-                                \begin{cases} (3n+1) \ \vdots \ d \\ 3(n+2) \ \vdots \ d \end{cases} \Rightarrow
-                                \begin{cases} (3n+1) \ \vdots \ d \\ (3n+6) \ \vdots \ d \end{cases}$</p>
-                            <p>• Suy ra $\left[(3n+6) - (3n+1)\right] \ \vdots \ d \Rightarrow 5 \ \vdots \ d
-                                \Rightarrow d \in \text{Ư}(5) = \{1; 5\}$.</p>
-                            <p>• Để $(3n+1)$ và $(n+2)$ là hai số nguyên tố cùng nhau thì $d = 1$, tức là $d \neq 5$.
-                            </p>
-                            <p>• Khi đó $(n+2)$ không chia hết cho $5$, tức là:</p>
-                            <p class="text-center font-bold text-rose-700 py-1 text-[16.5px]">
-                                $n + 2 \neq 5k \quad (k \in \mathbb{N}^*) \Rightarrow n \neq 5k - 2 \quad (k \in
-                                \mathbb{N}^*)$
-                            </p>
-                            <p class="text-emerald-700 font-bold text-[15.5px]">
-                                Vậy $(3n+1)$ và $(n+2)$ là hai số nguyên tố cùng nhau khi $n \neq 5k - 2 \ (k \in
-                                \mathbb{N}^*)$.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Lỗi sai học sinh thường gặp (50%) -->
-                    <div class="p-5 bg-rose-50/30">
-                        <h4 class="text-rose-700 font-bold text-[16.5px] flex items-center mb-2.5">
-                            <i class="fa-solid fa-circle-xmark mr-2 text-rose-600"></i>Lỗi sai học sinh thường gặp:
-                        </h4>
-                        <ul class="space-y-2.5 text-[14.5px] text-slate-700 leading-snug">
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">1. Hiểu sai “nguyên tố cùng nhau”:</strong>
-                                <span>Nghĩ hai số bắt buộc phải là số nguyên tố thì mới nguyên tố cùng nhau.</span>
-                            </li>
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">2. Thiếu điều kiện của $d$:</strong>
-                                <span>Quên đặt điều kiện $d \in \mathbb{N}^*$ khi gọi $d$ là
-                                    <strong>ƯCLN</strong>.</span>
-                            </li>
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">3. Chưa biết cách triệt tiêu $n$:</strong>
-                                <span>Chưa biết nhân $3$ vào $(n+2)$ để tạo thành $(3n+6)$ rồi trừ triệt tiêu
-                                    $3n$.</span>
-                            </li>
-                            <li class="bg-white p-3 rounded-xl border border-rose-100 shadow-sm">
-                                <strong class="text-rose-800 block mb-0.5">4. Viết sai phép biến đổi hiệu:</strong>
-                                <span>Viết $[(3n+6) - (3n+1)] \ \vdots \ d \Rightarrow 3n+6 - 3n + 1 = 7$ (quên đổi dấu
-                                    số hạng thứ hai).</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Chú ý GV -->
-                <div
-                    class="p-3.5 bg-emerald-50 border-t border-emerald-200 text-[15px] text-emerald-900 font-medium flex items-center gap-2">
-                    <i class="fa-solid fa-chalkboard-user text-emerald-700 text-lg"></i>
-                    <span><strong>Giáo viên lưu ý:</strong> Nhấn mạnh hai số nguyên tố cùng nhau khi $d = 1$ (tức $d
-                        \neq 5$), từ đó suy ra $(n+2)$ không chia hết cho $5$ để tìm điều kiện của $n$.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SLIDE 11: DẠNG 3: BÀI TOÁN THỰC TẾ BCNN (COMPONENT 5B) -->
+    <!-- SLIDE 11: BÀI TOÁN THỰC TẾ BCNN (COMPONENT 5B) -->
     <div class="slide bg-white" id="slide-11">
         <div class="slide-header p-5 bg-brand-light flex items-center justify-between">
             <h2 class="text-2xl md:text-3xl font-bold text-brand-blue uppercase"><i
-                    class="fa-solid fa-egg mr-3 text-brand-orange"></i>Dạng 3: Bài toán thực tế liên quan đến BCNN</h2>
+                    class="fa-solid fa-egg mr-3 text-brand-orange"></i>Bài toán thực tế liên quan đến BCNN</h2>
             <img alt="Logo" class="h-10 object-contain" src="../../../logo.svg" />
         </div>
         <div class="slide-content p-5 flex flex-col justify-center">
@@ -2116,7 +1842,7 @@
             <h3 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4 z-10">Thầy Cô có câu hỏi hay đóng góp ý kiến
                 nào không ạ?</h3>
             <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed z-10 font-medium">
-                Ban Chuyên Môn Khối 6 luôn sẵn sàng lắng nghe những chia sẻ, khó khăn thực tế và đóng góp quý báu từ các
+                Bộ phận Chuyên môn luôn sẵn sàng lắng nghe những chia sẻ, khó khăn thực tế và đóng góp quý báu từ các
                 Thầy Cô để công tác giảng dạy ngày càng hoàn thiện, chất lượng và đồng bộ trên toàn hệ thống
                 MathExpress.
             </p>

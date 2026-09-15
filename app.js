@@ -180,12 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="card-title">${item.title}</h3>
             <p class="card-summary">${item.summary}</p>
             
-            ${(item.speaker === 'Ban Chuyên Môn Toán Khối 8 MathExpress' || item.speaker === 'Ban Chuyên Môn MathExpress') ? '' : `
+            ${item.speaker ? `
             <div class="card-speaker">
               <div class="speaker-avatar">${item.speaker.charAt(0)}</div>
               <span>${item.speaker}</span>
             </div>
-            `}
+            ` : ''}
 
             <div class="card-footer" style="flex-direction: column; gap: 8px;">
               ${hasWebDeck ? `
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentSlideIndex = 0;
     modalTitle.textContent = activePresentation.title;
-    const speakerText = (activePresentation.speaker === 'Ban Chuyên Môn Toán Khối 8 MathExpress' || activePresentation.speaker === 'Ban Chuyên Môn MathExpress') ? '' : ` • ${activePresentation.speaker}`;
+    const speakerText = activePresentation.speaker ? ` • ${activePresentation.speaker}` : '';
     modalMeta.textContent = `${activePresentation.category}${speakerText} • ${activePresentation.date}`;
 
     renderSlideContent();
