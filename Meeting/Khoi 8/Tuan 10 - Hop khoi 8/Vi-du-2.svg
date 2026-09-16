@@ -1,0 +1,39 @@
+<svg viewBox="0 0 960 480" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    <!-- Tam giác ABC -->
+    <polygon points="400,90 120,380 840,380" fill="none" stroke="#373737" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round" />
+    
+    <!-- Đoạn thẳng MN // BC -->
+    <line x1="225" y1="271" x2="675" y2="271" stroke="#373737" stroke-width="6.5" stroke-linecap="round" />
+    
+    <!-- Đường phụ ND // AB (nét đứt) -->
+    <line x1="675" y1="271" x2="570" y2="380" stroke="#373737" stroke-width="4.5" stroke-dasharray="13,9" stroke-linecap="round" />
+    
+    <!-- Ký hiệu bằng nhau trên MN và BD -->
+    <line x1="450" y1="261" x2="450" y2="281" stroke="#373737" stroke-width="4" stroke-linecap="round" />
+    <line x1="345" y1="370" x2="345" y2="390" stroke="#373737" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Các điểm (vòng tròn viền tối, ruột trắng kiểu GeoGebra) -->
+    <circle cx="400" cy="90" r="10" fill="#ffffff" stroke="#373737" stroke-width="3.5" />
+    <circle cx="120" cy="380" r="10" fill="#ffffff" stroke="#373737" stroke-width="3.5" />
+    <circle cx="840" cy="380" r="10" fill="#ffffff" stroke="#373737" stroke-width="3.5" />
+    <circle cx="225" cy="271" r="10" fill="#ffffff" stroke="#373737" stroke-width="3.5" />
+    <circle cx="675" cy="271" r="10" fill="#ffffff" stroke="#373737" stroke-width="3.5" />
+    <circle cx="570" cy="380" r="10" fill="#ffffff" stroke="#373737" stroke-width="3.5" />
+    
+    <!-- Tên các điểm (Font Times New Roman Italic, xanh navy #000085 chuẩn GeoGebra) -->
+    <g font-family="'Times New Roman', 'Cambria Math', STIXGeneral, serif" font-style="italic" font-size="46px" fill="#000085">
+        <text x="400" y="56" text-anchor="middle">A</text>
+        <text x="70" y="415" text-anchor="middle">B</text>
+        <text x="885" y="415" text-anchor="middle">C</text>
+        <text x="170" y="281" text-anchor="middle">M</text>
+        <text x="725" y="281" text-anchor="middle">N</text>
+        <text x="570" y="440" text-anchor="middle">D</text>
+    </g>
+    
+    <!-- Số đo cạnh -->
+    <g font-family="'Times New Roman', 'Cambria Math', STIXGeneral, serif" font-style="italic" font-size="27px" fill="#000085">
+        <text x="240" y="150" text-anchor="middle">5 cm</text>
+        <text x="105" y="315" text-anchor="middle">3 cm</text>
+        <text x="705" y="425" text-anchor="middle">3,6 cm</text>
+    </g>
+</svg>
