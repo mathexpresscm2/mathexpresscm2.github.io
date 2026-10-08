@@ -1,5 +1,59 @@
 window.INITIAL_PRESENTATIONS = [
   {
+    "id": "pres-khoi6-tuan14",
+    "title": "Tuần 14 - Họp giáo viên khối 6",
+    "category": "Khối 6",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 6",
+    "speaker": "Bộ phận Chuyên môn",
+    "date": "2026-10-08",
+    "quarter": "Q4-2026",
+    "duration": "60 phút (18 slide tương tác)",
+    "fileSize": "Interactive HTML Deck & PPTX",
+    "pdfUrl": "Meeting/Khoi 6/Tuan 14 - Hop khoi 6/Bản cuốiTháng 10  K6- KẾ HOẠCH TRIỂN KHAI PHƯƠNG PHÁP GIẢNG DẠY GIÁO VIÊN MỚI NĂM HỌC 2026-2027 -.pdf",
+    "pptxUrl": "Meeting/Khoi 6/Tuan 14 - Hop khoi 6/Tuan 14 - Hop khoi 6.pptx",
+    "webViewerUrl": "Meeting/Khoi 6/Tuan 14 - Hop khoi 6/index.html",
+    "summary": "Rà soát tồn đọng tác phong và 8 lỗi nghiêm trọng trong kỳ thi Khảo sát Quý I, khung chương trình Tháng 10 & 11/2026, kiến thức trọng tâm ƯCLN - BCNN, số nguyên, quy tắc dấu ngoặc và phân tích phương pháp 5 dạng toán then chốt cùng các bẫy sai lầm của học sinh.",
+    "featured": true,
+    "tags": [
+      "Khối 6",
+      "Toán 6",
+      "Họp giáo viên",
+      "ƯCLN - BCNN",
+      "Số nguyên",
+      "Khung chương trình",
+      "Khảo sát Quý I",
+      "Số nguyên tố cùng nhau",
+      "Phương pháp giảng dạy"
+    ],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Họp Chuyên Môn Khối 6 - Tháng 10/2026",
+        "subtitle": "Tuần 14 - Kế Hoạch Triển Khai Phương Pháp Giảng Dạy & Rà Soát Khảo Sát Quý I",
+        "content": "<ul><li><strong>Tồn đọng tác phong:</strong> Chấn chỉnh việc sử dụng thiết bị cá nhân, vào lớp muộn (6B3-MD, 6A-MD) và vi phạm không đeo thẻ tên tại hàng loạt lớp.</li><li><strong>Tồn đọng Khảo sát Quý I:</strong> Chấm sai thành đúng (6A1-CG 15 lỗi, 6T3B), chấm đúng thành sai (6T3B), lệch điểm thành phần (6B3-HD 19 lỗi), nhập thiếu điểm 0, trễ timeline nhập điểm, điểm danh vắng nhưng vẫn có điểm (6B1-CG), nhận xét sơ sài (6B3-CG), và chưa thực hiện điểm danh (6.4A-LH, 6A1-HD).</li><li><strong>Khung chương trình:</strong> Tiến độ bài dạy chi tiết Buổi 12 - Buổi 22 (Tháng 10 & 11) cho 4 phân lớp.</li><li><strong>Kiến thức trọng tâm:</strong> Quy trình 3 bước tìm ƯCLN & BCNN; Các phép toán trên Z và quy tắc dấu ngoặc.</li><li><strong>5 Dạng bài toán & Lỗi sai:</strong> Chứng minh NTCN, tìm hai số theo ƯCLN-BCNN, bài toán thực tế BCNN (trứng gà), tìm x bậc chẵn số nguyên, tìm GTLN-GTNN.</li><li><strong>6 Quy chuẩn hành động:</strong> Kỷ luật tác phong, soạn bài chu đáo, chuẩn hóa chấm thi & điểm danh, nhận xét sâu sát, rèn kỹ các dạng bài bẫy.</li></ul>",
+        "notes": "Yêu cầu giáo viên toàn khối rà soát nghiêm túc các tồn đọng đã ghi nhận, tuân thủ kỷ luật sư phạm và nắm chắc phương pháp 5 dạng toán trọng tâm.",
+        "badge": "Trọng tâm Khối 6"
+      },
+      {
+        "page": 2,
+        "title": "5 Dạng Bài Toán Then Chốt & Phân Tích Lỗi Sai Của Học Sinh",
+        "subtitle": "Hệ thống phương pháp sư phạm & Các bẫy mất điểm điển hình",
+        "content": "<ul><li><strong>Dạng 1:</strong> Chứng minh n+1 và n+2 là hai số nguyên tố cùng nhau (5 bước chuẩn); Tìm n để 3n+1 và n+2 nguyên tố cùng nhau (khử n, cảnh báo bẫy kết luận sai n khác 5).</li><li><strong>Dạng 2:</strong> Tìm a, b biết ƯCLN và BCNN (Bổ đề a.b = UCLN.BCNN; giải chi tiết hai ví dụ mẫu tổng và tích).</li><li><strong>Dạng 3:</strong> Bài toán thực tế BCNN (Nông trại trứng gà; quy tắc vàng: Thừa a -> trừ a -> tìm BC qua BCNN -> cộng lại a).</li><li><strong>Dạng 4:</strong> Tìm x trong bài toán lũy thừa bậc chẵn: (2x-3)^2 = 49 (bắt buộc 2 trường hợp, bẫy sót nghiệm âm x = -2).</li><li><strong>Dạng 5:</strong> Tìm GTLN & GTNN biểu thức số nguyên: Dựa trên bình phương không âm; bẫy nhầm dấu âm trước bình phương và quên xét dấu bằng.</li></ul>",
+        "notes": "Rèn cho học sinh thói quen cẩn thận về dấu ngoặc, tính nhẩm số đối và xét đầy đủ 2 trường hợp với lũy thừa bậc chẵn.",
+        "badge": "Chuyên môn Khối 6"
+      }
+    ],
+    "actionItems": [
+      "Nghiêm túc tuân thủ tác phong sư phạm: đeo thẻ tên MathExpress suốt ca dạy, có mặt trước ít nhất 05 phút, không dùng điện thoại.",
+      "Soạn bài và giải trước 100% bài tập trong phiếu bài trước khi lên lớp giảng dạy.",
+      "Chuẩn hóa quy trình chấm thi khảo sát: chấm đúng đáp án, đối chiếu khớp điểm bài thi và phần mềm, nhập 0 câu không làm.",
+      "Cập nhật điểm danh đúng quy định (tick vắng mặt cho HS nghỉ học, ghi chú HSM), hoàn thành nhập điểm đúng timeline CLB.",
+      "Nhận xét học sinh đầy đủ, bám sát các tiêu chí của CLB (tiếp thu, ưu điểm, nội dung cần cải thiện).",
+      "Tập trung rèn kỹ cho học sinh 5 dạng bài trọng tâm Số học 6, đặc biệt là các bẫy sai lầm kinh điển."
+    ]
+  },
+  {
     "id": "pres-khoi8-tuan10",
     "title": "Tuần 10 - Họp giáo viên khối 8",
     "category": "Khối 8",
@@ -450,6 +504,17 @@ window.INITIAL_PRESENTATIONS = [
 ];
 
 window.INITIAL_ANNOUNCEMENTS = [
+  {
+    "id": "anc-006",
+    "title": "Bản Tin Chuyên Môn: Tuần 14 - Họp Giáo Viên Khối 6 (Tháng 10/2026)",
+    "date": "2026-10-08",
+    "author": "Bộ phận Chuyên môn",
+    "category": "Tài nguyên mới",
+    "priority": "High",
+    "summary": "Đã cập nhật đầy đủ 18 slide tương tác cuộc họp chuyên môn Khối 6 Tháng 10/2026: Rà soát tác phong giảng dạy, xử lý 8 tồn đọng kỳ thi Khảo sát Quý I, khung chương trình Tháng 10 & 11/2026, kiến thức trọng tâm ƯCLN - BCNN và 5 dạng toán then chốt.",
+    "content": "Toàn thể Giáo viên Khối 6 xem bản trình chiếu tương tác (HTML), tải file PowerPoint (.PPTX) hoặc xem văn bản kế hoạch (.PDF) trực tiếp trên trang chủ.",
+    "badge": "MỚI NHẤT"
+  },
   {
     "id": "anc-005",
     "title": "Cập Nhật Bản Trình Chiếu: Tuần 10 - Họp Giáo Viên Khối 8",
