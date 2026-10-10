@@ -5,11 +5,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MathExpress · Họp chuyên môn Khối 6 · Tuần 14 (10/2026)</title>
-  <meta name="description" content="Họp chuyên môn Khối 6 – Tuần 14, tháng 10/2026: tồn đọng khảo sát Quý I, khung chương trình tháng 10–11, kiến thức và dạng bài trọng tâm." />
+  <meta name="description"
+    content="Họp chuyên môn Khối 6 – Tuần 14, tháng 10/2026: tồn đọng khảo sát Quý I, khung chương trình tháng 10–11, kiến thức và dạng bài trọng tâm." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
+    rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
   <!-- MathJax: công thức LaTeX; \text{...} dùng font của trang để chữ tiếng Việt (ƯCLN, ƯC…) hiển thị đúng -->
@@ -61,33 +64,142 @@
       --gap: 20px;
 
       /* Tông mặc định (slate) cho các thành phần chưa gán tông */
-      --c50: #f8fafc; --c100: #f1f5f9; --c200: #e2e8f0; --c600: #475569; --c700: #334155; --c900: #0f172a;
+      --c50: #f8fafc;
+      --c100: #f1f5f9;
+      --c200: #e2e8f0;
+      --c600: #475569;
+      --c700: #334155;
+      --c900: #0f172a;
     }
 
     /* Tông màu dùng chung: gắn class t-* lên card / callout / chip … */
-    .t-rose    { --c50: #fff1f3; --c100: #ffe4e8; --c200: #fecdd3; --c600: #e11d48; --c700: #be123c; --c900: #881337; }
-    .t-amber   { --c50: #fffbeb; --c100: #fef3c7; --c200: #fde68a; --c600: #d97706; --c700: #b45309; --c900: #78350f; }
-    .t-orange  { --c50: #fff6f0; --c100: #ffe8d9; --c200: #fdcbaa; --c600: #f26522; --c700: #c2410c; --c900: #7c2d12; }
-    .t-emerald { --c50: #ecfdf5; --c100: #d1fae5; --c200: #a7f3d0; --c600: #059669; --c700: #047857; --c900: #064e3b; }
-    .t-blue    { --c50: #f0f7fc; --c100: #ddedf8; --c200: #b9d8ef; --c600: #005b9f; --c700: #004a82; --c900: #0b2f52; }
-    .t-sky     { --c50: #f0f9ff; --c100: #e0f2fe; --c200: #bae6fd; --c600: #0284c7; --c700: #0369a1; --c900: #0c4a6e; }
-    .t-indigo  { --c50: #eef2ff; --c100: #e0e7ff; --c200: #c7d2fe; --c600: #4f46e5; --c700: #4338ca; --c900: #312e81; }
-    .t-violet  { --c50: #f5f3ff; --c100: #ede9fe; --c200: #ddd6fe; --c600: #7c3aed; --c700: #6d28d9; --c900: #4c1d95; }
-    .t-slate   { --c50: #f8fafc; --c100: #f1f5f9; --c200: #e2e8f0; --c600: #475569; --c700: #334155; --c900: #0f172a; }
+    .t-rose {
+      --c50: #fff1f3;
+      --c100: #ffe4e8;
+      --c200: #fecdd3;
+      --c600: #e11d48;
+      --c700: #be123c;
+      --c900: #881337;
+    }
+
+    .t-amber {
+      --c50: #fffbeb;
+      --c100: #fef3c7;
+      --c200: #fde68a;
+      --c600: #d97706;
+      --c700: #b45309;
+      --c900: #78350f;
+    }
+
+    .t-orange {
+      --c50: #fff6f0;
+      --c100: #ffe8d9;
+      --c200: #fdcbaa;
+      --c600: #f26522;
+      --c700: #c2410c;
+      --c900: #7c2d12;
+    }
+
+    .t-emerald {
+      --c50: #ecfdf5;
+      --c100: #d1fae5;
+      --c200: #a7f3d0;
+      --c600: #059669;
+      --c700: #047857;
+      --c900: #064e3b;
+    }
+
+    .t-blue {
+      --c50: #f0f7fc;
+      --c100: #ddedf8;
+      --c200: #b9d8ef;
+      --c600: #005b9f;
+      --c700: #004a82;
+      --c900: #0b2f52;
+    }
+
+    .t-sky {
+      --c50: #f0f9ff;
+      --c100: #e0f2fe;
+      --c200: #bae6fd;
+      --c600: #0284c7;
+      --c700: #0369a1;
+      --c900: #0c4a6e;
+    }
+
+    .t-indigo {
+      --c50: #eef2ff;
+      --c100: #e0e7ff;
+      --c200: #c7d2fe;
+      --c600: #4f46e5;
+      --c700: #4338ca;
+      --c900: #312e81;
+    }
+
+    .t-violet {
+      --c50: #f5f3ff;
+      --c100: #ede9fe;
+      --c200: #ddd6fe;
+      --c600: #7c3aed;
+      --c700: #6d28d9;
+      --c900: #4c1d95;
+    }
+
+    .t-slate {
+      --c50: #f8fafc;
+      --c100: #f1f5f9;
+      --c200: #e2e8f0;
+      --c600: #475569;
+      --c700: #334155;
+      --c900: #0f172a;
+    }
 
     /* Màu nhận diện từng phần (eyebrow trên đầu slide) */
-    .slide { --acc: var(--brand-orange); --acc-ink: #c2410c; }
-    .slide[data-section="1"] { --acc: #e11d48; --acc-ink: #be123c; }
-    .slide[data-section="2"] { --acc: #059669; --acc-ink: #047857; }
-    .slide[data-section="3"] { --acc: #005b9f; --acc-ink: #005b9f; }
-    .slide[data-section="4"] { --acc: #d97706; --acc-ink: #b45309; }
-    .slide[data-section="5"] { --acc: #4f46e5; --acc-ink: #4338ca; }
+    .slide {
+      --acc: var(--brand-orange);
+      --acc-ink: #c2410c;
+    }
+
+    .slide[data-section="1"] {
+      --acc: #e11d48;
+      --acc-ink: #be123c;
+    }
+
+    .slide[data-section="2"] {
+      --acc: #059669;
+      --acc-ink: #047857;
+    }
+
+    .slide[data-section="3"] {
+      --acc: #005b9f;
+      --acc-ink: #005b9f;
+    }
+
+    .slide[data-section="4"] {
+      --acc: #d97706;
+      --acc-ink: #b45309;
+    }
+
+    .slide[data-section="5"] {
+      --acc: #4f46e5;
+      --acc-ink: #4338ca;
+    }
 
     /* =====================================================================
        2. KHUNG TRÌNH CHIẾU 16:9 (1600×900, tự co giãn vừa màn hình)
        ===================================================================== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
     body {
       font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       color: var(--ink);
@@ -96,39 +208,86 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
-    p { margin: 0; }
-    h1, h2, h3, h4 { margin: 0; }
-    b, strong { font-weight: 700; }
-    a { color: inherit; }
-    button { font: inherit; color: inherit; }
-    mjx-container { text-transform: none !important; }
 
-    .viewport { position: fixed; inset: 0; overflow: hidden; }
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+    }
+
+    b,
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    mjx-container {
+      text-transform: none !important;
+    }
+
+    .viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+    }
+
     .stage {
-      position: absolute; left: 50%; top: 50%;
-      width: 1600px; height: 900px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1600px;
+      height: 900px;
       transform: translate(-50%, -50%) scale(var(--scale, 1));
       background: #fff;
       box-shadow: 0 30px 90px -30px rgba(0, 0, 0, .6);
       overflow: hidden;
     }
+
     .slide {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
       background: #fff;
-      opacity: 0; visibility: hidden;
+      opacity: 0;
+      visibility: hidden;
       transform: translateY(14px);
       transition: opacity .38s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .45s;
     }
+
     .slide.is-active {
-      opacity: 1; visibility: visible; transform: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
       transition: opacity .38s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s;
     }
-    body.booting .slide { transition: none !important; }
+
+    body.booting .slide {
+      transition: none !important;
+    }
 
     /* Nền chấm nhẹ góc phải trên */
     .slide:not(.slide--bleed)::before {
-      content: ""; position: absolute; right: 0; top: 0; width: 520px; height: 320px; pointer-events: none;
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 520px;
+      height: 320px;
+      pointer-events: none;
       background-image: radial-gradient(rgba(0, 91, 159, .13) 1.3px, transparent 1.3px);
       background-size: 22px 22px;
       -webkit-mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
@@ -137,209 +296,601 @@
 
     /* Đầu slide */
     .slide__head {
-      position: relative; z-index: 1;
-      display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
       padding: 30px var(--pad-x) 16px;
       border-bottom: 1px solid var(--line);
       flex: none;
     }
+
     .slide__head::after {
-      content: ""; position: absolute; left: var(--pad-x); bottom: -2px;
-      width: 112px; height: 4px; border-radius: 4px;
+      content: "";
+      position: absolute;
+      left: var(--pad-x);
+      bottom: -2px;
+      width: 112px;
+      height: 4px;
+      border-radius: 4px;
       background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
     }
+
     .eyebrow {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-      font-size: 14px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
       color: var(--acc-ink);
     }
+
     .eyebrow__num {
-      display: inline-grid; place-items: center; min-width: 34px; height: 26px; padding: 0 8px;
-      border-radius: 8px; background: var(--acc); color: #fff; font-size: 13.5px; letter-spacing: 0;
+      display: inline-grid;
+      place-items: center;
+      min-width: 34px;
+      height: 26px;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--acc);
+      color: #fff;
+      font-size: 13.5px;
+      letter-spacing: 0;
     }
+
     .pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 3px 10px; border-radius: 999px;
-      background: #fff; border: 1px solid currentColor;
-      font-size: 12.5px; letter-spacing: .02em; text-transform: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid currentColor;
+      font-size: 12.5px;
+      letter-spacing: .02em;
+      text-transform: none;
     }
+
     .slide__title {
       margin-top: 8px;
-      font-size: var(--fs-title); line-height: 1.15; font-weight: 800; letter-spacing: -.015em;
+      font-size: var(--fs-title);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -.015em;
       color: var(--ink);
     }
-    .slide__title .num { color: var(--acc); margin-right: 4px; }
-    .slide__logo { height: 44px; width: auto; flex: none; margin-bottom: 4px; }
+
+    .slide__title .num {
+      color: var(--acc);
+      margin-right: 4px;
+    }
+
+    .slide__logo {
+      height: 44px;
+      width: auto;
+      flex: none;
+      margin-bottom: 4px;
+    }
 
     /* Thân slide */
     .slide__body {
-      position: relative; z-index: 1;
-      flex: 1; min-height: 0;
-      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: 20px var(--pad-x) 16px;
-      font-size: var(--fs-body); line-height: 1.5; color: var(--ink-2);
+      font-size: var(--fs-body);
+      line-height: 1.5;
+      color: var(--ink-2);
     }
+
     /* .fit: JS bọc nội dung và đặt zoom lớn nhất mà vẫn vừa khung (1600×900) */
-    .fit { flex: none; display: flex; flex-direction: column; gap: 16px; }
+    .fit {
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
     /* Chân slide (chèn bằng JS) */
     .slide__foot {
-      position: relative; z-index: 1;
-      flex: none; height: 46px;
-      display: flex; align-items: center; justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      flex: none;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 var(--pad-x);
-      font-size: 13.5px; color: var(--muted); border-top: 1px solid #eef1f5;
+      font-size: 13.5px;
+      color: var(--muted);
+      border-top: 1px solid #eef1f5;
     }
-    .slide__foot .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--brand-orange); margin-right: 10px; vertical-align: 1px; }
-    .slide__num { font-weight: 700; color: var(--ink-2); font-variant-numeric: tabular-nums; letter-spacing: .04em; }
 
-    .wordmark { display: inline-flex; font-weight: 800; font-size: 30px; letter-spacing: -.02em; line-height: 1; }
-    .wordmark b { color: var(--brand-blue-2); }
-    .wordmark i { color: var(--brand-orange); font-style: italic; }
-    .wordmark--dark b { color: #fff; }
+    .slide__foot .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      margin-right: 10px;
+      vertical-align: 1px;
+    }
+
+    .slide__num {
+      font-weight: 700;
+      color: var(--ink-2);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .04em;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      font-weight: 800;
+      font-size: 30px;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .wordmark b {
+      color: var(--brand-blue-2);
+    }
+
+    .wordmark i {
+      color: var(--brand-orange);
+      font-style: italic;
+    }
+
+    .wordmark--dark b {
+      color: #fff;
+    }
 
     /* =====================================================================
        3. THÀNH PHẦN
        ===================================================================== */
-    .grid { display: grid; gap: var(--gap); min-width: 0; }
-    .g-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .g-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .g-55-45 { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); }
-    .stack { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-    .mt-auto { margin-top: auto; }
-    .center { text-align: center; }
+    .grid {
+      display: grid;
+      gap: var(--gap);
+      min-width: 0;
+    }
+
+    .g-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .g-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .g-55-45 {
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mt-auto {
+      margin-top: auto;
+    }
+
+    .center {
+      text-align: center;
+    }
 
     .card {
-      position: relative; min-width: 0;
-      display: flex; flex-direction: column; gap: 12px;
+      position: relative;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       padding: 20px 22px;
-      background: #fff; border: 1px solid var(--line); border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       box-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 30px -20px rgba(16, 24, 40, .22);
     }
-    .card.tint { background: var(--c50); border-color: var(--c200); }
-    .card__head { display: flex; align-items: center; gap: 12px; }
-    .card__head h3 { font-size: var(--fs-h3); line-height: 1.25; font-weight: 700; color: var(--c900); text-wrap: balance; }
-    .card__head > :last-child:not(h3):not(.ico) { margin-left: auto; }
-    .card__sub { font-size: var(--fs-sm); color: var(--muted); margin-top: -6px; }
+
+    .card.tint {
+      background: var(--c50);
+      border-color: var(--c200);
+    }
+
+    .card__head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card__head h3 {
+      font-size: var(--fs-h3);
+      line-height: 1.25;
+      font-weight: 700;
+      color: var(--c900);
+      text-wrap: balance;
+    }
+
+    .card__head> :last-child:not(h3):not(.ico) {
+      margin-left: auto;
+    }
+
+    .card__sub {
+      font-size: var(--fs-sm);
+      color: var(--muted);
+      margin-top: -6px;
+    }
 
     .ico {
-      flex: none; width: 40px; height: 40px; border-radius: 12px;
-      display: grid; place-items: center;
-      background: var(--c100); color: var(--c600); font-size: 18px;
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 18px;
     }
-    .ico--sm { width: 34px; height: 34px; border-radius: 10px; font-size: 15px; }
-    .ico--txt { font-weight: 800; font-size: 17px; letter-spacing: .05em; }
+
+    .ico--sm {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .ico--txt {
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: .05em;
+    }
 
     .badge {
-      display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
-      padding: 4px 12px; border-radius: 999px;
-      background: var(--c100); color: var(--c700); font-size: 13.5px; font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--c100);
+      color: var(--c700);
+      font-size: 13.5px;
+      font-weight: 700;
     }
-    .nos { display: inline-flex; gap: 6px; flex: none; }
+
+    .nos {
+      display: inline-flex;
+      gap: 6px;
+      flex: none;
+    }
+
     .no {
-      display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-      background: var(--c600); color: #fff; font-size: 14px; font-weight: 800;
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--c600);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
       box-shadow: 0 0 0 3px #fff;
     }
 
-    .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-    .chips__label { font-size: var(--fs-xs); font-weight: 700; color: var(--c700); margin-right: 2px; }
-    .chip {
-      display: inline-flex; padding: 3px 10px; border-radius: 8px;
-      background: #fff; border: 1px solid var(--c200);
-      font-size: 14.5px; font-weight: 600; color: var(--c900); font-variant-numeric: tabular-nums;
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
     }
-    .hl { font-weight: 700; color: var(--c700); white-space: nowrap; }
+
+    .chips__label {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--c700);
+      margin-right: 2px;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--c900);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hl {
+      font-weight: 700;
+      color: var(--c700);
+      white-space: nowrap;
+    }
 
     .callout {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 12px 16px; border-radius: 14px;
-      background: var(--c100); border: 1px solid var(--c200);
-      font-size: var(--fs-sm); line-height: 1.45; color: var(--c900);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--c100);
+      border: 1px solid var(--c200);
+      font-size: var(--fs-sm);
+      line-height: 1.45;
+      color: var(--c900);
     }
-    .callout > i { color: var(--c600); font-size: 18px; margin-top: 2px; flex: none; }
+
+    .callout>i {
+      color: var(--c600);
+      font-size: 18px;
+      margin-top: 2px;
+      flex: none;
+    }
+
     .banner {
-      display: flex; align-items: flex-start; gap: 16px;
-      padding: 16px 20px; border-radius: 16px;
-      background: var(--c50); border: 1px solid var(--c200);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--c50);
+      border: 1px solid var(--c200);
       color: var(--ink-2);
     }
-    .banner > i { font-size: 22px; color: var(--c600); margin-top: 3px; flex: none; }
-    .banner b.lead { color: var(--c900); }
 
-    .box { background: #fff; border: 1px solid var(--c200); border-radius: 14px; padding: 12px 16px; min-width: 0; }
-    .box--soft { background: var(--c50); }
+    .banner>i {
+      font-size: 22px;
+      color: var(--c600);
+      margin-top: 3px;
+      flex: none;
+    }
+
+    .banner b.lead {
+      color: var(--c900);
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 16px;
+      min-width: 0;
+    }
+
+    .box--soft {
+      background: var(--c50);
+    }
+
     .label {
-      display: block; margin-bottom: 4px;
-      font-size: 12.5px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--c600);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--c600);
     }
 
-    .list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-    .list > li { position: relative; padding-left: 20px; }
-    .list > li::before {
-      content: ""; position: absolute; left: 3px; top: .62em;
-      width: 7px; height: 7px; border-radius: 50%; background: var(--c600);
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: flex; flex-direction: column; gap: 10px; }
-    .steps > li { counter-increment: s; display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; }
-    .steps > li::before {
-      content: counter(s); width: 30px; height: 30px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: var(--c600); color: #fff; font-weight: 800; font-size: 14px;
+    .list>li {
+      position: relative;
+      padding-left: 20px;
     }
-    .steps > li > div { padding-top: 2px; }
+
+    .list>li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: .62em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c600);
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .steps>li {
+      counter-increment: s;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .steps>li::before {
+      content: counter(s);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--c600);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .steps>li>div {
+      padding-top: 2px;
+    }
 
     .issue {
-      display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px;
-      background: #fff; border: 1px solid var(--c200); border-radius: 14px; padding: 14px 16px;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 14px 16px;
     }
-    .issue h4 { font-size: 17.5px; color: var(--c900); margin-bottom: 3px; }
-    .issue p { font-size: var(--fs-sm); }
 
-    .errs { display: flex; flex-direction: column; gap: 9px; }
+    .issue h4 {
+      font-size: 17.5px;
+      color: var(--c900);
+      margin-bottom: 3px;
+    }
+
+    .issue p {
+      font-size: var(--fs-sm);
+    }
+
+    .errs {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
     .err {
-      background: #fff; border: 1px solid var(--c200); border-left: 4px solid var(--c600);
-      border-radius: 12px; padding: 9px 14px;
-      font-size: var(--fs-sm); line-height: 1.45;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-left: 4px solid var(--c600);
+      border-radius: 12px;
+      padding: 9px 14px;
+      font-size: var(--fs-sm);
+      line-height: 1.45;
     }
-    .err b { display: block; color: var(--c900); font-size: 16.5px; margin-bottom: 1px; }
-    .err .x { color: #e11d48; font-weight: 800; }
 
-    .evs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .err b {
+      display: block;
+      color: var(--c900);
+      font-size: 16.5px;
+      margin-bottom: 1px;
+    }
+
+    .err .x {
+      color: #e11d48;
+      font-weight: 800;
+    }
+
+    .evs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     .ev {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 12px; border-radius: 10px;
-      background: #fff; border: 1px solid var(--c200);
-      color: var(--c700); font-size: 14px; font-weight: 600; text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      color: var(--c700);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
       transition: background .15s, border-color .15s;
     }
-    .ev:hover { background: var(--c100); border-color: var(--c600); }
-    .ev .fa-google-drive { color: #1fa463; }
+
+    .ev:hover {
+      background: var(--c100);
+      border-color: var(--c600);
+    }
+
+    .ev .fa-google-drive {
+      color: #1fa463;
+    }
 
     .formula {
-      display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 10px;
-      padding: 10px 14px; border-radius: 12px;
-      background: #fff; border: 1px dashed var(--c200);
-      font-size: 19px; color: var(--c900);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px dashed var(--c200);
+      font-size: 19px;
+      color: var(--c900);
     }
-    .sol { display: flex; flex-direction: column; gap: 7px; }
-    .sol > .ln { position: relative; padding-left: 18px; }
-    .sol > .ln::before {
-      content: ""; position: absolute; left: 2px; top: .68em;
-      width: 6px; height: 6px; border-radius: 50%; background: var(--c600);
+
+    .sol {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
     }
-    .sol .note { color: var(--muted); font-size: var(--fs-sm); }
+
+    .sol>.ln {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .sol>.ln::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .68em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c600);
+    }
+
+    .sol .note {
+      color: var(--muted);
+      font-size: var(--fs-sm);
+    }
+
     .answer {
-      display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center;
-      padding: 12px 16px; border-radius: 12px;
-      background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-weight: 700;
     }
-    .answer i { color: #059669; }
+
+    .answer i {
+      color: #059669;
+    }
 
     /* Nhận diện từ khoá "đúng / sai" trong công thức */
-    .ok { color: #047857; font-weight: 700; }
-    .bad { color: #e11d48; font-weight: 700; }
+    .ok {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .bad {
+      color: #e11d48;
+      font-weight: 700;
+    }
 
     /* =====================================================================
        4. BÌA & LỜI KẾT
@@ -350,379 +901,1486 @@
         radial-gradient(600px 420px at 0% 0%, rgba(242, 101, 34, .14) 0%, rgba(242, 101, 34, 0) 70%),
         linear-gradient(180deg, #f8fbfe 0%, #fff 100%);
     }
+
     .slide--cover::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
       background-image: radial-gradient(rgba(0, 91, 159, .10) 1.3px, transparent 1.3px);
       background-size: 26px 26px;
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
       mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
     }
+
     .cover {
-      position: relative; z-index: 1; height: 100%;
-      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; gap: 24px;
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      align-items: center;
+      gap: 24px;
       padding: 64px 88px;
     }
-    .cover__logo { height: 64px; width: auto; }
-    .cover__kicker {
-      display: inline-flex; align-items: center; gap: 10px; margin-top: 56px;
-      padding: 8px 18px; border-radius: 999px;
-      background: rgba(242, 101, 34, .1); border: 1px solid rgba(242, 101, 34, .3);
-      color: #c2410c; font-weight: 700; font-size: 20px;
+
+    .cover__logo {
+      height: 64px;
+      width: auto;
     }
+
+    .cover__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 56px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(242, 101, 34, .1);
+      border: 1px solid rgba(242, 101, 34, .3);
+      color: #c2410c;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
     .cover__title {
       margin-top: 22px;
-      font-size: 92px; line-height: 1.02; font-weight: 800; letter-spacing: -.035em; color: #0b2f52;
+      font-size: 92px;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -.035em;
+      color: #0b2f52;
     }
-    .cover__title span { color: var(--brand-orange); }
-    .cover__bar { width: 128px; height: 8px; border-radius: 8px; margin-top: 30px; background: linear-gradient(90deg, var(--brand-orange), #fbbf24); }
-    .cover__lead { margin-top: 26px; font-size: 23px; line-height: 1.5; color: var(--ink-2); max-width: 680px; text-wrap: balance; }
-    .cover__meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+    .cover__title span {
+      color: var(--brand-orange);
+    }
+
+    .cover__bar {
+      width: 128px;
+      height: 8px;
+      border-radius: 8px;
+      margin-top: 30px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .cover__lead {
+      margin-top: 26px;
+      font-size: 23px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      max-width: 680px;
+      text-wrap: balance;
+    }
+
+    .cover__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
     .cover__meta span {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 9px 16px; border-radius: 12px; background: #fff; border: 1px solid var(--line);
-      font-size: 17px; font-weight: 600; color: var(--ink-2);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink-2);
       box-shadow: 0 8px 20px -16px rgba(15, 33, 55, .4);
     }
-    .cover__meta i { color: var(--brand-blue); }
 
-    .cover__art { position: relative; height: 680px; }
-    .orbit {
-      position: absolute; left: 50%; top: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%);
-      border: 2px dashed rgba(0, 91, 159, .18); border-radius: 50%;
+    .cover__meta i {
+      color: var(--brand-blue);
     }
-    .orbit--2 { width: 460px; height: 460px; border-style: solid; border-color: rgba(0, 91, 159, .08); }
+
+    .cover__art {
+      position: relative;
+      height: 680px;
+    }
+
+    .orbit {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      border: 2px dashed rgba(0, 91, 159, .18);
+      border-radius: 50%;
+    }
+
+    .orbit--2 {
+      width: 460px;
+      height: 460px;
+      border-style: solid;
+      border-color: rgba(0, 91, 159, .08);
+    }
+
     .big6 {
-      position: absolute; left: 50%; top: 50%; width: 360px; height: 360px; transform: translate(-50%, -50%);
-      border-radius: 50%; display: grid; place-items: center; color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 360px;
+      height: 360px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
       background: radial-gradient(circle at 32% 26%, #36abe8 0%, #118acb 38%, #005b9f 100%);
       box-shadow: 0 40px 80px -30px rgba(0, 91, 159, .6), inset 0 -24px 60px rgba(0, 0, 0, .14);
     }
-    .big6 small { position: absolute; top: 64px; font-size: 19px; font-weight: 700; letter-spacing: .4em; opacity: .85; padding-left: .4em; }
-    .big6 b { font-size: 250px; font-weight: 800; line-height: 1; letter-spacing: -.04em; margin-top: 18px; }
+
+    .big6 small {
+      position: absolute;
+      top: 64px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: .4em;
+      opacity: .85;
+      padding-left: .4em;
+    }
+
+    .big6 b {
+      font-size: 250px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-top: 18px;
+    }
+
     .tag {
-      position: absolute; white-space: nowrap;
-      padding: 10px 18px; border-radius: 14px;
-      background: #fff; border: 1px solid var(--line);
-      font-size: 23px; color: var(--ink);
+      position: absolute;
+      white-space: nowrap;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 23px;
+      color: var(--ink);
       box-shadow: 0 18px 36px -18px rgba(15, 33, 55, .38);
       animation: float 7s ease-in-out infinite;
     }
-    .tag::before { content: ""; position: absolute; left: -5px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--brand-orange); box-shadow: 0 0 0 4px #fff; }
-    .tag--1 { left: 10px; top: 70px; transform: rotate(-3deg); }
-    .tag--2 { right: 0; top: 150px; transform: rotate(2.5deg); animation-delay: -2s; }
-    .tag--3 { right: 30px; bottom: 150px; transform: rotate(-2deg); animation-delay: -4s; }
-    .tag--4 { left: -10px; bottom: 120px; transform: rotate(2deg); animation-delay: -1s; }
-    .tag--5 { left: 46%; bottom: 14px; transform: rotate(-1.5deg); animation-delay: -3s; }
-    .tag--2::before, .tag--3::before { background: var(--brand-blue-2); }
-    @keyframes float { 50% { translate: 0 -8px; } }
 
-    .slide--end { background: linear-gradient(135deg, #0b2f52 0%, #082039 55%, #061627 100%); color: #fff; }
+    .tag::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    .tag--1 {
+      left: 10px;
+      top: 70px;
+      transform: rotate(-3deg);
+    }
+
+    .tag--2 {
+      right: 0;
+      top: 150px;
+      transform: rotate(2.5deg);
+      animation-delay: -2s;
+    }
+
+    .tag--3 {
+      right: 30px;
+      bottom: 150px;
+      transform: rotate(-2deg);
+      animation-delay: -4s;
+    }
+
+    .tag--4 {
+      left: -10px;
+      bottom: 120px;
+      transform: rotate(2deg);
+      animation-delay: -1s;
+    }
+
+    .tag--5 {
+      left: 46%;
+      bottom: 14px;
+      transform: rotate(-1.5deg);
+      animation-delay: -3s;
+    }
+
+    .tag--2::before,
+    .tag--3::before {
+      background: var(--brand-blue-2);
+    }
+
+    @keyframes float {
+      50% {
+        translate: 0 -8px;
+      }
+    }
+
+    .slide--end {
+      background: linear-gradient(135deg, #0b2f52 0%, #082039 55%, #061627 100%);
+      color: #fff;
+    }
+
     .slide--end::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
       background:
         radial-gradient(640px 460px at 88% 8%, rgba(242, 101, 34, .28), transparent 70%),
         radial-gradient(640px 460px at 6% 100%, rgba(17, 138, 203, .32), transparent 70%);
     }
+
     .end {
-      position: relative; z-index: 1; height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 64px;
     }
-    .end__logo { height: 72px; width: auto; }
-    .end h2 { margin-top: 48px; font-size: 84px; font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
-    .end__bar { width: 128px; height: 8px; border-radius: 8px; margin-top: 30px; background: linear-gradient(90deg, var(--brand-orange), #fbbf24); }
-    .end__wish { margin-top: 30px; font-size: 26px; color: #cbd8e6; max-width: 1000px; line-height: 1.5; text-wrap: balance; }
-    .end__quote { margin-top: 18px; font-size: 20px; font-style: italic; color: #93a8bf; }
-    .end__chips { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; justify-content: center; }
-    .end__chips span {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 10px 18px; border-radius: 999px;
-      background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18);
-      font-size: 16px; font-weight: 600;
+
+    .end__logo {
+      height: 72px;
+      width: auto;
     }
-    .end__chips i { color: var(--brand-orange); }
-    .end__chips span:last-child i { color: #34d399; }
+
+    .end h2 {
+      margin-top: 48px;
+      font-size: 84px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .end__bar {
+      width: 128px;
+      height: 8px;
+      border-radius: 8px;
+      margin-top: 30px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .end__wish {
+      margin-top: 30px;
+      font-size: 26px;
+      color: #cbd8e6;
+      max-width: 1000px;
+      line-height: 1.5;
+      text-wrap: balance;
+    }
+
+    .end__quote {
+      margin-top: 18px;
+      font-size: 20px;
+      font-style: italic;
+      color: #93a8bf;
+    }
+
+    .end__chips {
+      display: flex;
+      gap: 12px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .end__chips span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .18);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .end__chips i {
+      color: var(--brand-orange);
+    }
+
+    .end__chips span:last-child i {
+      color: #34d399;
+    }
 
     /* =====================================================================
        5. RIÊNG TỪNG SLIDE
        ===================================================================== */
     /* Mục lục */
-    .agenda { display: flex; flex-direction: column; gap: 12px; }
+    .agenda {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .agenda__item {
-      display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; align-items: center; gap: 22px;
-      width: 100%; padding: 14px 22px 14px 14px; border-radius: 18px;
-      background: #fff; border: 1px solid var(--line); text-align: left; cursor: pointer;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      padding: 14px 22px 14px 14px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: left;
+      cursor: pointer;
       box-shadow: 0 10px 26px -22px rgba(16, 24, 40, .4);
       transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
-    .agenda__item:hover, .agenda__item:focus-visible { transform: translateX(6px); border-color: var(--c200); background: var(--c50); outline: none; }
-    .agenda__num {
-      width: 76px; height: 76px; border-radius: 18px; display: grid; place-items: center;
-      background: var(--c100); color: var(--c600); font-size: 30px; font-weight: 800; letter-spacing: -.02em;
+
+    .agenda__item:hover,
+    .agenda__item:focus-visible {
+      transform: translateX(6px);
+      border-color: var(--c200);
+      background: var(--c50);
+      outline: none;
     }
-    .agenda__text h3 { font-size: 23px; color: var(--c900); margin-bottom: 3px; }
-    .agenda__text p { font-size: var(--fs-sm); color: var(--ink-2); }
+
+    .agenda__num {
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .agenda__text h3 {
+      font-size: 23px;
+      color: var(--c900);
+      margin-bottom: 3px;
+    }
+
+    .agenda__text p {
+      font-size: var(--fs-sm);
+      color: var(--ink-2);
+    }
+
     .agenda__go {
-      display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
-      padding: 8px 14px; border-radius: 10px; background: var(--c100); color: var(--c700);
-      font-size: 14.5px; font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--c100);
+      color: var(--c700);
+      font-size: 14.5px;
+      font-weight: 700;
     }
 
     /* Thẻ tên – thống kê */
-    .stat { display: flex; align-items: center; gap: 18px; background: #fff; border: 1px solid var(--c200); border-radius: 14px; padding: 12px 18px; }
-    .stat b { font-size: 50px; line-height: 1; font-weight: 800; color: var(--c600); letter-spacing: -.03em; }
-    .stat span { font-size: var(--fs-sm); color: var(--c900); font-weight: 600; }
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 18px;
+    }
+
+    .stat b {
+      font-size: 50px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--c600);
+      letter-spacing: -.03em;
+    }
+
+    .stat span {
+      font-size: var(--fs-sm);
+      color: var(--c900);
+      font-weight: 600;
+    }
 
     /* Nhận xét – tiêu chí */
-    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .checks span {
-      display: flex; align-items: center; gap: 9px;
-      padding: 8px 12px; border-radius: 10px; background: #fff; border: 1px solid var(--c200);
-      font-size: 15px; font-weight: 600; color: var(--c900);
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
     }
-    .checks i { color: var(--c600); }
+
+    .checks span {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--c900);
+    }
+
+    .checks i {
+      color: var(--c600);
+    }
 
     /* Quy chuẩn điểm danh */
-    .rules { display: flex; flex-direction: column; gap: 9px; }
-    .rule {
-      display: grid; grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1.2fr); align-items: center; gap: 12px;
-      padding: 10px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--c200);
-      font-size: 15.5px; line-height: 1.4;
+    .rules {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
     }
-    .rule > i { color: var(--c600); }
-    .rule > :first-child { font-weight: 600; color: var(--c900); }
+
+    .rule {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1.2fr);
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 15.5px;
+      line-height: 1.4;
+    }
+
+    .rule>i {
+      color: var(--c600);
+    }
+
+    .rule> :first-child {
+      font-weight: 600;
+      color: var(--c900);
+    }
 
     /* Khung chương trình */
-    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .seg { display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 12px; background: #f1f5f9; border: 1px solid var(--line); }
-    .seg__label { display: inline-flex; align-items: center; gap: 7px; padding: 0 8px 0 8px; font-size: 13.5px; font-weight: 700; color: var(--muted); }
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .seg {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      border: 1px solid var(--line);
+    }
+
+    .seg__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 8px 0 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
     .seg button {
-      border: 0; background: transparent; cursor: pointer;
-      padding: 7px 14px; border-radius: 9px;
-      font-size: 14.5px; font-weight: 600; color: var(--ink-2);
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      padding: 7px 14px;
+      border-radius: 9px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink-2);
       transition: background .15s, color .15s;
     }
-    .seg button:hover { background: rgba(255, 255, 255, .7); }
-    .seg button[aria-pressed="true"] { background: #fff; color: var(--brand-blue); box-shadow: 0 1px 3px rgba(16, 24, 40, .14); }
 
-    .table-wrap { flex: none; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 12px 30px -24px rgba(16, 24, 40, .35); }
-    .plan { width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.35; color: var(--ink-2); }
-    .plan th {
-      background: #0b3c66; color: #fff; text-align: left; font-weight: 700; font-size: 14.5px;
-      padding: 11px 14px; border-right: 1px solid rgba(255, 255, 255, .12);
+    .seg button:hover {
+      background: rgba(255, 255, 255, .7);
     }
-    .plan th:nth-child(-n+2), .plan td:nth-child(-n+2) { text-align: center; }
-    .plan td { padding: 7px 14px; border-top: 1px solid #edf1f5; border-right: 1px solid #edf1f5; vertical-align: middle; }
-    .plan th:last-child, .plan td:last-child { border-right: 0; }
-    .plan .time { white-space: nowrap; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
-    .plan .bno { font-weight: 800; color: var(--brand-blue); font-size: 17px; }
-    .plan tr.month td { padding: 7px 14px; background: var(--c50); border-top: 1px solid var(--c200); }
-    .month__in { display: flex; justify-content: space-between; align-items: center; gap: 12px; text-align: left; }
-    .month__in > span:first-child { font-weight: 800; color: var(--c900); font-size: 14.5px; letter-spacing: .03em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
-    .month__in i { color: var(--c600); }
-    .month__in em { font-style: normal; text-transform: none; letter-spacing: 0; font-weight: 700; color: var(--c700); background: #fff; border: 1px solid var(--c200); padding: 1px 9px; border-radius: 999px; font-size: 13px; }
-    .month__focus { font-size: 13.5px; font-weight: 600; color: var(--c700); }
-    .plan tr.is-current td { background: #fff7ed; color: var(--ink); font-weight: 600; }
-    .plan tr.is-current td:first-child { box-shadow: inset 4px 0 0 var(--brand-orange); }
-    .plan tr.is-current .bno { color: var(--brand-orange); }
-    .plan tr.is-review td { background: #ecfdf5; color: #065f46; font-weight: 700; }
-    .plan tr.is-review td:nth-child(n+3) { text-align: center; text-transform: uppercase; letter-spacing: .04em; font-size: 14.5px; }
-    .plan tr.is-review .bno { color: #047857; }
-    .plan[data-month="t10"] .m11, .plan[data-month="t11"] .m10 { display: none; }
+
+    .seg button[aria-pressed="true"] {
+      background: #fff;
+      color: var(--brand-blue);
+      box-shadow: 0 1px 3px rgba(16, 24, 40, .14);
+    }
+
+    .table-wrap {
+      flex: none;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 30px -24px rgba(16, 24, 40, .35);
+    }
+
+    .plan {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15.5px;
+      line-height: 1.35;
+      color: var(--ink-2);
+    }
+
+    .plan th {
+      background: #0b3c66;
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
+      font-size: 14.5px;
+      padding: 11px 14px;
+      border-right: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .plan th:nth-child(-n+2),
+    .plan td:nth-child(-n+2) {
+      text-align: center;
+    }
+
+    .plan td {
+      padding: 7px 14px;
+      border-top: 1px solid #edf1f5;
+      border-right: 1px solid #edf1f5;
+      vertical-align: middle;
+    }
+
+    .plan th:last-child,
+    .plan td:last-child {
+      border-right: 0;
+    }
+
+    .plan .time {
+      white-space: nowrap;
+      font-weight: 600;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .plan .bno {
+      font-weight: 800;
+      color: var(--brand-blue);
+      font-size: 17px;
+    }
+
+    .plan tr.month td {
+      padding: 7px 14px;
+      background: var(--c50);
+      border-top: 1px solid var(--c200);
+    }
+
+    .month__in {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .month__in>span:first-child {
+      font-weight: 800;
+      color: var(--c900);
+      font-size: 14.5px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .month__in i {
+      color: var(--c600);
+    }
+
+    .month__in em {
+      font-style: normal;
+      text-transform: none;
+      letter-spacing: 0;
+      font-weight: 700;
+      color: var(--c700);
+      background: #fff;
+      border: 1px solid var(--c200);
+      padding: 1px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .month__focus {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--c700);
+    }
+
+    .plan tr.is-current td {
+      background: #fff7ed;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .plan tr.is-current td:first-child {
+      box-shadow: inset 4px 0 0 var(--brand-orange);
+    }
+
+    .plan tr.is-current .bno {
+      color: var(--brand-orange);
+    }
+
+    .plan tr.is-review td {
+      background: #ecfdf5;
+      color: #065f46;
+      font-weight: 700;
+    }
+
+    .plan tr.is-review td:nth-child(n+3) {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-size: 14.5px;
+    }
+
+    .plan tr.is-review .bno {
+      color: #047857;
+    }
+
+    .plan[data-month="t10"] .m11,
+    .plan[data-month="t11"] .m10 {
+      display: none;
+    }
+
     .plan[data-track="chuyen"] :is(.c2, .c3),
     .plan[data-track="nangcao"] :is(.c1, .c3),
-    .plan[data-track="coban"] :is(.c1, .c2) { display: none; }
+    .plan[data-track="coban"] :is(.c1, .c2) {
+      display: none;
+    }
 
     /* So sánh ƯCLN – BCNN */
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .compare > div { border-radius: 12px; padding: 10px 14px; text-align: center; background: #fff; border: 1px solid var(--c200); }
-    .compare > div > b { display: block; font-size: 19px; color: var(--c700); letter-spacing: .02em; }
-    .compare span { display: block; font-size: 15px; line-height: 1.45; }
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .compare>div {
+      border-radius: 12px;
+      padding: 10px 14px;
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--c200);
+    }
+
+    .compare>div>b {
+      display: block;
+      font-size: 19px;
+      color: var(--c700);
+      letter-spacing: .02em;
+    }
+
+    .compare span {
+      display: block;
+      font-size: 15px;
+      line-height: 1.45;
+    }
 
     /* Phép toán số nguyên */
-    .ops { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .op { background: #fff; border: 1px solid var(--c200); border-radius: 14px; padding: 11px 14px; font-size: 15.5px; line-height: 1.45; display: flex; flex-direction: column; gap: 6px; }
-    .op h4 { font-size: 16.5px; color: var(--c700); display: flex; align-items: center; gap: 8px; }
-    .op h4 .sym { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 7px; background: var(--c100); color: var(--c600); font-size: 15px; font-weight: 800; }
-    .op .formula { font-size: 16.5px; padding: 6px 10px; margin-top: auto; }
-    .signs { border-collapse: collapse; margin: 2px auto 0; font-weight: 800; font-size: 15px; }
-    .signs th, .signs td { width: 38px; height: 28px; text-align: center; border: 1px solid var(--c200); }
-    .signs th { background: var(--c100); color: var(--c700); }
-    .signs td.p { color: #047857; background: #f0fdf7; }
-    .signs td.m { color: #e11d48; background: #fff5f6; }
+    .ops {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
 
-    .brk { display: flex; flex-direction: column; gap: 4px; }
-    .brk__label { font-weight: 700; font-size: 15.5px; display: flex; align-items: center; gap: 8px; }
+    .op {
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 11px 14px;
+      font-size: 15.5px;
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .op h4 {
+      font-size: 16.5px;
+      color: var(--c700);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .op h4 .sym {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .op .formula {
+      font-size: 16.5px;
+      padding: 6px 10px;
+      margin-top: auto;
+    }
+
+    .signs {
+      border-collapse: collapse;
+      margin: 2px auto 0;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .signs th,
+    .signs td {
+      width: 38px;
+      height: 28px;
+      text-align: center;
+      border: 1px solid var(--c200);
+    }
+
+    .signs th {
+      background: var(--c100);
+      color: var(--c700);
+    }
+
+    .signs td.p {
+      color: #047857;
+      background: #f0fdf7;
+    }
+
+    .signs td.m {
+      color: #e11d48;
+      background: #fff5f6;
+    }
+
+    .brk {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brk__label {
+      font-weight: 700;
+      font-size: 15.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
     /* Dạng 3 – chuỗi quy tắc */
-    .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
-    .flow span { padding: 5px 11px; border-radius: 9px; background: #fff; border: 1px solid var(--c200); font-weight: 700; font-size: 14.5px; color: var(--c900); }
-    .flow span:last-child { background: #059669; border-color: #059669; color: #fff; }
-    .flow i { color: var(--brand-orange); font-size: 12px; }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .flow span {
+      padding: 5px 11px;
+      border-radius: 9px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-weight: 700;
+      font-size: 14.5px;
+      color: var(--c900);
+    }
+
+    .flow span:last-child {
+      background: #059669;
+      border-color: #059669;
+      color: #fff;
+    }
+
+    .flow i {
+      color: var(--brand-orange);
+      font-size: 12px;
+    }
 
     /* Dạng 4 – hai trường hợp */
-    .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .case { background: #fff; border: 1px solid var(--c200); border-radius: 14px; padding: 12px 18px; display: flex; flex-direction: column; gap: 4px; font-size: 19px; }
-    .case h4 { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--c600); margin-bottom: 4px; }
-    .case .res { font-weight: 700; color: var(--c700); border-top: 1px dashed var(--c200); padding-top: 6px; margin-top: 2px; }
+    .cases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .case {
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 19px;
+    }
+
+    .case h4 {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--c600);
+      margin-bottom: 4px;
+    }
+
+    .case .res {
+      font-weight: 700;
+      color: var(--c700);
+      border-top: 1px dashed var(--c200);
+      padding-top: 6px;
+      margin-top: 2px;
+    }
+
     .or {
-      display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 6px;
-      background: #ffe4e8; color: #be123c; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      border-radius: 6px;
+      background: #ffe4e8;
+      color: #be123c;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     /* Hành động */
-    .acts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .acts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
     .act {
-      position: relative; display: flex; flex-direction: column; gap: 8px;
-      padding: 16px 20px 16px; border-radius: 16px;
-      background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--c600);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 20px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--c600);
       box-shadow: 0 12px 30px -22px rgba(16, 24, 40, .35);
     }
-    .act__top { display: flex; align-items: center; gap: 12px; }
-    .act__top h3 { font-size: 19px; color: var(--ink); line-height: 1.25; text-wrap: balance; }
-    .act__n { margin-left: auto; font-size: 34px; font-weight: 800; line-height: 1; color: var(--c200); }
-    .act p { font-size: 15.5px; line-height: 1.5; color: var(--ink-2); }
-    .act .badge { align-self: flex-start; margin-top: auto; }
+
+    .act__top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .act__top h3 {
+      font-size: 19px;
+      color: var(--ink);
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .act__n {
+      margin-left: auto;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--c200);
+    }
+
+    .act p {
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: var(--ink-2);
+    }
+
+    .act .badge {
+      align-self: flex-start;
+      margin-top: auto;
+    }
 
     /* =====================================================================
        6. ĐIỀU HƯỚNG
        ===================================================================== */
-    .progress { position: fixed; left: 0; right: 0; top: 0; height: 4px; z-index: 60; background: rgba(255, 255, 255, .12); }
-    .progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--brand-orange), #fbbf24); transition: width .35s ease; }
+    .progress {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      z-index: 60;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+      transition: width .35s ease;
+    }
 
     .nav {
-      position: fixed; right: 18px; bottom: 16px; z-index: 60;
-      display: flex; align-items: center; gap: 6px;
-      padding: 6px; border-radius: 999px;
-      background: rgba(255, 255, 255, .94); border: 1px solid rgba(15, 33, 55, .1);
+      position: fixed;
+      right: 18px;
+      bottom: 16px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(15, 33, 55, .1);
       box-shadow: 0 14px 34px -14px rgba(15, 33, 55, .45);
-      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       transition: opacity .3s ease, transform .3s ease;
     }
+
     .nav button {
-      width: 38px; height: 38px; border-radius: 50%; border: 0; cursor: pointer;
-      display: grid; place-items: center;
-      background: #eef2f6; color: var(--ink-2); font-size: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 0;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      background: #eef2f6;
+      color: var(--ink-2);
+      font-size: 14px;
       transition: background .15s, transform .15s;
     }
-    .nav button:hover:not(:disabled) { background: #e2e8f0; }
-    .nav button:active:not(:disabled) { transform: scale(.94); }
-    .nav button:disabled { opacity: .35; cursor: default; }
-    .nav button.is-primary { background: var(--brand-orange); color: #fff; }
-    .nav button.is-primary:hover:not(:disabled) { background: #dc5410; }
-    .nav__count { min-width: 64px; text-align: center; font-weight: 700; font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; }
-    .nav__sep { width: 1px; height: 22px; background: rgba(15, 33, 55, .12); margin: 0 2px; }
-    body.is-idle .nav { opacity: 0; transform: translateY(10px); pointer-events: none; }
-    body.is-idle { cursor: none; }
+
+    .nav button:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+
+    .nav button:active:not(:disabled) {
+      transform: scale(.94);
+    }
+
+    .nav button:disabled {
+      opacity: .35;
+      cursor: default;
+    }
+
+    .nav button.is-primary {
+      background: var(--brand-orange);
+      color: #fff;
+    }
+
+    .nav button.is-primary:hover:not(:disabled) {
+      background: #dc5410;
+    }
+
+    .nav__count {
+      min-width: 64px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav__sep {
+      width: 1px;
+      height: 22px;
+      background: rgba(15, 33, 55, .12);
+      margin: 0 2px;
+    }
+
+    body.is-idle .nav {
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+
+    body.is-idle {
+      cursor: none;
+    }
 
     /* Hiệu ứng xuất hiện nội dung */
-    @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-    .slide.is-active .fit > :not(.grid):not(.acts):not(.agenda),
-    .slide.is-active .grid > *,
-    .slide.is-active .acts > *,
-    .slide.is-active .agenda > * { animation: rise .55s cubic-bezier(.2, .7, .2, 1) both; }
-    .slide.is-active :is(.grid, .acts, .agenda) > :nth-child(2) { animation-delay: .06s; }
-    .slide.is-active :is(.grid, .acts, .agenda) > :nth-child(3) { animation-delay: .12s; }
-    .slide.is-active :is(.grid, .acts, .agenda) > :nth-child(4) { animation-delay: .18s; }
-    .slide.is-active :is(.grid, .acts, .agenda) > :nth-child(5) { animation-delay: .24s; }
-    .slide.is-active :is(.grid, .acts, .agenda) > :nth-child(6) { animation-delay: .30s; }
-    .slide.is-active .fit > :nth-child(2):not(.grid) { animation-delay: .1s; }
-    .slide.is-active .fit > :nth-child(3):not(.grid) { animation-delay: .2s; }
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .slide.is-active .fit> :not(.grid):not(.acts):not(.agenda),
+    .slide.is-active .grid>*,
+    .slide.is-active .acts>*,
+    .slide.is-active .agenda>* {
+      animation: rise .55s cubic-bezier(.2, .7, .2, 1) both;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(2) {
+      animation-delay: .06s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(3) {
+      animation-delay: .12s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(4) {
+      animation-delay: .18s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(5) {
+      animation-delay: .24s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(6) {
+      animation-delay: .30s;
+    }
+
+    .slide.is-active .fit> :nth-child(2):not(.grid) {
+      animation-delay: .1s;
+    }
+
+    .slide.is-active .fit> :nth-child(3):not(.grid) {
+      animation-delay: .2s;
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation: none !important; transition: none !important; }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
 
     /* =====================================================================
        7. ĐIỆN THOẠI / MÀN HÌNH NHỎ: bỏ khung 16:9, cuộn dọc từng slide
        ===================================================================== */
-    @media (max-width: 899px), (max-height: 499px) {
+    @media (max-width: 899px),
+    (max-height: 499px) {
       :root {
-        --fs-title: 19px; --fs-h3: 16px; --fs-body: 14.5px; --fs-sm: 13.5px; --fs-xs: 12px;
-        --pad-x: 16px; --gap: 12px;
+        --fs-title: 19px;
+        --fs-h3: 16px;
+        --fs-body: 14.5px;
+        --fs-sm: 13.5px;
+        --fs-xs: 12px;
+        --pad-x: 16px;
+        --gap: 12px;
       }
-      body { background: #fff; }
-      .stage { left: 0; top: 0; width: 100%; height: 100%; transform: none; box-shadow: none; }
-      .slide { overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
-      .slide:not(.slide--bleed)::before { display: none; }
-      .slide__head { position: sticky; top: 0; z-index: 5; background: rgba(255, 255, 255, .97); padding: 14px 16px 12px; align-items: center; }
-      .slide__head::after { width: 64px; height: 3px; }
-      .slide__logo { display: none; }
-      .eyebrow { font-size: 10.5px; gap: 7px; }
-      .eyebrow__num { min-width: 26px; height: 20px; font-size: 11px; border-radius: 6px; }
-      .pill { font-size: 10.5px; padding: 1px 8px; }
-      .slide__title { margin-top: 6px; }
-      .slide__body { flex: none; justify-content: flex-start; padding: 14px 16px 96px; }
-      .fit { zoom: 1 !important; gap: 12px; }
-      .slide__foot { display: none; }
-      .g-2, .g-3, .g-55-45, .acts { grid-template-columns: minmax(0, 1fr); }
-      .card { padding: 14px; gap: 10px; border-radius: 14px; }
-      .ico { width: 32px; height: 32px; border-radius: 9px; font-size: 14px; }
-      .ico--sm { width: 28px; height: 28px; font-size: 12px; }
-      .issue { grid-template-columns: 28px minmax(0, 1fr); padding: 10px 12px; gap: 10px; }
-      .issue h4, .err b { font-size: 14px; }
-      .chip { font-size: 12px; padding: 2px 8px; }
-      .ev { font-size: 12px; padding: 5px 10px; }
-      .badge { font-size: 11px; padding: 3px 9px; }
-      .no { width: 24px; height: 24px; font-size: 12px; }
-      .formula { font-size: 15px; }
-      .stat b { font-size: 36px; }
-      .checks span, .rule, .op, .compare span { font-size: 13px; }
-      .op h4 { font-size: 14px; }
-      .op .formula { font-size: 14px; }
-      .ops, .checks, .compare, .cases { grid-template-columns: 1fr; }
-      .rule { grid-template-columns: 1fr; gap: 4px; }
-      .rule > i { display: none; }
-      .case { font-size: 15px; }
-      .act__top h3 { font-size: 15px; }
-      .act p { font-size: 13.5px; }
-      .banner { padding: 12px 14px; gap: 10px; }
-      .banner > i { font-size: 17px; }
-      mjx-container[display="true"], .formula mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
 
-      .agenda__item { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 10px 12px 10px 10px; }
-      .agenda__num { width: 48px; height: 48px; font-size: 19px; border-radius: 12px; }
-      .agenda__text h3 { font-size: 15px; }
-      .agenda__go { grid-column: 2; justify-self: start; font-size: 12px; padding: 5px 10px; }
+      body {
+        background: #fff;
+      }
 
-      .toolbar { flex-direction: column; align-items: stretch; gap: 8px; }
-      .seg { overflow-x: auto; }
-      .seg__label { display: none; }
-      .seg button { font-size: 12px; padding: 6px 10px; white-space: nowrap; }
-      .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .plan { min-width: 760px; font-size: 13px; }
-      .month__focus { display: none; }
+      .stage {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        box-shadow: none;
+      }
 
-      .cover { grid-template-columns: 1fr; padding: 28px 20px 110px; gap: 0; height: auto; min-height: 100%; }
-      .cover__logo { height: 44px; }
-      .cover__kicker { margin-top: 28px; font-size: 14px; padding: 6px 14px; }
-      .cover__title { font-size: 36px; }
-      .cover__bar { height: 6px; width: 96px; margin-top: 20px; }
-      .cover__lead { font-size: 16px; margin-top: 18px; }
-      .cover__meta span { font-size: 13px; padding: 7px 12px; }
-      .cover__art { display: none; }
-      .end { padding: 40px 20px 110px; min-height: 100%; height: auto; }
-      .end__logo { height: 48px; }
-      .end h2 { font-size: 40px; margin-top: 32px; }
-      .end__wish { font-size: 17px; }
-      .end__quote { font-size: 15px; }
-      .end__chips span { font-size: 13px; }
+      .slide {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+      }
 
-      .nav { right: 50%; transform: translateX(50%); bottom: 14px; }
-      body.is-idle .nav { opacity: 1; transform: translateX(50%); pointer-events: auto; }
-      #fullscreenBtn, .nav__sep { display: none; }
+      .slide:not(.slide--bleed)::before {
+        display: none;
+      }
+
+      .slide__head {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: rgba(255, 255, 255, .97);
+        padding: 14px 16px 12px;
+        align-items: center;
+      }
+
+      .slide__head::after {
+        width: 64px;
+        height: 3px;
+      }
+
+      .slide__logo {
+        display: none;
+      }
+
+      .eyebrow {
+        font-size: 10.5px;
+        gap: 7px;
+      }
+
+      .eyebrow__num {
+        min-width: 26px;
+        height: 20px;
+        font-size: 11px;
+        border-radius: 6px;
+      }
+
+      .pill {
+        font-size: 10.5px;
+        padding: 1px 8px;
+      }
+
+      .slide__title {
+        margin-top: 6px;
+      }
+
+      .slide__body {
+        flex: none;
+        justify-content: flex-start;
+        padding: 14px 16px 96px;
+      }
+
+      .fit {
+        zoom: 1 !important;
+        gap: 12px;
+      }
+
+      .slide__foot {
+        display: none;
+      }
+
+      .g-2,
+      .g-3,
+      .g-55-45,
+      .acts {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .card {
+        padding: 14px;
+        gap: 10px;
+        border-radius: 14px;
+      }
+
+      .ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        font-size: 14px;
+      }
+
+      .ico--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+      }
+
+      .issue {
+        grid-template-columns: 28px minmax(0, 1fr);
+        padding: 10px 12px;
+        gap: 10px;
+      }
+
+      .issue h4,
+      .err b {
+        font-size: 14px;
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 2px 8px;
+      }
+
+      .ev {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      .badge {
+        font-size: 11px;
+        padding: 3px 9px;
+      }
+
+      .no {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+      }
+
+      .formula {
+        font-size: 15px;
+      }
+
+      .stat b {
+        font-size: 36px;
+      }
+
+      .checks span,
+      .rule,
+      .op,
+      .compare span {
+        font-size: 13px;
+      }
+
+      .op h4 {
+        font-size: 14px;
+      }
+
+      .op .formula {
+        font-size: 14px;
+      }
+
+      .ops,
+      .checks,
+      .compare,
+      .cases {
+        grid-template-columns: 1fr;
+      }
+
+      .rule {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .rule>i {
+        display: none;
+      }
+
+      .case {
+        font-size: 15px;
+      }
+
+      .act__top h3 {
+        font-size: 15px;
+      }
+
+      .act p {
+        font-size: 13.5px;
+      }
+
+      .banner {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+
+      .banner>i {
+        font-size: 17px;
+      }
+
+      mjx-container[display="true"],
+      .formula mjx-container {
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .agenda__item {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px 12px 10px 10px;
+      }
+
+      .agenda__num {
+        width: 48px;
+        height: 48px;
+        font-size: 19px;
+        border-radius: 12px;
+      }
+
+      .agenda__text h3 {
+        font-size: 15px;
+      }
+
+      .agenda__go {
+        grid-column: 2;
+        justify-self: start;
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .seg {
+        overflow-x: auto;
+      }
+
+      .seg__label {
+        display: none;
+      }
+
+      .seg button {
+        font-size: 12px;
+        padding: 6px 10px;
+        white-space: nowrap;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .plan {
+        min-width: 760px;
+        font-size: 13px;
+      }
+
+      .month__focus {
+        display: none;
+      }
+
+      .cover {
+        grid-template-columns: 1fr;
+        padding: 28px 20px 110px;
+        gap: 0;
+        height: auto;
+        min-height: 100%;
+      }
+
+      .cover__logo {
+        height: 44px;
+      }
+
+      .cover__kicker {
+        margin-top: 28px;
+        font-size: 14px;
+        padding: 6px 14px;
+      }
+
+      .cover__title {
+        font-size: 36px;
+      }
+
+      .cover__bar {
+        height: 6px;
+        width: 96px;
+        margin-top: 20px;
+      }
+
+      .cover__lead {
+        font-size: 16px;
+        margin-top: 18px;
+      }
+
+      .cover__meta span {
+        font-size: 13px;
+        padding: 7px 12px;
+      }
+
+      .cover__art {
+        display: none;
+      }
+
+      .end {
+        padding: 40px 20px 110px;
+        min-height: 100%;
+        height: auto;
+      }
+
+      .end__logo {
+        height: 48px;
+      }
+
+      .end h2 {
+        font-size: 40px;
+        margin-top: 32px;
+      }
+
+      .end__wish {
+        font-size: 17px;
+      }
+
+      .end__quote {
+        font-size: 15px;
+      }
+
+      .end__chips span {
+        font-size: 13px;
+      }
+
+      .nav {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 14px;
+      }
+
+      body.is-idle .nav {
+        opacity: 1;
+        transform: translateX(50%);
+        pointer-events: auto;
+      }
+
+      #fullscreenBtn,
+      .nav__sep {
+        display: none;
+      }
     }
 
     /* =====================================================================
        8. IN / XUẤT PDF (Ctrl + P → khổ 1600×900, mỗi slide một trang)
        ===================================================================== */
     @media print {
-      @page { size: 1600px 900px; margin: 0; }
-      html, body { height: auto; overflow: visible; background: #fff; }
-      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none !important; transition: none !important; }
-      .viewport, .stage { position: static; transform: none; width: 1600px; height: auto; overflow: visible; box-shadow: none; }
-      .slide { position: relative; opacity: 1; visibility: visible; transform: none; width: 1600px; height: 900px; break-after: page; page-break-after: always; overflow: hidden; }
-      .nav, .progress { display: none !important; }
+      @page {
+        size: 1600px 900px;
+        margin: 0;
+      }
+
+      html,
+      body {
+        height: auto;
+        overflow: visible;
+        background: #fff;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .viewport,
+      .stage {
+        position: static;
+        transform: none;
+        width: 1600px;
+        height: auto;
+        overflow: visible;
+        box-shadow: none;
+      }
+
+      .slide {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        width: 1600px;
+        height: 900px;
+        break-after: page;
+        page-break-after: always;
+        overflow: hidden;
+      }
+
+      .nav,
+      .progress {
+        display: none !important;
+      }
     }
   </style>
 </head>
@@ -738,10 +2396,12 @@
         <div class="cover">
           <div>
             <img class="cover__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
-            <div><span class="cover__kicker"><i class="fa-solid fa-calendar-check"></i> Tuần 14 · Tháng 10/2026</span></div>
+            <div><span class="cover__kicker"><i class="fa-solid fa-calendar-check"></i> Tuần 14 · Tháng 10/2026</span>
+            </div>
             <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 6</span></h1>
             <div class="cover__bar"></div>
-            <p class="cover__lead">Rà soát khảo sát Quý I · Khung chương trình tháng 10 – 11 · Kiến thức &amp; dạng bài trọng tâm</p>
+            <p class="cover__lead">Rà soát khảo sát Quý I · Khung chương trình tháng 10 – 11 · Kiến thức &amp; dạng bài
+              trọng tâm</p>
             <div class="cover__meta">
               <span><i class="fa-solid fa-graduation-cap"></i> Năm học 2026 – 2027</span>
               <span><i class="fa-solid fa-users"></i> Bộ phận Chuyên môn · CLB Toán học MathExpress</span>
@@ -775,7 +2435,8 @@
               <span class="agenda__num">01</span>
               <span class="agenda__text">
                 <h3>Một số tồn đọng trong thời gian qua</h3>
-                <p>Tác phong lên lớp (thiết bị cá nhân, vào lớp muộn, thẻ tên) và 8 tồn đọng trong kỳ khảo sát Quý I: chấm bài, nhập điểm, điểm danh, nhận xét.</p>
+                <p>Tác phong lên lớp (thiết bị cá nhân, vào lớp muộn, thẻ tên) và 8 tồn đọng trong kỳ khảo sát Quý I:
+                  chấm bài, nhập điểm, điểm danh, nhận xét.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -799,7 +2460,8 @@
               <span class="agenda__num">04</span>
               <span class="agenda__text">
                 <h3>Các dạng bài toán &amp; lỗi sai thường gặp</h3>
-                <p>5 dạng: chứng minh nguyên tố cùng nhau · tìm $a, b$ theo ƯCLN – BCNN · toán thực tế BCNN · tìm $x$ (lũy thừa bậc chẵn) · GTLN – GTNN.</p>
+                <p>5 dạng: chứng minh nguyên tố cùng nhau · tìm $a, b$ theo ƯCLN – BCNN · toán thực tế BCNN · tìm $x$
+                  (lũy thừa bậc chẵn) · GTLN – GTNN.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -836,14 +2498,16 @@
                 <span class="ico ico--sm"><i class="fa-solid fa-mobile-screen-button"></i></span>
                 <div>
                   <h4>Dùng điện thoại, laptop cho mục đích cá nhân</h4>
-                  <p>Vẫn còn hiện tượng giáo viên dùng điện thoại, laptop cho việc riêng trong thời gian giảng dạy — gây mất tập trung và ảnh hưởng đến hình ảnh sư phạm.</p>
+                  <p>Vẫn còn hiện tượng giáo viên dùng điện thoại, laptop cho việc riêng trong thời gian giảng dạy — gây
+                    mất tập trung và ảnh hưởng đến hình ảnh sư phạm.</p>
                 </div>
               </div>
               <div class="issue">
                 <span class="ico ico--sm"><i class="fa-solid fa-person-walking-arrow-right"></i></span>
                 <div>
                   <h4>Vào lớp muộn</h4>
-                  <p>Chưa đảm bảo có mặt tại lớp tối thiểu <b>05 phút</b> trước giờ học, ảnh hưởng đến thời lượng giảng dạy và tiến độ kế hoạch bài học.</p>
+                  <p>Chưa đảm bảo có mặt tại lớp tối thiểu <b>05 phút</b> trước giờ học, ảnh hưởng đến thời lượng giảng
+                    dạy và tiến độ kế hoạch bài học.</p>
                   <div class="chips" style="margin-top:8px">
                     <span class="chips__label">Lớp ghi nhận:</span>
                     <span class="chip">6B3-MD</span><span class="chip">6A-MD</span>
@@ -852,7 +2516,8 @@
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-bullhorn"></i>
-                <div><b>Yêu cầu BPCM:</b> Không dùng điện thoại, laptop cho việc riêng trong giờ dạy; chủ động sắp xếp thời gian để có mặt tại lớp trước 05 phút.</div>
+                <div><b>Yêu cầu BPCM:</b> Không dùng điện thoại, laptop cho việc riêng trong giờ dạy; chủ động sắp xếp
+                  thời gian để có mặt tại lớp trước 05 phút.</div>
               </div>
             </article>
 
@@ -866,7 +2531,8 @@
                 <b>11+</b>
                 <span>lớp ghi nhận giáo viên chưa đeo thẻ tên khi lên lớp</span>
               </div>
-              <p style="font-size:var(--fs-sm)">Đeo thẻ tên là quy định chung của CLB nhằm đảm bảo hình ảnh chuyên nghiệp, nhưng BPCM vẫn ghi nhận nhiều giáo viên chưa thực hiện.</p>
+              <p style="font-size:var(--fs-sm)">Đeo thẻ tên là quy định chung của CLB nhằm đảm bảo hình ảnh chuyên
+                nghiệp, nhưng BPCM vẫn ghi nhận nhiều giáo viên chưa thực hiện.</p>
               <div class="chips">
                 <span class="chip">6C1-MD</span><span class="chip">6B4-MD</span><span class="chip">6B1-CG</span>
                 <span class="chip">6A2-CG</span><span class="chip">6A2-LB</span><span class="chip">6C2-LB</span>
@@ -886,7 +2552,8 @@
       <section class="slide" data-section="1" aria-label="1.2 Khảo sát Quý I: chấm thi và nhập điểm">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">01</span>Một số tồn đọng trong thời gian qua <span class="pill">Tồn đọng 1 – 4 / 8</span></div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Một số tồn đọng trong thời gian qua <span
+                class="pill">Tồn đọng 1 – 4 / 8</span></div>
             <h2 class="slide__title"><span class="num">1.2</span> Khảo sát Quý I: chấm thi &amp; nhập điểm</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -900,17 +2567,22 @@
                 <span class="nos" title="Tồn đọng số 1"><span class="no">1</span></span>
               </div>
               <ul class="list">
-                <li><b>Chấm sai thành đúng:</b> lớp <span class="hl">6A1-CG</span> ghi nhận 15 lỗi tương tự ở bài 5a (lớp Nâng cao); lớp <span class="hl">6T3B-Online</span>.</li>
-                <li><b>Chấm đúng thành sai:</b> lớp <span class="hl">6T3B-Online</span> — ảnh hưởng trực tiếp đến điểm số và kết quả đánh giá học sinh.</li>
+                <li><b>Chấm sai thành đúng:</b> lớp <span class="hl">6A1-CG</span> ghi nhận 15 lỗi tương tự ở bài 5a
+                  (lớp Nâng cao); lớp <span class="hl">6T3B-Online</span>.</li>
+                <li><b>Chấm đúng thành sai:</b> lớp <span class="hl">6T3B-Online</span> — ảnh hưởng trực tiếp đến điểm
+                  số và kết quả đánh giá học sinh.</li>
               </ul>
               <div class="callout">
                 <i class="fa-solid fa-clipboard-check"></i>
                 <div><b>Yêu cầu:</b> Đối chiếu kỹ bài làm với đáp án, kiểm tra lại từng bước trước khi cho điểm.</div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/folders/10kE4Hq4gOq7qxaP28brA6LbwkO512cCG" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (1)</a>
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1k-DmCdNkxSfID--rrxab0RVSAkl_ZTyF" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (2)</a>
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1Z4iArtDCZTY2VVFUs88haRE8-MKbIZ5Q" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Đúng → sai</a>
+                <a class="ev" href="https://drive.google.com/drive/folders/10kE4Hq4gOq7qxaP28brA6LbwkO512cCG"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (1)</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1k-DmCdNkxSfID--rrxab0RVSAkl_ZTyF"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (2)</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1Z4iArtDCZTY2VVFUs88haRE8-MKbIZ5Q"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Đúng → sai</a>
               </div>
             </article>
 
@@ -921,15 +2593,19 @@
                 <span class="nos" title="Tồn đọng số 2 và 3"><span class="no">2</span><span class="no">3</span></span>
               </div>
               <ul class="list">
-                <li><b>Lệch điểm:</b> điểm thành phần trên bài thi không khớp với điểm trên phần mềm — lớp <span class="hl">6B3-HD</span> có <b>19 lỗi</b>.</li>
-                <li><b>Nhập thiếu điểm:</b> câu học sinh không làm được bị <b>bỏ trống</b> thay vì nhập <b>0 điểm</b>.</li>
+                <li><b>Lệch điểm:</b> điểm thành phần trên bài thi không khớp với điểm trên phần mềm — lớp <span
+                    class="hl">6B3-HD</span> có <b>19 lỗi</b>.</li>
+                <li><b>Nhập thiếu điểm:</b> câu học sinh không làm được bị <b>bỏ trống</b> thay vì nhập <b>0 điểm</b>.
+                </li>
               </ul>
               <div class="callout">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Đối chiếu bài giấy với phần mềm trước khi chốt điểm; câu không làm nhập <b>0 điểm</b>, không để trống.</div>
+                <div><b>Yêu cầu:</b> Đối chiếu bài giấy với phần mềm trước khi chốt điểm; câu không làm nhập <b>0
+                    điểm</b>, không để trống.</div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/15cEMaThWH8JwdyaOGJCgjH5n04pY95we" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>19 lỗi lệch điểm · 6B3-HD</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/15cEMaThWH8JwdyaOGJCgjH5n04pY95we"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>19 lỗi lệch điểm · 6B3-HD</a>
               </div>
             </article>
 
@@ -939,7 +2615,8 @@
                 <h3>Trễ timeline nhập điểm &amp; nhận xét</h3>
                 <span class="nos" title="Tồn đọng số 4"><span class="no">4</span></span>
               </div>
-              <p>Chưa hoàn thành nhập điểm và nhận xét theo đúng timeline CLB, làm chậm tiến độ tổng hợp và kiểm soát kết quả toàn hệ thống.</p>
+              <p>Chưa hoàn thành nhập điểm và nhận xét theo đúng timeline CLB, làm chậm tiến độ tổng hợp và kiểm soát
+                kết quả toàn hệ thống.</p>
               <div class="chips">
                 <span class="chips__label">Lớp ghi nhận:</span>
                 <span class="chip">6A-MD</span><span class="chip">6A3-MD</span><span class="chip">6A1-HD</span>
@@ -954,7 +2631,9 @@
 
           <div class="banner t-amber">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <div><b class="lead">Quy tắc chấm thi bắt buộc:</b> đối chiếu kỹ từng câu, kiểm tra lại phép tính của học sinh trước khi cho điểm. Không để xảy ra chấm đúng thành sai (hoặc ngược lại), không để lệch điểm giữa bài giấy và phần mềm.</div>
+            <div><b class="lead">Quy tắc chấm thi bắt buộc:</b> đối chiếu kỹ từng câu, kiểm tra lại phép tính của học
+              sinh trước khi cho điểm. Không để xảy ra chấm đúng thành sai (hoặc ngược lại), không để lệch điểm giữa bài
+              giấy và phần mềm.</div>
           </div>
         </div>
       </section>
@@ -963,7 +2642,8 @@
       <section class="slide" data-section="1" aria-label="1.3 Khảo sát Quý I: điểm danh và nhận xét">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">01</span>Một số tồn đọng trong thời gian qua <span class="pill">Tồn đọng 5 – 8 / 8</span></div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Một số tồn đọng trong thời gian qua <span
+                class="pill">Tồn đọng 5 – 8 / 8</span></div>
             <h2 class="slide__title"><span class="num">1.3</span> Khảo sát Quý I: điểm danh &amp; nhận xét</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -977,15 +2657,18 @@
                 <span class="nos" title="Tồn đọng số 5 và 6"><span class="no">5</span><span class="no">6</span></span>
               </div>
               <ul class="list">
-                <li><b>Vắng mặt nhưng vẫn có điểm &amp; nhận xét:</b> lớp <span class="hl">6B1-CG</span> có <b>04 trường hợp</b> học sinh được điểm danh vắng nhưng vẫn được nhập điểm, nhận xét.</li>
-                <li><b>Có bài thi nhưng không có trong file điểm danh:</b> học sinh đã làm bài nhưng không được nhập điểm và nhận xét.</li>
+                <li><b>Vắng mặt nhưng vẫn có điểm &amp; nhận xét:</b> lớp <span class="hl">6B1-CG</span> có <b>04 trường
+                    hợp</b> học sinh được điểm danh vắng nhưng vẫn được nhập điểm, nhận xét.</li>
+                <li><b>Có bài thi nhưng không có trong file điểm danh:</b> học sinh đã làm bài nhưng không được nhập
+                  điểm và nhận xét.</li>
               </ul>
               <div class="callout">
                 <i class="fa-solid fa-clipboard-check"></i>
                 <div><b>Yêu cầu:</b> Đối chiếu danh sách dự thi với file điểm danh trước khi nhập điểm, nhận xét.</div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1aAIqSsfJA4dCtp17yTC7Vsql6Owy0B3m" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B1-CG</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1aAIqSsfJA4dCtp17yTC7Vsql6Owy0B3m"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B1-CG</a>
               </div>
             </article>
 
@@ -995,7 +2678,8 @@
                 <h3>Nhận xét sơ sài, chưa bám tiêu chí CLB</h3>
                 <span class="nos" title="Tồn đọng số 7"><span class="no">7</span></span>
               </div>
-              <p>Nội dung nhận xét chưa đầy đủ, chưa thể hiện rõ tình hình học tập của học sinh. Ghi nhận tại lớp <span class="hl">6B3-CG</span>.</p>
+              <p>Nội dung nhận xét chưa đầy đủ, chưa thể hiện rõ tình hình học tập của học sinh. Ghi nhận tại lớp <span
+                  class="hl">6B3-CG</span>.</p>
               <div>
                 <span class="label">Nhận xét cần thể hiện đủ</span>
                 <div class="checks">
@@ -1006,7 +2690,8 @@
                 </div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1JehZo8AmNSuFkKoxeoXcKGTo5HzcaNg3" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B3-CG</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1JehZo8AmNSuFkKoxeoXcKGTo5HzcaNg3"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B3-CG</a>
               </div>
             </article>
 
@@ -1016,7 +2701,8 @@
                 <h3>Chưa thực hiện điểm danh</h3>
                 <span class="nos" title="Tồn đọng số 8"><span class="no">8</span></span>
               </div>
-              <p>Chưa cập nhật đầy đủ thông tin điểm danh theo quy định, gây khó khăn cho việc theo dõi chuyên cần và tổng hợp dữ liệu lớp.</p>
+              <p>Chưa cập nhật đầy đủ thông tin điểm danh theo quy định, gây khó khăn cho việc theo dõi chuyên cần và
+                tổng hợp dữ liệu lớp.</p>
               <div class="chips">
                 <span class="chips__label">Lớp ghi nhận:</span>
                 <span class="chip">6.4A-LH</span><span class="chip">6A1-HD</span>
@@ -1026,7 +2712,8 @@
                 <div><b>Yêu cầu:</b> Hoàn thành điểm danh ngay trong ca học.</div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1LDnxRt1QOSnLSWSVcCHWx_hOQbR5OhD1" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng chưa điểm danh</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1LDnxRt1QOSnLSWSVcCHWx_hOQbR5OhD1"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng chưa điểm danh</a>
               </div>
             </article>
 
@@ -1098,31 +2785,36 @@
                 <tr class="month m10 t-blue">
                   <td colspan="5">
                     <div class="month__in">
-                      <span><i class="fa-solid fa-calendar"></i>Tháng 10/2026 · Số nguyên tố, ƯCLN &amp; BCNN <em>Buổi 12 – 15</em></span>
+                      <span><i class="fa-solid fa-calendar"></i>Tháng 10/2026 · Số nguyên tố, ƯCLN &amp; BCNN <em>Buổi
+                          12 – 15</em></span>
                       <span class="month__focus">Trọng tâm: phân tích TSNT &amp; toán thực tế</span>
                     </div>
                   </td>
                 </tr>
                 <tr class="m10">
-                  <td class="time">02/10 – 08/10</td><td class="bno">12</td>
+                  <td class="time">02/10 – 08/10</td>
+                  <td class="bno">12</td>
                   <td class="c1">Số nguyên tố – Hợp số (Buổi 1)</td>
                   <td class="c2">Số nguyên tố – Hợp số (Buổi 1)</td>
                   <td class="c3">Luyện tập SNT – HS. Phân tích một số ra thừa số nguyên tố</td>
                 </tr>
                 <tr class="m10">
-                  <td class="time">09/10 – 15/10</td><td class="bno">13</td>
+                  <td class="time">09/10 – 15/10</td>
+                  <td class="bno">13</td>
                   <td class="c1">Số nguyên tố – Hợp số (Buổi 2)</td>
                   <td class="c2">Số nguyên tố – Hợp số (Buổi 2)</td>
                   <td class="c3">Ước chung – ƯCLN</td>
                 </tr>
                 <tr class="m10 is-current">
-                  <td class="time">16/10 – 22/10</td><td class="bno">14</td>
+                  <td class="time">16/10 – 22/10</td>
+                  <td class="bno">14</td>
                   <td class="c1">ƯCLN và BCNN (kèm phân tích một số ra TSNT)</td>
                   <td class="c2">ƯCLN và BCNN (kèm phân tích một số ra TSNT)</td>
                   <td class="c3">Bội chung – BCNN</td>
                 </tr>
                 <tr class="m10">
-                  <td class="time">23/10 – 29/10</td><td class="bno">15</td>
+                  <td class="time">23/10 – 29/10</td>
+                  <td class="bno">15</td>
                   <td class="c1">ƯCLN và BCNN (tiếp)</td>
                   <td class="c2">ƯCLN và BCNN (tiếp)</td>
                   <td class="c3">Ôn tập ước và bội</td>
@@ -1131,37 +2823,44 @@
                 <tr class="month m11 t-indigo">
                   <td colspan="5">
                     <div class="month__in">
-                      <span><i class="fa-solid fa-calendar-check"></i>Tháng 11/2026 · Tập hợp số nguyên $\mathbb{Z}$ &amp; ôn tập <em>Buổi 18 – 22</em></span>
-                      <span class="month__focus">Trọng tâm: phép toán trên $\mathbb{Z}$, quy tắc dấu ngoặc &amp; ôn tập</span>
+                      <span><i class="fa-solid fa-calendar-check"></i>Tháng 11/2026 · Tập hợp số nguyên $\mathbb{Z}$
+                        &amp; ôn tập <em>Buổi 18 – 22</em></span>
+                      <span class="month__focus">Trọng tâm: phép toán trên $\mathbb{Z}$, quy tắc dấu ngoặc &amp; ôn
+                        tập</span>
                     </div>
                   </td>
                 </tr>
                 <tr class="m11">
-                  <td class="time">30/10 – 05/11</td><td class="bno">18</td>
+                  <td class="time">30/10 – 05/11</td>
+                  <td class="bno">18</td>
                   <td class="c1">Số nguyên – Các phép toán trên tập hợp số nguyên</td>
                   <td class="c2">Số nguyên – Các phép toán trên tập hợp số nguyên</td>
                   <td class="c3">Số nguyên – Cộng, trừ số nguyên</td>
                 </tr>
                 <tr class="m11">
-                  <td class="time">06/11 – 12/11</td><td class="bno">19</td>
+                  <td class="time">06/11 – 12/11</td>
+                  <td class="bno">19</td>
                   <td class="c1">Số nguyên – Các phép toán (tiếp)</td>
                   <td class="c2">Số nguyên – Các phép toán (tiếp)</td>
                   <td class="c3">Quy tắc dấu ngoặc</td>
                 </tr>
                 <tr class="m11">
-                  <td class="time">13/11 – 19/11</td><td class="bno">20</td>
+                  <td class="time">13/11 – 19/11</td>
+                  <td class="bno">20</td>
                   <td class="c1">Tính chất chia hết của số nguyên</td>
                   <td class="c2">Tính chất chia hết của số nguyên</td>
                   <td class="c3">Phép nhân và phép lũy thừa của số nguyên</td>
                 </tr>
                 <tr class="m11 is-review">
-                  <td class="time">19/11 – 23/11</td><td class="bno">21</td>
+                  <td class="time">19/11 – 23/11</td>
+                  <td class="bno">21</td>
                   <td class="c1"><i class="fa-solid fa-rotate"></i> Ôn tập tổng hợp</td>
                   <td class="c2"><i class="fa-solid fa-rotate"></i> Ôn tập tổng hợp</td>
                   <td class="c3"><i class="fa-solid fa-rotate"></i> Ôn tập tổng hợp</td>
                 </tr>
                 <tr class="m11">
-                  <td class="time">25/11 – 01/12</td><td class="bno">22</td>
+                  <td class="time">25/11 – 01/12</td>
+                  <td class="bno">22</td>
                   <td class="c1">Số chính phương (Phần 1)</td>
                   <td class="c2">Số chính phương (Phần 1)</td>
                   <td class="c3">Phép chia hết hai số nguyên và quan hệ chia hết trong $\mathbb{Z}$</td>
@@ -1173,11 +2872,13 @@
           <div class="grid g-2" style="gap:14px">
             <div class="callout t-amber">
               <i class="fa-solid fa-lightbulb"></i>
-              <div><b>Trọng tâm tháng 10:</b> phân tích thừa số nguyên tố chuẩn xác, tìm ƯCLN – BCNN, vận dụng vào bài toán thực tế và chứng minh nguyên tố cùng nhau.</div>
+              <div><b>Trọng tâm tháng 10:</b> phân tích thừa số nguyên tố chuẩn xác, tìm ƯCLN – BCNN, vận dụng vào bài
+                toán thực tế và chứng minh nguyên tố cùng nhau.</div>
             </div>
             <div class="callout t-indigo">
               <i class="fa-solid fa-compass"></i>
-              <div><b>Chuyển giao tháng 11:</b> học sinh bắt đầu tiếp cận số âm và tập hợp $\mathbb{Z}$ — chú trọng quy tắc dấu ngoặc và phép trừ (cộng với số đối).</div>
+              <div><b>Chuyển giao tháng 11:</b> học sinh bắt đầu tiếp cận số âm và tập hợp $\mathbb{Z}$ — chú trọng quy
+                tắc dấu ngoặc và phép trừ (cộng với số đối).</div>
             </div>
           </div>
         </div>
@@ -1201,13 +2902,20 @@
               </div>
               <p class="card__sub">Áp dụng cho hai hay nhiều số lớn hơn 1</p>
               <ol class="steps box">
-                <li><div>Phân tích các số ra <b>thừa số nguyên tố</b>.</div></li>
-                <li><div>Chọn ra các thừa số nguyên tố <b>chung</b>.</div></li>
-                <li><div>Lập tích các thừa số đã chọn, mỗi thừa số lấy với <b>số mũ nhỏ nhất</b>.</div></li>
+                <li>
+                  <div>Phân tích các số ra <b>thừa số nguyên tố</b>.</div>
+                </li>
+                <li>
+                  <div>Chọn ra các thừa số nguyên tố <b>chung</b>.</div>
+                </li>
+                <li>
+                  <div>Lập tích các thừa số đã chọn, mỗi thừa số lấy với <b>số mũ nhỏ nhất</b>.</div>
+                </li>
               </ol>
               <div class="box">
                 <span class="label">Định nghĩa</span>
-                ƯCLN của hai hay nhiều số là số lớn nhất trong tập hợp các ước chung của các số đó. Kí hiệu: $\text{ƯCLN}(a, b)$ hoặc $(a, b)$.
+                ƯCLN của hai hay nhiều số là số lớn nhất trong tập hợp các ước chung của các số đó. Kí hiệu:
+                $\text{ƯCLN}(a, b)$ hoặc $(a, b)$.
               </div>
               <div class="box box--soft">
                 <span class="label">Ví dụ</span>
@@ -1215,7 +2923,8 @@
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-lightbulb"></i>
-                <div>Nếu $a, b$ nguyên tố cùng nhau thì $\text{ƯCLN}(a, b) = 1$. Nếu $a \ \vdots \ b$ thì $\text{ƯCLN}(a, b) = b$.</div>
+                <div>Nếu $a, b$ nguyên tố cùng nhau thì $\text{ƯCLN}(a, b) = 1$. Nếu $a \ \vdots \ b$ thì
+                  $\text{ƯCLN}(a, b) = b$.</div>
               </div>
             </article>
 
@@ -1225,14 +2934,19 @@
                 <h3>4 lỗi sai học sinh thường mắc</h3>
               </div>
               <div class="errs">
-                <div class="err"><b>1. Nhầm ước chung với ƯCLN</b>Chưa phân biệt $\text{ƯC}(a, b)$ là một tập hợp, còn $\text{ƯCLN}(a, b)$ là một số.</div>
-                <div class="err"><b>2. Phân tích sai ra thừa số nguyên tố</b>Chia cho hợp số (4, 6, 9…) dẫn đến tìm sai ƯCLN.</div>
-                <div class="err"><b>3. Chọn sai thừa số hoặc số mũ</b>Lấy tất cả các thừa số, hoặc lấy số mũ <i>lớn nhất</i> — thay vì chỉ thừa số chung với số mũ nhỏ nhất.</div>
-                <div class="err"><b>4. Không nhận diện bài toán thực tế</b>Không nhận ra các từ khóa “chia đều”, “nhiều nhất”… để quy về tìm ƯCLN.</div>
+                <div class="err"><b>1. Nhầm ước chung với ƯCLN</b>Chưa phân biệt $\text{ƯC}(a, b)$ là một tập hợp, còn
+                  $\text{ƯCLN}(a, b)$ là một số.</div>
+                <div class="err"><b>2. Phân tích sai ra thừa số nguyên tố</b>Chia cho hợp số (4, 6, 9…) dẫn đến tìm sai
+                  ƯCLN.</div>
+                <div class="err"><b>3. Chọn sai thừa số hoặc số mũ</b>Lấy tất cả các thừa số, hoặc lấy số mũ <i>lớn
+                    nhất</i> — thay vì chỉ thừa số chung với số mũ nhỏ nhất.</div>
+                <div class="err"><b>4. Không nhận diện bài toán thực tế</b>Không nhận ra các từ khóa “chia đều”, “nhiều
+                  nhất”… để quy về tìm ƯCLN.</div>
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-chalkboard-user"></i>
-                <div><b>Lưu ý giảng dạy:</b> hướng dẫn học sinh gạch chân từ khóa đề bài (“chia đều”, “nhiều nhất”) và thử lại kết quả.</div>
+                <div><b>Lưu ý giảng dạy:</b> hướng dẫn học sinh gạch chân từ khóa đề bài (“chia đều”, “nhiều nhất”) và
+                  thử lại kết quả.</div>
               </div>
             </article>
           </div>
@@ -1257,13 +2971,20 @@
               </div>
               <p class="card__sub">Áp dụng cho hai hay nhiều số lớn hơn 1</p>
               <ol class="steps box">
-                <li><div>Phân tích các số ra <b>thừa số nguyên tố</b>.</div></li>
-                <li><div>Chọn ra các thừa số nguyên tố <b>chung và riêng</b>.</div></li>
-                <li><div>Lập tích các thừa số đã chọn, mỗi thừa số lấy với <b>số mũ lớn nhất</b>.</div></li>
+                <li>
+                  <div>Phân tích các số ra <b>thừa số nguyên tố</b>.</div>
+                </li>
+                <li>
+                  <div>Chọn ra các thừa số nguyên tố <b>chung và riêng</b>.</div>
+                </li>
+                <li>
+                  <div>Lập tích các thừa số đã chọn, mỗi thừa số lấy với <b>số mũ lớn nhất</b>.</div>
+                </li>
               </ol>
               <div class="compare">
                 <div class="t-blue"><b>ƯCLN</b><span>Thừa số <b>chung</b><br />Số mũ <b>nhỏ nhất</b></span></div>
-                <div class="t-emerald"><b>BCNN</b><span>Thừa số <b>chung &amp; riêng</b><br />Số mũ <b>lớn nhất</b></span></div>
+                <div class="t-emerald"><b>BCNN</b><span>Thừa số <b>chung &amp; riêng</b><br />Số mũ <b>lớn
+                      nhất</b></span></div>
               </div>
               <div class="box box--soft">
                 <span class="label">Ví dụ</span>
@@ -1271,7 +2992,8 @@
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-lightbulb"></i>
-                <div>Nếu $a \ \vdots \ b$ thì $\text{BCNN}(a, b) = a$. Nếu $a, b$ nguyên tố cùng nhau thì $\text{BCNN}(a, b) = a \cdot b$.</div>
+                <div>Nếu $a \ \vdots \ b$ thì $\text{BCNN}(a, b) = a$. Nếu $a, b$ nguyên tố cùng nhau thì
+                  $\text{BCNN}(a, b) = a \cdot b$.</div>
               </div>
             </article>
 
@@ -1283,12 +3005,10 @@
               <div class="errs">
                 <div class="err"><b>1. Nhầm cách lấy số mũ</b>Lấy số mũ <i>nhỏ nhất</i> như khi tìm ƯCLN.</div>
                 <div class="err"><b>2. Bỏ quên thừa số riêng</b>Chỉ chọn thừa số chung nên tích bị thiếu.</div>
-                <div class="err"><b>3. Không suy ra được bội chung</b>Tìm được BCNN nhưng không suy ra $\text{BC}(a, b) = \text{B}\big(\text{BCNN}(a, b)\big)$.</div>
-                <div class="err"><b>4. Bế tắc với bài toán thực tế</b>Không nhận ra bài toán cần dùng BCNN, lúng túng khi xử lý số dư (thừa / thiếu).</div>
-              </div>
-              <div class="callout mt-auto">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <div><b>Lưu ý giảng dạy:</b> cho học sinh kiểm tra BCNN tìm được phải chia hết cho từng số và $\ge \max(a, b)$.</div>
+                <div class="err"><b>3. Không suy ra được bội chung</b>Tìm được BCNN nhưng không suy ra $\text{BC}(a, b)
+                  = \text{B}\big(\text{BCNN}(a, b)\big)$.</div>
+                <div class="err"><b>4. Bế tắc với bài toán thực tế</b>Không nhận ra bài toán cần dùng BCNN, lúng túng
+                  khi xử lý số dư (thừa / thiếu).</div>
               </div>
             </article>
           </div>
@@ -1315,7 +3035,8 @@
                 <div class="op">
                   <h4><span class="sym">+</span>Phép cộng</h4>
                   <div><b>Cùng dấu:</b> cộng hai phần tự nhiên, giữ nguyên dấu chung.</div>
-                  <div><b>Khác dấu:</b> lấy phần tự nhiên lớn trừ phần tự nhiên nhỏ, giữ dấu của số có phần tự nhiên lớn hơn.</div>
+                  <div><b>Khác dấu:</b> lấy phần tự nhiên lớn trừ phần tự nhiên nhỏ, giữ dấu của số có phần tự nhiên lớn
+                    hơn.</div>
                   <div class="formula">$(-7) + 3 = -4$</div>
                 </div>
                 <div class="op">
@@ -1326,11 +3047,7 @@
                 <div class="op">
                   <h4><span class="sym">×</span>Phép nhân</h4>
                   <div>Cùng dấu → <b class="ok">dương</b>; khác dấu → <b class="bad">âm</b>.</div>
-                  <table class="signs" aria-label="Bảng quy tắc dấu phép nhân">
-                    <tr><th>×</th><th>+</th><th>−</th></tr>
-                    <tr><th>+</th><td class="p">+</td><td class="m">−</td></tr>
-                    <tr><th>−</th><td class="m">−</td><td class="p">+</td></tr>
-                  </table>
+
                 </div>
                 <div class="op">
                   <h4><span class="sym">:</span>Phép chia hết</h4>
@@ -1340,7 +3057,8 @@
               </div>
               <div class="callout t-rose mt-auto">
                 <i class="fa-solid fa-triangle-exclamation"></i>
-                <div><b>Lỗi thường gặp:</b> nhầm dấu kết quả khi cộng hai số khác dấu · quên đổi phép trừ thành cộng số đối · nhầm quy tắc dấu của phép nhân · tính nhẩm nhanh mà không kiểm tra lại.</div>
+                <div><b>Lỗi thường gặp:</b> nhầm dấu kết quả khi cộng hai số khác dấu · quên đổi phép trừ thành cộng số
+                  đối · nhầm quy tắc dấu của phép nhân · tính nhẩm nhanh mà không kiểm tra lại.</div>
               </div>
             </article>
 
@@ -1350,21 +3068,28 @@
                 <h3>Quy tắc dấu ngoặc</h3>
               </div>
               <div class="brk box">
-                <span class="brk__label ok"><i class="fa-solid fa-circle-plus"></i> Dấu “+” đằng trước — giữ nguyên dấu</span>
+                <span class="brk__label ok"><i class="fa-solid fa-circle-plus"></i> Dấu “+” đằng trước — giữ nguyên
+                  dấu</span>
                 <div class="formula">$a + (b - c) = a + b - c$</div>
               </div>
               <div class="brk box">
-                <span class="brk__label bad"><i class="fa-solid fa-circle-minus"></i> Dấu “−” đằng trước — đổi dấu tất cả số hạng</span>
+                <span class="brk__label bad"><i class="fa-solid fa-circle-minus"></i> Dấu “−” đằng trước — đổi dấu tất
+                  cả số hạng</span>
                 <div class="formula">$a - (b - c) = a - b + c$</div>
               </div>
               <div class="errs t-rose">
-                <div class="err"><b>Lỗi 1 · Quên đổi dấu</b>Bỏ ngoặc như dấu “+”: $a - (b - c) \to a - b - c$ <span class="x">✗</span></div>
-                <div class="err"><b>Lỗi 2 · Đổi dấu không đầy đủ</b>$a - (b - c + d) \to a - b + c + d$ <span class="x">✗</span> &nbsp;(đúng: $a - b + c - d$)</div>
-                <div class="err"><b>Lỗi 3 · Bỏ ngoặc đúng nhưng tính sai</b>Cộng, trừ số nguyên sai dấu ở bước tiếp theo.</div>
+                <div class="err"><b>Lỗi 1 · Quên đổi dấu</b>Bỏ ngoặc như dấu “+”: $a - (b - c) \to a - b - c$ <span
+                    class="x">✗</span></div>
+                <div class="err"><b>Lỗi 2 · Đổi dấu không đầy đủ</b>$a - (b - c + d) \to a - b + c + d$ <span
+                    class="x">✗</span> &nbsp;(đúng: $a - b + c - d$)</div>
+                <div class="err"><b>Lỗi 3 · Bỏ ngoặc đúng nhưng tính sai</b>Cộng, trừ số nguyên sai dấu ở bước tiếp
+                  theo.</div>
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-chalkboard-user"></i>
-                <div><b>Ghi nhớ:</b> trước ngoặc dấu trừ — bỏ ngoặc phải đổi dấu <b>tất cả</b> số hạng; trước ngoặc dấu cộng — bỏ ngoặc giữ nguyên dấu.</div>
+                <div><b>Ghi nhớ:</b> trước ngoặc dấu trừ "—" bỏ ngoặc phải <b>đổi dấu tất cả</b> số hạng; trước ngoặc
+                  dấu
+                  cộng "+" bỏ ngoặc <b>giữ nguyên dấu</b>.</div>
               </div>
             </article>
           </div>
@@ -1388,20 +3113,22 @@
                 <h3>Phương pháp 5 bước</h3>
               </div>
               <ol class="steps box">
-                <li><div>Gọi $d = \text{ƯCLN}(A, B)$ với $d \in \mathbb{N}^*$.</div></li>
-                <li><div>Suy ra $A \ \vdots \ d$ và $B \ \vdots \ d$.</div></li>
-                <li><div>Dùng tính chất chia hết của tổng, hiệu: $(mA - kB) \ \vdots \ d$ — chọn $m, k$ để khử $n$.</div></li>
-                <li><div>Chứng minh $1 \ \vdots \ d$, suy ra $d = 1$.</div></li>
-                <li><div>Kết luận $A$ và $B$ là hai số nguyên tố cùng nhau.</div></li>
+                <li>
+                  <div>Gọi $d = \text{ƯCLN}(A, B)$ với $d \in \mathbb{N}^*$.</div>
+                </li>
+                <li>
+                  <div>Suy ra $A \ \vdots \ d$ và $B \ \vdots \ d$.</div>
+                </li>
+                <li>
+                  <div>Dùng tính chất chia hết của tổng, hiệu: $(mA - kB) \ \vdots \ d$ — chọn $m, k$ để khử $n$.</div>
+                </li>
+                <li>
+                  <div>Chứng minh $1 \ \vdots \ d$, suy ra $d = 1$.</div>
+                </li>
+                <li>
+                  <div>Kết luận $A$ và $B$ là hai số nguyên tố cùng nhau.</div>
+                </li>
               </ol>
-              <div class="box box--soft">
-                <span class="label">Mẹo chọn hệ số</span>
-                Với $A = an + b$ và $B = cn + e$, nhân chéo hệ số của $n$: $\ cA - aB = cb - ae$ — không còn $n$.
-              </div>
-              <div class="callout mt-auto">
-                <i class="fa-solid fa-circle-check"></i>
-                <div><b>Quy chuẩn trình bày:</b> viết đủ 5 bước; đặt hiệu trong ngoặc vuông $[A - B]$ trước khi rút gọn.</div>
-              </div>
             </article>
 
             <div class="stack">
@@ -1414,7 +3141,8 @@
                 <div class="sol">
                   <div class="ln">Gọi $d = \text{ƯCLN}(n + 1;\, n + 2)$ $\ (d \in \mathbb{N}^*)$.</div>
                   <div class="ln">Do đó $(n + 1) \ \vdots \ d$ và $(n + 2) \ \vdots \ d$.</div>
-                  <div class="ln">Suy ra $[(n + 2) - (n + 1)] \ \vdots \ d$ $\ \Rightarrow\ 1 \ \vdots \ d$ $\ \Rightarrow\ d = 1$.</div>
+                  <div class="ln">Suy ra $[(n + 2) - (n + 1)] \ \vdots \ d$ $\ \Rightarrow\ 1 \ \vdots \ d$ $\
+                    \Rightarrow\ d = 1$.</div>
                   <div class="ln ok">Vậy $n + 1$ và $n + 2$ là hai số nguyên tố cùng nhau.</div>
                 </div>
               </div>
@@ -1425,7 +3153,7 @@
                 </div>
                 <ul class="list" style="font-size:var(--fs-sm)">
                   <li>Thiếu điều kiện $d \in \mathbb{N}^*$ khi gọi ƯCLN.</li>
-                  <li>Trừ sai khi bỏ ngoặc: $[(n + 2) - (n + 1)] \to n + 2 - n + 1 = 3$ <span class="bad">✗</span></li>
+                  <li>Trừ sai: $[(n + 2) - (n + 1)] \to n + 2 - n + 1 = 3$ <span class="bad">✗</span></li>
                   <li>Tìm ra $d = 1$ rồi dừng, thiếu câu kết luận cuối cùng.</li>
                 </ul>
               </div>
@@ -1454,10 +3182,12 @@
                 <span class="label">Hướng dẫn</span>
                 <div class="sol">
                   <div class="ln">Gọi $d = \text{ƯCLN}(3n + 1;\, n + 2)$ $\ (d \in \mathbb{N}^*)$.</div>
-                  <div class="ln">Ta có $\begin{cases} (3n + 1) \ \vdots \ d \\ (n + 2) \ \vdots \ d \end{cases} \Rightarrow \begin{cases} (3n + 1) \ \vdots \ d \\ (3n + 6) \ \vdots \ d \end{cases}$</div>
-                  <div class="ln">Suy ra $[(3n + 6) - (3n + 1)] \ \vdots \ d$ $\ \Rightarrow\ 5 \ \vdots \ d$ $\ \Rightarrow\ d \in \{1;\, 5\}$.</div>
-                  <div class="ln note">Nếu $(n + 2) \ \vdots \ 5$ thì $3n + 1 = 3(n + 2) - 5$ cũng chia hết cho 5, khi đó $d = 5$.</div>
-                  <div class="ln">Để hai số nguyên tố cùng nhau thì $d = 1$, tức là $(n + 2) \not\vdots \ 5$ $\ \Rightarrow\ n + 2 \ne 5k$ $\ \Rightarrow\ n \ne 5k - 2$ $\ (k \in \mathbb{N}^*)$.</div>
+                  <div class="ln">Ta có $\begin{cases} (3n + 1) \ \vdots \ d \\ (n + 2) \ \vdots \ d \end{cases}
+                    \Rightarrow \begin{cases} (3n + 1) \ \vdots \ d \\ (3n + 6) \ \vdots \ d \end{cases}$</div>
+                  <div class="ln">Suy ra $[(3n + 6) - (3n + 1)] \ \vdots \ d$ $\ \Rightarrow\ 5 \ \vdots \ d$ $\
+                    \Rightarrow\ d \in \{1;\, 5\}$.</div>
+                  <div class="ln">Để hai số nguyên tố cùng nhau thì $d = 1$, tức là $(n + 2) \not\vdots \ 5$ $\
+                    \Rightarrow\ n + 2 \ne 5k$ $\ \Rightarrow\ n \ne 5k - 2$ $\ (k \in \mathbb{N}^*)$.</div>
                 </div>
               </div>
               <div class="answer mt-auto">
@@ -1472,79 +3202,21 @@
                 <h3>4 bẫy sai lầm của học sinh</h3>
               </div>
               <div class="errs">
-                <div class="err"><b>1. Kết luận vội $n \ne 5$</b>Thấy $d \in \{1;\, 5\}$ liền kết luận $n \ne 5$ — nhầm giá trị của $d$ với giá trị của $n$.</div>
-                <div class="err"><b>2. Không biết cách khử $n$</b>Không nhận ra cần nhân 3 vào $(n + 2)$ để được $3n + 6$, triệt tiêu $3n$.</div>
-                <div class="err"><b>3. Sai dấu khi bỏ ngoặc</b>Viết $[(3n + 6) - (3n + 1)]$ thành $3n + 6 - 3n + 1 = 7$ <span class="x">✗</span></div>
+                <div class="err"><b>1. Kết luận vội $n \ne 5$</b>Thấy $d \in \{1;\, 5\}$ liền kết luận $n \ne 5$ — nhầm
+                  giá trị của $d$ với giá trị của $n$.</div>
+                <div class="err"><b>2. Không biết cách khử $n$</b>Không nhận ra cần nhân 3 vào $(n + 2)$ để được $3n +
+                  6$, triệt tiêu $3n$.</div>
+                <div class="err"><b>3. Sai dấu</b>Viết $[(3n + 6) - (3n + 1)]$ thành $3n + 6 - 3n + 1 = 7$
+                  <span class="x">✗</span>
+                </div>
                 <div class="err"><b>4. Thiếu điều kiện của $d$</b>Không ghi $d \in \mathbb{N}^*$ khi gọi ƯCLN.</div>
               </div>
-              <div class="callout mt-auto">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <div><b>Khắc sâu:</b> phân biệt ước chung $d$ với điều kiện của biến $n$ — muốn $d = 1$ thì $n + 2$ không được là bội của 5.</div>
-              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ==================== 4.3 DẠNG 2: TÌM a, b ==================== -->
-      <section class="slide" data-section="4" aria-label="4.3 Dạng 2: tìm hai số biết ƯCLN và BCNN">
-        <header class="slide__head">
-          <div>
-            <div class="eyebrow"><span class="eyebrow__num">04</span>Các dạng bài toán &amp; lỗi sai thường gặp</div>
-            <h2 class="slide__title"><span class="num">4.3</span> Dạng 2 · Tìm hai số $a, b$ biết ƯCLN, BCNN</h2>
-          </div>
-          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
-        </header>
-        <div class="slide__body">
-          <div class="banner t-blue">
-            <i class="fa-solid fa-lightbulb"></i>
-            <div>
-              <b class="lead">Kiến thức cần nhớ:</b> Nếu $\text{ƯCLN}(a, b) = d$ thì $a = dx,\ b = dy$ với $\text{ƯCLN}(x, y) = 1$. Khi đó $\text{BCNN}(a, b) = dxy$ và
-              $\ \text{ƯCLN}(a, b) \cdot \text{BCNN}(a, b) = a \cdot b$.
-              <span style="color:var(--muted);font-size:var(--fs-sm)">(GV chứng minh công thức trước khi cho học sinh áp dụng.)</span>
-            </div>
-          </div>
 
-          <div class="grid g-2">
-            <article class="card tint t-blue">
-              <div class="box box--soft t-amber">
-                <span class="label">Ví dụ 2a</span>
-                Tìm hai số tự nhiên $a, b$ biết $a + b = 128$ và $\text{ƯCLN}(a, b) = 16$.
-              </div>
-              <div class="sol">
-                <div class="ln">Vì $\text{ƯCLN}(a, b) = 16$ nên $a = 16x,\ b = 16y$ với $\text{ƯCLN}(x, y) = 1$.</div>
-                <div class="ln">$16x + 16y = 128$ $\ \Rightarrow\ x + y = 8$.</div>
-                <div class="ln">Vì $\text{ƯCLN}(x, y) = 1$ nên $(x; y) \in \{(1; 7),\ (3; 5),\ (5; 3),\ (7; 1)\}$.</div>
-              </div>
-              <div class="answer mt-auto">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>$(a; b) \in \{(16; 112),\ (48; 80),\ (80; 48),\ (112; 16)\}$</span>
-              </div>
-            </article>
-
-            <article class="card tint t-blue">
-              <div class="box box--soft t-amber">
-                <span class="label">Ví dụ 2b</span>
-                Tìm hai số tự nhiên $a, b$ biết $a \cdot b = 1200$ và $\text{BCNN}(a, b) = 240$.
-              </div>
-              <div class="sol">
-                <div class="ln">$\text{ƯCLN}(a, b) = a \cdot b : \text{BCNN}(a, b) = 1200 : 240 = 5$.</div>
-                <div class="ln">Đặt $a = 5x,\ b = 5y$ với $\text{ƯCLN}(x, y) = 1$ $\ \Rightarrow\ 25xy = 1200$ $\ \Rightarrow\ xy = 48 = 2^4 \cdot 3$.</div>
-                <div class="ln">Vì $\text{ƯCLN}(x, y) = 1$ nên $(x; y) \in \{(1; 48),\ (3; 16),\ (16; 3),\ (48; 1)\}$.</div>
-              </div>
-              <div class="answer mt-auto">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>$(a; b) \in \{(5; 240),\ (15; 80),\ (80; 15),\ (240; 5)\}$</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="banner t-rose">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <div><b class="lead">Lưu ý khi chữa bài:</b> bắt buộc lọc điều kiện $\text{ƯCLN}(x, y) = 1$ — loại $(2; 6), (4; 4)$ ở câu a và $(2; 24), (4; 12), (6; 8)$ ở câu b · đề không cho thứ tự $a, b$ thì liệt kê đủ các cặp hoán vị · thử lại ƯCLN, BCNN của từng cặp tìm được.</div>
-          </div>
-        </div>
-      </section>
 
       <!-- ==================== 4.4 DẠNG 3: TOÁN THỰC TẾ BCNN ==================== -->
       <section class="slide" data-section="4" aria-label="4.4 Dạng 3: bài toán thực tế BCNN">
@@ -1558,7 +3230,9 @@
         <div class="slide__body">
           <div class="banner t-amber">
             <i class="fa-solid fa-egg"></i>
-            <div><b class="lead">Bài toán.</b> Một nông trại có ít hơn 250 quả trứng. Nếu xếp trứng vào các khay 8 quả, 10 quả hoặc 12 quả thì đều <b>thừa 5 quả</b>. Còn nếu xếp vào khay 7 quả thì <b>vừa đủ</b>. Hỏi nông trại có bao nhiêu quả trứng?</div>
+            <div><b class="lead">Bài toán.</b> Một nông trại có ít hơn 250 quả trứng. Nếu xếp trứng vào các khay 8 quả,
+              10 quả hoặc 12 quả thì đều <b>thừa 5 quả</b>. Còn nếu xếp vào khay 7 quả thì <b>vừa đủ</b>. Hỏi nông trại
+              có bao nhiêu quả trứng?</div>
           </div>
 
           <div class="grid g-55-45">
@@ -1568,10 +3242,13 @@
                 <h3>Lời giải mẫu</h3>
               </div>
               <div class="sol box">
-                <div class="ln">Gọi số quả trứng là $x$ $\ (x \in \mathbb{N}^*,\ x &lt; 250)$.</div>
-                <div class="ln">Xếp vào khay 8, 10, 12 quả đều thừa 5 quả nên $(x - 5) \ \vdots \ 8$; $\ (x - 5) \ \vdots \ 10$; $\ (x - 5) \ \vdots \ 12$ $\ \Rightarrow\ (x - 5) \in \text{BC}(8, 10, 12)$.</div>
-                <div class="ln">$8 = 2^3$; $\ 10 = 2 \cdot 5$; $\ 12 = 2^2 \cdot 3$ $\ \Rightarrow\ \text{BCNN}(8, 10, 12) = 2^3 \cdot 3 \cdot 5 = 120$.</div>
-                <div class="ln">$(x - 5) \in \text{B}(120) = \{0;\, 120;\, 240;\, 360;\, \dots\}$ $\ \Rightarrow\ x \in \{5;\, 125;\, 245;\, 365;\, \dots\}$.</div>
+                <div class="ln">Gọi số trứng là $x$ (quả) $\ (x \in \mathbb{N}^*,\ x &lt; 250)$.</div>
+                <div class="ln">Xếp vào khay 8, 10, 12 quả đều thừa 5 quả nên $(x - 5) \ \vdots \ 8$; $\ (x - 5) \
+                  \vdots \ 10$; $\ (x - 5) \ \vdots \ 12$ $\ \Rightarrow\ (x - 5) \in \text{BC}(8, 10, 12)$.</div>
+                <div class="ln">$8 = 2^3$; $\ 10 = 2 \cdot 5$; $\ 12 = 2^2 \cdot 3$ $\ \Rightarrow\ \text{BCNN}(8, 10,
+                  12) = 2^3 \cdot 3 \cdot 5 = 120$.</div>
+                <div class="ln">$(x - 5) \in \text{B}(120) = \{0;\, 120;\, 240;\, 360;\, \dots\}$ $\ \Rightarrow\ x \in
+                  \{5;\, 125;\, 245;\, 365;\, \dots\}$.</div>
                 <div class="ln">Vì $x &lt; 250$ và $x \ \vdots \ 7$ (xếp khay 7 quả vừa đủ) nên $x = 245$.</div>
               </div>
               <div class="answer mt-auto">
@@ -1620,7 +3297,9 @@
         <div class="slide__body">
           <div class="banner t-blue">
             <i class="fa-solid fa-lightbulb"></i>
-            <div><b class="lead">Bản chất:</b> với mọi $a \in \mathbb{Z}$ và $k \in \mathbb{N}^*$, ta có $a^{2k} = (-a)^{2k}$. Vì vậy phương trình $A^2 = a^2\ (a &gt; 0)$ luôn có <b>2 trường hợp</b> đối nhau: $A = a$ hoặc $A = -a$.</div>
+            <div><b class="lead">Bản chất:</b> với $A^2 = a^2\ (a &gt; 0)$ luôn có <b>2 trường hợp</b> đối nhau: $A = a$
+              hoặc
+              $A = -a$.</div>
           </div>
 
           <div class="grid g-2">
@@ -1655,15 +3334,18 @@
                 <span class="ico"><i class="fa-solid fa-triangle-exclamation"></i></span>
                 <h3>Lỗi trọng tâm: bỏ sót trường hợp âm</h3>
               </div>
-              <p>Học sinh hầu như chỉ xét $2x - 3 = 7 \Rightarrow x = 5$, bỏ quên hoàn toàn trường hợp $(-7)^2 = 49$.</p>
+              <p>Học sinh hầu như chỉ xét $2x - 3 = 7 \Rightarrow x = 5$, bỏ quên hoàn toàn trường hợp $(-7)^2 = 49$.
+              </p>
               <div class="box t-amber">
                 <span class="label">Quy tắc bắt buộc phải khắc sâu</span>
-                <p style="margin-bottom:8px">Khi $A^2 = a^2$ với $a &gt; 0$, trong $\mathbb{Z}$ luôn có 2 trường hợp:</p>
+                <p style="margin-bottom:8px">Khi $A^2 = a^2$ với $a &gt; 0$, trong $\mathbb{Z}$ luôn có 2 trường hợp:
+                </p>
                 <div class="formula" style="font-size:22px;gap:14px">$A = a$ <span class="or">hoặc</span> $A = -a$</div>
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-chalkboard-user"></i>
-                <div><b>Yêu cầu:</b> học sinh trình bày rõ 2 trường hợp; giáo viên nhấn mạnh lỗi này trong mọi buổi chữa đề khảo sát.</div>
+                <div><b>Yêu cầu:</b> học sinh trình bày rõ 2 trường hợp; giáo viên nhấn mạnh lỗi này trong mọi buổi chữa
+                  đề khảo sát.</div>
               </div>
             </article>
           </div>
@@ -1675,62 +3357,74 @@
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">04</span>Các dạng bài toán &amp; lỗi sai thường gặp</div>
-            <h2 class="slide__title"><span class="num">4.6</span> Dạng 5 · Tìm GTLN &amp; GTNN của biểu thức</h2>
+            <h2 class="slide__title"><span class="num">4.6</span> Dạng 5 · Tìm GTLN &amp; GTNN</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
         <div class="slide__body">
-          <div class="banner t-blue" style="flex-direction:column;gap:12px">
-            <div style="display:flex;align-items:center;gap:12px">
-              <i class="fa-solid fa-star" style="color:var(--brand-orange);font-size:20px"></i>
-              <div><b class="lead">Nguyên lý:</b> lũy thừa bậc chẵn của một số nguyên luôn không âm — $[A(x)]^2 \ge 0$ với mọi $x$.</div>
-            </div>
-            <div class="grid g-3" style="gap:12px;width:100%">
-              <div class="box"><span class="label">Bước 1 · Đánh giá</span>Từ $[A(x)]^2 \ge 0$ suy ra $F(x) \ge k$ (tìm GTNN) hoặc $G(x) \le k$ (tìm GTLN).</div>
-              <div class="box"><span class="label">Bước 2 · Tìm dấu “=”</span>Dấu “=” xảy ra khi $A(x) = 0$ hay $x = x_0$.</div>
-              <div class="box"><span class="label">Bước 3 · Kết luận</span>Nêu GTNN / GTLN và giá trị tương ứng của biến.</div>
-            </div>
+          <div class="banner t-blue" style="padding:10px 16px">
+            <i class="fa-solid fa-star" style="color:var(--brand-orange)"></i>
+            <div><b class="lead">Lưu ý:</b> Lũy thừa chẵn của một số nguyên luôn không âm.</div>
           </div>
 
           <div class="grid g-2">
             <article class="card tint t-emerald">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-arrow-down"></i></span>
-                <h3>Tìm GTNN</h3>
-                <span class="badge">$F(x) = [A(x)]^2 + k \ge k$</span>
+                <h3>Dạng bài tìm GTNN</h3>
               </div>
-              <div class="box">
-                <span class="label">Ví dụ · Tìm GTNN của $A = x^2 + 2$</span>
+              <div style="font-size:var(--fs-sm)">
+                <div><b><u>Bước 1</u>:</b> Xét $F(x) = [A(x)]^2 + k$ ($k$ là hằng số)</div>
+                <div>Ta có $[A(x)]^2 \ge 0$ với mọi $x$ nên $[A(x)]^2 + k \ge k$ hay $F(x) \ge k$.</div>
+                <div class="mt-2"><b><u>Bước 2</u>:</b> Dấu "=" xảy ra khi $A(x) = 0$ hay $x = x_0$</div>
+                <div class="mt-2"><b><u>Bước 3</u>:</b> Vậy GTNN của $F(x) = k$ khi $x = x_0$.</div>
+              </div>
+              <div class="box mt-auto">
+                <span class="label">a) Ví dụ: Tìm giá trị nhỏ nhất của biểu thức sau $A = x^2 + 2$</span>
                 <div class="sol">
-                  <div class="ln">Vì $x^2 \ge 0$ với mọi $x$ nên $A = x^2 + 2 \ge 2$.</div>
-                  <div class="ln">Dấu “=” xảy ra khi $x^2 = 0$ hay $x = 0$.</div>
-                  <div class="ln ok">Vậy GTNN của $A$ là $2$, khi $x = 0$.</div>
+                  <div><b><u>Hướng dẫn</u></b></div>
+                  <div class="ln">+ <b>Bước 1:</b> Ta có: $x^2 \ge 0$ với mọi $x$<br>Suy ra $x^2 + 2 \ge 2$ hay $A \ge
+                    2$</div>
+                  <div class="ln">+ <b>Bước 2:</b> Dấu "=" xảy ra khi $x = 0$ (TM).</div>
+                  <div class="ln ok">+ <b>Bước 3:</b> Vậy GTNN của $A$ là $2$ khi $x = 0$</div>
                 </div>
               </div>
-              <div class="callout mt-auto"><i class="fa-solid fa-lightbulb"></i><div>Hệ số trước bình phương <b>dương</b> → tìm <b>GTNN</b>.</div></div>
             </article>
 
             <article class="card tint t-rose">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-arrow-up"></i></span>
-                <h3>Tìm GTLN</h3>
-                <span class="badge">$G(x) = -[A(x)]^2 + k \le k$</span>
+                <h3>Dạng bài tìm GTLN</h3>
               </div>
-              <div class="box">
-                <span class="label">Ví dụ · Tìm GTLN của $M = 1 - x^2$</span>
+              <div style="font-size:var(--fs-sm)">
+                <div><b><u>Bước 1</u>:</b> Xét $G(x) = -[A(x)]^2 + k$ ($k$ là hằng số)</div>
+                <div>Ta có $-[A(x)]^2 \le 0$ với mọi $x$ nên $-[A(x)]^2 + k \le k$ hay $G(x) \le k$.</div>
+                <div class="mt-2"><b><u>Bước 2</u>:</b> Dấu "=" xảy ra khi $A(x) = 0$ hay $x = x_0$</div>
+                <div class="mt-2"><b><u>Bước 3</u>:</b> Vậy GTLN của $G(x) = k$ khi $x = x_0$.</div>
+              </div>
+              <div class="box mt-auto">
+                <span class="label">b) Ví dụ: Tìm giá trị lớn nhất của biểu thức sau $M = 1 - x^2$</span>
                 <div class="sol">
-                  <div class="ln">Vì $x^2 \ge 0$ nên $-x^2 \le 0$, suy ra $M = 1 - x^2 \le 1$.</div>
-                  <div class="ln">Dấu “=” xảy ra khi $x^2 = 0$ hay $x = 0$.</div>
-                  <div class="ln ok">Vậy GTLN của $M$ là $1$, khi $x = 0$.</div>
+                  <div><b><u>Hướng dẫn</u></b></div>
+                  <div class="ln">+ <b>Bước 1:</b> Ta có: $x^2 \ge 0$ với mọi $x$.<br>Suy ra $-x^2 \le 0$ hay $1 - x^2
+                    \le 1$. Hay $M \le 1$</div>
+                  <div class="ln">+ <b>Bước 2:</b> Dấu "=" xảy ra khi $x^2 = 0 \Rightarrow x = 0$ (thỏa mãn)</div>
+                  <div class="ln ok">+ <b>Bước 3:</b> Vậy GTLN của $M$ là $1$ khi $x = 0$</div>
                 </div>
               </div>
-              <div class="callout mt-auto"><i class="fa-solid fa-lightbulb"></i><div>Hệ số trước bình phương <b>âm</b> → tìm <b>GTLN</b>.</div></div>
             </article>
           </div>
 
           <div class="banner t-amber" style="padding:12px 18px">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <div><b class="lead">Lỗi sai thường gặp:</b> không phân biệt dạng $[A(x)]^2 + k \ge k$ (GTNN) với $-[A(x)]^2 + k \le k$ (GTLN) · không nhận ra $-[A(x)]^2 \le 0$ · không tìm điều kiện để dấu “=” xảy ra.</div>
+            <div>
+              <b class="lead">Lỗi sai thường gặp:</b>
+              <ul class="list" style="margin-top:6px;font-size:var(--fs-sm)">
+                <li>Không phân biệt được dạng $[A(x)]^2 + k \ge k$ tìm GTNN, $-[A(x)]^2 + k \le k$ tìm GTLN</li>
+                <li>Nhầm dấu khi có dấu "-" trước bình phương: không nhận ra $-[A(x)]^2 \le 0$</li>
+                <li>Không tìm điều kiện để xảy ra dấu "="</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -1747,41 +3441,61 @@
         <div class="slide__body">
           <div class="acts">
             <article class="act t-rose">
-              <div class="act__top"><span class="ico"><i class="fa-solid fa-user-tie"></i></span><h3>Tác phong sư phạm</h3><span class="act__n">01</span></div>
-              <p>Đeo thẻ tên suốt ca dạy · có mặt tại lớp trước 05 phút · không dùng điện thoại, laptop cho việc riêng trong giờ dạy.</p>
+              <div class="act__top"><span class="ico"><i class="fa-solid fa-user-tie"></i></span>
+                <h3>Tác phong sư phạm</h3><span class="act__n">01</span>
+              </div>
+              <p>Đeo thẻ tên suốt ca dạy · có mặt tại lớp trước 05 phút · không dùng điện thoại, laptop cho việc riêng
+                trong giờ dạy.</p>
               <span class="badge"><i class="fa-solid fa-shield-halved"></i>Kỷ luật</span>
             </article>
             <article class="act t-orange">
-              <div class="act__top"><span class="ico"><i class="fa-solid fa-book-open-reader"></i></span><h3>Chuẩn bị bài dạy</h3><span class="act__n">02</span></div>
-              <p>Nghiên cứu kỹ giáo án, giải trước 100% bài tập trong phiếu, bám sát khung chương trình; dự kiến trước các bẫy sai lầm của học sinh.</p>
+              <div class="act__top"><span class="ico"><i class="fa-solid fa-book-open-reader"></i></span>
+                <h3>Chuẩn bị bài dạy</h3><span class="act__n">02</span>
+              </div>
+              <p>Nghiên cứu kỹ giáo án, giải trước 100% bài tập trong phiếu, bám sát khung chương trình; dự kiến trước
+                các bẫy sai lầm của học sinh.</p>
               <span class="badge"><i class="fa-solid fa-book"></i>100% phiếu</span>
             </article>
             <article class="act t-amber">
-              <div class="act__top"><span class="ico"><i class="fa-solid fa-square-check"></i></span><h3>Chuẩn hóa chấm thi</h3><span class="act__n">03</span></div>
-              <p>Chấm chính xác từng bước, không chấm sai thành đúng hoặc ngược lại; nhập đủ điểm thành phần, câu không làm nhập 0 điểm.</p>
+              <div class="act__top"><span class="ico"><i class="fa-solid fa-square-check"></i></span>
+                <h3>Chuẩn hóa chấm thi</h3><span class="act__n">03</span>
+              </div>
+              <p>Chấm chính xác từng bước, không chấm sai thành đúng hoặc ngược lại; nhập đủ điểm thành phần, câu không
+                làm nhập 0 điểm.</p>
               <span class="badge"><i class="fa-solid fa-pen-ruler"></i>Chính xác</span>
             </article>
             <article class="act t-emerald">
-              <div class="act__top"><span class="ico"><i class="fa-solid fa-calendar-check"></i></span><h3>Điểm danh &amp; timeline</h3><span class="act__n">04</span></div>
-              <p>Điểm danh ngay trong ca học; tick vắng cho HS đã nghỉ, ghi chú HSM; đối chiếu danh sách thi; nhập điểm, nhận xét đúng timeline.</p>
+              <div class="act__top"><span class="ico"><i class="fa-solid fa-calendar-check"></i></span>
+                <h3>Điểm danh &amp; timeline</h3><span class="act__n">04</span>
+              </div>
+              <p>Điểm danh ngay trong ca học; tick vắng cho HS đã nghỉ, ghi chú HSM; đối chiếu danh sách thi; nhập điểm,
+                nhận xét đúng timeline.</p>
               <span class="badge"><i class="fa-solid fa-clock"></i>Đúng hạn</span>
             </article>
             <article class="act t-blue">
-              <div class="act__top"><span class="ico"><i class="fa-solid fa-comment-dots"></i></span><h3>Nhận xét sâu sát</h3><span class="act__n">05</span></div>
-              <p>Bám sát tiêu chí CLB: tình hình học tập, mức độ nắm bắt kiến thức, những điểm làm tốt và nội dung cần cải thiện.</p>
+              <div class="act__top"><span class="ico"><i class="fa-solid fa-comment-dots"></i></span>
+                <h3>Nhận xét sâu sát</h3><span class="act__n">05</span>
+              </div>
+              <p>Bám sát tiêu chí CLB: tình hình học tập, mức độ nắm bắt kiến thức, những điểm làm tốt và nội dung cần
+                cải thiện.</p>
               <span class="badge"><i class="fa-solid fa-comments"></i>Đủ tiêu chí</span>
             </article>
             <article class="act t-indigo">
-              <div class="act__top"><span class="ico"><i class="fa-solid fa-bullseye"></i></span><h3>Rèn kỹ 5 dạng bài trọng tâm</h3><span class="act__n">06</span></div>
-              <p>Nguyên tố cùng nhau · tìm $a, b$ theo ƯCLN – BCNN · toán thực tế BCNN · tìm $x$ bậc chẵn · GTLN – GTNN; khắc sâu bẫy dấu ngoặc và xét đủ 2 trường hợp.</p>
+              <div class="act__top"><span class="ico"><i class="fa-solid fa-bullseye"></i></span>
+                <h3>Rèn kỹ 5 dạng bài trọng tâm</h3><span class="act__n">06</span>
+              </div>
+              <p>Nguyên tố cùng nhau · tìm $a, b$ theo ƯCLN – BCNN · toán thực tế BCNN · tìm $x$ bậc chẵn · GTLN – GTNN;
+                khắc sâu bẫy dấu ngoặc và xét đủ 2 trường hợp.</p>
               <span class="badge"><i class="fa-solid fa-bullseye"></i>5 dạng bài</span>
             </article>
           </div>
 
           <div class="banner t-indigo" style="align-items:center">
             <i class="fa-solid fa-comments"></i>
-            <div style="flex:1"><b class="lead">Góc thảo luận &amp; góp ý:</b> mời thầy cô phản ánh khó khăn thực tế khi giảng dạy tại các cơ sở và chia sẻ giải pháp hỗ trợ học sinh.</div>
-            <span class="badge" style="background:#fff;border:1px solid var(--c200);font-size:15px;padding:8px 14px"><i class="fa-solid fa-microphone"></i>Ý kiến của thầy cô</span>
+            <div style="flex:1"><b class="lead">Góc thảo luận &amp; góp ý:</b> mời thầy cô phản ánh khó khăn thực tế khi
+              giảng dạy tại các cơ sở và chia sẻ giải pháp hỗ trợ học sinh.</div>
+            <span class="badge" style="background:#fff;border:1px solid var(--c200);font-size:15px;padding:8px 14px"><i
+                class="fa-solid fa-microphone"></i>Ý kiến của thầy cô</span>
           </div>
         </div>
       </section>
@@ -1789,7 +3503,8 @@
       <!-- ==================== LỜI KẾT ==================== -->
       <section class="slide slide--end slide--bleed" data-section="end" aria-label="Lời cảm ơn">
         <div class="end">
-          <img class="end__logo" src="../../../logo_white.svg" alt="MathExpress" data-dark="1" onerror="logoFallback(this)" />
+          <img class="end__logo" src="../../../logo_white.svg" alt="MathExpress" data-dark="1"
+            onerror="logoFallback(this)" />
           <h2>Cảm ơn quý thầy cô!</h2>
           <div class="end__bar"></div>
           <p class="end__wish">Kính chúc quý thầy cô một tuần giảng dạy nhiều năng lượng và hiệu quả!</p>
@@ -1806,12 +3521,16 @@
 
   <!-- Thanh điều khiển (tự ẩn khi không di chuột) -->
   <nav class="nav" id="slideNav" aria-label="Điều hướng slide">
-    <button type="button" id="prevBtn" title="Slide trước (←)" aria-label="Slide trước"><i class="fa-solid fa-chevron-left"></i></button>
+    <button type="button" id="prevBtn" title="Slide trước (←)" aria-label="Slide trước"><i
+        class="fa-solid fa-chevron-left"></i></button>
     <span class="nav__count" id="slideCounter" aria-live="polite">1 / 17</span>
-    <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→ / Space)" aria-label="Slide sau"><i class="fa-solid fa-chevron-right"></i></button>
+    <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→ / Space)" aria-label="Slide sau"><i
+        class="fa-solid fa-chevron-right"></i></button>
     <span class="nav__sep"></span>
-    <button type="button" id="agendaBtn" title="Về mục lục (M)" aria-label="Về mục lục"><i class="fa-solid fa-list-ul"></i></button>
-    <button type="button" id="fullscreenBtn" title="Toàn màn hình (F)" aria-label="Toàn màn hình"><i class="fa-solid fa-expand"></i></button>
+    <button type="button" id="agendaBtn" title="Về mục lục (M)" aria-label="Về mục lục"><i
+        class="fa-solid fa-list-ul"></i></button>
+    <button type="button" id="fullscreenBtn" title="Toàn màn hình (F)" aria-label="Toàn màn hình"><i
+        class="fa-solid fa-expand"></i></button>
   </nav>
 
   <script>
