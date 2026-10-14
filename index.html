@@ -4,297 +4,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MathExpress - Cổng Truyền Thông Nội Bộ & Thư Viện Slide Cho Giáo Viên & Trợ Giảng</title>
+  <title>MathExpress · Cổng Chuyên môn THCS</title>
   <meta name="description"
-    content="Trang web cá nhân truyền thông nội bộ, lưu trữ các bản trình chiếu, bài thuyết trình, tóm tắt cuộc họp và tài liệu đào tạo cho Giáo viên và Trợ giảng MathExpress.">
-  <meta name="keywords"
-    content="MathExpress, Giáo viên, Trợ giảng, Slide thuyết trình, Cuộc họp chuyên môn, Tài liệu giảng dạy, Khối 8">
-  <meta name="author" content="MathExpress Academic Team">
-
-  <!-- Open Graph / Social Media -->
+    content="Cổng truyền thông nội bộ MathExpress: bản trình chiếu họp chuyên môn, thông báo và tài liệu cho Giáo viên & Trợ giảng Khối 6 – 9.">
+  <meta name="author" content="Bộ phận Chuyên môn MathExpress">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MathExpress - Cổng Truyền Thông Nội Bộ & Thư Viện Slide">
-  <meta property="og:description"
-    content="Hệ thống lưu trữ bản trình chiếu, ghi chú cuộc họp và tài liệu đào tạo dành riêng cho Giáo viên & Trợ giảng.">
-  <meta property="og:image" content="assets/og-preview.png">
+  <meta property="og:title" content="MathExpress · Cổng Chuyên môn THCS">
+  <meta property="og:description" content="Bản trình chiếu họp chuyên môn, thông báo và tài liệu cho Giáo viên & Trợ giảng.">
 
-  <!-- Favicon & Stylesheet -->
   <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    // Áp giao diện sáng/tối trước khi vẽ trang để không nháy màu
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('mx_theme'); } catch (e) { }
+      if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 
 <body>
+  <a class="skip" href="#timeline">Bỏ qua tới danh sách buổi họp</a>
 
-  <!-- Header Navigation -->
-  <header class="app-header" id="app-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo" id="brand-logo-link">
-        <img src="logo.svg" alt="MathExpress Logo" class="brand-logo-img" id="brand-logo-img">
-        <div class="brand-info">
-          <h1>Chuyên môn trung học cơ sở</h1>
-          <span>Trang Truyền Thông Nội Bộ GV & TG</span>
-        </div>
+  <!-- ===== THANH ĐẦU TRANG ===== -->
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a href="index.html" class="brand" aria-label="MathExpress - Trang chủ">
+        <img src="logo.svg" alt="MathExpress" class="brand__logo brand__logo--light">
+        <img src="logo_white.svg" alt="" class="brand__logo brand__logo--dark" aria-hidden="true">
+        <span class="brand__text">
+          <b>Cổng Chuyên môn THCS</b>
+          <small>Truyền thông nội bộ Giáo viên &amp; Trợ giảng</small>
+        </span>
       </a>
 
-      <div class="header-actions">
-        <button class="btn btn-icon" id="theme-toggle" title="Đổi giao diện Sáng / Tối"
-          aria-label="Đổi giao diện Sáng Tối">
-          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </button>
+      <label class="search" for="search-input">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="search" id="search-input" placeholder="Tìm buổi họp: tỉ lệ thức, khảo sát quý, tuần 14..." autocomplete="off">
+        <kbd>/</kbd>
+      </label>
 
-
-        <a href="#presentations" class="btn btn-primary" id="btn-browse-slides">
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
-          Thư Viện Slide
-        </a>
-      </div>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Đổi giao diện sáng / tối" title="Đổi giao diện sáng / tối">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      </button>
     </div>
   </header>
 
-  <!-- Main Content Layout -->
   <main>
-    <!-- Hero Section (Bento Grid Header) -->
-    <section class="hero-section" id="hero-banner">
-      <div class="container">
-        <div class="bento-hero-grid">
+    <!-- ===== BENTO: HỌP MỚI NHẤT + THÔNG BÁO + CÁC KHỐI ===== -->
+    <section class="wrap bento" aria-label="Tổng quan">
+      <article class="tile tile--hero" id="latest" aria-live="polite">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="hero__kicker"><i class="fa-solid fa-bolt"></i> Buổi họp mới nhất</div>
+        <h1 class="hero__title" id="latest-title">Đang tải...</h1>
+        <div class="hero__meta" id="latest-meta"></div>
+        <p class="hero__summary" id="latest-summary"></p>
+        <div class="hero__actions" id="latest-actions"></div>
+        <div class="hero__num" id="latest-num" aria-hidden="true"></div>
+      </article>
 
-          <!-- Main Hero Banner -->
-          <div class="hero-main-card">
-            <div class="hero-content">
-              <div
-                style="background: rgba(255,255,255,0.95); display: inline-flex; padding: 6px 14px; border-radius: 10px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-                <img src="logo.svg" alt="MathExpress Logo" style="height: 32px; object-fit: contain;">
-              </div>
-              <br>
-              <span class="badge badge-amber"
-                style="margin-bottom: 12px; background: rgba(255,255,255,0.2); color: #FFF; border: none;">Kênh Nội Bộ
-                2026-2027</span>
-              <h2>Hệ Thống Lưu Trữ Slide & Tài Liệu Họp Chuyên Môn</h2>
-              <p>Tổng hợp toàn bộ các bản trình chiếu, bài thuyết trình, ghi chú diễn giả và kịch bản hỗ trợ lớp học cho
-                đội ngũ Giáo viên & Trợ giảng MathExpress.</p>
-
-              <div class="hero-quick-links" style="margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="Meeting/Khoi 6/Tuan 14 - Hop khoi 6/index.html" target="_blank" class="btn btn-primary"
-                  style="background: #FFFFFF; color: var(--primary); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-decoration: none;">
-                  🚀 Tuần 14 - Họp giáo viên khối 6
-                </a>
-                <a href="Meeting/Khoi 6/Tuan 10 - Hop khoi 6/index.html" target="_blank" class="btn btn-primary"
-                  style="background: #FFFFFF; color: var(--primary); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-decoration: none;">
-                  🚀 Tuần 10 - Họp giáo viên khối 6
-                </a>
-                <a href="Meeting/Khoi 7/Tuan 10 - Hop khoi 7/index.html" target="_blank" class="btn btn-primary"
-                  style="background: #FFFFFF; color: var(--primary); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-decoration: none;">
-                  🚀 Tuần 10 - Họp giáo viên khối 7
-                </a>
-                <a href="Meeting/Khoi 8/Tuan 10 - Hop khoi 8/index.html" target="_blank" class="btn btn-primary"
-                  style="background: #FFFFFF; color: var(--primary); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-decoration: none;">
-                  🚀 Tuần 10 - Họp giáo viên khối 8
-                </a>
-                <a href="Meeting/Khoi 6/Tuan 5 - Hop khoi 6/index.html" target="_blank" class="btn btn-secondary"
-                  style="background: #FFFFFF; color: var(--primary); font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-decoration: none;">
-                  🚀 Họp Khối 6 (Tuần 5)
-                </a>
-                <a href="Meeting/Khoi 7/Tuan 02- Hop khoi 7  (All)/index.html" target="_blank" class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp Khối 7 (Tuần 2 - All)
-                </a>
-                <a href="Meeting/Khoi 7/Tuan 08 - Hop khoi 7 (New)/index_khoi7.html" target="_blank"
-                  class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp Khối 7 (Tuần 8 - New)
-                </a>
-                <a href="Meeting/Khoi 8/Tuan 06 - Khoi 8 (New)/Hop khoi 8.html" target="_blank" class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp Khối 8 (Tuần 6)
-                </a>
-                <a href="Meeting/Khoi 8/Tuan 02 - Khoi 8 (All)/index.html" target="_blank" class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp Khối 8 (Tuần 2)
-                </a>
-                <a href="Meeting/Khoi 9/Tuan 04 - Khoi 9 (New)/index.html" target="_blank" class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp Khối 9 (Tuần 4 - New)
-                </a>
-                <a href="Meeting/Giáo viên bổ trợ/01. Hop giao vien bo tro/index.html" target="_blank"
-                  class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp GV Bổ Trợ
-                </a>
-                <a href="Meeting/Trợ giảng/01. Trao doi chuyen mon tro giang/index.html" target="_blank"
-                  class="btn btn-secondary"
-                  style="background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.4); text-decoration: none;">
-                  📂 Họp Trợ Giảng
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-
+      <aside class="tile tile--notice" aria-labelledby="notice-head">
+        <div class="tile__head">
+          <h2 id="notice-head"><i class="fa-solid fa-bullhorn"></i> Thông báo</h2>
+          <span class="muted" id="notice-count"></span>
         </div>
-      </div>
+        <ol class="notices" id="notice-list"></ol>
+      </aside>
+
+      <nav class="groups" id="group-tiles" aria-label="Chọn khối"></nav>
     </section>
 
-    <!-- Control Bar (Search & Filter Section) -->
-    <section class="controls-section" id="controls-section">
-      <div class="container">
-        <div class="control-bar">
-          <!-- Search Input -->
-          <div class="search-box">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <input type="text" id="search-input" class="search-input"
-              placeholder="Tìm kiếm theo tiêu đề bài họp, từ khóa (Khối 8, Toán 9, GeoGebra, Trợ giảng...)...">
-          </div>
-
-          <!-- Category Chips -->
-          <div class="filter-group" id="filter-chips-group">
-            <button class="filter-chip active" data-category="all">Tất Cả</button>
-            <button class="filter-chip" data-category="Họp giáo viên">Họp giáo viên</button>
-            <button class="filter-chip" data-category="Đào tạo trợ giảng">Đào tạo trợ giảng</button>
-            <button class="filter-chip" data-category="Khối 6">Khối 6</button>
-            <button class="filter-chip" data-category="Khối 7">Khối 7</button>
-            <button class="filter-chip" data-category="Khối 8">Khối 8</button>
-            <button class="filter-chip" data-category="Khối 9">Khối 9</button>
-          </div>
-
-          <!-- Audience Select Dropdown -->
-          <div class="audience-filter-wrapper" style="display: flex; align-items: center; gap: 8px;">
-            <label for="audience-select" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Đối
-              tượng:</label>
-            <select id="audience-select" class="filter-select">
-              <option value="all">Toàn bộ (GV & TG)</option>
-              <option value="GV">Giáo viên (GV)</option>
-              <option value="TG">Trợ giảng (TG)</option>
-            </select>
-          </div>
+    <!-- ===== DÒNG THỜI GIAN THEO KHỐI ===== -->
+    <section class="wrap timeline-sec" id="timeline" aria-labelledby="tl-head">
+      <div class="tl-bar">
+        <div>
+          <h2 id="tl-head">Các buổi họp chuyên môn</h2>
+          <p class="muted" id="tl-count">Đang tải danh sách...</p>
         </div>
+        <div class="tabs" id="group-tabs" role="tablist" aria-label="Lọc theo khối"></div>
       </div>
-    </section>
-
-    <!-- Presentation Cards Grid Section -->
-    <section class="presentations-section" id="presentations">
-      <div class="container">
-        <div class="section-title-bar">
-          <h3>
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 14v3m4-6v6m4-9v9M11 3h2a2 2 0 012 2v2h4a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h4V5a2 2 0 012-2z" />
-            </svg>
-            Danh Sách Slide Thuyết Trình & Bài Họp
-          </h3>
-          <span class="result-count" id="result-count">Đang tải danh sách...</span>
-        </div>
-
-        <div class="presentations-grid" id="presentations-grid">
-          <!-- Loaded dynamically via app.js -->
-        </div>
-      </div>
+      <ol class="timeline" id="timeline-list"></ol>
     </section>
   </main>
 
-  <!-- Interactive Slide Viewer Modal -->
-  <div class="modal-overlay" id="slide-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="slide-modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <div class="modal-header-info">
-          <h3 id="modal-title">Tiêu Đề Bài Họp Slide</h3>
-          <p id="modal-meta">Chuyên môn • Người trình bày • Ngày họp</p>
-        </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <button class="btn btn-secondary" id="fullscreen-btn" title="Toàn màn hình">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-            </svg>
-          </button>
-          <button class="btn btn-icon" id="modal-close" title="Đóng modal" aria-label="Đóng modal">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Modal Body (Canvas Player + Sidebar) -->
-      <div class="modal-body">
-        <!-- Slide Player Area -->
-        <div class="slide-player-area">
-          <div class="slide-canvas">
-            <span class="slide-canvas-badge" id="slide-canvas-badge">Slide 1</span>
-            <h4 class="slide-canvas-title" id="slide-canvas-title">Nội dung Slide...</h4>
-            <h5 class="slide-canvas-subtitle" id="slide-canvas-subtitle">Mục tiêu bài học...</h5>
-            <div class="slide-canvas-content" id="slide-canvas-content">
-              <!-- Rendered via JS -->
-            </div>
-          </div>
-
-          <div class="slide-controls">
-            <button class="btn btn-secondary" id="prev-slide">
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-              </svg>
-              Slide Trước
-            </button>
-            <span class="slide-page-indicator" id="slide-page-indicator">Slide 1 / 10</span>
-            <button class="btn btn-primary" id="next-slide">
-              Slide Tiếp
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Slide Details Sidebar -->
-        <div class="slide-details-sidebar">
-          <div class="sidebar-tabs">
-            <button class="tab-btn active" data-tab="speaker-notes">Ghi Chú & Tóm Tắt</button>
-            <button class="tab-btn" data-tab="action-items">Nhiệm Vụ</button>
-            <button class="tab-btn" data-tab="downloads">Tải Về (.PPTX/.PDF)</button>
-          </div>
-
-          <div class="tab-content active" id="tab-speaker-notes">
-            <!-- Loaded via JS -->
-          </div>
-
-          <div class="tab-content" id="tab-action-items">
-            <!-- Loaded via JS -->
-          </div>
-
-          <div class="tab-content" id="tab-downloads">
-            <!-- Loaded via JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="app-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>MathExpress CM2</strong> — Hệ thống truyền thông nội bộ cho Giáo viên & Trợ giảng.
-        <br>
-        <span style="font-size: 0.78rem;">Thiết kế & phát triển dựa trên chuẩn hệ thống UI/UX Pro Max (Bento Box Grid &
-          LMS Specs).</span>
-      </div>
-      <div>
-        Stick around. I'm full of bad ideas.
-      </div>
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span><b>MathExpress</b> · CLB Toán bồi dưỡng · Bộ phận Chuyên môn THCS</span>
+      <span>Hotline 1900 633 551 · toanmathexpress@gmail.com</span>
     </div>
   </footer>
 
-  <!-- Main JavaScript File -->
+  <!-- ===== HỘP XEM TÓM TẮT ===== -->
+  <div class="modal" id="summary-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal__box">
+      <header class="modal__head">
+        <div>
+          <p class="muted" id="modal-meta"></p>
+          <h3 id="modal-title"></h3>
+        </div>
+        <button class="icon-btn" type="button" id="modal-close" aria-label="Đóng"><i class="fa-solid fa-xmark"></i></button>
+      </header>
+      <div class="modal__tabs" role="tablist">
+        <button type="button" class="mtab is-on" data-tab="sum">Tóm tắt</button>
+        <button type="button" class="mtab" data-tab="todo">Việc cần làm</button>
+        <button type="button" class="mtab" data-tab="file">Tài liệu</button>
+      </div>
+      <div class="modal__body" id="modal-body"></div>
+    </div>
+  </div>
+
   <script src="data/fallback_data.js"></script>
   <script src="app.js"></script>
 </body>

@@ -1,507 +1,327 @@
 /**
- * MATHEXPRESS INTERNAL PRESENTATION & COMMUNICATION PORTAL
- * Application Logic & Dynamic Interactions
+ * MATHEXPRESS · CỔNG CHUYÊN MÔN THCS
+ * Trang chủ: bento (họp mới nhất, thông báo, các khối) + dòng thời gian theo khối.
+ * Dữ liệu: data/presentations.json, data/announcements.json
+ * (mở bằng file:// thì dùng bản dự phòng data/fallback_data.js).
  */
+(function () {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-  // State Management
-  let presentationsData = [];
-  let announcementsData = [];
-  let currentFilterCategory = 'all';
-  let currentFilterAudience = 'all';
-  let currentSearchQuery = '';
-  let activePresentation = null;
-  let currentSlideIndex = 0;
-  let bookmarkedIds = JSON.parse(localStorage.getItem('mx_bookmarks') || '[]');
+  // ---- Nhóm hiển thị (thứ tự = thứ tự ô và tab) ----
+  var GROUPS = [
+    { key: 'k6', label: 'Khối 6', short: '6', tone: 'indigo' },
+    { key: 'k7', label: 'Khối 7', short: '7', tone: 'sky' },
+    { key: 'k8', label: 'Khối 8', short: '8', tone: 'emerald' },
+    { key: 'k9', label: 'Khối 9', short: '9', tone: 'rose' },
+    { key: 'bt', label: 'GV Bổ trợ', short: 'BT', tone: 'amber' },
+    { key: 'tg', label: 'Trợ giảng', short: 'TG', tone: 'purple' }
+  ];
 
-  // DOM Elements
-  const presentationsGrid = document.getElementById('presentations-grid');
-  const resultCountEl = document.getElementById('result-count');
-  const searchInput = document.getElementById('search-input');
-  const categoryChips = document.querySelectorAll('.filter-chip');
-  const audienceSelect = document.getElementById('audience-select');
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const noticeContainer = document.getElementById('notice-container');
+  var state = { items: [], notices: [], group: 'all', query: '' };
+  var $ = function (id) { return document.getElementById(id); };
 
-  // Modal Elements
-  const slideModal = document.getElementById('slide-modal');
-  const modalCloseBtn = document.getElementById('modal-close');
-  const modalTitle = document.getElementById('modal-title');
-  const modalMeta = document.getElementById('modal-meta');
-  const slideCanvasTitle = document.getElementById('slide-canvas-title');
-  const slideCanvasSubtitle = document.getElementById('slide-canvas-subtitle');
-  const slideCanvasContent = document.getElementById('slide-canvas-content');
-  const slideCanvasBadge = document.getElementById('slide-canvas-badge');
-  const slidePageIndicator = document.getElementById('slide-page-indicator');
-  const prevSlideBtn = document.getElementById('prev-slide');
-  const nextSlideBtn = document.getElementById('next-slide');
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
-  const tabSpeakerNotes = document.getElementById('tab-speaker-notes');
-  const tabActionItems = document.getElementById('tab-action-items');
-  const tabDownloads = document.getElementById('tab-downloads');
-  const fullscreenBtn = document.getElementById('fullscreen-btn');
-
-  // Initial Load
-  initTheme();
-  fetchData();
-
-  // Theme Handling
-  function initTheme() {
-    const savedTheme = localStorage.getItem('mx_theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-  }
-
-  themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('mx_theme', newTheme);
-    updateThemeIcon(newTheme);
-    showToast(`Đã chuyển sang giao diện ${newTheme === 'dark' ? 'Tối' : 'Sáng'}`);
-  });
-
-  function updateThemeIcon(theme) {
-    themeToggleBtn.innerHTML = theme === 'dark' 
-      ? `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`
-      : `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>`;
-  }
-
-  // Fetch JSON Data
-  async function fetchData() {
-    try {
-      const [presRes, ancRes] = await Promise.all([
-        fetch('data/presentations.json'),
-        fetch('data/announcements.json')
-      ]);
-
-      presentationsData = await presRes.json();
-      announcementsData = await ancRes.json();
-    } catch (error) {
-      console.warn('Fetch failed (e.g. file:// protocol), using fallback JS data:', error);
-      presentationsData = window.INITIAL_PRESENTATIONS || [];
-      announcementsData = window.INITIAL_ANNOUNCEMENTS || [];
-    }
-
-    renderAnnouncements();
-    renderPresentations();
-  }
-
-  // Render Announcements Sidebar
-  function renderAnnouncements() {
-    if (!noticeContainer || !announcementsData.length) return;
-
-    noticeContainer.innerHTML = announcementsData.map(anc => `
-      <div class="notice-item">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
-          <span class="badge badge-amber">${anc.badge}</span>
-          <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">${anc.date}</span>
-        </div>
-        <h4>${anc.title}</h4>
-        <p>${anc.summary}</p>
-      </div>
-    `).join('');
-  }
-
-  // Render Presentation Cards
-  function renderPresentations() {
-    const filtered = presentationsData.filter(item => {
-      const catLower = currentFilterCategory.toLowerCase();
-      const matchCategory = currentFilterCategory === 'all' || 
-        (item.category && item.category.toLowerCase() === catLower) ||
-        item.title.toLowerCase().includes(catLower) ||
-        (item.audienceBadge && item.audienceBadge.toLowerCase().includes(catLower)) ||
-        (item.tags && item.tags.some(tag => tag.toLowerCase().includes(catLower)));
-
-      const matchAudience = currentFilterAudience === 'all' || item.audienceBadge.includes(currentFilterAudience);
-      const matchSearch = currentSearchQuery === '' || 
-        item.title.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-        item.speaker.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-        item.summary.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-        (item.tags && item.tags.some(tag => tag.toLowerCase().includes(currentSearchQuery.toLowerCase())));
-
-      return matchCategory && matchAudience && matchSearch;
+  // ---- Tiện ích ----
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
+  }
 
-    resultCountEl.textContent = `Hiển thị ${filtered.length} bản trình chiếu`;
+  function groupOf(p) {
+    var t = (p.category + ' ' + p.audienceBadge + ' ' + p.title).toLowerCase();
+    if (t.indexOf('khối 6') > -1) return 'k6';
+    if (t.indexOf('khối 7') > -1) return 'k7';
+    if (t.indexOf('khối 8') > -1) return 'k8';
+    if (t.indexOf('khối 9') > -1) return 'k9';
+    if (t.indexOf('bổ trợ') > -1) return 'bt';
+    if (t.indexOf('trợ giảng') > -1) return 'tg';
+    return 'other';
+  }
 
-    if (filtered.length === 0) {
-      presentationsGrid.innerHTML = `
-        <div class="empty-state">
-          <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <h4>Không tìm thấy bài trình chiếu phù hợp</h4>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">Thử thay đổi từ khóa tìm kiếm hoặc bỏ bộ lọc hiện tại.</p>
-        </div>
-      `;
+  function groupInfo(key) {
+    for (var i = 0; i < GROUPS.length; i++) if (GROUPS[i].key === key) return GROUPS[i];
+    return { key: 'other', label: 'Khác', short: '•', tone: 'slate' };
+  }
+
+  // "Tuần 14" lấy từ tiêu đề hoặc tên thư mục (Tuan 14, Tuan 02...)
+  function weekOf(p) {
+    var m = /tu[aầ]n\s*0?(\d+)/i.exec(p.title) || /Tuan\s*0?(\d+)/i.exec(p.webViewerUrl || '');
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function slideCount(p) {
+    var m = /(\d+)\s*slide/i.exec(p.duration || '');
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  var MONTHS = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+  function fmtDate(iso) {
+    var d = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return d ? d[3] + '/' + d[2] + '/' + d[1] : (iso || '');
+  }
+  function dayMonth(iso) {
+    var d = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return d ? { day: d[3], month: 'Th' + MONTHS[parseInt(d[2], 10) - 1] } : { day: '', month: '' };
+  }
+
+  function norm(s) {
+    return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd');
+  }
+
+  function matches(p, q) {
+    if (!q) return true;
+    var hay = norm([p.title, p.summary, p.category, p.audienceBadge, (p.tags || []).join(' ')].join(' '));
+    return norm(q).split(/\s+/).every(function (w) { return hay.indexOf(w) > -1; });
+  }
+
+  // ---- Tải dữ liệu ----
+  function load() {
+    Promise.all([
+      fetch('data/presentations.json').then(function (r) { if (!r.ok) throw r; return r.json(); }),
+      fetch('data/announcements.json').then(function (r) { if (!r.ok) throw r; return r.json(); })
+    ]).then(function (res) {
+      init(res[0], res[1]);
+    }).catch(function () {
+      init(window.INITIAL_PRESENTATIONS || [], window.INITIAL_ANNOUNCEMENTS || []);
+    });
+  }
+
+  function init(pres, notices) {
+    state.items = pres.map(function (p) {
+      return Object.assign({}, p, { _g: groupOf(p), _w: weekOf(p), _n: slideCount(p) });
+    }).sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+    state.notices = notices.slice().sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+
+    // Nhớ khối đang xem (theo trình duyệt từng người)
+    try {
+      var g = localStorage.getItem('mx_group');
+      if (g && (g === 'all' || GROUPS.some(function (x) { return x.key === g; }))) state.group = g;
+    } catch (e) { }
+
+    renderLatest();
+    renderNotices();
+    renderGroups();
+    renderTabs();
+    renderTimeline();
+  }
+
+  // ---- Ô lớn: họp mới nhất ----
+  function renderLatest() {
+    var p = state.items[0];
+    if (!p) { $('latest-title').textContent = 'Chưa có buổi họp'; return; }
+    var g = groupInfo(p._g);
+    $('latest').setAttribute('data-tone', g.tone);
+    $('latest-title').textContent = p.title;
+    $('latest-meta').innerHTML =
+      '<span><i class="fa-regular fa-calendar"></i> ' + fmtDate(p.date) + '</span>' +
+      (p._n ? '<span><i class="fa-solid fa-layer-group"></i> ' + p._n + ' slide</span>' : '') +
+      '<span><i class="fa-solid fa-users"></i> ' + esc(p.audienceBadge) + '</span>';
+    $('latest-summary').textContent = p.summary;
+    $('latest-actions').innerHTML = actionsHtml(p, true);
+    $('latest-num').textContent = g.short;
+  }
+
+  function actionsHtml(p, big) {
+    var out = '';
+    if (p.webViewerUrl) {
+      out += '<a class="btn btn--primary' + (big ? ' btn--lg' : '') + '" href="' + encodeURI(p.webViewerUrl) + '" target="_blank" rel="noopener">' +
+        '<i class="fa-solid fa-display"></i> Mở slide</a>';
+    }
+    out += '<button type="button" class="btn btn--ghost' + (big ? ' btn--lg' : '') + '" data-open="' + esc(p.id) + '">' +
+      '<i class="fa-regular fa-file-lines"></i> Tóm tắt</button>';
+    return out;
+  }
+
+  // ---- Thông báo ----
+  function noticeUrl(n) {
+    if (n.url) return n.url;
+    // Tự nối thông báo với bộ slide cùng "Tuần X - ... Khối Y" nếu có
+    var t = norm(n.title);
+    for (var i = 0; i < state.items.length; i++) {
+      var p = state.items[i];
+      if (p._w && p._g.charAt(0) === 'k' && t.indexOf('tuan ' + p._w + ' ') > -1 && t.indexOf('khoi ' + p._g.charAt(1)) > -1) return p.webViewerUrl;
+    }
+    return '';
+  }
+
+  function renderNotices() {
+    var list = state.notices.slice(0, 5);
+    $('notice-count').textContent = state.notices.length + ' tin';
+    $('notice-list').innerHTML = list.map(function (n) {
+      var url = noticeUrl(n);
+      var inner =
+        '<div class="notice__top"><span class="pill pill--' + (n.priority === 'High' ? 'hot' : 'soft') + '">' + esc(n.badge || n.category) + '</span>' +
+        '<time datetime="' + esc(n.date) + '">' + fmtDate(n.date) + '</time></div>' +
+        '<h3>' + esc(n.title) + '</h3>' +
+        '<p>' + esc(n.summary) + '</p>';
+      return '<li class="notice">' + (url
+        ? '<a href="' + encodeURI(url) + '" target="_blank" rel="noopener">' + inner + '<span class="notice__go">Mở slide <i class="fa-solid fa-arrow-right"></i></span></a>'
+        : '<div>' + inner + '</div>') + '</li>';
+    }).join('');
+  }
+
+  // ---- Ô các khối ----
+  function renderGroups() {
+    $('group-tiles').innerHTML = GROUPS.map(function (g) {
+      var its = state.items.filter(function (p) { return p._g === g.key; });
+      var last = its[0];
+      return '<button type="button" class="gtile" data-tone="' + g.tone + '" data-group="' + g.key + '"' + (its.length ? '' : ' disabled') + '>' +
+        '<span class="gtile__num">' + g.short + '</span>' +
+        '<span class="gtile__label">' + g.label + '</span>' +
+        '<span class="gtile__meta">' + its.length + ' buổi họp' + (last ? ' · mới nhất ' + fmtDate(last.date).slice(0, 5) : '') + '</span>' +
+        '</button>';
+    }).join('');
+  }
+
+  // ---- Tab lọc ----
+  function renderTabs() {
+    var tabs = [{ key: 'all', label: 'Tất cả' }].concat(GROUPS);
+    $('group-tabs').innerHTML = tabs.map(function (g) {
+      var on = state.group === g.key;
+      return '<button type="button" role="tab" class="tab" data-group="' + g.key + '" aria-selected="' + on + '">' + g.label + '</button>';
+    }).join('');
+    document.querySelectorAll('.gtile').forEach(function (b) {
+      b.classList.toggle('is-on', b.getAttribute('data-group') === state.group);
+    });
+  }
+
+  // ---- Dòng thời gian ----
+  function renderTimeline() {
+    var its = state.items.filter(function (p) {
+      return (state.group === 'all' || p._g === state.group) && matches(p, state.query);
+    });
+    var gl = state.group === 'all' ? 'tất cả các khối' : groupInfo(state.group).label;
+    $('tl-count').textContent = its.length + ' buổi họp · ' + gl + (state.query ? ' · tìm "' + state.query + '"' : '');
+
+    if (!its.length) {
+      $('timeline-list').innerHTML = '<li class="empty"><i class="fa-regular fa-face-meh"></i><p>Không có buổi họp phù hợp. Thử từ khóa khác hoặc chọn "Tất cả".</p></li>';
       return;
     }
 
-    presentationsGrid.innerHTML = filtered.map(item => {
-      const isBookmarked = bookmarkedIds.includes(item.id);
-      const badgeClass = item.audienceBadge.includes('GV') ? 'badge-gv' : (item.audienceBadge.includes('TG') ? 'badge-tg' : 'badge-amber');
-      const hasWebDeck = !!item.webViewerUrl;
-      
-      let coverBgClass = '';
-      let gradeNumber = '';
-      const titleLower = item.title.toLowerCase();
-      if (titleLower.includes('khối 6')) { coverBgClass = 'bg-khoi-6'; gradeNumber = '6'; }
-      else if (titleLower.includes('khối 7')) { coverBgClass = 'bg-khoi-7'; gradeNumber = '7'; }
-      else if (titleLower.includes('khối 8')) { coverBgClass = 'bg-khoi-8'; gradeNumber = '8'; }
-      else if (titleLower.includes('khối 9')) { coverBgClass = 'bg-khoi-9'; gradeNumber = '9'; }
-      else if (titleLower.includes('bổ trợ')) { coverBgClass = 'bg-bo-tro'; gradeNumber = 'BT'; }
-      else if (titleLower.includes('trợ giảng')) { coverBgClass = 'bg-tro-giang'; gradeNumber = 'TG'; }
-      
-      return `
-        <article class="presentation-card card-col-4" data-id="${item.id}">
-          <div class="card-cover ${coverBgClass}">
-            <div class="cover-svg-pattern"></div>
-            ${gradeNumber ? `<div class="glass-number">${gradeNumber}</div>` : ''}
-            <div class="card-badges">
-              <span class="badge ${badgeClass}">${item.audienceBadge}</span>
-              <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" data-bookmark-id="${item.id}" title="Lưu bài học">
-                <svg width="16" height="16" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
-              </button>
-            </div>
-            <div class="cover-content">
-              <div class="cover-icon">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
-              </div>
-              <div class="cover-title">${item.title}</div>
-            </div>
-          </div>
-
-          <div class="card-body">
-            <div class="card-meta">
-              <span>📅 ${item.date}</span>
-              <span>•</span>
-              <span>⏱️ ${item.duration}</span>
-            </div>
-            <h3 class="card-title">${item.title}</h3>
-            <p class="card-summary">${item.summary}</p>
-            
-            ${item.speaker ? `
-            <div class="card-speaker">
-              <div class="speaker-avatar">${item.speaker.charAt(0)}</div>
-              <span>${item.speaker}</span>
-            </div>
-            ` : ''}
-
-            <div class="card-footer" style="flex-direction: column; gap: 8px;">
-              ${hasWebDeck ? `
-                <a href="${item.webViewerUrl}" target="_blank" class="btn btn-primary" style="width: 100%; text-decoration: none;">
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                  Mở Slide Tương Tác (${item.audienceBadge})
-                </a>
-              ` : ''}
-
-              <button class="btn btn-secondary open-modal-btn" data-pres-id="${item.id}" style="width: 100%;">
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                Xem Tóm Tắt & Ghi Chú
-              </button>
-            </div>
-          </div>
-        </article>
-      `;
+    $('timeline-list').innerHTML = its.map(function (p, i) {
+      var g = groupInfo(p._g), dm = dayMonth(p.date);
+      var tags = (p.tags || []).filter(function (t) { return !/^(khối \d|toán \d|họp giáo viên)$/i.test(t); }).slice(0, 4);
+      return '<li class="ev" data-tone="' + g.tone + '" style="--i:' + Math.min(i, 8) + '">' +
+        '<div class="ev__date"><b>' + dm.day + '</b><span>' + dm.month + '</span></div>' +
+        '<div class="ev__dot" aria-hidden="true"></div>' +
+        '<article class="ev__card">' +
+        '<div class="ev__top">' +
+        '<span class="pill pill--tone">' + g.label + '</span>' +
+        (p._w ? '<span class="pill pill--soft">Tuần ' + p._w + '</span>' : '') +
+        (p._n ? '<span class="muted">' + p._n + ' slide</span>' : '') +
+        (i === 0 && state.group === 'all' && !state.query ? '<span class="pill pill--hot">Mới nhất</span>' : '') +
+        '</div>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        '<p class="ev__sum">' + esc(p.summary) + '</p>' +
+        (tags.length ? '<div class="ev__tags">' + tags.map(function (t) { return '<span>#' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
+        '<div class="ev__actions">' + actionsHtml(p, false) + '</div>' +
+        '</article></li>';
     }).join('');
-
-    // Attach Event Listeners to cards
-    document.querySelectorAll('.open-modal-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const presId = e.currentTarget.getAttribute('data-pres-id');
-        openSlideModal(presId);
-      });
-    });
-
-    document.querySelectorAll('.bookmark-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = e.currentTarget.getAttribute('data-bookmark-id');
-        toggleBookmark(id);
-      });
-    });
   }
 
-  // Toggle Bookmarks
-  function toggleBookmark(id) {
-    if (bookmarkedIds.includes(id)) {
-      bookmarkedIds = bookmarkedIds.filter(bId => bId !== id);
-      showToast('Đã xóa khỏi danh sách bài lưu');
+  function setGroup(g, scroll) {
+    state.group = g;
+    try { localStorage.setItem('mx_group', g); } catch (e) { }
+    renderTabs();
+    renderTimeline();
+    if (scroll) $('timeline').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ---- Hộp tóm tắt ----
+  var modalItem = null, lastFocus = null;
+
+  function openModal(id) {
+    modalItem = state.items.filter(function (p) { return p.id === id; })[0];
+    if (!modalItem) return;
+    lastFocus = document.activeElement;
+    $('modal-title').textContent = modalItem.title;
+    $('modal-meta').textContent = groupInfo(modalItem._g).label + ' · ' + fmtDate(modalItem.date) + (modalItem.speaker ? ' · ' + modalItem.speaker : '');
+    showTab('sum');
+    $('summary-modal').hidden = false;
+    document.body.classList.add('no-scroll');
+    $('modal-close').focus();
+  }
+
+  function closeModal() {
+    $('summary-modal').hidden = true;
+    document.body.classList.remove('no-scroll');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  function showTab(tab) {
+    var p = modalItem, html = '';
+    document.querySelectorAll('.mtab').forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-tab') === tab); });
+    if (tab === 'sum') {
+      html = '<p class="lead">' + esc(p.summary) + '</p>' + (p.slides || []).map(function (s) {
+        // nội dung slide tóm tắt do Bộ phận Chuyên môn soạn trong presentations.json (HTML tin cậy)
+        return '<section class="msec"><h4>' + esc(s.title) + '</h4>' + (s.subtitle ? '<p class="muted">' + esc(s.subtitle) + '</p>' : '') +
+          '<div class="msec__body">' + (s.content || '') + '</div>' +
+          (s.notes ? '<p class="note"><i class="fa-regular fa-lightbulb"></i> ' + esc(s.notes) + '</p>' : '') + '</section>';
+      }).join('');
+    } else if (tab === 'todo') {
+      var acts = p.actionItems || [];
+      html = acts.length ? '<ul class="todo">' + acts.map(function (a, i) {
+        return '<li><input type="checkbox" id="todo-' + i + '"><label for="todo-' + i + '">' + esc(a) + '</label></li>';
+      }).join('') + '</ul>' : '<p class="muted">Chưa có danh sách việc cần làm.</p>';
     } else {
-      bookmarkedIds.push(id);
-      showToast('Đã lưu bài trình chiếu vào thư viện cá nhân');
+      var files = [];
+      if (p.webViewerUrl) files.push({ url: p.webViewerUrl, icon: 'fa-display', name: 'Slide tương tác (HTML)', hint: 'Mở trên máy tính hoặc điện thoại' });
+      if (p.pdfUrl && p.pdfUrl !== '#' && /\.pdf$/i.test(p.pdfUrl)) files.push({ url: p.pdfUrl, icon: 'fa-file-pdf', name: 'Văn bản kế hoạch (PDF)', hint: 'Tài liệu gốc của buổi họp' });
+      if (p.pptxUrl && p.pptxUrl !== '#' && /\.(pptx|docx)$/i.test(p.pptxUrl)) files.push({ url: p.pptxUrl, icon: /docx$/i.test(p.pptxUrl) ? 'fa-file-word' : 'fa-file-powerpoint', name: /docx$/i.test(p.pptxUrl) ? 'Văn bản (DOCX)' : 'PowerPoint (PPTX)', hint: 'Tải về máy' });
+      html = files.map(function (f) {
+        return '<a class="file" href="' + encodeURI(f.url) + '" target="_blank" rel="noopener"><i class="fa-solid ' + f.icon + '"></i><span><b>' + f.name + '</b><small>' + f.hint + '</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>';
+      }).join('');
     }
-    localStorage.setItem('mx_bookmarks', JSON.stringify(bookmarkedIds));
-    renderPresentations();
+    $('modal-body').innerHTML = html;
+    $('modal-body').scrollTop = 0;
   }
 
-  // Filters & Search Listeners
-  categoryChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      categoryChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      currentFilterCategory = chip.getAttribute('data-category');
-      chip.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      renderPresentations();
-    });
+  // ---- Sự kiện ----
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-open]');
+    if (t) { openModal(t.getAttribute('data-open')); return; }
+    t = e.target.closest('.gtile');
+    if (t && !t.disabled) { setGroup(t.getAttribute('data-group'), true); return; }
+    t = e.target.closest('.tab');
+    if (t) { setGroup(t.getAttribute('data-group'), false); return; }
+    t = e.target.closest('.mtab');
+    if (t) { showTab(t.getAttribute('data-tab')); return; }
+    if (e.target.id === 'summary-modal' || e.target.closest('#modal-close')) closeModal();
   });
 
-  audienceSelect.addEventListener('change', (e) => {
-    currentFilterAudience = e.target.value;
-    renderPresentations();
-  });
-
-  searchInput.addEventListener('input', (e) => {
-    currentSearchQuery = e.target.value;
-    renderPresentations();
-  });
-
-  // Modal Functionality
-  function openSlideModal(id) {
-    activePresentation = presentationsData.find(p => p.id === id);
-    if (!activePresentation) return;
-
-    currentSlideIndex = 0;
-    modalTitle.textContent = activePresentation.title;
-    const speakerText = activePresentation.speaker ? ` • ${activePresentation.speaker}` : '';
-    modalMeta.textContent = `${activePresentation.category}${speakerText} • ${activePresentation.date}`;
-
-    renderSlideContent();
-    renderSidebarData();
-
-    slideModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeSlideModal() {
-    slideModal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  modalCloseBtn.addEventListener('click', closeSlideModal);
-  slideModal.addEventListener('click', (e) => {
-    if (e.target === slideModal) closeSlideModal();
-  });
-
-  // Render Slide in Canvas
-  function renderSlideContent() {
-    if (!activePresentation || !activePresentation.slides.length) return;
-
-    const slide = activePresentation.slides[currentSlideIndex];
-    slideCanvasTitle.textContent = slide.title;
-    slideCanvasSubtitle.textContent = slide.subtitle || '';
-    
-    let contentHTML = slide.content;
-
-    if (activePresentation.webViewerUrl) {
-      contentHTML += `
-        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.2);">
-          <a href="${activePresentation.webViewerUrl}" target="_blank" class="btn btn-primary" style="width: 100%; text-decoration: none;">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            Mở Bản Trình Chiếu Tương Tác ${activePresentation.category || ''} (Toàn Màn Hình)
-          </a>
-        </div>
-      `;
-    }
-
-    slideCanvasContent.innerHTML = contentHTML;
-    slideCanvasBadge.textContent = slide.badge || `Slide ${slide.page}`;
-    slidePageIndicator.textContent = `Slide ${currentSlideIndex + 1} / ${activePresentation.slides.length}`;
-
-    prevSlideBtn.disabled = currentSlideIndex === 0;
-    nextSlideBtn.disabled = currentSlideIndex === activePresentation.slides.length - 1;
-
-    // Update Speaker Notes tab dynamically per slide
-    tabSpeakerNotes.innerHTML = `
-      <div class="notes-box">
-        <strong>💡 Ghi chú dành cho diễn giả / Trợ giảng:</strong><br>
-        ${slide.notes || 'Không có ghi chú thêm cho slide này.'}
-      </div>
-      <div style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-        <h5 style="color: var(--text-main); font-weight: 700; margin-bottom: 8px;">Tóm Tắt Ý Chính Cuộc Họp:</h5>
-        <p>${activePresentation.summary}</p>
-      </div>
-    `;
-  }
-
-  // Render Action Items & Downloads
-  function renderSidebarData() {
-    if (!activePresentation) return;
-
-    // Render Action Items
-    tabActionItems.innerHTML = `
-      <h5 style="color: var(--text-main); font-weight: 700; margin-bottom: 12px; font-size: 0.92rem;">Danh Sách Việc Cần Làm Sau Họp:</h5>
-      <ul class="action-list">
-        ${activePresentation.actionItems.map((item, idx) => `
-          <li>
-            <input type="checkbox" id="act-${idx}">
-            <label for="act-${idx}">${item}</label>
-          </li>
-        `).join('')}
-      </ul>
-    `;
-
-    // Render Download Links
-    tabDownloads.innerHTML = `
-      <h5 style="color: var(--text-main); font-weight: 700; margin-bottom: 12px; font-size: 0.92rem;">Tải Về & Trình Chiếu Direct Link:</h5>
-
-      ${activePresentation.webViewerUrl ? `
-        <a href="${activePresentation.webViewerUrl}" target="_blank" class="download-link-card" style="border-color: var(--primary); background-color: var(--primary-light);">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="download-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </div>
-            <div>
-              <div style="font-weight: 700; font-size: 0.9rem; color: var(--primary);">Slide Web Tương Tác ${activePresentation.category || ''} (.html)</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">MathJax + TikZ Enabled</div>
-            </div>
-          </div>
-          <span class="btn btn-primary" style="padding: 6px 12px; font-size: 0.78rem;">Mở Web Deck</span>
-        </a>
-      ` : ''}
-
-      <a href="${activePresentation.pptxUrl}" class="download-link-card" onclick="alert('Đang tải file bài giảng PowerPoint (.pptx)...')">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="download-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <div>
-            <div style="font-weight: 700; font-size: 0.9rem;">Bản Trình Chiếu PowerPoint (.pptx)</div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">${activePresentation.fileSize}</div>
-          </div>
-        </div>
-        <span class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;">Tải Về</span>
-      </a>
-
-      <a href="${activePresentation.pdfUrl}" class="download-link-card" onclick="alert('Đang tải file tài liệu PDF...')">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="download-icon" style="background-color: rgba(79, 70, 229, 0.1); color: var(--secondary);">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-          </div>
-          <div>
-            <div style="font-weight: 700; font-size: 0.9rem;">Tài Liệu Đọc & Bài Tập (.pdf)</div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">4.2 MB</div>
-          </div>
-        </div>
-        <span class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.78rem;">Tải Về</span>
-      </a>
-    `;
-  }
-
-  // Slide Navigation Events
-  prevSlideBtn.addEventListener('click', () => {
-    if (currentSlideIndex > 0) {
-      currentSlideIndex--;
-      renderSlideContent();
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !$('summary-modal').hidden) closeModal();
+    if (e.key === '/' && document.activeElement !== $('search-input') && !/input|textarea/i.test(document.activeElement.tagName)) {
+      e.preventDefault();
+      $('search-input').focus();
     }
   });
 
-  nextSlideBtn.addEventListener('click', () => {
-    if (activePresentation && currentSlideIndex < activePresentation.slides.length - 1) {
-      currentSlideIndex++;
-      renderSlideContent();
-    }
+  var searchT;
+  $('search-input').addEventListener('input', function (e) {
+    clearTimeout(searchT);
+    var v = e.target.value.trim();
+    searchT = setTimeout(function () {
+      state.query = v;
+      renderTimeline();
+    }, 120);
+  });
+  $('search-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') $('timeline').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  // Keyboard navigation for slides
-  document.addEventListener('keydown', (e) => {
-    if (!slideModal.classList.contains('active')) return;
-
-    if (e.key === 'ArrowLeft' && currentSlideIndex > 0) {
-      currentSlideIndex--;
-      renderSlideContent();
-    } else if (e.key === 'ArrowRight' && activePresentation && currentSlideIndex < activePresentation.slides.length - 1) {
-      currentSlideIndex++;
-      renderSlideContent();
-    } else if (e.key === 'Escape') {
-      closeSlideModal();
-    }
-  });
-
-  // Touch Swipe Gestures for Mobile Slide Canvas
-  const slideCanvasEl = document.querySelector('.slide-canvas');
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchEndX = 0;
-  let touchEndY = 0;
-
-  if (slideCanvasEl) {
-    slideCanvasEl.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].clientX;
-      touchStartY = e.changedTouches[0].clientY;
-    }, { passive: true });
-
-    slideCanvasEl.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].clientX;
-      touchEndY = e.changedTouches[0].clientY;
-      handleSwipe();
-    }, { passive: true });
+  // ---- Giao diện sáng / tối ----
+  function syncThemeIcon() {
+    var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    $('theme-toggle').innerHTML = '<i class="fa-solid ' + (dark ? 'fa-sun' : 'fa-moon') + '" aria-hidden="true"></i>';
   }
-
-  function handleSwipe() {
-    const deltaX = touchEndX - touchStartX;
-    const deltaY = touchEndY - touchStartY;
-    const swipeThreshold = 45; // Minimum horizontal distance in px
-
-    // Only trigger horizontal slide swipe if horizontal movement is greater than vertical movement
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
-      if (deltaX < 0) {
-        // Swiped Left -> Next Slide
-        if (activePresentation && currentSlideIndex < activePresentation.slides.length - 1) {
-          currentSlideIndex++;
-          renderSlideContent();
-        }
-      } else {
-        // Swiped Right -> Prev Slide
-        if (currentSlideIndex > 0) {
-          currentSlideIndex--;
-          renderSlideContent();
-        }
-      }
-    }
-  }
-
-  // Modal Sidebar Tabs Handling
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetTab = btn.getAttribute('data-tab');
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(c => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      document.getElementById(`tab-${targetTab}`).classList.add('active');
-    });
+  $('theme-toggle').addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('mx_theme', next); } catch (e) { }
+    syncThemeIcon();
   });
+  syncThemeIcon();
 
-  // Fullscreen Mode Handler
-  fullscreenBtn.addEventListener('click', () => {
-    const playerArea = document.querySelector('.slide-player-area');
-    if (!document.fullscreenElement) {
-      playerArea.requestFullscreen().catch(err => alert(`Không thể bật chế độ toàn màn hình: ${err.message}`));
-    } else {
-      document.exitFullscreen();
-    }
-  });
-
-  // Toast Helper
-  function showToast(message) {
-    let toastContainer = document.querySelector('.toast-container');
-    if (!toastContainer) {
-      toastContainer = document.createElement('div');
-      toastContainer.className = 'toast-container';
-      document.body.appendChild(toastContainer);
-    }
-
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = `
-      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-      <span>${message}</span>
-    `;
-
-    toastContainer.appendChild(toast);
-    setTimeout(() => {
-      toast.remove();
-    }, 3000);
-  }
-});
+  load();
+})();

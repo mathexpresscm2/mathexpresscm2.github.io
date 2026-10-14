@@ -558,6 +558,17 @@ window.INITIAL_PRESENTATIONS = [
 
 window.INITIAL_ANNOUNCEMENTS = [
   {
+    "id": "anc-007",
+    "title": "Bản Tin Chuyên Môn: Tuần 14 - Họp Giáo Viên Khối 7 (Tháng 10/2026)",
+    "date": "2026-10-14",
+    "author": "Bộ phận Chuyên môn",
+    "category": "Tài nguyên mới",
+    "priority": "High",
+    "summary": "Đã cập nhật 19 slide tương tác cuộc họp chuyên môn Giáo viên mới Khối 7 Tháng 10/2026: khung chương trình Buổi 15 – 24, tỉ lệ thức & dãy tỉ số bằng nhau, đại lượng tỉ lệ thuận – tỉ lệ nghịch, tam giác bằng nhau, tam giác cân – đều, các lỗi sai thường gặp và tồn đọng Khảo sát Quý.",
+    "content": "Toàn thể Giáo viên Khối 7 xem bản trình chiếu tương tác (HTML) hoặc văn bản kế hoạch (.PDF) trực tiếp trên trang chủ.",
+    "badge": "MỚI NHẤT"
+  },
+  {
     "id": "anc-006",
     "title": "Bản Tin Chuyên Môn: Tuần 14 - Họp Giáo Viên Khối 6 (Tháng 10/2026)",
     "date": "2026-10-08",
@@ -566,7 +577,7 @@ window.INITIAL_ANNOUNCEMENTS = [
     "priority": "High",
     "summary": "Đã cập nhật đầy đủ 18 slide tương tác cuộc họp chuyên môn Khối 6 Tháng 10/2026: Rà soát tác phong giảng dạy, xử lý 8 tồn đọng kỳ thi Khảo sát Quý I, khung chương trình Tháng 10 & 11/2026, kiến thức trọng tâm ƯCLN - BCNN và 5 dạng toán then chốt.",
     "content": "Toàn thể Giáo viên Khối 6 xem bản trình chiếu tương tác (HTML), tải file PowerPoint (.PPTX) hoặc xem văn bản kế hoạch (.PDF) trực tiếp trên trang chủ.",
-    "badge": "MỚI NHẤT"
+    "badge": "MỚI"
   },
   {
     "id": "anc-005",
