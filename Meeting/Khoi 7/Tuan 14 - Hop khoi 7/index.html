@@ -1,0 +1,3072 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathExpress · Họp chuyên môn Khối 7 · Tuần 14 (Tháng 10/2026)</title>
+  <meta name="description"
+    content="Kế hoạch trao đổi chuyên môn Giáo viên mới Khối 7 – Tuần 14: Khung chương trình Tháng 10 – 12 (Buổi 15 – 24); Tỉ lệ thức & dãy tỉ số bằng nhau; Đại lượng tỉ lệ thuận & nghịch; Tam giác bằng nhau; Tam giác cân & đều; Phòng ngừa lỗi sai kinh điển; Tồn đọng công tác & quy chuẩn chấm thi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- MathJax 3: mtextInheritFont kế thừa font trang để chữ tiếng Việt hiển thị đẹp -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      chtml: { mtextInheritFont: true },
+      options: { enableMenu: false },
+      startup: {
+        ready: function () {
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(function () { if (window.__fitSlides) window.__fitSlides(); });
+        }
+      }
+    };
+  </script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    // Fallback logo nếu mở tệp riêng lẻ ngoài repo
+    function logoFallback(img) {
+      var s = document.createElement('span');
+      s.className = 'wordmark' + (img.dataset.dark ? ' wordmark--dark' : '');
+      s.innerHTML = '<b>Math</b><i>Express</i>';
+      img.replaceWith(s);
+    }
+  </script>
+
+  <style>
+    /* =====================================================================
+       1. DESIGN TOKENS & SEMANTIC PALETTES
+       ===================================================================== */
+    :root {
+      --brand-blue: #005b9f;
+      --brand-blue-2: #118acb;
+      --brand-orange: #f26522;
+      --ink: #0f2137;
+      --ink-2: #344256;
+      --muted: #66768a;
+      --line: #e3e8ef;
+
+      /* Cỡ chữ cơ sở trên khung 1600x900 */
+      --fs-title: 38px;
+      --fs-h3: 21px;
+      --fs-body: 17.5px;
+      --fs-sm: 16px;
+      --fs-xs: 14px;
+      --pad-x: 64px;
+      --gap: 20px;
+
+      /* Palette mặc định (slate) */
+      --c50: #f8fafc;
+      --c100: #f1f5f9;
+      --c200: #e2e8f0;
+      --c600: #475569;
+      --c700: #334155;
+      --c900: #0f172a;
+    }
+
+    .t-rose {
+      --c50: #fff1f3;
+      --c100: #ffe4e8;
+      --c200: #fecdd3;
+      --c600: #e11d48;
+      --c700: #be123c;
+      --c900: #881337;
+    }
+
+    .t-amber {
+      --c50: #fffbeb;
+      --c100: #fef3c7;
+      --c200: #fde68a;
+      --c600: #d97706;
+      --c700: #b45309;
+      --c900: #78350f;
+    }
+
+    .t-orange {
+      --c50: #fff6f0;
+      --c100: #ffe8d9;
+      --c200: #fdcbaa;
+      --c600: #f26522;
+      --c700: #c2410c;
+      --c900: #7c2d12;
+    }
+
+    .t-emerald {
+      --c50: #ecfdf5;
+      --c100: #d1fae5;
+      --c200: #a7f3d0;
+      --c600: #059669;
+      --c700: #047857;
+      --c900: #064e3b;
+    }
+
+    .t-blue {
+      --c50: #f0f7fc;
+      --c100: #ddedf8;
+      --c200: #b9d8ef;
+      --c600: #005b9f;
+      --c700: #004a82;
+      --c900: #0b2f52;
+    }
+
+    .t-purple {
+      --c50: #faf5ff;
+      --c100: #f3e8ff;
+      --c200: #e9d5ff;
+      --c600: #9333ea;
+      --c700: #7e22ce;
+      --c900: #581c87;
+    }
+
+    .t-indigo {
+      --c50: #eef2ff;
+      --c100: #e0e7ff;
+      --c200: #c7d2fe;
+      --c600: #4f46e5;
+      --c700: #4338ca;
+      --c900: #312e81;
+    }
+
+    .t-slate {
+      --c50: #f8fafc;
+      --c100: #f1f5f9;
+      --c200: #e2e8f0;
+      --c600: #475569;
+      --c700: #334155;
+      --c900: #0f172a;
+    }
+
+    /* Accent color theo data-section */
+    .slide {
+      --acc: var(--brand-orange);
+      --acc-ink: #c2410c;
+    }
+
+    .slide[data-section="1"] {
+      --acc: #005b9f;
+      --acc-ink: #005b9f;
+    }
+
+    .slide[data-section="2"] {
+      --acc: #059669;
+      --acc-ink: #047857;
+    }
+
+    .slide[data-section="3"] {
+      --acc: #e11d48;
+      --acc-ink: #be123c;
+    }
+
+    .slide[data-section="4"] {
+      --acc: #d97706;
+      --acc-ink: #b45309;
+    }
+
+    /* =====================================================================
+       2. KHUNG TRÌNH CHIẾU 16:9 (1600x900)
+       ===================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: #0e1a2a;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    p, h1, h2, h3, h4 {
+      margin: 0;
+    }
+
+    b, strong {
+      font-weight: 700;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    mjx-container {
+      text-transform: none !important;
+    }
+
+    .viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1600px;
+      height: 900px;
+      transform: translate(-50%, -50%) scale(var(--scale, 1));
+      background: #fff;
+      box-shadow: 0 30px 90px -30px rgba(0, 0, 0, .6);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px);
+      transition: opacity .38s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .45s;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity .38s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s;
+    }
+
+    body.booting .slide {
+      transition: none !important;
+    }
+
+    /* Hoa văn nền nhẹ góc trên */
+    .slide:not(.slide--bleed)::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 520px;
+      height: 320px;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(0, 91, 159, .13) 1.3px, transparent 1.3px);
+      background-size: 22px 22px;
+      -webkit-mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
+      mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
+    }
+
+    /* Đầu slide */
+    .slide__head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 26px var(--pad-x) 14px;
+      border-bottom: 1px solid var(--line);
+      flex: none;
+    }
+
+    .slide__head::after {
+      content: "";
+      position: absolute;
+      left: var(--pad-x);
+      bottom: -2px;
+      width: 112px;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--acc-ink);
+    }
+
+    .eyebrow__num {
+      display: inline-grid;
+      place-items: center;
+      min-width: 32px;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: 7px;
+      background: var(--acc);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    .slide__title {
+      margin-top: 6px;
+      font-size: var(--fs-title);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -.015em;
+      color: var(--ink);
+    }
+
+    .slide__title .num {
+      color: var(--acc);
+      margin-right: 4px;
+    }
+
+    .slide__logo {
+      height: 42px;
+      width: auto;
+      flex: none;
+      margin-bottom: 2px;
+    }
+
+    /* Thân slide */
+    .slide__body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px var(--pad-x) 14px;
+      font-size: var(--fs-body);
+      line-height: 1.5;
+      color: var(--ink-2);
+    }
+
+    .fit {
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Chân slide */
+    .slide__foot {
+      position: relative;
+      z-index: 1;
+      flex: none;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad-x);
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid #eef1f5;
+    }
+
+    .slide__foot .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      margin-right: 10px;
+      vertical-align: 1px;
+    }
+
+    .slide__num {
+      font-weight: 700;
+      color: var(--ink-2);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .04em;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .wordmark b { color: var(--brand-blue-2); }
+    .wordmark i { color: var(--brand-orange); font-style: italic; }
+    .wordmark--dark b { color: #fff; }
+
+    /* =====================================================================
+       3. THÀNH PHẦN DÙNG CHUNG (Grid, Cards, Tables, Banners)
+       ===================================================================== */
+    .grid { display: grid; gap: var(--gap); min-width: 0; }
+    .g-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .g-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .g-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .g-55-45 { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); }
+    .g-45-55 { grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); }
+    .g-6-4 { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); }
+
+    .stack { display: flex; flex-direction: column; gap: 11px; min-width: 0; }
+    .mt-auto { margin-top: auto; }
+
+    .card {
+      position: relative;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 28px -20px rgba(16, 24, 40, .18);
+    }
+
+    .card.tint {
+      background: var(--c50);
+      border-color: var(--c200);
+    }
+
+    .card__head {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .card__head h3 {
+      font-size: var(--fs-h3);
+      line-height: 1.25;
+      font-weight: 700;
+      color: var(--c900);
+    }
+
+    .card__head > :last-child:not(h3):not(.ico) {
+      margin-left: auto;
+    }
+
+    .card__sub {
+      font-size: var(--fs-sm);
+      color: var(--muted);
+      margin-top: -4px;
+    }
+
+    .ico {
+      flex: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 17px;
+    }
+
+    .ico--sm {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      padding: 3px 11px;
+      border-radius: 999px;
+      background: var(--c100);
+      color: var(--c700);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .badge--rose { background: #ffe4e8; color: #be123c; }
+    .badge--emerald { background: #d1fae5; color: #047857; }
+    .badge--blue { background: #ddedf8; color: #005b9f; }
+    .badge--amber { background: #fef3c7; color: #b45309; }
+
+    .callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 15px;
+      border-radius: 13px;
+      background: var(--c100);
+      border: 1px solid var(--c200);
+      font-size: var(--fs-sm);
+      line-height: 1.45;
+      color: var(--c900);
+    }
+
+    .callout > i {
+      color: var(--c600);
+      font-size: 17px;
+      margin-top: 2px;
+      flex: none;
+    }
+
+    .banner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      background: var(--c50);
+      border: 1px solid var(--c200);
+      color: var(--ink-2);
+      font-size: var(--fs-sm);
+    }
+
+    .banner > i {
+      font-size: 20px;
+      color: var(--c600);
+      flex: none;
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 13px;
+      padding: 11px 15px;
+      min-width: 0;
+    }
+
+    .box--soft { background: var(--c50); }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--c600);
+    }
+
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .list > li {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .list > li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: .62em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c600);
+    }
+
+    .formula {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      padding: 8px 12px;
+      border-radius: 11px;
+      background: #fff;
+      border: 1px dashed var(--c200);
+      font-size: 18px;
+      color: var(--c900);
+    }
+
+    .sol {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 15.5px;
+      line-height: 1.45;
+    }
+
+    .sol > .ln {
+      position: relative;
+      padding-left: 17px;
+    }
+
+    .sol > .ln::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c600);
+    }
+
+    .ok { color: #047857; font-weight: 700; }
+    .bad { color: #e11d48; font-weight: 700; }
+
+    /* =====================================================================
+       4. TRANG BÌA & MỤC LỤC & LỜI KẾT
+       ===================================================================== */
+    .slide--cover {
+      background:
+        radial-gradient(900px 600px at 82% 45%, #e2f0fb 0%, rgba(226, 240, 251, 0) 65%),
+        radial-gradient(600px 420px at 0% 0%, rgba(242, 101, 34, .14) 0%, rgba(242, 101, 34, 0) 70%),
+        linear-gradient(180deg, #f8fbfe 0%, #fff 100%);
+    }
+
+    .slide--cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(0, 91, 159, .10) 1.3px, transparent 1.3px);
+      background-size: 26px 26px;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
+    }
+
+    .cover {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      align-items: center;
+      gap: 24px;
+      padding: 0 72px 0 104px;
+    }
+
+    .cover__logo { height: 60px; width: auto; }
+
+    .cover__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 40px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: #fff6f0;
+      border: 1px solid rgba(242, 101, 34, .3);
+      color: #c2410c;
+      font-weight: 700;
+      font-size: 19px;
+    }
+
+    .cover__title {
+      margin-top: 18px;
+      font-size: 88px;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -.035em;
+      color: #0b2f52;
+    }
+
+    .cover__title span { color: var(--brand-orange); }
+
+    .cover__bar {
+      width: 120px;
+      height: 7px;
+      border-radius: 7px;
+      margin-top: 24px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .cover__lead {
+      margin-top: 22px;
+      font-size: 21.5px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      max-width: 660px;
+      text-wrap: balance;
+    }
+
+    .cover__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 26px;
+    }
+
+    .cover__meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 15px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink-2);
+      box-shadow: 0 8px 20px -16px rgba(15, 33, 55, .3);
+    }
+
+    .cover__meta i { color: var(--brand-blue); }
+
+    .cover__art {
+      position: relative;
+      height: 660px;
+    }
+
+    .orbit {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 580px;
+      height: 580px;
+      transform: translate(-50%, -50%);
+      border: 2px dashed rgba(0, 91, 159, .18);
+      border-radius: 50%;
+    }
+
+    .orbit--2 {
+      width: 440px;
+      height: 440px;
+      border-style: solid;
+      border-color: rgba(0, 91, 159, .08);
+    }
+
+    .big-num {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 340px;
+      height: 340px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: radial-gradient(circle at 32% 26%, #36abe8 0%, #118acb 38%, #005b9f 100%);
+      box-shadow: 0 40px 80px -30px rgba(0, 91, 159, .6), inset 0 -24px 60px rgba(0, 0, 0, .14);
+    }
+
+    .big-num small {
+      position: absolute;
+      top: 58px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .4em;
+      opacity: .85;
+      padding-left: .4em;
+    }
+
+    .big-num b {
+      font-size: 240px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-top: 14px;
+    }
+
+    .tag {
+      position: absolute;
+      white-space: nowrap;
+      padding: 9px 16px;
+      border-radius: 13px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 21px;
+      color: var(--ink);
+      box-shadow: 0 16px 32px -16px rgba(15, 33, 55, .32);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .tag::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    .tag--1 { left: 15px; top: 70px; transform: rotate(-3deg); }
+    .tag--2 { right: 5px; top: 145px; transform: rotate(2.5deg); animation-delay: -2s; }
+    .tag--3 { right: 25px; bottom: 145px; transform: rotate(-2deg); animation-delay: -4s; }
+    .tag--4 { left: 0px; bottom: 120px; transform: rotate(2deg); animation-delay: -1s; }
+
+    .tag--2::before, .tag--3::before { background: var(--brand-blue-2); }
+
+    @keyframes float { 50% { translate: 0 -8px; } }
+
+    /* Mục lục */
+    .agenda {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .agenda__item {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      padding: 13px 22px 13px 14px;
+      border-radius: 17px;
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 10px 24px -20px rgba(16, 24, 40, .3);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .agenda__item:hover, .agenda__item:focus-visible {
+      transform: translateX(6px);
+      border-color: var(--c200);
+      background: var(--c50);
+      outline: none;
+    }
+
+    .agenda__num {
+      width: 76px;
+      height: 76px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .agenda__text h3 {
+      font-size: 23px;
+      color: var(--c900);
+      margin-bottom: 3px;
+    }
+
+    .agenda__text p {
+      font-size: var(--fs-sm);
+      color: var(--ink-2);
+    }
+
+    .agenda__go {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--c100);
+      color: var(--c700);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* Bảng phân phối chương trình + Bộ lọc */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .seg {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      border: 1px solid var(--line);
+    }
+
+    .seg__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .seg button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      padding: 7px 14px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-2);
+      transition: background .15s, color .15s;
+    }
+
+    .seg button:hover { background: rgba(255, 255, 255, .7); }
+
+    .seg button[aria-pressed="true"] {
+      background: #fff;
+      color: var(--brand-blue);
+      box-shadow: 0 1px 3px rgba(16, 24, 40, .14);
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; }
+
+    .table-wrap {
+      flex: none;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 28px -24px rgba(16, 24, 40, .3);
+    }
+
+    .plan {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14.5px;
+      line-height: 1.35;
+      color: var(--ink-2);
+    }
+
+    .plan th {
+      background: #0b3c66;
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 9px 12px;
+      border-right: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .plan th:nth-child(-n+2), .plan td:nth-child(-n+2) { text-align: center; }
+
+    .plan td {
+      padding: 7px 12px;
+      border-top: 1px solid #edf1f5;
+      border-right: 1px solid #edf1f5;
+      vertical-align: middle;
+    }
+
+    .plan th:last-child, .plan td:last-child { border-right: 0; }
+
+    .plan .time {
+      white-space: nowrap;
+      font-weight: 600;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      font-size: 13.5px;
+    }
+
+    .plan .bno {
+      font-weight: 800;
+      color: var(--brand-blue);
+      font-size: 15px;
+    }
+
+    .plan tr.is-current td {
+      background: #fff7ed;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .plan tr.is-current td:first-child {
+      box-shadow: inset 4px 0 0 var(--brand-orange);
+    }
+
+    .plan tr.is-current .bno { color: var(--brand-orange); }
+
+    .plan tr.is-review td {
+      background: #ecfdf5;
+      color: #065f46;
+      font-weight: 700;
+    }
+
+    .plan tr.is-review .bno { color: #047857; }
+
+    .plan tr.is-extra td {
+      background: #fefce8;
+      color: #854d0e;
+      font-weight: 700;
+    }
+
+    .plan tr.is-extra .bno { color: #a16207; }
+
+    /* Bộ lọc cột theo data-track */
+    .plan[data-track="chuyen"] :is(.c2, .c3),
+    .plan[data-track="nangcao"] :is(.c1, .c3),
+    .plan[data-track="coban"] :is(.c1, .c2) {
+      display: none;
+    }
+
+    /* Hộp bẫy sai lầm & Phân tích */
+    .traps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .trap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) minmax(0, 1.2fr);
+      gap: 12px;
+    }
+
+    .trap > div {
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 15px;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .trap__err { border-left: 4px solid #e11d48 !important; }
+    .trap__err b { display: block; color: #881337; font-size: 15.5px; margin-bottom: 2px; }
+
+    .trap__why {
+      background: #fffbeb !important;
+      border-color: #fde68a !important;
+      color: #78350f;
+    }
+
+    .trap__fix {
+      background: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+      color: #064e3b;
+    }
+
+    /* So sánh 2 cột Tỉ lệ thuận vs Tỉ lệ nghịch */
+    .compare-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 12px 0;
+      table-layout: fixed;
+    }
+
+    .compare-table td {
+      vertical-align: top;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 14px 18px;
+      box-shadow: 0 10px 24px -18px rgba(16, 24, 40, .25);
+    }
+
+    /* Tồn đọng issue */
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .issue-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .issue-card.bad { border-left: 4px solid #e11d48; }
+    .issue-card.warn { border-left: 4px solid #d97706; }
+
+    .issue-card h4 {
+      font-size: 16.5px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .issue-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--ink-2);
+    }
+
+    .issue-card .classes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 4px;
+    }
+
+    .issue-card .tag-class {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #fee2e2;
+      color: #991b1b;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .issue-card .tag-class--warn {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Slide Lời kết */
+    .slide--end {
+      background: linear-gradient(135deg, #0b2f52 0%, #082039 55%, #061627 100%);
+      color: #fff;
+    }
+
+    .slide--end::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(640px 460px at 88% 8%, rgba(242, 101, 34, .28), transparent 70%),
+        radial-gradient(640px 460px at 6% 100%, rgba(17, 138, 203, .32), transparent 70%);
+    }
+
+    .end {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px;
+    }
+
+    .end__logo { height: 68px; width: auto; }
+
+    .end h2 {
+      margin-top: 36px;
+      font-size: 78px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .end__bar {
+      width: 120px;
+      height: 7px;
+      border-radius: 7px;
+      margin-top: 24px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .end__wish {
+      margin-top: 24px;
+      font-size: 24px;
+      color: #cbd8e6;
+      max-width: 960px;
+      line-height: 1.5;
+      text-wrap: balance;
+    }
+
+    .end__chips {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .end__chips span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .18);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .end__chips i { color: var(--brand-orange); }
+
+    /* =====================================================================
+       5. TIẾN TRÌNH & ĐIỀU HƯỚNG NỔI
+       ===================================================================== */
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      z-index: 80;
+      background: rgba(255, 255, 255, .15);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+      transition: width .25s ease;
+    }
+
+    .nav {
+      position: fixed;
+      right: 28px;
+      bottom: 24px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 33, 55, .82);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, .16);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, .45);
+      color: #fff;
+      transition: opacity .3s, transform .3s;
+    }
+
+    .nav button {
+      border: 0;
+      background: transparent;
+      color: #cbd8e6;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background .15s, color .15s;
+    }
+
+    .nav button:hover:not(:disabled) {
+      background: rgba(255, 255, 255, .16);
+      color: #fff;
+    }
+
+    .nav button.is-primary {
+      background: var(--brand-orange);
+      color: #fff;
+    }
+
+    .nav button.is-primary:hover:not(:disabled) {
+      background: #ff7838;
+    }
+
+    .nav button:disabled {
+      opacity: .35;
+      cursor: not-allowed;
+    }
+
+    .nav__count {
+      padding: 0 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #cbd8e6;
+      font-variant-numeric: tabular-nums;
+      min-width: 58px;
+      text-align: center;
+    }
+
+    .nav__sep {
+      width: 1px;
+      height: 20px;
+      background: rgba(255, 255, 255, .2);
+      margin: 0 2px;
+    }
+
+    body.is-idle { cursor: none; }
+    body.is-idle .nav { opacity: 0; transform: translateY(8px); pointer-events: none; }
+
+    /* =====================================================================
+       6. HIỆU ỨNG MICRO-ANIMATIONS STAGGERED
+       ===================================================================== */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .slide.is-active .fit > :not(.grid):not(.agenda):not(.table-wrap),
+    .slide.is-active .grid > *,
+    .slide.is-active .agenda > * {
+      animation: rise .5s cubic-bezier(.2, .7, .2, 1) both;
+    }
+
+    .slide.is-active :is(.grid, .agenda) > :nth-child(2) { animation-delay: .06s; }
+    .slide.is-active :is(.grid, .agenda) > :nth-child(3) { animation-delay: .12s; }
+    .slide.is-active :is(.grid, .agenda) > :nth-child(4) { animation-delay: .18s; }
+    .slide.is-active :is(.grid, .agenda) > :nth-child(5) { animation-delay: .24s; }
+
+    /* Nhãn "bước dễ sai" và bảng đáp số sai đặc trưng */
+    .step-warn {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background: #ffe4e8;
+      color: #be123c;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      vertical-align: 2px;
+      white-space: nowrap;
+    }
+
+    .wrong {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.35;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .wrong th, .wrong td {
+      border: 1px solid var(--line);
+      padding: 5px 9px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .wrong th { background: #f8fafc; font-size: 12.5px; color: var(--muted); font-weight: 700; }
+    .wrong td.ans { white-space: nowrap; font-weight: 700; color: #be123c; }
+    .wrong tr.is-ok td.ans { color: #047857; }
+
+    /* Hình TikZ nhúng trực tiếp */
+    .fig { width: 100%; display: flex; justify-content: center; }
+    .fig svg { width: 100%; height: auto; max-height: 340px; }
+
+    /* =====================================================================
+       7. IN ẤN & RESPONSIVE CUỘN DỌC (<900px, @media print)
+       ===================================================================== */
+    @media print {
+      @page { size: 1600px 900px; margin: 0; }
+      html, body { height: auto; overflow: visible; background: #fff; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; animation: none !important; transition: none !important; }
+      .viewport, .stage { position: static; transform: none; width: 1600px; height: auto; overflow: visible; box-shadow: none; }
+      .slide {
+        position: relative; opacity: 1; visibility: visible; transform: none;
+        width: 1600px; height: 900px; break-after: page; page-break-after: always; overflow: hidden;
+      }
+      .nav, .progress { display: none !important; }
+    }
+
+    /* Điện thoại / màn hình thấp: chuyển thành tài liệu cuộn dọc */
+    @media (max-width: 899px), (max-height: 499px) {
+      :root {
+        --fs-title: 20px;
+        --fs-h3: 16px;
+        --fs-body: 14.5px;
+        --fs-sm: 13.5px;
+        --fs-xs: 12px;
+        --pad-x: 16px;
+        --gap: 12px;
+      }
+      html, body { height: auto; }
+      body { overflow: auto; background: #eef2f6; }
+      .viewport, .stage {
+        position: static; inset: auto; width: auto; height: auto;
+        transform: none; box-shadow: none; overflow: visible; background: transparent;
+      }
+      .slide, .slide.is-active {
+        position: relative; inset: auto; opacity: 1; visibility: visible;
+        transform: none; transition: none; margin-bottom: 10px; scroll-margin-top: 0;
+      }
+      .slide.is-active :is(*) { animation: none !important; }
+      .slide__head {
+        position: sticky; top: 0; z-index: 5;
+        background: rgba(255, 255, 255, .97);
+        -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+        padding: 12px 16px 10px; align-items: center;
+      }
+      .slide__logo, .slide__foot { display: none; }
+      .eyebrow { font-size: 10.5px; gap: 7px; }
+      .eyebrow__num { min-width: 26px; height: 20px; font-size: 11px; border-radius: 6px; }
+      .slide__title { margin-top: 5px; }
+      .slide__body { flex: none; justify-content: flex-start; padding: 14px 16px 22px; }
+      .fit { zoom: 1 !important; gap: 12px; }
+
+      /* Lưới, bảng so sánh, thẻ tồn đọng: một cột */
+      .g-2, .g-3, .g-4, .g-55-45, .g-45-55, .g-6-4, .issue-grid { grid-template-columns: minmax(0, 1fr); }
+      .compare-table, .compare-table tbody, .compare-table tr, .compare-table td { display: block; width: 100%; }
+      .compare-table td + td { margin-top: 12px; }
+      .compare-table td { padding: 12px 14px; }
+      .card { padding: 14px !important; gap: 10px; border-radius: 14px; }
+      .card img { max-width: 100%; height: auto; }
+      .fig svg { max-height: none; }
+      .ico { width: 32px; height: 32px; border-radius: 9px; font-size: 14px; }
+      .ico--sm { width: 28px; height: 28px; font-size: 12px; }
+      .card__head h3 { font-size: 15.5px !important; }
+      .formula { font-size: 15px !important; }
+      .banner { padding: 12px 14px; gap: 10px; align-items: flex-start; flex-wrap: wrap; }
+      .banner > i { font-size: 17px; }
+      mjx-container[display="true"], .formula mjx-container, .banner mjx-container, .box mjx-container {
+        max-width: 100%; overflow-x: auto; overflow-y: hidden;
+      }
+      .wrong { min-width: 0; font-size: 13px; }
+      .wrong-wrap { overflow-x: auto; }
+
+      /* Mục lục, bảng tiến độ */
+      .agenda__item { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 10px 12px 10px 10px; }
+      .agenda__num { width: 48px; height: 48px; font-size: 19px; border-radius: 12px; }
+      .agenda__text h3 { font-size: 15px; }
+      .agenda__go { grid-column: 2; justify-self: start; font-size: 12px; padding: 5px 10px; }
+      .toolbar { flex-direction: column; align-items: stretch; gap: 8px; }
+      .seg { overflow-x: auto; max-width: 100%; }
+      .progress { width: 100%; max-width: 100vw; }
+      /* Lưới an toàn: công thức quá dài thì cuộn ngang trong khối, không làm tràn trang */
+      .sol > .ln, .trap > div, .box, .banner > div, .callout > div, .list > li { overflow-x: auto; overflow-y: hidden; }
+      .seg__label, .legend { display: none; }
+      .seg button { font-size: 12px; padding: 6px 10px; white-space: nowrap; }
+      .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .plan { min-width: 680px; font-size: 13px; }
+
+      /* Bẫy sai lầm: mỗi lỗi thành một khối dọc có nhãn */
+      .trap { grid-template-columns: minmax(0, 1fr); gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+      .trap > div { border-radius: 0; border-width: 0 0 1px 0 !important; font-size: 13.5px; padding: 9px 12px; }
+      .trap > div:last-child { border-bottom: 0 !important; }
+
+      /* Bìa và trang kết */
+      .cover { grid-template-columns: 1fr; padding: 28px 20px 36px; gap: 0; height: auto; }
+      .cover__logo { height: 44px; }
+      .cover__kicker { margin-top: 24px; font-size: 14px; padding: 6px 14px; }
+      .cover__title { font-size: 38px; }
+      .cover__bar { height: 6px; width: 96px; margin-top: 20px; }
+      .cover__lead { font-size: 16px; margin-top: 18px; }
+      .cover__meta span { font-size: 13px; padding: 7px 12px; }
+      /* Không dùng display:none: MathJax đo độ rộng chữ trong \text{Đồng vị}… lần đầu tại đây
+         rồi lưu cache; phần tử ẩn hoàn toàn cho độ rộng 0 làm vỡ mọi công thức cùng chữ phía sau. */
+      .slide--cover { overflow: hidden; }
+      .cover__art {
+        position: absolute; left: 0; top: 0; width: 100%; height: 0;
+        overflow: hidden; visibility: hidden; pointer-events: none;
+      }
+      .end { padding: 44px 20px 110px; height: auto; }
+      .end__logo { height: 48px; }
+      .end h2 { font-size: 34px; margin-top: 28px; }
+      .end__wish { font-size: 16px; }
+      .nav { right: 12px; bottom: 12px; transform: scale(.9); transform-origin: bottom right; }
+    }
+  </style>
+</head>
+
+<body class="booting">
+  <!-- Tiến độ đọc slide -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <main class="viewport">
+    <div class="stage" id="stage">
+
+      <!-- ==================== SLIDE 1: BÌA ==================== -->
+      <section class="slide slide--cover slide--bleed is-active" data-section="0" aria-label="Bìa">
+        <div class="cover">
+          <div>
+            <img class="cover__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+            <div><span class="cover__kicker"><i class="fa-solid fa-calendar-check"></i> Tuần 14 · Tháng 10/2026</span></div>
+            <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 7</span></h1>
+            <div class="cover__bar"></div>
+            <p class="cover__lead">Kế hoạch trao đổi chuyên môn Giáo viên mới: Khung chương trình Tháng 10 – 12 · Tỉ lệ thức &amp; Dãy tỉ số bằng nhau · Đại lượng tỉ lệ · Tam giác bằng nhau &amp; Tam giác cân · Phòng ngừa lỗi sai kinh điển.</p>
+            <div class="cover__meta">
+              <span><i class="fa-solid fa-graduation-cap"></i> Năm học 2026 – 2027</span>
+              <span><i class="fa-solid fa-book"></i> SGK Toán 7 Kết nối tri thức</span>
+              <span><i class="fa-solid fa-users"></i> Khối Chuyên môn · CLB Toán bồi dưỡng MathExpress</span>
+            </div>
+          </div>
+          <div class="cover__art" aria-hidden="true">
+            <div class="orbit"></div>
+            <div class="orbit orbit--2"></div>
+            <div class="big-num"><small>KHỐI</small><b>7</b></div>
+            <div class="tag tag--1">$\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{a+c}{b+d}$</div>
+            <div class="tag tag--2">$y = kx\ \ (k \neq 0)$</div>
+            <div class="tag tag--3">$\Delta HDB = \Delta HEC\ (\text{g.c.g})$</div>
+            <div class="tag tag--4">$DE \parallel BC\ (\text{Đồng vị})$</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 2: MỤC LỤC ==================== -->
+      <section class="slide" data-section="0" data-agenda aria-label="Nội dung cuộc họp">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num"><i class="fa-solid fa-list-ul"></i></span>Tổng quan cuộc họp</div>
+            <h2 class="slide__title">Nội dung trao đổi chuyên môn</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="agenda">
+            <button type="button" class="agenda__item t-blue" data-goto-section="1">
+              <span class="agenda__num">01</span>
+              <span class="agenda__text">
+                <h3>Khung chương trình Tháng 10 – 11 – 12</h3>
+                <p>Tiến độ chi tiết Buổi 15 – 24+thêm theo 3 hệ lớp (Chuyên, Nâng cao, Mở rộng) &amp; định hướng trọng tâm.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <button type="button" class="agenda__item t-emerald" data-goto-section="2">
+              <span class="agenda__num">02</span>
+              <span class="agenda__text">
+                <h3>Đại số: Tỉ lệ thức &amp; Đại lượng tỉ lệ</h3>
+                <p>Kiến thức cốt lõi, phương pháp đặt $k$, 3 dạng bài tỉ lệ thức, tìm hệ số tỉ lệ và bài toán thực tế hai xe lửa.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <button type="button" class="agenda__item t-rose" data-goto-section="3">
+              <span class="agenda__num">03</span>
+              <span class="agenda__text">
+                <h3>Hình học: Tam giác bằng nhau &amp; Tam giác cân, đều</h3>
+                <p>Chuẩn hóa 4 bước chứng minh, góc xen giữa, phương pháp phân tích ngược, bẫy ngộ nhận thẳng hàng &amp; cạnh bằng nhau.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <button type="button" class="agenda__item t-amber" data-goto-section="4">
+              <span class="agenda__num">04</span>
+              <span class="agenda__text">
+                <h3>Tồn đọng thời gian qua &amp; Quy chuẩn hành động</h3>
+                <p>Tác phong (giờ giấc, thẻ tên), tồn đọng Khảo sát Quý (điểm danh, hạn nhập điểm, nhận xét) &amp; quy tắc chấm thi.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 3: MỤC TIÊU CUỘC HỌP ==================== -->
+      <section class="slide" data-section="1" aria-label="Mục tiêu cuộc họp chuyên môn">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Định hướng mục tiêu</div>
+            <h2 class="slide__title"><span class="num">1.1</span> 4 Mục tiêu trọng tâm của cuộc họp</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <div class="card tint t-blue">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-network-wired"></i></div>
+                <div>
+                  <h3>1. Nắm vững mạch kiến thức</h3>
+                  <div class="card__sub">Đồng bộ tiến độ giảng dạy trên toàn hệ thống</div>
+                </div>
+              </div>
+              <ul class="list">
+                <li>Nắm rõ phân phối chương trình Tháng 10 – 12 từ Buổi 15 đến Buổi 24+thêm.</li>
+                <li>Phân hóa rõ rệt mục tiêu giữa 3 hệ lớp: <b>Phiếu 1 (Chuyên)</b>, <b>Phiếu 2 (Nâng cao)</b>, <b>Phiếu 3+4 (Mở rộng)</b>.</li>
+                <li>Chủ động kế hoạch ôn tập giữa kỳ, kiểm tra tháng và chuẩn bị cho kỳ Khảo sát Quý 2.</li>
+              </ul>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-pen-ruler"></i></div>
+                <div>
+                  <h3>2. Thống nhất phương pháp &amp; Trình bày chuẩn</h3>
+                  <div class="card__sub">Quy chuẩn hóa cách giải bài mẫu tại MathExpress</div>
+                </div>
+              </div>
+              <ul class="list">
+                <li>Thống nhất phương pháp tư duy: <b>Đặt ẩn phụ $k$</b>, <b>Phân tích ngược</b> trong hình học.</li>
+                <li>Chuẩn hóa từng câu chữ lập luận: không nhảy bước, không ngộ nhận tiên đề/định lí.</li>
+                <li>Bắt buộc học sinh ghi rõ dòng lập luận quan hệ tỉ lệ thuận hay nghịch trong bài toán thực tiễn.</li>
+              </ul>
+            </div>
+
+            <div class="card tint t-rose">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div>
+                  <h3>3. Phòng ngừa lỗi sai cho học sinh</h3>
+                  <div class="card__sub">Chủ động giăng lưới đón đầu các bẫy học sinh dễ sập</div>
+                </div>
+              </div>
+              <ul class="list">
+                <li>Chỉ rõ các bẫy: nhầm tỉ lệ thuận/nghịch, quên bình phương mẫu, thiếu điều kiện mẫu khác 0.</li>
+                <li>Cảnh báo lỗi hình học: ngộ nhận góc xen giữa, ngộ nhận 3 điểm thẳng hàng qua góc kề bù.</li>
+                <li>Rèn luyện thói quen tự kiểm tra điều kiện, xét đủ trường hợp âm/dương khi giải toán.</li>
+              </ul>
+            </div>
+
+            <div class="card tint t-amber">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-comments"></i></div>
+                <div>
+                  <h3>4. Chia sẻ kinh nghiệm giảng dạy</h3>
+                  <div class="card__sub">Học từ chính các lớp đang dạy trong hệ thống</div>
+                </div>
+              </div>
+              <ul class="list">
+                <li>Chia sẻ cách xử lý các lỗi sai đã gặp trên lớp ở mạch tỉ lệ thức và tam giác bằng nhau.</li>
+                <li>Trao đổi cách nhận xét bài chi tiết: chỉ rõ học sinh sai ở câu nào, bước nào, dạng bài nào.</li>
+                <li>Thảo luận, góp ý phiếu bài và tiến độ ở phần cuối cuộc họp.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 4: TIẾN ĐỘ THÁNG 10-12 ==================== -->
+      <section class="slide" data-section="1" aria-label="Khung chương trình Tháng 10 - 11 - 12">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Khung chương trình &amp; Tiến độ</div>
+            <h2 class="slide__title"><span class="num">1.2</span> Kế hoạch giảng dạy Tháng 10 – 11 – 12 (Buổi 15 – 24)</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="toolbar">
+            <div class="seg" role="group" aria-label="Lọc theo hệ lớp" data-filter="track" data-target="planTable7">
+              <span class="seg__label"><i class="fa-solid fa-layer-group"></i>Hệ lớp</span>
+              <button type="button" data-value="all" aria-pressed="true">Tất cả</button>
+              <button type="button" data-value="chuyen" aria-pressed="false">Phiếu 1 (Chuyên)</button>
+              <button type="button" data-value="nangcao" aria-pressed="false">Phiếu 2 (Nâng cao)</button>
+              <button type="button" data-value="coban" aria-pressed="false">Phiếu 3+4 (Mở rộng)</button>
+            </div>
+            <div class="legend">
+              <span><i style="background:#fff7ed; border:1px solid #fdba74"></i>Tuần hiện tại</span>
+              <span><i style="background:#ecfdf5; border:1px solid #6ee7b7"></i>Kiểm tra / Ôn tập</span>
+              <span><i style="background:#fefce8; border:1px solid #fde047"></i>Buổi bổ trợ</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="plan" id="planTable7" data-track="all">
+              <thead>
+                <tr>
+                  <th style="width:130px">Thời gian</th>
+                  <th style="width:75px">Buổi</th>
+                  <th class="c1">Phiếu 1 (Định hướng Chuyên)</th>
+                  <th class="c2">Phiếu 2 (Nâng cao)</th>
+                  <th class="c3">Phiếu 3 + 4 (Mở rộng)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-current">
+                  <td class="time">15/10 – 21/10/2026</td>
+                  <td class="bno">15</td>
+                  <td class="c1">Các trường hợp bằng nhau của tam giác vuông</td>
+                  <td class="c2">Các trường hợp bằng nhau của tam giác vuông</td>
+                  <td class="c3">Trường hợp bằng nhau thứ ba của tam giác (g.c.g)</td>
+                </tr>
+                <tr>
+                  <td class="time">22/10 – 28/10/2026</td>
+                  <td class="bno">16</td>
+                  <td class="c1">Tam giác cân, tam giác đều</td>
+                  <td class="c2">Tam giác cân, tam giác đều</td>
+                  <td class="c3">Tỉ lệ thức – Tính chất dãy tỉ số bằng nhau</td>
+                </tr>
+                <tr class="is-review">
+                  <td class="time">29/10 – 04/11/2026</td>
+                  <td class="bno">17</td>
+                  <td class="c1">Ôn tập và kiểm tra tháng</td>
+                  <td class="c2">Ôn tập và kiểm tra tháng</td>
+                  <td class="c3">Ôn tập ba trường hợp bằng nhau của tam giác</td>
+                </tr>
+                <tr>
+                  <td class="time">05/11 – 11/11/2026</td>
+                  <td class="bno">18</td>
+                  <td class="c1">Tỉ lệ thức – TC dãy tỉ số bằng nhau (buổi 1)</td>
+                  <td class="c2">Tỉ lệ thức – TC dãy tỉ số bằng nhau (buổi 1)</td>
+                  <td class="c3">Luyện tập về dãy tỉ số bằng nhau</td>
+                </tr>
+                <tr>
+                  <td class="time">12/11 – 18/11/2026</td>
+                  <td class="bno">19</td>
+                  <td class="c1">Tỉ lệ thức – TC dãy tỉ số bằng nhau (buổi 2)</td>
+                  <td class="c2">Tỉ lệ thức – TC dãy tỉ số bằng nhau (buổi 2)</td>
+                  <td class="c3">Các trường hợp bằng nhau của tam giác vuông</td>
+                </tr>
+                <tr class="is-extra">
+                  <td class="time">19/11 – 23/11/2026</td>
+                  <td class="bno">19-thêm</td>
+                  <td class="c1">Ôn tập tổng hợp</td>
+                  <td class="c2">Ôn tập tổng hợp</td>
+                  <td class="c3">Ôn tập tổng hợp</td>
+                </tr>
+                <tr>
+                  <td class="time">25/11 – 01/12/2026</td>
+                  <td class="bno">20</td>
+                  <td class="c1">Cạnh và góc đối diện trong tam giác</td>
+                  <td class="c2">Cạnh và góc đối diện trong tam giác</td>
+                  <td class="c3">Tam giác cân, Tam giác đều</td>
+                </tr>
+                <tr>
+                  <td class="time">02/12 – 08/12/2026</td>
+                  <td class="bno">21</td>
+                  <td class="c1">Ôn tập số học (Bài toán chia hết, Số nguyên tố)</td>
+                  <td class="c2">Bài toán tỉ lệ thuận, tỉ lệ nghịch</td>
+                  <td class="c3">Ôn tập cuối kì 1</td>
+                </tr>
+                <tr>
+                  <td class="time">09/12 – 15/12/2026</td>
+                  <td class="bno">22</td>
+                  <td class="c1">Biến đổi biểu thức hữu tỉ</td>
+                  <td class="c2">Biến đổi biểu thức hữu tỉ</td>
+                  <td class="c3">Đại lượng tỉ lệ thuận</td>
+                </tr>
+                <tr class="is-review">
+                  <td class="time">16/12 – 22/12/2026</td>
+                  <td class="bno">23</td>
+                  <td class="c1"><b>Kiểm tra quý 2</b></td>
+                  <td class="c2"><b>Kiểm tra quý 2</b></td>
+                  <td class="c3"><b>Kiểm tra quý 2</b></td>
+                </tr>
+                <tr>
+                  <td class="time">23/12 – 29/12/2026</td>
+                  <td class="bno">24</td>
+                  <td class="c1">Biểu thức đại số</td>
+                  <td class="c2">Biểu thức đại số</td>
+                  <td class="c3">Đại lượng tỉ lệ nghịch</td>
+                </tr>
+                <tr class="is-extra">
+                  <td class="time">30/12 – 31/12/2026</td>
+                  <td class="bno">24-thêm</td>
+                  <td class="c1">Ôn tập tổng hợp</td>
+                  <td class="c2">Ôn tập tổng hợp</td>
+                  <td class="c3">Ôn tập tổng hợp</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 5: ĐỊNH HƯỚNG TRỌNG TÂM ==================== -->
+      <section class="slide" data-section="1" aria-label="Định hướng trọng tâm Đại số & Hình học">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Định hướng trọng tâm</div>
+            <h2 class="slide__title"><span class="num">1.3</span> Trục kiến thức cốt lõi &amp; Chiến lược phân hóa</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <div class="card tint t-blue">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-square-root-variable"></i></div>
+                <div>
+                  <h3>Mạch Đại số: Tỉ lệ &amp; Biểu thức đại số</h3>
+                  <div class="card__sub">Trọng tâm xuyên suốt Buổi 16, 18, 19, 21, 22, 24</div>
+                </div>
+              </div>
+              <ul class="list">
+                <li><b>Tỉ lệ thức &amp; Dãy tỉ số bằng nhau:</b> Nền tảng phương pháp quan trọng nhất lớp 7. Học sinh cần thành thạo biến đổi linh hoạt và đặt ẩn phụ $k$.</li>
+                <li><b>Đại lượng tỉ lệ thuận &amp; nghịch:</b> Bài toán thực tế, lập phương trình liên hệ đại lượng và rèn tư duy đại lượng không đổi.</li>
+                <li><b>Biến đổi biểu thức hữu tỉ &amp; Đại số:</b> Bước đệm quan trọng chuyển tiếp sang chương Đa thức và chuẩn bị cho học kỳ 2.</li>
+              </ul>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-draw-polygon"></i></div>
+                <div>
+                  <h3>Mạch Hình học: Tam giác &amp; Quan hệ góc - cạnh</h3>
+                  <div class="card__sub">Trọng tâm xuyên suốt Buổi 15, 16, 20</div>
+                </div>
+              </div>
+              <ul class="list">
+                <li><b>Các trường hợp bằng nhau của tam giác:</b> c.c.c, c.g.c, g.c.g và các trường hợp bằng nhau của tam giác vuông.</li>
+                <li><b>Tam giác cân &amp; Tam giác đều:</b> Mối liên hệ khăng khít giữa cạnh và góc; phương pháp chứng minh song song và đoạn thẳng bằng nhau.</li>
+                <li><b>Cạnh và góc đối diện:</b> Bất đẳng thức tam giác và quan hệ giữa đường vuông góc, đường xiên.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout t-orange" style="margin-top:4px">
+            <i class="fa-solid fa-bullseye"></i>
+            <div>
+              <b>Lưu ý phân hóa giữa các phân khúc lớp:</b> Lớp <b>Chuyên (Phiếu 1)</b> đi sâu vào bài toán chứng minh dãy tỉ số đối xứng, lũy thừa cao và số học nâng cao. Lớp <b>Nâng cao (Phiếu 2)</b> rèn sâu bài toán thực tế đa biến và hình học tư duy ngược. Lớp <b>Mở rộng (Phiếu 3+4)</b> phải nắm thật chắc định nghĩa, bảng so sánh và trình bày chặt chẽ không mất điểm oan.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 6: ĐẠI SỐ - CỐT LÕI TỈ LỆ THỨC ==================== -->
+      <section class="slide" data-section="2" aria-label="Kiến thức cốt lõi: Tỉ lệ thức và dãy tỉ số bằng nhau">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Tỉ lệ thức</div>
+            <h2 class="slide__title"><span class="num">2.1</span> Tỉ lệ thức &amp; Tính chất dãy tỉ số bằng nhau</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-3">
+            <div class="card tint t-blue">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-equals"></i></div>
+                <h3>1. Tính chất của tỉ lệ thức</h3>
+              </div>
+              <p style="font-size:14.5px; line-height:1.45"><b>Tính chất 1.</b> Nếu $\dfrac{a}{b} = \dfrac{c}{d}$ thì $ad = bc$.</p>
+              <p style="font-size:14.5px; line-height:1.45"><b>Tính chất 2.</b> Nếu $ad = bc$ và $a, b, c, d$ đều khác 0 thì ta có 4 tỉ lệ thức:</p>
+              <div class="box box--soft" style="font-size:14px; text-align:center">
+                $\dfrac{a}{b} = \dfrac{c}{d};\quad \dfrac{a}{c} = \dfrac{b}{d};\quad \dfrac{d}{b} = \dfrac{c}{a};\quad \dfrac{d}{c} = \dfrac{b}{a}$
+              </div>
+              <p style="font-size:13.5px; line-height:1.4; color:var(--muted)">Ngoại tỉ ($a, d$) đổi chỗ cho nhau, trung tỉ ($b, c$) đổi chỗ cho nhau: đây là công cụ của Dạng 1 và Bẫy 1 ở Dạng 2.</p>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+                <h3>2. Tính chất dãy tỉ số bằng nhau</h3>
+              </div>
+              <div class="formula">
+                $\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{a+c}{b+d} = \dfrac{a-c}{b-d}\ \ (b \ne d;\ b \ne -d)$
+              </div>
+              <p style="font-size:14px; line-height:1.4">Tính chất có <b>hệ số nhân</b> ($m, n \ne 0$; $mb + nd \ne 0$; $mb - nd \ne 0$):</p>
+              <div class="formula" style="font-size:16px">
+                $\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{ma}{mb} = \dfrac{nc}{nd} = \dfrac{ma+nc}{mb+nd} = \dfrac{ma-nc}{mb-nd}$
+              </div>
+              <div class="callout t-emerald" style="padding:6px 10px; font-size:13px"><div>Mẫu số mới bắt buộc phải khác 0. Quên điều kiện này là gốc của bẫy ở Dạng 3.</div></div>
+            </div>
+
+            <div class="card tint t-purple">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-key"></i></div>
+                <h3>3. Phương pháp đặt ẩn phụ $k$</h3>
+              </div>
+              <div class="formula">
+                $\dfrac{x}{a} = \dfrac{y}{b} = k \implies \begin{cases} x = a \cdot k \\ y = b \cdot k \end{cases}$
+              </div>
+              <p style="font-size:14px; line-height:1.4"><b>Đặc biệt tối ưu khi:</b></p>
+              <ul class="list" style="font-size:13.5px">
+                <li>Bài toán chứa <b>tích</b> các biến: $x \cdot y = C$ hoặc $xyz = C$.</li>
+                <li>Bài toán chứa <b>lũy thừa</b>: $x^2 - y^2$, $x^3 + y^3$.</li>
+                <li>Biểu thức đối xứng phức tạp bậc đồng nhất.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 7: ĐẠI SỐ - DẠNG 1 CHỨNG MINH TỈ LỆ THỨC ==================== -->
+      <section class="slide" data-section="2" aria-label="Dạng 1: Chứng minh tỉ lệ thức">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Dạng 1</div>
+            <h2 class="slide__title"><span class="num">2.2</span> Dạng 1: Chứng minh tỉ lệ thức &amp; Lỗi ngộ nhận bình phương</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="banner t-blue">
+            <i class="fa-solid fa-circle-question"></i>
+            <div>
+              <b>Bài toán ví dụ:</b> Cho tỉ lệ thức $\dfrac{a}{b} = \dfrac{c}{d}$. Chứng minh rằng:
+              $\quad \text{a)}\ \dfrac{a+b}{b} = \dfrac{c+d}{d}; \qquad \text{b)}\ \dfrac{a^2}{b^2} = \dfrac{c^2}{d^2} = \dfrac{ac}{bd}$.
+            </div>
+          </div>
+
+          <div class="grid g-2">
+            <div class="card tint t-rose">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-xmark"></i></div>
+                <h3>Lỗi sai thường gặp của học sinh</h3>
+              </div>
+              <div class="stack">
+                <div class="box box--soft">
+                  <span class="label bad">Lỗi 1: Lúng túng hoán đổi trung tỉ</span>
+                  <p style="font-size:14px">Ở câu a), học sinh giữ nguyên $\dfrac{a}{b} = \dfrac{c}{d}$ rồi viết bằng $\dfrac{a+c}{b+d}$ (đúng nhưng không dẫn tới đích). Đẳng thức cần chứng minh có tử $a+b$ và $c+d$, tức là phải cộng <b>tử với mẫu của cùng một tỉ số</b>, nên phải hoán đổi trung tỉ thành $\dfrac{a}{c} = \dfrac{b}{d}$ trước.</p>
+                </div>
+                <div class="box box--soft">
+                  <span class="label bad">Lỗi 2: Ngộ nhận trong phép bình phương</span>
+                  <p style="font-size:14px">Ở câu b), học sinh viết ngay $\dfrac{a}{b} = \dfrac{c}{d} = \dfrac{ac}{bd}$ rồi bình phương lên. Đẳng thức này <b>sai</b>: với $\dfrac{2}{3} = \dfrac{4}{6}$ thì $\dfrac{ac}{bd} = \dfrac{2 \cdot 4}{3 \cdot 6} = \dfrac{4}{9} \ne \dfrac{2}{3}$. Thực chất $\dfrac{ac}{bd} = \left(\dfrac{a}{b}\right)^2$ (nhân tử với tử, mẫu với mẫu cho bình phương của tỉ số, không cho chính tỉ số đó).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-check"></i></div>
+                <h3>Lời giải chuẩn mực &amp; Lưu ý sư phạm</h3>
+              </div>
+              <div class="sol">
+                <div class="ln"><b>a)</b> Từ $\dfrac{a}{b} = \dfrac{c}{d}$ suy ra $\dfrac{a}{c} = \dfrac{b}{d}$ (hoán đổi trung tỉ). <span class="step-warn">bước dễ sai</span></div>
+                <div class="ln">Áp dụng tính chất dãy tỉ số bằng nhau: $\dfrac{a}{c} = \dfrac{b}{d} = \dfrac{a+b}{c+d}$.</div>
+                <div class="ln">Suy ra $\dfrac{a+b}{c+d} = \dfrac{b}{d}$, hoán đổi trung tỉ: $\dfrac{a+b}{b} = \dfrac{c+d}{d}$ <span class="ok">(đpcm)</span>.</div>
+                <div class="ln" style="margin-top:6px"><b>b)</b> Vì $\dfrac{a}{b} = \dfrac{c}{d}$ nên $\left(\dfrac{a}{b}\right)^2 = \left(\dfrac{c}{d}\right)^2$, tức là $\dfrac{a^2}{b^2} = \dfrac{c^2}{d^2}$. &nbsp;(1)</div>
+                <div class="ln">Thay $\dfrac{c}{d} = \dfrac{a}{b}$ vào <b>một</b> thừa số: $\dfrac{c^2}{d^2} = \dfrac{c}{d} \cdot \dfrac{c}{d} = \dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{ac}{bd}$. &nbsp;(2) <span class="step-warn">bước dễ sai</span></div>
+                <div class="ln">Từ (1) và (2): $\dfrac{a^2}{b^2} = \dfrac{c^2}{d^2} = \dfrac{ac}{bd}$ <span class="ok">(đpcm)</span>.</div>
+              </div>
+              <div class="callout t-emerald" style="padding:6px 12px; font-size:13px; margin-top:auto">
+                <div><b>Lưu ý chặt chẽ (lớp Chuyên):</b> Cách giải câu a) ngầm cần $c \ne 0$ và $c + d \ne 0$. Cách đúng cho mọi trường hợp: $\dfrac{a}{b} + 1 = \dfrac{c}{d} + 1$, tức là $\dfrac{a+b}{b} = \dfrac{c+d}{d}$; hoặc đặt $\dfrac{a}{b} = \dfrac{c}{d} = k$, suy ra $a = bk$, $c = dk$ rồi thay vào hai vế. <b>Mở rộng:</b> kết hợp (1) với dãy tỉ số bằng nhau được $\dfrac{a^2+c^2}{b^2+d^2} = \dfrac{ac}{bd}$.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 8: ĐẠI SỐ - DẠNG 2 TÌM X, Y, Z ==================== -->
+      <section class="slide" data-section="2" aria-label="Dạng 2: Tìm x, y, z và 3 bẫy lỗi kinh điển">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Dạng 2</div>
+            <h2 class="slide__title"><span class="num">2.3</span> Dạng 2: Tìm $x, y, z$ &amp; 3 Bẫy lỗi kinh điển</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="traps">
+            <div class="trap">
+              <div class="trap__err">
+                <b>Bẫy 1: Biến đổi ngược tỉ lệ thức</b>
+                <p>Đề cho $4x = 3y$ và $x - y = -11$.</p>
+                <div class="bad" style="margin-top:4px">❌ Sai lầm: $4x = 3y$ suy ra $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{x-y}{4-3} = -11$</div>
+                <p>Đáp số sai: $x = -44;\ y = -33$. Thử lại: $4 \cdot (-44) = -176 \ne 3 \cdot (-33) = -99$.</p>
+              </div>
+              <div class="trap__why">
+                <b>Nguyên nhân gốc</b>
+                <p>Học sinh thuộc vẹt "hệ số của biến nào thì xuống dưới biến đó". Đúng phải là: từ $4x = 3y$ hoán đổi theo tính chất 2 của tỉ lệ thức, hệ số của $x$ xuống dưới $y$.</p>
+              </div>
+              <div class="trap__fix">
+                <b>Quy chuẩn giảng dạy MathExpress</b>
+                <p class="ok">✅ Chuẩn: $4x = 3y$ suy ra $\dfrac{x}{3} = \dfrac{y}{4}$. <span class="step-warn">bước dễ sai</span></p>
+                <p>Áp dụng dãy tỉ số: $\dfrac{x}{3} = \dfrac{y}{4} = \dfrac{x-y}{3-4} = \dfrac{-11}{-1} = 11$.</p>
+                <p>$\implies x = 33;\ y = 44$.</p>
+              </div>
+            </div>
+
+            <div class="trap">
+              <div class="trap__err">
+                <b>Bẫy 2: Quên bình phương mẫu &amp; Thiếu nghiệm âm</b>
+                <p>Đề cho $\dfrac{x}{4} = \dfrac{y}{7}$ và $x^2 - y^2 = -33$.</p>
+                <div class="bad" style="margin-top:4px">❌ Sai lầm: $\dfrac{x}{4} = \dfrac{y}{7} = \dfrac{x^2 - y^2}{4 - 7} = \dfrac{-33}{-3} = 11$</div>
+                <p>Đáp số sai: $x = 44;\ y = 77$. Nếu làm đúng đến $x^2 = 16$ vẫn còn hai kiểu sai: chỉ lấy $(4; 7)$, hoặc ghép thêm $(4; -7)$, $(-4; 7)$.</p>
+              </div>
+              <div class="trap__why">
+                <b>Nguyên nhân gốc</b>
+                <p>Chỉ bình phương tử mà quên bình phương mẫu: $4^2 = 16$, $7^2 = 49$. Quên rằng $x^2 = 16$ cho $x = 4$ hoặc $x = -4$, và quên điều kiện $x, y$ cùng dấu.</p>
+              </div>
+              <div class="trap__fix">
+                <b>Quy chuẩn giảng dạy MathExpress</b>
+                <p class="ok">✅ Chuẩn: $\dfrac{x}{4} = \dfrac{y}{7}$ suy ra $\dfrac{x^2}{16} = \dfrac{y^2}{49}$ và $x, y$ cùng dấu. <span class="step-warn">bước dễ sai</span></p>
+                <p>$\dfrac{x^2}{16} = \dfrac{y^2}{49} = \dfrac{x^2-y^2}{16-49} = \dfrac{-33}{-33} = 1$, nên $x^2 = 16$, $y^2 = 49$.</p>
+                <p>Vậy $(x; y) = (4; 7)$ hoặc $(x; y) = (-4; -7)$.</p>
+              </div>
+            </div>
+
+            <div class="trap">
+              <div class="trap__err">
+                <b>Bẫy 3: Nhân sai dãy tỉ số &amp; Quên ngoặc âm</b>
+                <p>Đề cho $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2}$ và $xyz = -648$.</p>
+                <div class="bad" style="margin-top:4px">❌ Sai lầm: $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = \dfrac{xyz}{4 \cdot 3 \cdot 2} = \dfrac{-648}{24} = -27$</div>
+                <p>Đáp số sai: $x = -108;\ y = -81;\ z = -54$. Lỗi thứ hai: viết $4 \cdot -3$ thay vì $4 \cdot (-3)$ khi thay $k$.</p>
+              </div>
+              <div class="trap__why">
+                <b>Nguyên nhân gốc</b>
+                <p>Tính chất dãy tỉ số chỉ cho phép <b>cộng, trừ</b> tử với tử, mẫu với mẫu. Nhân ba tỉ số bằng nhau thì được $\dfrac{xyz}{4 \cdot 3 \cdot 2} = k^3$, không phải $k$.</p>
+              </div>
+              <div class="trap__fix">
+                <b>Quy chuẩn giảng dạy MathExpress</b>
+                <p class="ok">✅ Bắt buộc dùng phương pháp đặt ẩn phụ $k$:</p>
+                <p>Đặt $\dfrac{x}{4} = \dfrac{y}{3} = \dfrac{z}{2} = k \implies x = 4k, y = 3k, z = 2k$.</p>
+                <p>$xyz = 4k \cdot 3k \cdot 2k = 24k^3 = -648$, nên $k^3 = -27$, $k = -3$. <span class="step-warn">bước dễ sai</span></p>
+                <p>Vậy $x = 4 \cdot (-3) = -12$; $y = 3 \cdot (-3) = -9$; $z = 2 \cdot (-3) = -6$.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 9: ĐẠI SỐ - DẠNG 3 DÃY TỈ SỐ ĐỐI XỨNG PHỨC TẠP ==================== -->
+      <section class="slide" data-section="2" aria-label="Dạng 3: Dãy tỉ số phức tạp và điều kiện mẫu số">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Dạng 3</div>
+            <h2 class="slide__title"><span class="num">2.4</span> Dạng 3: Dãy tỉ số phức tạp &amp; Bẫy thiếu điều kiện mẫu bằng 0</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="banner t-blue">
+            <i class="fa-solid fa-code-branch"></i>
+            <div>
+              <b>Bài toán ví dụ (Dành cho lớp Chuyên &amp; Nâng cao):</b> Cho dãy tỉ số bằng nhau:
+              $\dfrac{a_1}{a_2} = \dfrac{a_2}{a_3} = \dots = \dfrac{a_{2019}}{a_{2020}} = \dfrac{a_{2020}}{a_1}$.
+              Tính giá trị biểu thức: $B = \dfrac{(a_1+a_2+\dots+a_{2020})^2}{a_1^2 + a_2^2 + \dots + a_{2020}^2}$.
+            </div>
+          </div>
+
+          <div class="grid g-2">
+            <div class="card tint t-rose">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h3>Lỗi sai nguy hiểm: Xét thiếu trường hợp</h3>
+              </div>
+              <div class="stack">
+                <p class="bad">❌ Đa số học sinh (và giáo viên mới) làm ngay:</p>
+                <div class="formula" style="font-size:15px">
+                  $\dfrac{a_1}{a_2} = \dots = \dfrac{a_{2020}}{a_1} = \dfrac{a_1+a_2+\dots+a_{2020}}{a_2+a_3+\dots+a_1} = 1$
+                </div>
+                <p style="font-size:14px">Từ đó suy ra $a_1 = a_2 = \dots = a_{2020}$ và kết luận $B = \dfrac{(2020a_1)^2}{2020a_1^2} = 2020$.</p>
+                <div class="callout t-rose" style="font-size:13.5px"><div><b>Vì sao lời giải này thiếu?</b> Tỉ số mới $\dfrac{a_1+a_2+\dots+a_{2020}}{a_2+a_3+\dots+a_1}$ có mẫu chính là tổng $a_1 + a_2 + \dots + a_{2020}$. <b>Chỉ được dùng tính chất dãy tỉ số khi tổng này khác 0.</b> Trường hợp tổng bằng 0 có thật: $a_1 = 1,\ a_2 = -1,\ a_3 = 1,\ \dots,\ a_{2020} = -1$ thỏa mãn đề (mọi tỉ số bằng $-1$) và cho $B = 0$.</div></div>
+              </div>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Lời giải chuẩn mực 2 trường hợp</h3>
+              </div>
+              <div class="sol">
+                <div class="ln">
+                  <b>Trường hợp 1:</b> $a_1 + a_2 + \dots + a_{2020} \neq 0$.
+                  <p style="margin-top:2px">Áp dụng tính chất dãy tỉ số bằng nhau: các tỉ số đều bằng 1.</p>
+                  <p>$\implies a_1 = a_2 = \dots = a_{2020}$.</p>
+                  <p>Khi đó: $B = \dfrac{(2020a_1)^2}{2020a_1^2} = \dfrac{2020^2 \cdot a_1^2}{2020 \cdot a_1^2} = 2020$.</p>
+                </div>
+                <div class="ln" style="margin-top:6px">
+                  <b>Trường hợp 2:</b> $a_1 + a_2 + \dots + a_{2020} = 0$.
+                  <p style="margin-top:2px">Khi đó tử số của $B$ bằng $0^2 = 0$.</p>
+                  <p>Các $a_i$ đều khác 0 (vì là mẫu của các tỉ số) nên mẫu của $B$ dương. Suy ra $B = 0$.</p>
+                </div>
+                <div class="ln ok" style="margin-top:4px">
+                  <b>Kết luận:</b> $B = 2020$ nếu tổng khác 0; và $B = 0$ nếu tổng bằng 0.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 10: ĐẠI SỐ - TỈ LỆ THUẬN VÀ TỈ LỆ NGHỊCH ==================== -->
+      <section class="slide" data-section="2" aria-label="Đại lượng tỉ lệ thuận và đại lượng tỉ lệ nghịch">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Đại lượng tỉ lệ</div>
+            <h2 class="slide__title"><span class="num">2.5</span> Bảng so sánh bản chất: Tỉ lệ thuận vs Tỉ lệ nghịch</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <table class="compare-table">
+            <tr>
+              <td>
+                <div class="card__head" style="margin-bottom:8px">
+                  <div class="ico ico--sm"><i class="fa-solid fa-arrow-up-right-dots"></i></div>
+                  <h3 style="color:#005b9f">Đại lượng Tỉ lệ thuận</h3>
+                  <span class="badge badge--blue">Tỉ số không đổi</span>
+                </div>
+                <div class="formula">$y = kx\quad (k \neq 0)$</div>
+                <p style="font-size:13.5px; line-height:1.4; margin-top:6px">Nếu $y = kx$ ($k$ là hằng số khác 0) thì $y$ tỉ lệ thuận với $x$ theo hệ số tỉ lệ $k$; khi đó $x$ tỉ lệ thuận với $y$ theo hệ số tỉ lệ $\dfrac{1}{k}$.</p>
+                <ul class="list" style="font-size:14px; margin-top:10px">
+                  <li><b>Tính chất 1:</b> $\dfrac{y_1}{x_1} = \dfrac{y_2}{x_2} = \dfrac{y_3}{x_3} = \dots = k$ (tỉ số không đổi).</li>
+                  <li><b>Tính chất 2:</b> $\dfrac{x_1}{x_2} = \dfrac{y_1}{y_2};\quad \dfrac{x_1}{x_3} = \dfrac{y_1}{y_3}$ (cùng chiều chỉ số).</li>
+                  <li><b>Áp dụng 3 đại lượng:</b> $x, y, z$ tỉ lệ thuận với $a, b, c$:
+                    <div class="box box--soft" style="text-align:center; margin-top:4px"><b>$\dfrac{x}{a} = \dfrac{y}{b} = \dfrac{z}{c}$</b></div>
+                  </li>
+                </ul>
+              </td>
+
+              <td>
+                <div class="card__head" style="margin-bottom:8px">
+                  <div class="ico ico--sm"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+                  <h3 style="color:#f26522">Đại lượng Tỉ lệ nghịch</h3>
+                  <span class="badge badge--amber">Tích không đổi</span>
+                </div>
+                <div class="formula">$y = \dfrac{a}{x}$ hay $xy = a\quad (a \neq 0)$</div>
+                <p style="font-size:13.5px; line-height:1.4; margin-top:6px">Nếu $y = \dfrac{a}{x}$ hay $xy = a$ ($a$ là hằng số khác 0) thì $y$ tỉ lệ nghịch với $x$ theo hệ số tỉ lệ $a$; khi đó $x$ cũng tỉ lệ nghịch với $y$ theo hệ số tỉ lệ $a$.</p>
+                <ul class="list" style="font-size:14px; margin-top:10px">
+                  <li><b>Tính chất 1:</b> $x_1 y_1 = x_2 y_2 = x_3 y_3 = \dots = a$ (tích không đổi).</li>
+                  <li><b>Tính chất 2:</b> $\dfrac{x_1}{x_2} = \dfrac{y_2}{y_1};\quad \dfrac{x_1}{x_3} = \dfrac{y_3}{y_1}$ <i>(nghịch đảo chỉ số)</i>.</li>
+                  <li><b>Áp dụng 3 đại lượng:</b> $x, y, z$ tỉ lệ nghịch với $a, b, c$:
+                    <div class="box box--soft" style="text-align:center; margin-top:4px"><b>$ax = by = cz$</b>, hay <b>$\dfrac{x}{\frac{1}{a}} = \dfrac{y}{\frac{1}{b}} = \dfrac{z}{\frac{1}{c}}$</b></div>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+
+          <div class="callout t-purple" style="margin-top:6px; font-size:14px">
+            <i class="fa-solid fa-lightbulb"></i>
+            <div>
+              <b>Mẹo ghi nhớ cho học sinh:</b> Tỉ lệ thuận thì <b>thương</b> không đổi, tỉ lệ nghịch thì <b>tích</b> không đổi. Ở tính chất 2, tỉ lệ thuận giữ cùng chiều chỉ số $\left(\dfrac{x_1}{x_2} = \dfrac{y_1}{y_2}\right)$, tỉ lệ nghịch đảo chiều $\left(\dfrac{x_1}{x_2} = \dfrac{y_2}{y_1}\right)$: nhầm hai dòng này là lỗi ở slide tiếp theo.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 11: ĐẠI SỐ - DẠNG 1 TÌM HỆ SỐ TỈ LỆ ==================== -->
+      <section class="slide" data-section="2" aria-label="Dạng 1: Tìm hệ số tỉ lệ, tìm giá trị các đại lượng">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Đại lượng tỉ lệ · Dạng 1</div>
+            <h2 class="slide__title"><span class="num">2.6</span> Dạng 1: Tìm hệ số tỉ lệ, tìm giá trị các đại lượng</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="banner t-blue">
+            <i class="fa-solid fa-circle-question"></i>
+            <div>
+              <b>Ví dụ 1:</b> Cho $x, y$ là hai đại lượng tỉ lệ thuận. Gọi $x_1, x_2$ là hai giá trị của $x$ và $y_1, y_2$ là hai giá trị tương ứng của $y$.<br />
+              a) Biết $x_1 = 8;\ y_1 = 3;\ y_2 = 9$. Tìm $x_2$. &nbsp;&nbsp; b) Biết $3x_1 + 2x_2 = 46$; $3y_1 + 2y_2 = -11{,}5$. Tìm hệ số tỉ lệ của $y$ đối với $x$.
+            </div>
+          </div>
+
+          <div class="grid g-2">
+            <div class="card tint t-rose">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h3>Lỗi sai thường gặp của học sinh</h3>
+              </div>
+              <div class="stack">
+                <div class="box box--soft">
+                  <span class="label bad">Lỗi 1: Dùng tính chất tỉ lệ nghịch cho tỉ lệ thuận</span>
+                  <p style="font-size:14px">Học sinh lập $\dfrac{x_1}{x_2} = \dfrac{y_2}{y_1}$, tức $\dfrac{8}{x_2} = \dfrac{9}{3}$, được $x_2 = \dfrac{8}{3}$ (sai). Đáp số đúng $x_2 = 24$. Đề cố ý cho $y_2 = 3y_1$ để hai cách lập cho kết quả chênh nhau 9 lần, giáo viên dễ phát hiện học sinh lập ngược tỉ số.</p>
+                </div>
+                <div class="box box--soft">
+                  <span class="label bad">Lỗi 2: Không biết tạo hệ số 3 và 2 ở câu b)</span>
+                  <p style="font-size:14px">Học sinh có $\dfrac{y_1}{x_1} = \dfrac{y_2}{x_2}$ nhưng không biết nhân cả tử và mẫu của tỉ số thứ nhất với 3, tỉ số thứ hai với 2 trước khi cộng, nên bế tắc vì không tính được riêng $x_1, x_2$.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-check-double"></i></div>
+                <h3>Lời giải chuẩn</h3>
+              </div>
+              <div class="sol">
+                <div class="ln"><b>a)</b> Vì $x, y$ tỉ lệ thuận và $x_1 = 8$ thì $y_1 = 3$ nên hệ số tỉ lệ $k = \dfrac{y_1}{x_1} = \dfrac{3}{8}$, hay $y = \dfrac{3}{8}x$.</div>
+                <div class="ln">Suy ra $y_2 = \dfrac{3}{8}x_2$, hay $x_2 = \dfrac{8}{3}y_2 = \dfrac{8}{3} \cdot 9 = 24$. Vậy $x_2 = 24$.</div>
+                <div class="ln" style="margin-top:6px"><b>b)</b> Vì $x, y$ tỉ lệ thuận nên $y = kx$, hay $k = \dfrac{y_1}{x_1} = \dfrac{y_2}{x_2}$.</div>
+                <div class="ln">Suy ra $k = \dfrac{3y_1}{3x_1} = \dfrac{2y_2}{2x_2}$. <span class="step-warn">bước dễ sai</span></div>
+                <div class="ln">Áp dụng tính chất dãy tỉ số bằng nhau: $k = \dfrac{3y_1}{3x_1} = \dfrac{2y_2}{2x_2} = \dfrac{3y_1 + 2y_2}{3x_1 + 2x_2}$ $= \dfrac{-11{,}5}{46} = -\dfrac{1}{4}$.</div>
+                <div class="ln ok">Vậy hệ số tỉ lệ của $y$ đối với $x$ là $-\dfrac{1}{4}$.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 12: ĐẠI SỐ - BÀI TOÁN THỰC TẾ 2 XE LỬA ==================== -->
+      <section class="slide" data-section="2" aria-label="Bài toán thực tế 2 xe lửa">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Đại số · Bài toán thực tế</div>
+            <h2 class="slide__title"><span class="num">2.7</span> Dạng 2 · Bài toán thực tế: Hai xe lửa &amp; Dòng lập luận bắt buộc</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="banner t-blue">
+            <i class="fa-solid fa-train"></i>
+            <div>
+              <b>Đề bài:</b> Hai xe lửa đi từ A đến B lần lượt mất <b>2 giờ 48 phút</b> và <b>4 giờ 40 phút</b>. Biết vận tốc xe thứ nhất lớn hơn vận tốc xe thứ hai là <b>26 km/h</b>. Tính quãng đường AB.
+            </div>
+          </div>
+
+          <div class="grid g-2">
+            <div class="card tint t-rose">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <h3>2 Lỗi sai học sinh thường mắc phải</h3>
+              </div>
+              <div class="stack">
+                <div class="box box--soft">
+                  <span class="label bad">Lỗi 1: Không biết đổi đơn vị thời gian</span>
+                  <p style="font-size:14px">Đổi sai 2 giờ 48 phút thành 2,48 giờ, hoặc làm tròn sớm 4 giờ 40 phút $\approx 4{,}67$ giờ.<br />
+                  <b>Chuẩn:</b> 2 giờ 48 phút $= 2 + \dfrac{48}{60} = \dfrac{14}{5}$ (giờ); 4 giờ 40 phút $= 4 + \dfrac{40}{60} = \dfrac{14}{3}$ (giờ). Giữ phân số đến cuối.</p>
+                </div>
+                <div class="box box--soft">
+                  <span class="label bad">Lỗi 2: Nhầm đại lượng tỉ lệ nghịch thành tỉ lệ thuận</span>
+                  <p style="font-size:14px">Học sinh lập sai công thức: $\dfrac{v_1}{t_1} = \dfrac{v_2}{t_2}$ (nhầm sang tỉ lệ thuận).<br />
+                  <b>Bản chất:</b> Trên cùng quãng đường, tích $v \cdot t = S$ không đổi nên vận tốc và thời gian <b>tỉ lệ nghịch</b>: $v_1 t_1 = v_2 t_2$.</p>
+                </div>
+                <div class="wrong-wrap">
+                  <table class="wrong">
+                    <tr><th>Cách làm</th><th>Kết quả</th></tr>
+                    <tr><td>Đổi sai: $t_1 = 2{,}48$; $t_2 = 4{,}40$ (giờ)</td><td class="ans">$S \approx 147{,}8$ km</td></tr>
+                    <tr><td>Làm tròn sớm: $t_1 = 2{,}8$; $t_2 \approx 4{,}67$ (giờ)</td><td class="ans">$S \approx 181{,}8$ km</td></tr>
+                    <tr><td>Nhầm tỉ lệ thuận: $\dfrac{v_1}{3} = \dfrac{v_2}{5} = \dfrac{26}{-2}$</td><td class="ans">$v_1 = -39$: vô lí</td></tr>
+                    <tr class="is-ok"><td>Lời giải chuẩn (giữ phân số)</td><td class="ans">$S = 182$ km</td></tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="card tint t-emerald">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-check-double"></i></div>
+                <h3>Lời giải mẫu chuẩn mực từng bước</h3>
+              </div>
+              <div class="sol">
+                <div class="ln">Gọi vận tốc của xe thứ nhất và xe thứ hai lần lượt là $v_1, v_2$ (km/h) ($v_1, v_2 &gt; 0$).</div>
+                <div class="ln ok">
+                  <b>Dòng lập luận bắt buộc:</b> <i>"Vì trên cùng quãng đường AB nên vận tốc và thời gian là hai đại lượng tỉ lệ nghịch."</i>
+                </div>
+                <div class="ln">Ta có: $v_1 \cdot \dfrac{14}{5} = v_2 \cdot \dfrac{14}{3}$ nên $\dfrac{v_1}{5} = \dfrac{v_2}{3}$. <span class="step-warn">bước dễ sai</span></div>
+                <div class="ln">Theo đề bài: $v_1 - v_2 = 26$.</div>
+                <div class="ln">Áp dụng tính chất dãy tỉ số bằng nhau:
+                  $\dfrac{v_1}{5} = \dfrac{v_2}{3} = \dfrac{v_1 - v_2}{5 - 3} = \dfrac{26}{2} = 13$.
+                </div>
+                <div class="ln">$\implies v_1 = 13 \cdot 5 = 65\text{ (km/h)};\quad v_2 = 13 \cdot 3 = 39\text{ (km/h)}$.</div>
+                <div class="ln ok">
+                  Quãng đường AB: $S = v_1 \cdot t_1 = 65 \cdot \dfrac{14}{5} = 182\text{ (km)}$. Vậy quãng đường AB dài 182 km.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 13: HÌNH HỌC - TAM GIÁC BẰNG NHAU ==================== -->
+      <section class="slide" data-section="3" aria-label="Tam giác bằng nhau & Phương pháp phân tích ngược">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Hình học · Tam giác bằng nhau</div>
+            <h2 class="slide__title"><span class="num">3.1</span> Quy chuẩn 4 bước chứng minh &amp; Phương pháp phân tích ngược</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-45-55">
+            <div class="card tint t-slate" style="align-items:center; justify-content:center; padding:12px">
+              <div class="fig"><svg role='img' aria-label='Hình vẽ tam giác ABC, hai đường vuông góc BE và CD cắt nhau tại H' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='80.450264 55.795495 165.115876 138.554928'>
+<defs>
+<path id='f1-g0-65' d='M1.783313-1.145704C1.384807-.478207 .996264-.33873 .557908-.308842C.438356-.298879 .348692-.298879 .348692-.109589C.348692-.049813 .398506 0 .478207 0C.747198 0 1.05604-.029888 1.334994-.029888C1.663761-.029888 2.012453 0 2.331258 0C2.391034 0 2.520548 0 2.520548-.18929C2.520548-.298879 2.430884-.308842 2.361146-.308842C2.132005-.328767 1.892902-.408468 1.892902-.657534C1.892902-.777086 1.952677-.886675 2.032379-1.026152L2.789539-2.30137H5.290162C5.310087-2.092154 5.449564-.737235 5.449564-.637609C5.449564-.33873 4.931507-.308842 4.732254-.308842C4.592777-.308842 4.493151-.308842 4.493151-.109589C4.493151 0 4.612702 0 4.632628 0C5.041096 0 5.469489-.029888 5.877958-.029888C6.127024-.029888 6.75467 0 7.003736 0C7.063512 0 7.183064 0 7.183064-.199253C7.183064-.308842 7.083437-.308842 6.953923-.308842C6.336239-.308842 6.336239-.37858 6.306351-.667497L5.69863-6.894147C5.678705-7.0934 5.678705-7.13325 5.50934-7.13325C5.349938-7.13325 5.310087-7.063512 5.250311-6.963885L1.783313-1.145704ZM2.978829-2.610212L4.941469-5.897883L5.260274-2.610212H2.978829Z'/>
+<path id='f1-g0-66' d='M1.594022-.777086C1.494396-.388543 1.474471-.308842 .687422-.308842C.518057-.308842 .418431-.308842 .418431-.109589C.418431 0 .508095 0 .687422 0H4.244085C5.818182 0 6.993773-1.175592 6.993773-2.15193C6.993773-2.86924 6.41594-3.447073 5.449564-3.556663C6.485679-3.745953 7.531756-4.483188 7.531756-5.429639C7.531756-6.166874 6.874222-6.804483 5.678705-6.804483H2.331258C2.141968-6.804483 2.042341-6.804483 2.042341-6.60523C2.042341-6.495641 2.132005-6.495641 2.321295-6.495641C2.34122-6.495641 2.530511-6.495641 2.699875-6.475716C2.879203-6.455791 2.968867-6.445828 2.968867-6.316314C2.968867-6.276463 2.958904-6.246575 2.929016-6.127024L1.594022-.777086ZM3.098381-3.646326L3.716065-6.117061C3.805729-6.465753 3.825654-6.495641 4.254047-6.495641H5.539228C6.41594-6.495641 6.625156-5.907846 6.625156-5.469489C6.625156-4.592777 5.768369-3.646326 4.552927-3.646326H3.098381ZM2.650062-.308842C2.510585-.308842 2.49066-.308842 2.430884-.318804C2.331258-.328767 2.30137-.33873 2.30137-.418431C2.30137-.448319 2.30137-.468244 2.351183-.647572L3.038605-3.427148H4.921544C5.877958-3.427148 6.067248-2.689913 6.067248-2.261519C6.067248-1.275218 5.180573-.308842 4.004981-.308842H2.650062Z'/>
+<path id='f1-g0-67' d='M7.571606-6.924035C7.571606-6.953923 7.551681-7.023661 7.462017-7.023661C7.43213-7.023661 7.422167-7.013699 7.312578-6.90411L6.615193-6.136986C6.525529-6.276463 6.067248-7.023661 4.961395-7.023661C2.739726-7.023661 .498132-4.821918 .498132-2.510585C.498132-.86675 1.673724 .219178 3.198007 .219178C4.064757 .219178 4.821918-.179328 5.349938-.637609C6.276463-1.454545 6.445828-2.361146 6.445828-2.391034C6.445828-2.49066 6.346202-2.49066 6.326276-2.49066C6.266501-2.49066 6.216687-2.470735 6.196762-2.391034C6.107098-2.102117 5.877958-1.39477 5.190535-.816936C4.503113-.259029 3.875467-.089664 3.35741-.089664C2.460772-.089664 1.404732-.607721 1.404732-2.161893C1.404732-2.729763 1.613948-4.343711 2.610212-5.50934C3.217933-6.216687 4.154421-6.714819 5.041096-6.714819C6.057285-6.714819 6.645081-5.947696 6.645081-4.79203C6.645081-4.393524 6.615193-4.383562 6.615193-4.283935S6.724782-4.184309 6.764633-4.184309C6.894147-4.184309 6.894147-4.204234 6.94396-4.383562L7.571606-6.924035Z'/>
+<path id='f1-g0-68' d='M1.58406-.777086C1.484433-.388543 1.464508-.308842 .67746-.308842C.508095-.308842 .398506-.308842 .398506-.119552C.398506 0 .488169 0 .67746 0H3.975093C6.047323 0 8.009963-2.102117 8.009963-4.283935C8.009963-5.688667 7.163138-6.804483 5.668742-6.804483H2.321295C2.132005-6.804483 2.022416-6.804483 2.022416-6.615193C2.022416-6.495641 2.11208-6.495641 2.311333-6.495641C2.440847-6.495641 2.620174-6.485679 2.739726-6.475716C2.899128-6.455791 2.958904-6.425903 2.958904-6.316314C2.958904-6.276463 2.948941-6.246575 2.919054-6.127024L1.58406-.777086ZM3.73599-6.117061C3.825654-6.465753 3.845579-6.495641 4.273973-6.495641H5.339975C6.316314-6.495641 7.143213-5.967621 7.143213-4.652553C7.143213-4.164384 6.94396-2.530511 6.097136-1.43462C5.808219-1.066002 5.021171-.308842 3.795766-.308842H2.669988C2.530511-.308842 2.510585-.308842 2.450809-.318804C2.351183-.328767 2.321295-.33873 2.321295-.418431C2.321295-.448319 2.321295-.468244 2.371108-.647572L3.73599-6.117061Z'/>
+<path id='f1-g0-69' d='M7.053549-2.321295C7.073474-2.371108 7.103362-2.440847 7.103362-2.460772C7.103362-2.470735 7.103362-2.570361 6.983811-2.570361C6.894147-2.570361 6.874222-2.510585 6.854296-2.450809C6.206725-.976339 5.838107-.308842 4.134496-.308842H2.67995C2.540473-.308842 2.520548-.308842 2.460772-.318804C2.361146-.328767 2.331258-.33873 2.331258-.418431C2.331258-.448319 2.331258-.468244 2.381071-.647572L3.058531-3.367372H4.044832C4.891656-3.367372 4.891656-3.158157 4.891656-2.909091C4.891656-2.839352 4.891656-2.719801 4.821918-2.420922C4.801993-2.371108 4.79203-2.34122 4.79203-2.311333C4.79203-2.261519 4.83188-2.201743 4.921544-2.201743C5.001245-2.201743 5.031133-2.251557 5.070984-2.400996L5.638854-4.732254C5.638854-4.79203 5.589041-4.841843 5.519303-4.841843C5.429639-4.841843 5.409714-4.782067 5.379826-4.662516C5.17061-3.905355 4.991283-3.676214 4.07472-3.676214H3.138232L3.73599-6.07721C3.825654-6.425903 3.835616-6.465753 4.273973-6.465753H5.678705C6.894147-6.465753 7.193026-6.176837 7.193026-5.3599C7.193026-5.120797 7.193026-5.100872 7.153176-4.83188C7.153176-4.772105 7.143213-4.702366 7.143213-4.652553S7.173101-4.533001 7.262765-4.533001C7.372354-4.533001 7.382316-4.592777 7.402242-4.782067L7.601494-6.505604C7.631382-6.774595 7.581569-6.774595 7.332503-6.774595H2.30137C2.102117-6.774595 2.002491-6.774595 2.002491-6.575342C2.002491-6.465753 2.092154-6.465753 2.281445-6.465753C2.650062-6.465753 2.929016-6.465753 2.929016-6.286426C2.929016-6.246575 2.929016-6.22665 2.879203-6.047323L1.564134-.777086C1.464508-.388543 1.444583-.308842 .657534-.308842C.488169-.308842 .37858-.308842 .37858-.119552C.37858 0 .468244 0 .657534 0H5.828144C6.057285 0 6.067248-.009963 6.136986-.169365L7.053549-2.321295Z'/>
+<path id='f1-g0-72' d='M7.601494-6.03736C7.691158-6.396015 7.711083-6.495641 8.438356-6.495641C8.697385-6.495641 8.777086-6.495641 8.777086-6.694894C8.777086-6.804483 8.667497-6.804483 8.637609-6.804483C8.358655-6.804483 7.641345-6.774595 7.362391-6.774595C7.073474-6.774595 6.366127-6.804483 6.07721-6.804483C5.997509-6.804483 5.88792-6.804483 5.88792-6.60523C5.88792-6.495641 5.977584-6.495641 6.166874-6.495641C6.1868-6.495641 6.37609-6.495641 6.545455-6.475716C6.724782-6.455791 6.814446-6.445828 6.814446-6.316314C6.814446-6.276463 6.804483-6.256538 6.774595-6.127024L6.176837-3.696139H3.138232L3.726027-6.03736C3.815691-6.396015 3.845579-6.495641 4.562889-6.495641C4.821918-6.495641 4.901619-6.495641 4.901619-6.694894C4.901619-6.804483 4.79203-6.804483 4.762142-6.804483C4.483188-6.804483 3.765878-6.774595 3.486924-6.774595C3.198007-6.774595 2.49066-6.804483 2.201743-6.804483C2.122042-6.804483 2.012453-6.804483 2.012453-6.60523C2.012453-6.495641 2.102117-6.495641 2.291407-6.495641C2.311333-6.495641 2.500623-6.495641 2.669988-6.475716C2.849315-6.455791 2.938979-6.445828 2.938979-6.316314C2.938979-6.276463 2.929016-6.246575 2.899128-6.127024L1.564134-.777086C1.464508-.388543 1.444583-.308842 .657534-.308842C.478207-.308842 .388543-.308842 .388543-.109589C.388543 0 .508095 0 .52802 0C.806974 0 1.514321-.029888 1.793275-.029888C2.002491-.029888 2.221669-.019925 2.430884-.019925C2.650062-.019925 2.86924 0 3.078456 0C3.158157 0 3.277709 0 3.277709-.199253C3.277709-.308842 3.188045-.308842 2.998755-.308842C2.630137-.308842 2.351183-.308842 2.351183-.488169C2.351183-.547945 2.371108-.597758 2.381071-.657534L3.058531-3.387298H6.097136C5.678705-1.733499 5.449564-.787049 5.409714-.637609C5.310087-.318804 5.120797-.308842 4.503113-.308842C4.353674-.308842 4.26401-.308842 4.26401-.109589C4.26401 0 4.383562 0 4.403487 0C4.682441 0 5.389788-.029888 5.668742-.029888C5.877958-.029888 6.097136-.019925 6.306351-.019925C6.525529-.019925 6.744707 0 6.953923 0C7.033624 0 7.153176 0 7.153176-.199253C7.153176-.308842 7.063512-.308842 6.874222-.308842C6.505604-.308842 6.22665-.308842 6.22665-.488169C6.22665-.547945 6.246575-.597758 6.256538-.657534L7.601494-6.03736Z'/>
+</defs>
+<g id='f1-page1'>
+<path d='M163.042961 66.449L91.6094 183.804694H234.4766Z' fill='#f0f5f9'/>
+<path d='M163.042961 140.3164L130.2344 120.3477L91.6094 183.804694Z' fill='#fde3d7'/>
+<path d='M163.042961 140.3164L195.8476 120.3477L234.4766 183.804694Z' fill='#fde3d7'/>
+<path d='M163.042961 66.449L91.6094 183.804694H234.4766Z' stroke='#005b9f' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M91.6094 183.804694L195.8476 120.3477M234.4766 183.804694L130.2344 120.3477' stroke='#118acb' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M126.9922 125.6719L132.3203 128.9141L135.5625 123.5898' stroke='#64748b' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M190.5234 123.5898L193.7656 128.9141L199.0898 125.6719' stroke='#64748b' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M152.1445 133.6836C149.668 137.7578 149.668 142.875 152.1484 146.9492' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M173.9375 146.9492C176.418 142.875 176.418 137.7578 173.9375 133.6836' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M144.5156 133.8164L148.7617 126.8438' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M177.3242 126.8438L181.5664 133.8164' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M164.20702 66.449C164.20702 65.805 163.687493 65.281 163.042961 65.281C162.39843 65.281 161.87499 65.805 161.87499 66.449C161.87499 67.094 162.39843 67.613 163.042961 67.613C163.687493 67.613 164.20702 67.094 164.20702 66.449Z' fill='#005b9f'/>
+<path d='M92.7734 183.804694C92.7734 183.160162 92.2539 182.63672 91.6094 182.63672C90.9648 182.63672 90.4414 183.160162 90.4414 183.804694C90.4414 184.445319 90.9648 184.96876 91.6094 184.96876C92.2539 184.96876 92.7734 184.445319 92.7734 183.804694Z' fill='#005b9f'/>
+<path d='M235.6406 183.804694C235.6406 183.160162 235.1172 182.63672 234.4766 182.63672C233.832 182.63672 233.3086 183.160162 233.3086 183.804694C233.3086 184.445319 233.832 184.96876 234.4766 184.96876C235.1172 184.96876 235.6406 184.445319 235.6406 183.804694Z' fill='#005b9f'/>
+<path d='M131.4023 120.3477C131.4023 119.7031 130.8789 119.1797 130.2344 119.1797C129.5937 119.1797 129.0703 119.7031 129.0703 120.3477C129.0703 120.9883 129.5937 121.5117 130.2344 121.5117C130.8789 121.5117 131.4023 120.9883 131.4023 120.3477Z' fill='#005b9f'/>
+<path d='M197.0156 120.3477C197.0156 119.7031 196.4922 119.1797 195.8476 119.1797C195.2031 119.1797 194.6836 119.7031 194.6836 120.3477C194.6836 120.9883 195.2031 121.5117 195.8476 121.5117C196.4922 121.5117 197.0156 120.9883 197.0156 120.3477Z' fill='#005b9f'/>
+<path d='M164.20702 140.3164C164.20702 139.6719 163.687493 139.1484 163.042961 139.1484C162.39843 139.1484 161.87499 139.6719 161.87499 140.3164S162.39843 141.4805 163.042961 141.4805C163.687493 141.4805 164.20702 140.9609 164.20702 140.3164Z' fill='#005b9f'/>
+<g transform='matrix(1 0 0 1 -3.736 -120.8745)'>
+<use x='163.041533' y='183.803246' xlink:href='#f1-g0-65'/>
+</g>
+<g transform='matrix(1 0 0 1 -83.0097 10.328)'>
+<use x='163.041533' y='183.803246' xlink:href='#f1-g0-66'/>
+</g>
+<g transform='matrix(1 0 0 1 74.953 10.328)'>
+<use x='163.041533' y='183.803246' xlink:href='#f1-g0-67'/>
+</g>
+<g transform='matrix(1 0 0 1 -44.851 -60.053)'>
+<use x='163.041533' y='183.803246' xlink:href='#f1-g0-68'/>
+</g>
+<g transform='matrix(1 0 0 1 36.326 -60.053)'>
+<use x='163.041533' y='183.803246' xlink:href='#f1-g0-69'/>
+</g>
+<g transform='matrix(1 0 0 1 -4.545 -27.182)'>
+<use x='163.041533' y='183.803246' xlink:href='#f1-g0-72'/>
+</g>
+</g>
+</svg></div>
+              <script type="text/x-tikz" data-fig="f1">
+\begin{tikzpicture}[scale=0.9, line join=round, line cap=round]
+  \coordinate (A) at (0,4.6);
+  \coordinate (B) at (-2.8,0);
+  \coordinate (C) at (2.8,0);
+  \coordinate (D) at ($(A)!(C)!(B)$);
+  \coordinate (E) at ($(A)!(B)!(C)$);
+  \coordinate (H) at (intersection of B--E and C--D);
+  \fill[mxblue!6] (A)--(B)--(C)--cycle;
+  \fill[mxorange!18] (H)--(D)--(B)--cycle;
+  \fill[mxorange!18] (H)--(E)--(C)--cycle;
+  \draw[mxblue, very thick] (A)--(B)--(C)--cycle;
+  \draw[mxsky, thick] (B)--(E) (C)--(D);
+  \pic[draw=mxgray, angle radius=2.2mm] {right angle = B--D--H};
+  \pic[draw=mxgray, angle radius=2.2mm] {right angle = H--E--C};
+  \pic[draw=mxrose, thick, angle radius=4.5mm] {angle = D--H--B};
+  \pic[draw=mxrose, thick, angle radius=4.5mm] {angle = C--H--E};
+  % HD = HE
+  \draw[mxrose, thick] ($(H)!0.5!(D)$) ++($(H)!1.6mm!90:(D)-(H)$) -- ++($(H)!3.2mm!-90:(D)-(H)$);
+  \draw[mxrose, thick] ($(H)!0.5!(E)$) ++($(H)!1.6mm!90:(E)-(H)$) -- ++($(H)!3.2mm!-90:(E)-(H)$);
+  \foreach \p in {A,B,C,D,E,H} \fill[mxblue] (\p) circle (1.3pt);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[left] at (D) {$D$};
+  \node[right] at (E) {$E$};
+  \node[below=6pt] at (H) {$H$};
+\end{tikzpicture}
+              </script>
+              <div style="font-size:14px; color:var(--muted); text-align:center; margin-top:4px">
+                <b>Ví dụ:</b> Cho hình vẽ: $BE \perp AC$ tại $E$, $CD \perp AB$ tại $D$, $BE$ cắt $CD$ tại $H$, $HD = HE$.<br />a) Chứng minh $\Delta HDB = \Delta HEC$; &nbsp;b) Chứng minh $\widehat{DBH} = \widehat{ECH}$.
+              </div>
+            </div>
+
+            <div class="stack">
+              <div class="card tint t-rose" style="padding:12px 16px">
+                <div class="card__head">
+                  <div class="ico ico--sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                  <h3 style="font-size:18px">Lỗi sai: Sai góc xen giữa &amp; Viết sai thứ tự đỉnh</h3>
+                </div>
+                <p style="font-size:14.5px; line-height:1.45">Học sinh ghi trường hợp c.g.c hoặc g.c.g nhưng góc (cạnh) không xen giữa. Viết sai thứ tự đỉnh: nếu ghi $\Delta HDB = \Delta HCE$ thì học sinh sẽ suy ra $HD = HC$ và $HB = HE$ (đều sai), chỉ còn $DB = CE$ là đúng.</p>
+              </div>
+
+              <div class="card tint t-emerald" style="padding:12px 16px">
+                <div class="card__head">
+                  <div class="ico ico--sm"><i class="fa-solid fa-list-check"></i></div>
+                  <h3 style="font-size:18px">Quy chuẩn 4 bước trình bày chuẩn MathExpress</h3>
+                </div>
+                <ol style="margin:0; padding-left:18px; font-size:14px; line-height:1.45">
+                  <li><b>Xét hai tam giác:</b> Xét $\Delta HDB$ và $\Delta HEC$ có:</li>
+                  <li><b>Nêu đủ 3 điều kiện:</b> $\widehat{HDB} = \widehat{HEC} = 90^\circ$; $HD = HE$ (gt); $\widehat{BHD} = \widehat{CHE}$ (hai góc đối đỉnh). Cạnh $HD$ xen giữa hai góc tại $D$ và $H$. <span class="step-warn">bước dễ sai</span></li>
+                  <li><b>Kết luận bằng nhau:</b> Vậy $\Delta HDB = \Delta HEC$ (g.c.g), viết đúng thứ tự đỉnh tương ứng.</li>
+                  <li><b>Suy ra yếu tố cần chứng minh:</b> $\widehat{DBH} = \widehat{ECH}$ (hai góc tương ứng).</li>
+                </ol>
+              </div>
+
+              <div class="callout t-blue" style="padding:8px 12px; font-size:13px">
+                <i class="fa-solid fa-arrows-spin"></i>
+                <div>
+                  <b>Phương pháp "Phân tích ngược":</b> Để chứng minh đoạn thẳng/góc $A = B$, cần tam giác nào bằng nhau? Hai tam giác đó đã có yếu tố nào? Còn thiếu yếu tố nào? Tìm yếu tố thiếu từ giả thiết nào?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 14: HÌNH HỌC - DẠNG 2 CHỨNG MINH THẲNG HÀNG ==================== -->
+      <section class="slide" data-section="3" aria-label="Dạng 2: Chứng minh thẳng hàng và cảnh báo ngộ nhận">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Hình học · Dạng 2</div>
+            <h2 class="slide__title"><span class="num">3.2</span> Dạng 2: Chứng minh song song, thẳng hàng &amp; Cảnh báo ngộ nhận</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-45-55">
+            <div class="card tint t-slate" style="align-items:center; justify-content:center; padding:10px">
+              <div class="fig"><svg role='img' aria-label='Hình vẽ chứng minh A, D, F thẳng hàng' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='80.735388 55.681187 217.659045 205.205802'>
+<defs>
+<path id='f2-g1-49' d='M2.929016-6.37609C2.929016-6.615193 2.929016-6.635118 2.699875-6.635118C2.082192-5.997509 1.205479-5.997509 .886675-5.997509V-5.688667C1.085928-5.688667 1.673724-5.688667 2.191781-5.947696V-.787049C2.191781-.428394 2.161893-.308842 1.265255-.308842H.946451V0C1.295143-.029888 2.161893-.029888 2.560399-.029888S3.825654-.029888 4.174346 0V-.308842H3.855542C2.958904-.308842 2.929016-.418431 2.929016-.787049V-6.37609Z'/>
+<path id='f2-g1-50' d='M1.265255-.767123L2.321295-1.793275C3.875467-3.16812 4.473225-3.706102 4.473225-4.702366C4.473225-5.838107 3.576588-6.635118 2.361146-6.635118C1.235367-6.635118 .498132-5.718555 .498132-4.83188C.498132-4.273973 .996264-4.273973 1.026152-4.273973C1.195517-4.273973 1.544209-4.393524 1.544209-4.801993C1.544209-5.061021 1.364882-5.32005 1.016189-5.32005C.936488-5.32005 .916563-5.32005 .886675-5.310087C1.115816-5.957659 1.653798-6.326276 2.231631-6.326276C3.138232-6.326276 3.566625-5.519303 3.566625-4.702366C3.566625-3.905355 3.068493-3.118306 2.520548-2.500623L.607721-.368618C.498132-.259029 .498132-.239103 .498132 0H4.194271L4.473225-1.733499H4.224159C4.174346-1.43462 4.104608-.996264 4.004981-.846824C3.935243-.767123 3.277709-.767123 3.058531-.767123H1.265255Z'/>
+<path id='f2-g0-65' d='M2.438853-1.592428C1.936736-.746002 1.448966-.459078 .760348-.41604C.60254-.401693 .487771-.401693 .487771-.143462C.487771-.057385 .559502 0 .659925 0C.918157 0 1.563735-.028692 1.821967-.028692C2.238007-.028692 2.697085 0 3.098778 0C3.184855 0 3.35701 0 3.35701-.272578C3.35701-.401693 3.24224-.41604 3.156163-.41604C2.826201-.444732 2.553623-.559502 2.553623-.90381C2.553623-1.104657 2.6397-1.262465 2.826201-1.578082L3.916511-3.385702H7.574791C7.589138-3.256586 7.589138-3.141817 7.603484-3.012701C7.646522-2.6397 7.818677-1.147696 7.818677-.875118C7.818677-.444732 7.087021-.41604 6.857482-.41604C6.699673-.41604 6.541865-.41604 6.541865-.157808C6.541865 0 6.670981 0 6.757058 0C7.000943 0 7.287867-.028692 7.531753-.028692H8.349486C9.224604-.028692 9.855836 0 9.870183 0C9.970606 0 10.128414 0 10.128414-.272578C10.128414-.41604 9.999298-.41604 9.784105-.41604C8.995065-.41604 8.980718-.545155 8.93768-.975541L8.062562-9.927567C8.03387-10.214491 7.976485-10.243184 7.818677-10.243184C7.675215-10.243184 7.589138-10.214491 7.460022-9.999298L2.438853-1.592428ZM4.160397-3.801742L7.043982-8.622064L7.531753-3.801742H4.160397Z'/>
+<path id='f2-g0-66' d='M5.250708-8.82291C5.379823-9.35372 5.437208-9.382412 5.99671-9.382412H7.861715C9.482835-9.382412 9.482835-8.005177 9.482835-7.876061C9.482835-6.71402 8.320793-5.236361 6.427096-5.236361H4.361243L5.250708-8.82291ZM7.675215-5.121592C9.23895-5.408516 10.659223-6.498827 10.659223-7.818677C10.659223-8.93768 9.669336-9.798452 8.048216-9.798452H3.443087C3.170509-9.798452 3.041393-9.798452 3.041393-9.525874C3.041393-9.382412 3.170509-9.382412 3.385702-9.382412C4.26082-9.382412 4.26082-9.267642 4.26082-9.109834C4.26082-9.081142 4.26082-8.995065 4.203435-8.779872L2.266699-1.061618C2.137583-.559502 2.108891-.41604 1.104657-.41604C.832079-.41604 .688617-.41604 .688617-.157808C.688617 0 .774695 0 1.061618 0H5.982364C8.177332 0 9.870183-1.664159 9.870183-3.113124C9.870183-4.289513 8.837257-5.006822 7.675215-5.121592ZM5.638055-.41604H3.701318C3.500472-.41604 3.471779-.41604 3.385702-.430386C3.227894-.444732 3.213548-.473424 3.213548-.588194C3.213548-.688617 3.24224-.774695 3.270933-.90381L4.275166-4.949438H6.972251C8.665102-4.949438 8.665102-3.371356 8.665102-3.256586C8.665102-1.879352 7.416983-.41604 5.638055-.41604Z'/>
+<path id='f2-g0-67' d='M10.716608-9.970606C10.716608-10.099722 10.616185-10.099722 10.587492-10.099722S10.501415-10.099722 10.386646-9.95626L9.396758-8.751179C8.894641-9.611951 8.105601-10.099722 7.029636-10.099722C3.930858-10.099722 .71731-6.957905 .71731-3.586549C.71731-1.190734 2.395815 .30127 4.490359 .30127C5.638055 .30127 6.642289-.186501 7.474368-.889464C8.722487-1.936736 9.095488-3.328317 9.095488-3.443087C9.095488-3.572203 8.980718-3.572203 8.93768-3.572203C8.808564-3.572203 8.794218-3.486126 8.765526-3.428741C8.105601-1.190734 6.168864-.11477 4.734245-.11477C3.213548-.11477 1.893698-1.090311 1.893698-3.127471C1.893698-3.586549 2.03716-6.082787 3.65828-7.962139C4.447321-8.880295 5.795863-9.683682 7.158752-9.683682C8.736833-9.683682 9.439797-8.378178 9.439797-6.914866C9.439797-6.541865 9.396758-6.226249 9.396758-6.168864C9.396758-6.039748 9.54022-6.039748 9.583259-6.039748C9.741067-6.039748 9.755413-6.054095 9.812798-6.312326L10.716608-9.970606Z'/>
+<path id='f2-g0-68' d='M2.252353-1.061618C2.123237-.559502 2.094545-.41604 1.090311-.41604C.817733-.41604 .674271-.41604 .674271-.157808C.674271 0 .760348 0 1.047272 0H5.595016C8.492948 0 11.319148-2.998355 11.319148-6.197557C11.319148-8.263409 10.085376-9.798452 8.03387-9.798452H3.428741C3.156163-9.798452 3.027047-9.798452 3.027047-9.525874C3.027047-9.382412 3.156163-9.382412 3.371356-9.382412C4.246474-9.382412 4.246474-9.267642 4.246474-9.109834C4.246474-9.081142 4.246474-8.995065 4.189089-8.779872L2.252353-1.061618ZM5.2794-8.82291C5.408516-9.35372 5.465901-9.382412 6.025402-9.382412H7.603484C8.952026-9.382412 10.185799-8.650756 10.185799-6.670981C10.185799-5.953671 9.898875-3.457433 8.507294-1.879352C8.105601-1.405927 7.01529-.41604 5.365477-.41604H3.730011C3.529164-.41604 3.500472-.41604 3.414395-.430386C3.256586-.444732 3.24224-.473424 3.24224-.588194C3.24224-.688617 3.270933-.774695 3.299625-.90381L5.2794-8.82291Z'/>
+<path id='f2-g0-69' d='M9.970606-3.328317C9.984952-3.371356 10.027991-3.471779 10.027991-3.529164C10.027991-3.600895 9.970606-3.672626 9.884529-3.672626C9.827144-3.672626 9.798452-3.65828 9.755413-3.615241C9.726721-3.600895 9.726721-3.572203 9.597605-3.285279C8.751179-1.276811 8.134293-.41604 5.838902-.41604H3.744357C3.54351-.41604 3.514818-.41604 3.428741-.430386C3.270933-.444732 3.256586-.473424 3.256586-.588194C3.256586-.688617 3.285279-.774695 3.313971-.90381L4.303859-4.86336H5.724132C6.843135-4.86336 6.929213-4.619475 6.929213-4.189089C6.929213-4.045627 6.929213-3.916511 6.828789-3.486126C6.800097-3.428741 6.785751-3.371356 6.785751-3.328317C6.785751-3.227894 6.857482-3.184855 6.943559-3.184855C7.072674-3.184855 7.087021-3.285279 7.144405-3.486126L7.962139-6.814443C7.962139-6.886174 7.904754-6.957905 7.818677-6.957905C7.689561-6.957905 7.675215-6.90052 7.61783-6.699673C7.330906-5.595016 7.043982-5.2794 5.767171-5.2794H4.404282L5.293746-8.808564C5.422862-9.310681 5.451554-9.35372 6.039748-9.35372H8.091254C9.855836-9.35372 10.214491-8.880295 10.214491-7.789984C10.214491-7.775638 10.214491-7.373945 10.157107-6.90052C10.14276-6.843135 10.128414-6.757058 10.128414-6.728366C10.128414-6.613596 10.200145-6.570558 10.286222-6.570558C10.386646-6.570558 10.44403-6.627942 10.472723-6.886174L10.773993-9.396758C10.773993-9.439797 10.802685-9.583259 10.802685-9.611951C10.802685-9.769759 10.67357-9.769759 10.415338-9.769759H3.414395C3.141817-9.769759 2.998355-9.769759 2.998355-9.511528C2.998355-9.35372 3.098778-9.35372 3.342664-9.35372C4.232128-9.35372 4.232128-9.253296 4.232128-9.095488C4.232128-9.023757 4.217782-8.966372 4.174743-8.808564L2.238007-1.061618C2.108891-.559502 2.080198-.41604 1.075965-.41604C.803387-.41604 .659925-.41604 .659925-.157808C.659925 0 .746002 0 1.032926 0H8.234716C8.550333 0 8.564679-.014346 8.665102-.243885L9.970606-3.328317Z'/>
+<path id='f2-g0-70' d='M4.26082-4.67686H5.638055C6.728366-4.67686 6.814443-4.432974 6.814443-4.016935C6.814443-3.830434 6.785751-3.629588 6.71402-3.313971C6.685327-3.256586 6.670981-3.184855 6.670981-3.156163C6.670981-3.05574 6.728366-2.998355 6.828789-2.998355C6.943559-2.998355 6.957905-3.05574 7.01529-3.285279L7.847369-6.627942C7.847369-6.685327 7.80433-6.771404 7.703907-6.771404C7.574791-6.771404 7.560445-6.71402 7.50306-6.470134C7.20179-5.39417 6.914866-5.092899 5.666747-5.092899H4.361243L5.293746-8.808564C5.422862-9.310681 5.451554-9.35372 6.039748-9.35372H7.962139C9.755413-9.35372 10.013645-8.82291 10.013645-7.80433C10.013645-7.718253 10.013645-7.402637 9.970606-7.029636C9.95626-6.972251 9.927567-6.785751 9.927567-6.728366C9.927567-6.613596 9.999298-6.570558 10.085376-6.570558C10.185799-6.570558 10.243184-6.627942 10.271876-6.886174L10.573146-9.396758C10.573146-9.439797 10.601839-9.583259 10.601839-9.611951C10.601839-9.769759 10.472723-9.769759 10.214491-9.769759H3.414395C3.141817-9.769759 2.998355-9.769759 2.998355-9.511528C2.998355-9.35372 3.098778-9.35372 3.342664-9.35372C4.232128-9.35372 4.232128-9.253296 4.232128-9.095488C4.232128-9.023757 4.217782-8.966372 4.174743-8.808564L2.238007-1.061618C2.108891-.559502 2.080198-.41604 1.075965-.41604C.803387-.41604 .659925-.41604 .659925-.157808C.659925 0 .789041 0 .875118 0C1.147696 0 1.43462-.028692 1.707197-.028692H3.572203C3.887819-.028692 4.232128 0 4.547744 0C4.67686 0 4.849014 0 4.849014-.258232C4.849014-.41604 4.762937-.41604 4.447321-.41604C3.313971-.41604 3.285279-.516463 3.285279-.731656C3.285279-.803387 3.313971-.918157 3.342664-1.01858L4.26082-4.67686Z'/>
+<path id='f2-g0-77' d='M13.026346-8.751179C13.155461-9.23895 13.184154-9.382412 14.202734-9.382412C14.475311-9.382412 14.604427-9.382412 14.604427-9.65499C14.604427-9.798452 14.504004-9.798452 14.231426-9.798452H12.509883C12.151228-9.798452 12.136882-9.784105 11.979073-9.554566L6.742712-1.276811L5.666747-9.482835C5.623709-9.798452 5.609363-9.798452 5.236361-9.798452H3.457433C3.184855-9.798452 3.05574-9.798452 3.05574-9.525874C3.05574-9.382412 3.184855-9.382412 3.400048-9.382412C4.275166-9.382412 4.275166-9.267642 4.275166-9.109834C4.275166-9.081142 4.275166-8.995065 4.217782-8.779872L2.381468-1.463312C2.209314-.774695 1.879352-.459078 .918157-.41604C.875118-.41604 .702964-.401693 .702964-.157808C.702964 0 .832079 0 .889464 0C1.176388 0 1.908044-.028692 2.194968-.028692H2.883585C3.084432-.028692 3.328317 0 3.529164 0C3.629588 0 3.787396 0 3.787396-.272578C3.787396-.401693 3.643934-.41604 3.586549-.41604C3.113124-.430386 2.654046-.516463 2.654046-1.032926C2.654046-1.176388 2.654046-1.190734 2.711431-1.391581L4.691206-9.296335H4.705552L5.896286-.387347C5.939325-.043039 5.953671 0 6.082787 0C6.240595 0 6.312326-.11477 6.384057-.243885L12.151228-9.368066H12.165574L10.085376-1.061618C9.95626-.559502 9.927567-.41604 8.923334-.41604C8.650756-.41604 8.507294-.41604 8.507294-.157808C8.507294 0 8.63641 0 8.722487 0C8.966372 0 9.253296-.028692 9.497182-.028692H11.190033C11.433918-.028692 11.735188 0 11.979073 0C12.093843 0 12.251651 0 12.251651-.272578C12.251651-.41604 12.122535-.41604 11.907342-.41604C11.032224-.41604 11.032224-.530809 11.032224-.674271C11.032224-.688617 11.032224-.789041 11.060917-.90381L13.026346-8.751179Z'/>
+<path id='f2-g0-100' d='M7.216136-9.597605C7.230483-9.65499 7.259175-9.741067 7.259175-9.812798C7.259175-9.95626 7.115713-9.95626 7.087021-9.95626C7.072674-9.95626 6.369711-9.898875 6.29798-9.884529C6.054095-9.870183 5.838902-9.84149 5.58067-9.827144C5.222015-9.798452 5.121592-9.784105 5.121592-9.525874C5.121592-9.382412 5.236361-9.382412 5.437208-9.382412C6.140172-9.382412 6.154518-9.253296 6.154518-9.109834C6.154518-9.023757 6.125826-8.908988 6.111479-8.865949L5.236361-5.379823C5.078553-5.752824 4.691206-6.326672 3.945204-6.326672C2.324084-6.326672 .573848-4.232128 .573848-2.108891C.573848-.688617 1.405927 .143462 2.381468 .143462C3.170509 .143462 3.84478-.473424 4.246474-.946849C4.389936-.100423 5.064207 .143462 5.494593 .143462S6.269288-.11477 6.527519-.631233C6.757058-1.119003 6.957905-1.994121 6.957905-2.051506C6.957905-2.123237 6.90052-2.180622 6.814443-2.180622C6.685327-2.180622 6.670981-2.108891 6.613596-1.893698C6.398403-1.047272 6.125826-.143462 5.537632-.143462C5.121592-.143462 5.092899-.516463 5.092899-.803387C5.092899-.860772 5.092899-1.162042 5.193323-1.563735L7.216136-9.597605ZM4.318205-1.707197C4.246474-1.463312 4.246474-1.43462 4.045627-1.162042C3.730011-.760348 3.098778-.143462 2.424507-.143462C1.836313-.143462 1.506351-.674271 1.506351-1.520697C1.506351-2.309738 1.951083-3.916511 2.22366-4.519052C2.711431-5.523285 3.385702-6.039748 3.945204-6.039748C4.892053-6.039748 5.078553-4.86336 5.078553-4.748591C5.078553-4.734245 5.035515-4.547744 5.021168-4.519052L4.318205-1.707197Z'/>
+</defs>
+<g id='f2-page1'>
+<path d='M153.9844 69.445L116.789062 176.371093H284.156Z' fill='#f0f5f9'/>
+<path d='M86.6289 228.5547H228.766' stroke='#64748b' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='2.98883 2.98883'/>
+<g fill='#64748b' transform='matrix(1 0 0 1 115.496 56.087)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-100'/>
+<use x='124.090053' y='178.524989' xlink:href='#f2-g1-50'/>
+</g>
+<path d='M294.406 170.11328L171.4023 245.2539' stroke='#64748b' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='2.98883 2.98883'/>
+<g fill='#64748b' transform='matrix(1 0 0 1 48.223 82.362)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-100'/>
+<use x='124.090053' y='178.524989' xlink:href='#f2-g1-49'/>
+</g>
+<path d='M153.9844 69.445L116.789062 176.371093H284.156Z' stroke='#005b9f' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M116.789062 176.371093L98.6406 228.5547' stroke='#005b9f' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M241.465 141.3047L98.6406 228.5547' stroke='#118acb' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M153.9844 69.445L184.0625 176.371093' stroke='#118acb' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M184.0625 176.371093L198.7383 228.5547' stroke='#f26522' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round' stroke-dasharray='3.9851 2.98883'/>
+<path d='M98.6406 228.5547H198.7383L284.156 176.371093' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M138.8984 124.1289L131.875 121.6875' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M200.0859 102.5L195.3633 108.25' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M147.4648 88.1875C151.2969 89.5234 155.4492 89.6484 159.3555 88.5469' stroke='#64748b' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M159.8164 90.1836C164.0547 88.9922 167.832 86.5273 170.6289 83.1211' stroke='#64748b' fill='none' stroke-width='.3985' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M155.1289 69.445C155.1289 68.812 154.6172 68.301 153.9844 68.301S152.8398 68.812 152.8398 69.445C152.8398 70.074 153.3516 70.586 153.9844 70.586S155.1289 70.074 155.1289 69.445Z' fill='#005b9f'/>
+<path d='M117.93359 176.371093C117.93359 175.742186 117.421875 175.23047 116.789062 175.23047C116.160156 175.23047 115.64844 175.742186 115.64844 176.371093C115.64844 177.003905 116.160156 177.51562 116.789062 177.51562C117.421875 177.51562 117.93359 177.003905 117.93359 176.371093Z' fill='#005b9f'/>
+<path d='M285.301 176.371093C285.301 175.742186 284.789 175.23047 284.156 175.23047C283.527 175.23047 283.016 175.742186 283.016 176.371093C283.016 177.003905 283.527 177.51562 284.156 177.51562C284.789 177.51562 285.301 177.003905 285.301 176.371093Z' fill='#005b9f'/>
+<path d='M185.2031 176.371093C185.2031 175.742186 184.6914 175.23047 184.0625 175.23047C183.4297 175.23047 182.918 175.742186 182.918 176.371093C182.918 177.003905 183.4297 177.51562 184.0625 177.51562C184.6914 177.51562 185.2031 177.003905 185.2031 176.371093Z' fill='#005b9f'/>
+<path d='M242.609 141.3047C242.609 140.6719 242.098 140.1602 241.465 140.1602S240.32 140.6719 240.32 141.3047S240.832 142.4492 241.465 142.4492S242.609 141.9375 242.609 141.3047Z' fill='#005b9f'/>
+<path d='M99.7852 228.5547C99.7852 227.9219 99.2734 227.4102 98.6406 227.4102S97.4961 227.9219 97.4961 228.5547S98.0078 229.6992 98.6406 229.6992S99.7852 229.1875 99.7852 228.5547Z' fill='#005b9f'/>
+<path d='M199.8828 228.5547C199.8828 227.9219 199.3711 227.4102 198.7383 227.4102S197.5937 227.9219 197.5937 228.5547S198.1055 229.6992 198.7383 229.6992S199.8828 229.1875 199.8828 228.5547Z' fill='#005b9f'/>
+<g transform='matrix(1 0 0 1 31.927 -110.4487)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-65'/>
+</g>
+<g transform='matrix(1 0 0 1 -14.915 4.902)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-66'/>
+</g>
+<g transform='matrix(1 0 0 1 170.887 4.902)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-67'/>
+</g>
+<g transform='matrix(1 0 0 1 70.79 -3.52)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-68'/>
+</g>
+<g transform='matrix(1 0 0 1 128.194 -38.588)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-69'/>
+</g>
+<g transform='matrix(1 0 0 1 -36.7584 65.504)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-77'/>
+</g>
+<g transform='matrix(1 0 0 1 76.425 65.504)'>
+<use x='116.790825' y='176.373071' xlink:href='#f2-g0-70'/>
+</g>
+</g>
+</svg></div>
+              <script type="text/x-tikz" data-fig="f2">
+\begin{tikzpicture}[scale=0.82, line join=round, line cap=round, every node/.style={font=\Large}]
+  \coordinate (A) at (1.6,4.6);
+  \coordinate (B) at (0,0);
+  \coordinate (C) at (7.2,0);
+  \coordinate (E) at (5.3634,1.5086);
+  \coordinate (D) at (2.8939,0);
+  \coordinate (M) at (-0.7808,-2.2448);
+  \coordinate (F) at (3.5253,-2.2448);
+  \fill[mxblue!6] (A)--(B)--(C)--cycle;
+  \draw[mxgray, dashed] ($(M)!-0.12!(F)$) -- ($(M)!1.3!(F)$) node[right, text=mxgray] {$d_2$};
+  \draw[mxgray, dashed] ($(C)!-0.12!(F)$) -- ($(C)!1.32!(F)$) node[below, text=mxgray] {$d_1$};
+  \draw[mxblue, very thick] (A)--(B)--(C)--cycle;
+  \draw[mxblue, thick] (B)--(M);
+  \draw[mxsky, thick] (E)--(M);
+  \draw[mxsky, thick] (A)--(D);
+  \draw[mxorange, thick, dash pattern=on 4pt off 3pt] (D)--(F);
+  \draw[mxrose, thick] (M)--(F)--(C);
+  % AE = AB
+  \draw[mxrose, thick] ($(A)!0.5!(B)$) ++($(A)!1.6mm!90:(B)-(A)$) -- ++($(A)!3.2mm!-90:(B)-(A)$);
+  \draw[mxrose, thick] ($(A)!0.5!(E)$) ++($(A)!1.6mm!90:(E)-(A)$) -- ++($(A)!3.2mm!-90:(E)-(A)$);
+  \pic[draw=mxgray, angle radius=7mm] {angle = B--A--D};
+  \pic[draw=mxgray, angle radius=7.6mm] {angle = D--A--C};
+  \foreach \p in {A,B,C,D,E,M,F} \fill[mxblue] (\p) circle (1.4pt);
+  \node[above] at (A) {$A$};
+  \node[left] at (B) {$B$};
+  \node[right] at (C) {$C$};
+  \node[above right] at (D) {$D$};
+  \node[above right] at (E) {$E$};
+  \node[below left] at (M) {$M$};
+  \node[below] at (F) {$F$};
+\end{tikzpicture}
+              </script>
+              <div style="font-size:14px; color:var(--muted); text-align:center; margin-top:4px">
+                <b>Ví dụ:</b> $\Delta ABC$ ($AB &lt; AC$), tia phân giác của $\widehat{BAC}$ cắt $BC$ tại $D$; $E$ trên cạnh $AC$ với $AE = AB$; tia $AB$ cắt đường thẳng $ED$ tại $M$.<br />a) $\Delta ABD = \Delta AED$; &nbsp;b) $\Delta BDM = \Delta EDC$; &nbsp;c) $d_1$ qua $C$, $d_1 \parallel ED$; $d_2$ qua $M$, $d_2 \parallel BC$; $d_1$ cắt $d_2$ tại $F$. Chứng minh $A, D, F$ thẳng hàng.
+              </div>
+            </div>
+
+            <div class="stack">
+              <div class="card tint t-rose" style="padding:12px 15px">
+                <div class="card__head">
+                  <div class="ico ico--sm"><i class="fa-solid fa-ban"></i></div>
+                  <h3 style="font-size:17px; color:#be123c">CẢNH BÁO: Lỗi sai ngộ nhận của Giáo viên mới</h3>
+                </div>
+                <p style="font-size:14.5px; line-height:1.45">Hướng dẫn câu c) theo hướng: chứng minh $\widehat{ADM} = \widehat{ADC}$ rồi suy ra $\widehat{MDF} = \widehat{CDF}$ (vì "kề bù" với $\widehat{ADM}$ và $\widehat{ADC}$), suy ra $\Delta MDF = \Delta CDF$ (c.g.c), $MF = CF$ ...<br />
+                <span class="bad">❌ SAI:</span> $\widehat{ADM}$ và $\widehat{MDF}$ chỉ kề bù khi tia $DF$ là tia đối của tia $DA$, tức là khi $A, D, F$ đã thẳng hàng. Đây là <b>dùng điều phải chứng minh làm căn cứ</b>.</p>
+              </div>
+
+              <div class="card tint t-emerald" style="padding:12px 15px">
+                <div class="card__head">
+                  <div class="ico ico--sm"><i class="fa-solid fa-check"></i></div>
+                  <h3 style="font-size:17px; color:#047857">Lời giải đúng chuẩn mực Toán học</h3>
+                </div>
+                <div class="sol" style="font-size:15px">
+                  <div class="ln">Từ b): $\Delta BDM = \Delta EDC$ nên $DM = DC$ và $BM = EC$.</div>
+                  <div class="ln">Xét $\Delta DFM$ và $\Delta FDC$: $DF$ chung; $\widehat{MFD} = \widehat{FDC}$ (so le trong, $MF \parallel BC$); $\widehat{MDF} = \widehat{DFC}$ (so le trong, $DM \parallel CF$). Suy ra $\Delta DFM = \Delta FDC$ (g.c.g), nên $MF = DC$, $DM = FC$. <span class="step-warn">bước dễ sai</span></div>
+                  <div class="ln">Kết hợp $DM = DC$ được $MF = FC$. Lại có $AM = AB + BM = AE + EC = AC$.</div>
+                  <div class="ln">Xét $\Delta AMF$ và $\Delta ACF$: $AM = AC$; $MF = CF$; $AF$ chung. Suy ra $\Delta AMF = \Delta ACF$ (c.c.c), nên $\widehat{MAF} = \widehat{CAF}$, tức $AF$ là tia phân giác của $\widehat{BAC}$.</div>
+                  <div class="ln ok">Mà $AD$ cũng là tia phân giác của $\widehat{BAC}$ nên hai tia $AD$, $AF$ trùng nhau. Vậy $A, D, F$ thẳng hàng <span class="ok">(đpcm)</span>.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 15: HÌNH HỌC - TAM GIÁC CÂN, TAM GIÁC ĐỀU ==================== -->
+      <section class="slide" data-section="3" aria-label="Tam giác cân và tam giác đều">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Hình học · Tam giác cân - đều</div>
+            <h2 class="slide__title"><span class="num">3.3</span> Tam giác cân – Tam giác đều: Định nghĩa &amp; Dấu hiệu nhận biết</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <div class="card tint t-blue">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-shapes"></i></div>
+                <div>
+                  <h3>Tam giác cân</h3>
+                  <div class="card__sub">Tam giác có 2 cạnh bằng nhau</div>
+                </div>
+              </div>
+              <ul class="list" style="font-size:14.5px">
+                <li><b>Tính chất:</b>
+                  <ul style="margin-top:4px; padding-left:18px">
+                    <li>Hai góc ở đáy bằng nhau: $\widehat{B} = \widehat{C} = \dfrac{180^\circ - \widehat{A}}{2}$.</li>
+                    <li>Góc ở đỉnh: $\widehat{A} = 180^\circ - 2\widehat{B}$.</li>
+                  </ul>
+                </li>
+                <li><b>Dấu hiệu nhận biết (DHNB):</b>
+                  <ol style="margin-top:4px; padding-left:18px">
+                    <li>Tam giác có hai cạnh bằng nhau (định nghĩa).</li>
+                    <li>Tam giác có hai góc bằng nhau.</li>
+                  </ol>
+                  <p style="margin-top:4px; font-size:13px; color:var(--muted)">Các dấu hiệu qua đường trung tuyến, phân giác, đường cao chưa có ở thời điểm này (đường cao học ở Chương IX); nếu dùng ở lớp Chuyên thì phải chứng minh lại bằng tam giác bằng nhau.</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card tint t-orange">
+              <div class="card__head">
+                <div class="ico"><i class="fa-solid fa-play" style="transform:rotate(-90deg)"></i></div>
+                <div>
+                  <h3>Tam giác đều</h3>
+                  <div class="card__sub">Tam giác có 3 cạnh bằng nhau</div>
+                </div>
+              </div>
+              <ul class="list" style="font-size:14.5px">
+                <li><b>Tính chất:</b>
+                  <ul style="margin-top:4px; padding-left:18px">
+                    <li>Ba cạnh bằng nhau: $AB = BC = CA$.</li>
+                    <li>Mỗi góc bằng $60^\circ$: $\widehat{A} = \widehat{B} = \widehat{C} = 60^\circ$.</li>
+                  </ul>
+                </li>
+                <li><b>Dấu hiệu nhận biết (DHNB):</b>
+                  <ol style="margin-top:4px; padding-left:18px">
+                    <li>Tam giác có 3 cạnh bằng nhau.</li>
+                    <li>Tam giác có 3 góc bằng nhau.</li>
+                    <li><b>Tam giác cân có một góc bằng $60^\circ$</b> (cần chứng minh khi dùng).</li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout t-emerald" style="margin-top:4px; font-size:14px">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <div>
+              <b>Lưu ý sư phạm khi dạy học sinh:</b> Cần nhấn mạnh công thức tính góc ở đáy $\widehat{B} = \dfrac{180^\circ - \widehat{A}}{2}$. Đây là công thức chìa khóa thường xuyên dùng để chứng minh hai đường thẳng song song thông qua các cặp góc đồng vị hoặc so le trong!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 16: HÌNH HỌC - BÀI TOÁN TAM GIÁC CÂN ==================== -->
+      <section class="slide" data-section="3" aria-label="Bài toán mẫu Tam giác cân và lỗi ngộ nhận cạnh">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Hình học · Bài toán mẫu</div>
+            <h2 class="slide__title"><span class="num">3.4</span> Bài toán Tam giác cân &amp; Bẫy ngộ nhận trường hợp c.g.c</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-45-55">
+            <div class="card tint t-slate" style="align-items:center; justify-content:center; padding:10px">
+              <div class="fig"><svg role='img' aria-label='Hình vẽ tam giác ABC cân tại A, hai phân giác BD và CE' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='80.450312 55.79534 147.423576 151.589928'>
+<defs>
+<path id='f3-g0-65' d='M1.783313-1.145704C1.384807-.478207 .996264-.33873 .557908-.308842C.438356-.298879 .348692-.298879 .348692-.109589C.348692-.049813 .398506 0 .478207 0C.747198 0 1.05604-.029888 1.334994-.029888C1.663761-.029888 2.012453 0 2.331258 0C2.391034 0 2.520548 0 2.520548-.18929C2.520548-.298879 2.430884-.308842 2.361146-.308842C2.132005-.328767 1.892902-.408468 1.892902-.657534C1.892902-.777086 1.952677-.886675 2.032379-1.026152L2.789539-2.30137H5.290162C5.310087-2.092154 5.449564-.737235 5.449564-.637609C5.449564-.33873 4.931507-.308842 4.732254-.308842C4.592777-.308842 4.493151-.308842 4.493151-.109589C4.493151 0 4.612702 0 4.632628 0C5.041096 0 5.469489-.029888 5.877958-.029888C6.127024-.029888 6.75467 0 7.003736 0C7.063512 0 7.183064 0 7.183064-.199253C7.183064-.308842 7.083437-.308842 6.953923-.308842C6.336239-.308842 6.336239-.37858 6.306351-.667497L5.69863-6.894147C5.678705-7.0934 5.678705-7.13325 5.50934-7.13325C5.349938-7.13325 5.310087-7.063512 5.250311-6.963885L1.783313-1.145704ZM2.978829-2.610212L4.941469-5.897883L5.260274-2.610212H2.978829Z'/>
+<path id='f3-g0-66' d='M1.594022-.777086C1.494396-.388543 1.474471-.308842 .687422-.308842C.518057-.308842 .418431-.308842 .418431-.109589C.418431 0 .508095 0 .687422 0H4.244085C5.818182 0 6.993773-1.175592 6.993773-2.15193C6.993773-2.86924 6.41594-3.447073 5.449564-3.556663C6.485679-3.745953 7.531756-4.483188 7.531756-5.429639C7.531756-6.166874 6.874222-6.804483 5.678705-6.804483H2.331258C2.141968-6.804483 2.042341-6.804483 2.042341-6.60523C2.042341-6.495641 2.132005-6.495641 2.321295-6.495641C2.34122-6.495641 2.530511-6.495641 2.699875-6.475716C2.879203-6.455791 2.968867-6.445828 2.968867-6.316314C2.968867-6.276463 2.958904-6.246575 2.929016-6.127024L1.594022-.777086ZM3.098381-3.646326L3.716065-6.117061C3.805729-6.465753 3.825654-6.495641 4.254047-6.495641H5.539228C6.41594-6.495641 6.625156-5.907846 6.625156-5.469489C6.625156-4.592777 5.768369-3.646326 4.552927-3.646326H3.098381ZM2.650062-.308842C2.510585-.308842 2.49066-.308842 2.430884-.318804C2.331258-.328767 2.30137-.33873 2.30137-.418431C2.30137-.448319 2.30137-.468244 2.351183-.647572L3.038605-3.427148H4.921544C5.877958-3.427148 6.067248-2.689913 6.067248-2.261519C6.067248-1.275218 5.180573-.308842 4.004981-.308842H2.650062Z'/>
+<path id='f3-g0-67' d='M7.571606-6.924035C7.571606-6.953923 7.551681-7.023661 7.462017-7.023661C7.43213-7.023661 7.422167-7.013699 7.312578-6.90411L6.615193-6.136986C6.525529-6.276463 6.067248-7.023661 4.961395-7.023661C2.739726-7.023661 .498132-4.821918 .498132-2.510585C.498132-.86675 1.673724 .219178 3.198007 .219178C4.064757 .219178 4.821918-.179328 5.349938-.637609C6.276463-1.454545 6.445828-2.361146 6.445828-2.391034C6.445828-2.49066 6.346202-2.49066 6.326276-2.49066C6.266501-2.49066 6.216687-2.470735 6.196762-2.391034C6.107098-2.102117 5.877958-1.39477 5.190535-.816936C4.503113-.259029 3.875467-.089664 3.35741-.089664C2.460772-.089664 1.404732-.607721 1.404732-2.161893C1.404732-2.729763 1.613948-4.343711 2.610212-5.50934C3.217933-6.216687 4.154421-6.714819 5.041096-6.714819C6.057285-6.714819 6.645081-5.947696 6.645081-4.79203C6.645081-4.393524 6.615193-4.383562 6.615193-4.283935S6.724782-4.184309 6.764633-4.184309C6.894147-4.184309 6.894147-4.204234 6.94396-4.383562L7.571606-6.924035Z'/>
+<path id='f3-g0-68' d='M1.58406-.777086C1.484433-.388543 1.464508-.308842 .67746-.308842C.508095-.308842 .398506-.308842 .398506-.119552C.398506 0 .488169 0 .67746 0H3.975093C6.047323 0 8.009963-2.102117 8.009963-4.283935C8.009963-5.688667 7.163138-6.804483 5.668742-6.804483H2.321295C2.132005-6.804483 2.022416-6.804483 2.022416-6.615193C2.022416-6.495641 2.11208-6.495641 2.311333-6.495641C2.440847-6.495641 2.620174-6.485679 2.739726-6.475716C2.899128-6.455791 2.958904-6.425903 2.958904-6.316314C2.958904-6.276463 2.948941-6.246575 2.919054-6.127024L1.58406-.777086ZM3.73599-6.117061C3.825654-6.465753 3.845579-6.495641 4.273973-6.495641H5.339975C6.316314-6.495641 7.143213-5.967621 7.143213-4.652553C7.143213-4.164384 6.94396-2.530511 6.097136-1.43462C5.808219-1.066002 5.021171-.308842 3.795766-.308842H2.669988C2.530511-.308842 2.510585-.308842 2.450809-.318804C2.351183-.328767 2.321295-.33873 2.321295-.418431C2.321295-.448319 2.321295-.468244 2.371108-.647572L3.73599-6.117061Z'/>
+<path id='f3-g0-69' d='M7.053549-2.321295C7.073474-2.371108 7.103362-2.440847 7.103362-2.460772C7.103362-2.470735 7.103362-2.570361 6.983811-2.570361C6.894147-2.570361 6.874222-2.510585 6.854296-2.450809C6.206725-.976339 5.838107-.308842 4.134496-.308842H2.67995C2.540473-.308842 2.520548-.308842 2.460772-.318804C2.361146-.328767 2.331258-.33873 2.331258-.418431C2.331258-.448319 2.331258-.468244 2.381071-.647572L3.058531-3.367372H4.044832C4.891656-3.367372 4.891656-3.158157 4.891656-2.909091C4.891656-2.839352 4.891656-2.719801 4.821918-2.420922C4.801993-2.371108 4.79203-2.34122 4.79203-2.311333C4.79203-2.261519 4.83188-2.201743 4.921544-2.201743C5.001245-2.201743 5.031133-2.251557 5.070984-2.400996L5.638854-4.732254C5.638854-4.79203 5.589041-4.841843 5.519303-4.841843C5.429639-4.841843 5.409714-4.782067 5.379826-4.662516C5.17061-3.905355 4.991283-3.676214 4.07472-3.676214H3.138232L3.73599-6.07721C3.825654-6.425903 3.835616-6.465753 4.273973-6.465753H5.678705C6.894147-6.465753 7.193026-6.176837 7.193026-5.3599C7.193026-5.120797 7.193026-5.100872 7.153176-4.83188C7.153176-4.772105 7.143213-4.702366 7.143213-4.652553S7.173101-4.533001 7.262765-4.533001C7.372354-4.533001 7.382316-4.592777 7.402242-4.782067L7.601494-6.505604C7.631382-6.774595 7.581569-6.774595 7.332503-6.774595H2.30137C2.102117-6.774595 2.002491-6.774595 2.002491-6.575342C2.002491-6.465753 2.092154-6.465753 2.281445-6.465753C2.650062-6.465753 2.929016-6.465753 2.929016-6.286426C2.929016-6.246575 2.929016-6.22665 2.879203-6.047323L1.564134-.777086C1.464508-.388543 1.444583-.308842 .657534-.308842C.488169-.308842 .37858-.308842 .37858-.119552C.37858 0 .468244 0 .657534 0H5.828144C6.057285 0 6.067248-.009963 6.136986-.169365L7.053549-2.321295Z'/>
+</defs>
+<g id='f3-page1'>
+<path d='M154.195305 66.449L91.6094 196.839846H216.7812Z' fill='#f0f5f9'/>
+<path d='M154.195305 66.449L120.6445 136.3438H187.7461Z' fill='#fce0d3'/>
+<path d='M154.195305 66.449L91.6094 196.839846H216.7812Z' stroke='#005b9f' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M91.6094 196.839846L187.7461 136.3438M216.7812 196.839846L120.6445 136.3438' stroke='#118acb' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M120.6445 136.3438H187.7461' stroke='#f26522' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M108.3984 186.2695C106.4101 183.1055 103.5625 180.5664 100.1914 178.9492' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M114.2812 196.839846C114.2812 192.56641 113.0742 188.375 110.7969 184.7617' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M208.1992 178.9492C204.8281 180.5664 201.9805 183.1055 199.9922 186.2695' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M197.5898 184.7617C195.3164 188.375 194.1055 192.56641 194.1055 196.839846' stroke='#e11d48' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M139.1797 107.3711L131.6562 103.7617' stroke='#64748b' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M176.7344 103.7617L169.2109 107.3711' stroke='#64748b' fill='none' stroke-width='.79701' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
+<path d='M155.47656 66.449C155.47656 65.738 154.902336 65.164 154.195305 65.164C153.488274 65.164 152.91015 65.738 152.91015 66.449C152.91015 67.156 153.488274 67.73 154.195305 67.73C154.902336 67.73 155.47656 67.156 155.47656 66.449Z' fill='#005b9f'/>
+<path d='M92.8906 196.839846C92.8906 196.128909 92.3164 195.55469 91.6094 195.55469C90.8984 195.55469 90.3242 196.128909 90.3242 196.839846C90.3242 197.546878 90.8984 198.1211 91.6094 198.1211C92.3164 198.1211 92.8906 197.546878 92.8906 196.839846Z' fill='#005b9f'/>
+<path d='M218.0664 196.839846C218.0664 196.128909 217.4922 195.55469 216.7812 195.55469C216.0742 195.55469 215.5 196.128909 215.5 196.839846C215.5 197.546878 216.0742 198.1211 216.7812 198.1211C217.4922 198.1211 218.0664 197.546878 218.0664 196.839846Z' fill='#005b9f'/>
+<path d='M189.0273 136.3438C189.0273 135.6367 188.4531 135.0625 187.7461 135.0625C187.0351 135.0625 186.4609 135.6367 186.4609 136.3438C186.4609 137.0547 187.0351 137.6289 187.7461 137.6289C188.4531 137.6289 189.0273 137.0547 189.0273 136.3438Z' fill='#005b9f'/>
+<path d='M121.9297 136.3438C121.9297 135.6367 121.3555 135.0625 120.6445 135.0625C119.9375 135.0625 119.3633 135.6367 119.3633 136.3438C119.3633 137.0547 119.9375 137.6289 120.6445 137.6289C121.3555 137.6289 121.9297 137.0547 121.9297 136.3438Z' fill='#005b9f'/>
+<g transform='matrix(1 0 0 1 -3.736 -133.9095)'>
+<use x='154.195281' y='196.83809' xlink:href='#f3-g0-65'/>
+</g>
+<g transform='matrix(1 0 0 1 -74.1634 10.328)'>
+<use x='154.195281' y='196.83809' xlink:href='#f3-g0-66'/>
+</g>
+<g transform='matrix(1 0 0 1 66.107 10.328)'>
+<use x='154.195281' y='196.83809' xlink:href='#f3-g0-67'/>
+</g>
+<g transform='matrix(1 0 0 1 37.069 -57.089)'>
+<use x='154.195281' y='196.83809' xlink:href='#f3-g0-68'/>
+</g>
+<g transform='matrix(1 0 0 1 -44.998 -57.089)'>
+<use x='154.195281' y='196.83809' xlink:href='#f3-g0-69'/>
+</g>
+</g>
+</svg></div>
+              <script type="text/x-tikz" data-fig="f3">
+\begin{tikzpicture}[scale=0.92, line join=round, line cap=round]
+  \coordinate (A) at (0,5.0);
+  \coordinate (B) at (-2.4,0);
+  \coordinate (C) at (2.4,0);
+  \coordinate (D) at (1.2865,2.3197);
+  \coordinate (E) at (-1.2865,2.3197);
+  \fill[mxblue!6] (A)--(B)--(C)--cycle;
+  \fill[mxorange!20] (A)--(E)--(D)--cycle;
+  \draw[mxblue, very thick] (A)--(B)--(C)--cycle;
+  \draw[mxsky, thick] (B)--(D) (C)--(E);
+  \draw[mxorange, very thick] (E)--(D);
+  \pic[draw=mxrose, thick, angle radius=7mm] {angle = D--B--A};
+  \pic[draw=mxrose, thick, angle radius=8mm] {angle = C--B--D};
+  \pic[draw=mxrose, thick, angle radius=7mm] {angle = A--C--E};
+  \pic[draw=mxrose, thick, angle radius=8mm] {angle = E--C--B};
+  % AB = AC
+  \draw[mxgray, thick] ($(A)!0.3!(B)$) ++($(A)!1.6mm!90:(B)-(A)$) -- ++($(A)!3.2mm!-90:(B)-(A)$);
+  \draw[mxgray, thick] ($(A)!0.3!(C)$) ++($(A)!1.6mm!90:(C)-(A)$) -- ++($(A)!3.2mm!-90:(C)-(A)$);
+  \foreach \p in {A,B,C,D,E} \fill[mxblue] (\p) circle (1.4pt);
+  \node[above] at (A) {$A$};
+  \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[right] at (D) {$D$};
+  \node[left] at (E) {$E$};
+\end{tikzpicture}
+              </script>
+              <div style="font-size:14px; color:var(--muted); text-align:center; margin-top:4px">
+                <b>Ví dụ:</b> $\Delta ABC$ cân tại $A$. Tia phân giác của $\widehat{B}$, $\widehat{C}$ cắt $AC$, $AB$ lần lượt ở $D$, $E$. Chứng minh: a) $\Delta AED$ cân; b) $DE \parallel BC$; c) $BE = ED = DC$.
+              </div>
+            </div>
+
+            <div class="stack">
+              <div class="card tint t-rose" style="padding:11px 15px">
+                <div class="card__head">
+                  <div class="ico ico--sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                  <h3 style="font-size:17px; color:#be123c">Lỗi ngộ nhận thường gặp của học sinh</h3>
+                </div>
+                <p style="font-size:14.5px; line-height:1.45">Học sinh dùng ngay $AE = AD$ để chứng minh $\Delta AEC = \Delta ADB$ (c.g.c), trong khi $AE = AD$ chính là điều phải chứng minh ở câu a). Hai tam giác này bằng nhau theo trường hợp <b>g.c.g</b>: cạnh $AB = AC$ xen giữa góc $A$ chung và hai nửa góc đáy.</p>
+              </div>
+
+              <div class="card tint t-emerald" style="padding:11px 15px">
+                <div class="card__head">
+                  <div class="ico ico--sm"><i class="fa-solid fa-check-double"></i></div>
+                  <h3 style="font-size:17px; color:#047857">Lời giải chuẩn mực 3 câu</h3>
+                </div>
+                <div class="sol" style="font-size:15px">
+                  <div class="ln"><b>a)</b> $\Delta ABC$ cân tại $A$ nên $AB = AC$, $\widehat{ABC} = \widehat{ACB}$; mà $BD, CE$ là phân giác nên $\widehat{ABD} = \widehat{DBC} = \widehat{ACE} = \widehat{ECB}$. Xét $\Delta AEC$ và $\Delta ADB$: $\widehat{A}$ chung; $AC = AB$; $\widehat{ACE} = \widehat{ABD}$. Suy ra $\Delta AEC = \Delta ADB$ (g.c.g), nên $AE = AD$. Vậy $\Delta AED$ cân tại $A$.</div>
+                  <div class="ln"><b>b)</b> $\widehat{ADE} = \dfrac{180^\circ - \widehat{A}}{2} = \widehat{ACB}$, mà hai góc này ở vị trí đồng vị nên $DE \parallel BC$.</div>
+                  <div class="ln"><b>c)</b> Vì $DE \parallel BC$ nên $\widehat{EDB} = \widehat{DBC}$ (so le trong) $= \widehat{EBD}$, suy ra $\Delta EBD$ cân tại $E$, nên $BE = ED$. Chứng minh tương tự $ED = DC$. Vậy $BE = ED = DC$ <span class="ok">(đpcm)</span>.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 17: TỒN ĐỌNG GIẢNG DẠY VÀ TÁC PHONG ==================== -->
+      <section class="slide" data-section="4" aria-label="Tồn đọng: Giảng dạy và tác phong">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">04</span>Tồn đọng &amp; Kỷ luật</div>
+            <h2 class="slide__title"><span class="num">4.1</span> Tồn đọng công tác: Giảng dạy &amp; Tác phong lên lớp</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="issue-grid">
+            <div class="issue-card bad">
+              <h4><i class="fa-solid fa-clock bad"></i> Giáo viên tới lớp muộn</h4>
+              <p style="font-size:13.5px; color:var(--muted)">Ghi nhận trong thời gian vừa qua tại các lớp:</p>
+              <div class="classes">
+                <span class="tag-class">7D2 MĐ</span>
+                <span class="tag-class">7B3 HĐ</span>
+                <span class="tag-class">7A1 LĐ</span>
+                <span class="tag-class">7.3D LH</span>
+                <span class="tag-class">...</span>
+              </div>
+              <div class="callout t-rose" style="margin-top:auto; font-size:13px; padding:8px 12px"><div><b>Quy định của CLB:</b> Giáo viên có mặt tại lớp <b>trước 5 phút</b> so với giờ học.</div></div>
+            </div>
+
+            <div class="issue-card warn">
+              <h4><i class="fa-solid fa-id-badge warn"></i> Giáo viên không đeo thẻ tên</h4>
+              <p style="font-size:13.5px; color:var(--muted)">Ghi nhận tại nhiều lớp, nhiều cơ sở:</p>
+              <div class="classes">
+                <span class="tag-class tag-class--warn">7.1B LH</span>
+                <span class="tag-class tag-class--warn">7A3 MĐ</span>
+                <span class="tag-class tag-class--warn">7A4 MĐ</span>
+                <span class="tag-class tag-class--warn">7B2 CG</span>
+                <span class="tag-class tag-class--warn">7C2 CG</span>
+                <span class="tag-class tag-class--warn">7A3 CG</span>
+                <span class="tag-class tag-class--warn">7.3C LH</span>
+                <span class="tag-class tag-class--warn">7A1 MĐ</span>
+                <span class="tag-class tag-class--warn">7A1 CG</span>
+                <span class="tag-class tag-class--warn">7A2 HBT</span>
+                <span class="tag-class tag-class--warn">7B3 HBT</span>
+                <span class="tag-class tag-class--warn">7D2 HBT</span>
+                <span class="tag-class tag-class--warn">7B2 HĐ</span>
+                <span class="tag-class tag-class--warn">...</span>
+              </div>
+              <div class="callout t-amber" style="margin-top:auto; font-size:13px; padding:8px 12px"><div><b>Nhận diện thương hiệu:</b> Thẻ tên là quy chuẩn văn hóa MathExpress, thể hiện sự chuyên nghiệp với phụ huynh và học sinh.</div></div>
+            </div>
+          </div>
+
+          <div class="banner t-blue" style="margin-top:8px">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+              <b>Yêu cầu toàn thể thầy cô:</b> Thực hiện đúng tác phong giảng dạy, có mặt tại lớp trước 5 phút theo đúng quy định của CLB và đeo thẻ tên đầy đủ khi lên lớp.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 18: TỒN ĐỌNG KHẢO SÁT QUÝ & CHẤM THI ==================== -->
+      <section class="slide" data-section="4" aria-label="Tồn đọng: Khảo sát Quý và Quy tắc chấm thi">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">04</span>Tồn đọng &amp; Kỷ luật</div>
+            <h2 class="slide__title"><span class="num">4.2</span> Tồn đọng Khảo sát Quý &amp; Quy tắc chấm bài chuẩn</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-3">
+            <div class="card tint t-rose">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-user-xmark"></i></div>
+                <h3 style="font-size:18px">Nhập điểm danh sai</h3>
+              </div>
+              <p style="font-size:14px">Ghi nhận tại các lớp:</p>
+              <div class="classes">
+                <span class="tag-class">7A4 HBT</span>
+                <span class="tag-class">7A2 XL</span>
+              </div>
+              <p style="font-size:13px; color:var(--muted); margin-top:6px">Điểm danh là dữ liệu chuyên cần của học sinh; nhập sai thì thông tin tới phụ huynh cũng sai.</p>
+            </div>
+
+            <div class="card tint t-amber">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-hourglass-end"></i></div>
+                <h3 style="font-size:18px">Chậm nộp điểm &amp; Nhận xét</h3>
+              </div>
+              <p style="font-size:14px">Chưa nhập đúng thời hạn:</p>
+              <div class="classes">
+                <span class="tag-class tag-class--warn">7T3B</span>
+                <span class="tag-class tag-class--warn">7.3C LH</span>
+                <span class="tag-class tag-class--warn">7A3 CG</span>
+                <span class="tag-class tag-class--warn">7.1B</span>
+                <span class="tag-class tag-class--warn">7.3D LH</span>
+              </div>
+              <p style="font-size:13px; color:var(--muted); margin-top:6px">Chậm một lớp là chậm tổng hợp kết quả Khảo sát Quý của cả khối.</p>
+            </div>
+
+            <div class="card tint t-orange">
+              <div class="card__head">
+                <div class="ico ico--sm"><i class="fa-solid fa-comment-slash"></i></div>
+                <h3 style="font-size:18px">Nhận xét sơ sài, qua loa</h3>
+              </div>
+              <p style="font-size:14px">Ghi nhận tại các lớp:</p>
+              <div class="classes">
+                <span class="tag-class">7B3 HBT</span>
+                <span class="tag-class">7B1 CG</span>
+                <span class="tag-class">7A1 LB</span>
+                <span class="tag-class">7A1 XL</span>
+              </div>
+              <p style="font-size:13px; color:var(--muted); margin-top:6px">Nhận xét chung chung "Con cần cố gắng", không chỉ rõ con sai ở câu nào, dạng bài nào để gia đình phối hợp.</p>
+            </div>
+          </div>
+
+          <div class="card tint t-emerald" style="margin-top:6px; padding:12px 18px">
+            <div class="card__head">
+              <div class="ico ico--sm"><i class="fa-solid fa-feather-pointed"></i></div>
+              <h3 style="font-size:18px; color:#047857">Quy tắc chấm thi &amp; Gợi ý nhận xét 3 bước</h3>
+            </div>
+            <div class="grid g-3" style="gap:14px; margin-top:4px">
+              <div><b>1. Chấm chi tiết:</b> Đối chiếu kĩ từng câu, kiểm tra từng phép tính của HS. Tuyệt đối không để xảy ra hiện tượng chấm sót, chấm sai.</div>
+              <div><b>2. Đúng deadline:</b> Nhập điểm và nhận xét bài kiểm tra đúng thời hạn quy định, không để nhắc nhở lần 2.</div>
+              <div><b>3. Nhận xét 3 bước:</b> Khen ưu điểm $\rightarrow$ Chỉ rõ lỗi sai then chốt $\rightarrow$ Gợi ý giải pháp &amp; lời dặn dò cụ thể.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SLIDE 19: KẾT THÚC & THẢO LUẬN ==================== -->
+      <section class="slide slide--end slide--bleed" data-section="end" aria-label="Thảo luận và lời kết">
+        <div class="end">
+          <img class="end__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" data-dark="true" />
+          <h2>Thảo luận &amp; Giải đáp thắc mắc</h2>
+          <div class="end__bar"></div>
+          <p class="end__wish">Cảm ơn quý thầy cô đã nỗ lực đồng hành cùng học sinh Khối 7. Chúc thầy cô có những tiết dạy truyền cảm hứng, chuẩn mực và gặt hái kết quả xuất sắc trong học kỳ I năm học 2026 – 2027!</p>
+          <div class="end__chips">
+            <span><i class="fa-solid fa-comments"></i> Thảo luận chuyên môn</span>
+            <span><i class="fa-solid fa-handshake"></i> Góp ý phiếu bài tập</span>
+            <span><i class="fa-solid fa-phone"></i> Hotline: 1900 633 551</span>
+            <span><i class="fa-solid fa-envelope"></i> toanmathexpress@gmail.com</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- THANH ĐIỀU HƯỚNG NỔI -->
+  <nav class="nav" id="slideNav" aria-label="Điều hướng slide">
+    <button type="button" id="prevBtn" title="Slide trước (←)" aria-label="Slide trước"><i class="fa-solid fa-chevron-left"></i></button>
+    <span class="nav__count" id="slideCounter" aria-live="polite">1 / 19</span>
+    <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→ / Space)" aria-label="Slide sau"><i class="fa-solid fa-chevron-right"></i></button>
+    <span class="nav__sep"></span>
+    <button type="button" id="agendaBtn" title="Về mục lục (M)" aria-label="Về mục lục"><i class="fa-solid fa-list-ul"></i></button>
+    <button type="button" id="fullscreenBtn" title="Toàn màn hình (F)" aria-label="Toàn màn hình"><i class="fa-solid fa-expand"></i></button>
+  </nav>
+
+  <script>
+    // ===== Thông tin cuộc họp =====
+    var DECK = {
+      footer: 'MathExpress · Họp chuyên môn Khối 7 · Tuần 14 – Tháng 10/2026'
+    };
+
+    (function () {
+      var STAGE_W = 1600, STAGE_H = 900;
+      var root = document.documentElement;
+      var slides = Array.prototype.slice.call(document.querySelectorAll('#stage > .slide'));
+      var total = slides.length;
+      var flowMQ = window.matchMedia('(max-width: 899px), (max-height: 499px)');
+      var cur = 0;
+
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      var counter = document.getElementById('slideCounter');
+      var bar = document.getElementById('progressBar');
+      var fsBtn = document.getElementById('fullscreenBtn');
+      var agendaIdx = Math.max(0, slides.findIndex(function (s) { return s.hasAttribute('data-agenda'); }));
+
+      // 1. Đánh số id, chèn footer
+      slides.forEach(function (s, i) {
+        s.id = 'slide-' + (i + 1);
+        if (s.classList.contains('slide--bleed')) return;
+        var f = document.createElement('footer');
+        f.className = 'slide__foot';
+        f.innerHTML = '<span><span class="dot"></span>' + DECK.footer + '</span>' +
+          '<span class="slide__num">' + String(i + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0') + '</span>';
+        s.appendChild(f);
+      });
+
+      // 2. Mục lục tự tính khoảng slide
+      var ranges = {};
+      slides.forEach(function (s, i) {
+        var k = s.dataset.section;
+        if (!k || k === '0' || k === 'end') return;
+        if (!ranges[k]) ranges[k] = { from: i, to: i };
+        ranges[k].to = i;
+      });
+      document.querySelectorAll('[data-goto-section]').forEach(function (el) {
+        var r = ranges[el.dataset.gotoSection];
+        if (!r) return;
+        var out = el.querySelector('[data-range]');
+        if (out) out.textContent = r.from === r.to ? 'Slide ' + (r.from + 1) : 'Slide ' + (r.from + 1) + ' – ' + (r.to + 1);
+        el.addEventListener('click', function () { go(r.from); });
+      });
+
+      // 3. Co giãn tỷ lệ 16:9
+      function fit() {
+        var s = flowMQ.matches ? 1 : Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
+        root.style.setProperty('--scale', s);
+      }
+
+      // 4. Thuật toán fitSlides chống tràn
+      var ZMAX = 1.14, ZMIN = 0.8;
+      slides.forEach(function (s) {
+        var b = s.querySelector('.slide__body');
+        if (!b) return;
+        var f = document.createElement('div');
+        f.className = 'fit';
+        while (b.firstChild) f.appendChild(b.firstChild);
+        b.appendChild(f);
+      });
+
+      function fitSlides() {
+        var scale = parseFloat(root.style.getPropertyValue('--scale')) || 1;
+        slides.forEach(function (s) {
+          var b = s.querySelector('.slide__body'), f = b && b.querySelector('.fit');
+          if (!f) return;
+          if (flowMQ.matches) { f.style.zoom = ''; return; }
+          var cs = getComputedStyle(b);
+          var avail = b.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+          var z = ZMAX;
+          f.style.zoom = z;
+          while (z > ZMIN && f.getBoundingClientRect().height / scale > avail + 0.5) {
+            z = Math.round((z - 0.01) * 100) / 100;
+            f.style.zoom = z;
+          }
+        });
+      }
+      window.__fitSlides = fitSlides;
+
+      function update() {
+        counter.textContent = (cur + 1) + ' / ' + total;
+        bar.style.width = ((cur + 1) / total * 100) + '%';
+        prevBtn.disabled = cur === 0;
+        nextBtn.disabled = cur === total - 1;
+        try { history.replaceState(null, '', '#' + slides[cur].id); } catch (e) { }
+      }
+
+      function setActive(i) {
+        slides[cur].classList.remove('is-active');
+        cur = i;
+        slides[cur].classList.add('is-active');
+        slides.forEach(function (s, k) {
+          if (!flowMQ.matches && k !== cur) s.setAttribute('aria-hidden', 'true');
+          else s.removeAttribute('aria-hidden');
+        });
+        update();
+      }
+
+      function go(i, instant) {
+        i = Math.max(0, Math.min(total - 1, i));
+        if (flowMQ.matches) {
+          slides[i].scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'start' });
+          setActive(i);
+          return;
+        }
+        if (i === cur) return;
+        setActive(i);
+      }
+
+      // Cuộn dọc di động
+      var scrollT;
+      window.addEventListener('scroll', function () {
+        if (!flowMQ.matches) return;
+        cancelAnimationFrame(scrollT);
+        scrollT = requestAnimationFrame(function () {
+          var line = window.innerHeight * 0.3, idx = 0;
+          for (var k = 0; k < total; k++) {
+            if (slides[k].getBoundingClientRect().top <= line) idx = k; else break;
+          }
+          if (idx !== cur) setActive(idx);
+        });
+      }, { passive: true });
+
+      // Khởi tạo vị trí slide từ hash hoặc query
+      (function initial() {
+        var m = /^#slide-(\d+)$/.exec(location.hash);
+        var n = m ? parseInt(m[1], 10) : parseInt(new URLSearchParams(location.search).get('slide'), 10);
+        setActive(n >= 1 && n <= total ? n - 1 : 0);
+        if (flowMQ.matches && cur > 0) requestAnimationFrame(function () { go(cur, true); });
+      })();
+
+      prevBtn.addEventListener('click', function () { go(cur - 1); });
+      nextBtn.addEventListener('click', function () { go(cur + 1); });
+      document.getElementById('agendaBtn').addEventListener('click', function () { go(agendaIdx); });
+
+      // Toàn màn hình
+      function toggleFs() {
+        if (!document.fullscreenElement) {
+          var p = root.requestFullscreen && root.requestFullscreen();
+          if (p && p.catch) p.catch(function () { });
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+      fsBtn.addEventListener('click', toggleFs);
+      document.addEventListener('fullscreenchange', function () {
+        fsBtn.innerHTML = document.fullscreenElement ? '<i class="fa-solid fa-compress"></i>' : '<i class="fa-solid fa-expand"></i>';
+      });
+
+      // Phím tắt bàn phím
+      document.addEventListener('keydown', function (e) {
+        if (flowMQ.matches) return;
+        if (e.altKey || e.ctrlKey || e.metaKey) return;
+        if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return;
+        switch (e.key) {
+          case 'ArrowRight': case 'PageDown': case 'Enter':
+            if (e.key === 'Enter' && e.target.closest && e.target.closest('button, a')) return;
+            e.preventDefault(); go(cur + 1); break;
+          case ' ': case 'Spacebar':
+            e.preventDefault(); go(e.shiftKey ? cur - 1 : cur + 1); break;
+          case 'ArrowLeft': case 'PageUp': case 'Backspace':
+            e.preventDefault(); go(cur - 1); break;
+          case 'Home': e.preventDefault(); go(0); break;
+          case 'End': e.preventDefault(); go(total - 1); break;
+          case 'f': case 'F': toggleFs(); break;
+          case 'm': case 'M': go(agendaIdx); break;
+        }
+      });
+
+      // Vuốt cảm ứng
+      var tx = 0, ty = 0, tracking = false;
+      var IGNORE = 'button, a, .table-wrap, .seg';
+      document.addEventListener('touchstart', function (e) {
+        tracking = !flowMQ.matches && !(e.target.closest && e.target.closest(IGNORE));
+        tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+      }, { passive: true });
+      document.addEventListener('touchend', function (e) {
+        if (!tracking) return;
+        var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? cur + 1 : cur - 1);
+      }, { passive: true });
+
+      // Bộ lọc bảng tiến độ theo hệ lớp
+      document.querySelectorAll('[data-filter]').forEach(function (group) {
+        var table = document.getElementById(group.dataset.target);
+        group.addEventListener('click', function (e) {
+          var b = e.target.closest('button[data-value]');
+          if (!b || !table) return;
+          group.querySelectorAll('button[data-value]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          table.setAttribute('data-' + group.dataset.filter, b.dataset.value);
+        });
+      });
+
+      // Tự ẩn chuột và thanh điều khiển
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        var nav = document.getElementById('slideNav'), idleT;
+        var wake = function () {
+          document.body.classList.remove('is-idle');
+          clearTimeout(idleT);
+          idleT = setTimeout(function () { if (!nav.matches(':hover')) document.body.classList.add('is-idle'); }, 2600);
+        };
+        ['mousemove', 'mousedown', 'wheel'].forEach(function (ev) { window.addEventListener(ev, wake, { passive: true }); });
+        wake();
+      }
+
+      fit();
+      fitSlides();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitSlides);
+      window.addEventListener('resize', fit);
+      function onModeChange() { fit(); fitSlides(); setActive(cur); if (flowMQ.matches) go(cur, true); }
+      if (flowMQ.addEventListener) flowMQ.addEventListener('change', onModeChange);
+      else if (flowMQ.addListener) flowMQ.addListener(onModeChange);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.remove('booting'); }); });
+    })();
+  </script>
+</body>
+
+</html>

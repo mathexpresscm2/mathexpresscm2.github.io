@@ -54,6 +54,59 @@ window.INITIAL_PRESENTATIONS = [
     ]
   },
   {
+    "id": "pres-khoi7-tuan14",
+    "title": "Tuần 14 - Họp giáo viên khối 7",
+    "category": "Khối 7",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 7",
+    "speaker": "Bộ phận Chuyên môn",
+    "date": "2026-10-14",
+    "quarter": "Q4-2026",
+    "duration": "60 phút (19 slide tương tác)",
+    "fileSize": "Interactive HTML Deck",
+    "pdfUrl": "Meeting/Khoi 7/Tuan 14 - Hop khoi 7/Tháng 10- 2026 Kế hoạch trao đổi chuyên môn GV mới khối 7.pdf",
+    "pptxUrl": "",
+    "webViewerUrl": "Meeting/Khoi 7/Tuan 14 - Hop khoi 7/index.html",
+    "summary": "Họp chuyên môn Giáo viên mới Khối 7 – Tuần 14: Khung chương trình Tháng 10 – 12 (Buổi 15 – 24) theo 3 hệ phiếu; Tỉ lệ thức & dãy tỉ số bằng nhau (3 dạng, bẫy lỗi có đáp số sai đặc trưng); Đại lượng tỉ lệ thuận, tỉ lệ nghịch (tìm hệ số tỉ lệ, bài toán hai xe lửa); Tam giác bằng nhau, chứng minh thẳng hàng; Tam giác cân & đều; Tồn đọng tác phong, Khảo sát Quý & quy tắc chấm thi.",
+    "featured": true,
+    "tags": [
+      "Khối 7",
+      "Toán 7",
+      "Họp giáo viên",
+      "Tỉ lệ thức",
+      "Dãy tỉ số bằng nhau",
+      "Tỉ lệ thuận & nghịch",
+      "Tam giác bằng nhau",
+      "Tam giác cân",
+      "Khảo sát Quý",
+      "Phương pháp giảng dạy"
+    ],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Họp Chuyên Môn Khối 7 - Tháng 10/2026",
+        "subtitle": "Tuần 14 - Kế hoạch trao đổi chuyên môn Giáo viên mới",
+        "content": "<ul><li><strong>Mục tiêu:</strong> Nắm vững mạch kiến thức; thống nhất phương pháp, trình bày chuẩn; phòng ngừa lỗi sai cho học sinh; chia sẻ kinh nghiệm giảng dạy.</li><li><strong>Khung chương trình:</strong> Tiến độ Buổi 15 – 24 (kèm 19-thêm, 24-thêm, Kiểm tra quý 2 ở Buổi 23) cho Phiếu 1 (Chuyên), Phiếu 2 (Nâng cao), Phiếu 3+4 (Mở rộng), có bộ lọc theo hệ lớp.</li><li><strong>Trọng tâm thời gian tới:</strong> Tỉ lệ thức, tính chất dãy tỉ số bằng nhau, đại lượng tỉ lệ thuận, đại lượng tỉ lệ nghịch.</li><li><strong>Tồn đọng:</strong> Giáo viên tới lớp muộn, không đeo thẻ tên; Khảo sát Quý nhập điểm danh sai, chậm nhập điểm và nhận xét, nhận xét sơ sài; quy tắc chấm thi.</li></ul>",
+        "notes": "Giáo viên có mặt tại lớp trước 5 phút theo quy định của CLB; chấm đối chiếu kĩ từng câu, kiểm tra kĩ phép tính, nhập điểm và nhận xét đúng thời hạn.",
+        "badge": "Trọng tâm Khối 7"
+      },
+      {
+        "page": 2,
+        "title": "Các Dạng Bài Trọng Tâm & Lỗi Sai Thường Gặp",
+        "subtitle": "Đại số 7 & Hình học 7 theo SGK Kết nối tri thức",
+        "content": "<ul><li><strong>Tỉ lệ thức – Dạng 1 (chứng minh):</strong> Hoán đổi trung tỉ trước khi dùng dãy tỉ số; cảnh báo ngộ nhận a/b = c/d = ac/bd (thực chất ac/bd = (a/b)²).</li><li><strong>Dạng 2 (tìm x, y, z):</strong> Ba bẫy với đáp số sai khác nhau: lập ngược tỉ số từ 4x = 3y; quên bình phương mẫu và điều kiện cùng dấu; nhân dãy tỉ số được k³ chứ không phải k.</li><li><strong>Dạng 3 (dãy tỉ số vòng a₁/a₂ = … = a₂₀₂₀/a₁):</strong> Xét đủ hai trường hợp tổng khác 0 (B = 2020) và tổng bằng 0 (B = 0, có ví dụ thật).</li><li><strong>Đại lượng tỉ lệ:</strong> Bảng so sánh thuận (thương không đổi) – nghịch (tích không đổi); tìm hệ số tỉ lệ bằng tạo hệ số 3 và 2; bài toán hai xe lửa (S = 182 km) với bảng đáp số sai do đổi đơn vị, làm tròn sớm, nhầm tỉ lệ thuận.</li><li><strong>Hình học:</strong> Quy chuẩn 4 bước, góc/cạnh xen giữa, thứ tự đỉnh; chứng minh A, D, F thẳng hàng không ngộ nhận góc kề bù (ΔDFM = ΔFDC g.c.g, ΔAMF = ΔACF c.c.c); tam giác cân, đều và bẫy dùng AE = AD trước khi chứng minh. Hình vẽ bằng TikZ.</li></ul>",
+        "notes": "Rèn học sinh ghi dòng lập luận tỉ lệ thuận hay tỉ lệ nghịch, kiểm tra điều kiện mẫu khác 0, giữ phân số đến cuối và không dùng điều phải chứng minh làm căn cứ.",
+        "badge": "Chuyên môn Khối 7"
+      }
+    ],
+    "actionItems": [
+      "Có mặt tại lớp trước 5 phút theo quy định của CLB và đeo thẻ tên đầy đủ khi lên lớp.",
+      "Nhập điểm danh chính xác; nhập điểm và nhận xét Khảo sát Quý đúng thời hạn.",
+      "Chấm thi đối chiếu kĩ từng câu, kiểm tra kĩ phép tính, không để chấm sai; nhận xét chỉ rõ học sinh sai ở câu nào, dạng bài nào.",
+      "Dạy theo quy chuẩn 4 bước chứng minh tam giác bằng nhau và phương pháp phân tích ngược; nhắc học sinh ghi dòng lập luận quan hệ tỉ lệ."
+    ]
+  },
+  {
     "id": "pres-khoi8-tuan10",
     "title": "Tuần 10 - Họp giáo viên khối 8",
     "category": "Khối 8",

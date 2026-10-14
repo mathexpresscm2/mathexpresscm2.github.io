@@ -1,0 +1,6 @@
+- Slide khung chương trình: bỏ bôi màu trên các buổi học.
+- Thay thế 3 thẻ Buổi 15, Phân giác, Phân thức đại số bằng một chú ý nhỏ: Các kiến thức trọng tâm trong thời gian tới: Định lí Thales, Tính chất đường phân giác trong tam giác, Phân thức đại số
+- Slide 2.1: Bỏ cột Hệ quả khi dạy; bỏ hàng Phương trình chứa ẩn ở mẫu; 
+- Slide 2.2: Bỏ cột lí thuyết "Định lí thuận và định lí đảo", tập trung hơn vào các dạng bài then chốt.
+- Slide 2.3: vẽ hình minh họa bằng latex tikz.
+- Thêm slide 2.4: ví dụ về bài toán thực tiễn tính chiều cao cây, làm rõ lỗi sai: làm tròn nhiều lần khiến kết quả bị sai số nhiều. 

@@ -1,0 +1,3064 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<!--
+  =========================================================================
+  MẪU CHUẨN · HỌP CHUYÊN MÔN KHỐI (MathExpress Meeting Deck)
+  =========================================================================
+  Cách dùng:
+  1. Sao chép cả thư mục này thành Meeting/Khoi X/Tuan YY - Hop khoi X/
+     (giữ đúng độ sâu 3 cấp để đường dẫn ../../../logo.svg vẫn đúng).
+  2. Sửa <title>, <meta description>, khối DECK trong <script> cuối tệp
+     (dòng chân slide) và xoá thuộc tính data-template trên <body>
+     để tắt dải "Bản mẫu".
+  3. Mỗi slide là một <section class="slide" data-section="N">:
+       0 = bìa / mục lục · 1 = Tiến độ · 2 = Kiến thức & phương pháp
+       3 = Bẫy sai lầm & kịch bản xử lý · 4 = Tồn đọng & khen thưởng
+       end = lời kết. Mục lục tự tính dải slide của từng phần.
+     Thêm/bớt slide trong một phần chỉ cần chép nguyên một <section>.
+  4. Nội dung đang có là ví dụ minh hoạ (Khối 6 · ƯCLN – BCNN – số nguyên)
+     để thể hiện cách dùng từng thành phần; thay bằng nội dung cuộc họp.
+  Màn hình ≥ 900px: trình chiếu 1600×900, phím ← → Space Home End, F, M.
+  Màn hình < 900px (hoặc cao < 500px): tự chuyển tài liệu cuộn dọc.
+  Ctrl + P: in/xuất PDF mỗi slide một trang 1600×900.
+  =========================================================================
+-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathExpress · Họp chuyên môn Khối 6 · Tuần 15 (10/2026)</title>
+  <meta name="description"
+    content="Họp chuyên môn Khối 6 – Tuần 15: tiến độ các tuần tới, kiến thức trọng tâm, bẫy sai lầm và kịch bản xử lý, tồn đọng và khen thưởng." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- MathJax 3: \text{...} kế thừa font trang để chữ tiếng Việt (ƯCLN, BCNN, ƯC…) hiển thị đúng -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      chtml: { mtextInheritFont: true },
+      options: { enableMenu: false },
+      startup: {
+        ready: function () {
+          MathJax.startup.defaultReady();
+          MathJax.startup.promise.then(function () { if (window.__fitSlides) window.__fitSlides(); });
+        }
+      }
+    };
+  </script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+
+  <script>
+    // Không tải được logo (mở tệp lẻ ngoài repo) thì thay bằng chữ MathExpress
+    function logoFallback(img) {
+      var s = document.createElement('span');
+      s.className = 'wordmark' + (img.dataset.dark ? ' wordmark--dark' : '');
+      s.innerHTML = '<b>Math</b><i>Express</i>';
+      img.replaceWith(s);
+    }
+  </script>
+
+  <style>
+    /* =====================================================================
+       1. TOKENS
+       ===================================================================== */
+    :root {
+      --brand-blue: #005b9f;
+      --brand-blue-2: #118acb;
+      --brand-orange: #f26522;
+      --ink: #0f2137;
+      --ink-2: #344256;
+      --muted: #66768a;
+      --line: #e3e8ef;
+
+      /* Cỡ chữ trên khung 1600×900 (được thu phóng theo màn hình) */
+      --fs-title: 38px;
+      --fs-h3: 21px;
+      --fs-body: 17.5px;
+      --fs-sm: 16px;
+      --fs-xs: 14px;
+      --pad-x: 64px;
+      --gap: 20px;
+
+      /* Tông mặc định (slate) */
+      --c50: #f8fafc;
+      --c100: #f1f5f9;
+      --c200: #e2e8f0;
+      --c600: #475569;
+      --c700: #334155;
+      --c900: #0f172a;
+    }
+
+    /* Tông màu bento: gắn class t-* lên card / callout / chip / act … */
+    .t-rose {
+      --c50: #fff1f3;
+      --c100: #ffe4e8;
+      --c200: #fecdd3;
+      --c600: #e11d48;
+      --c700: #be123c;
+      --c900: #881337;
+    }
+
+    .t-amber {
+      --c50: #fffbeb;
+      --c100: #fef3c7;
+      --c200: #fde68a;
+      --c600: #d97706;
+      --c700: #b45309;
+      --c900: #78350f;
+    }
+
+    .t-orange {
+      --c50: #fff6f0;
+      --c100: #ffe8d9;
+      --c200: #fdcbaa;
+      --c600: #f26522;
+      --c700: #c2410c;
+      --c900: #7c2d12;
+    }
+
+    .t-emerald {
+      --c50: #ecfdf5;
+      --c100: #d1fae5;
+      --c200: #a7f3d0;
+      --c600: #059669;
+      --c700: #047857;
+      --c900: #064e3b;
+    }
+
+    .t-blue {
+      --c50: #f0f7fc;
+      --c100: #ddedf8;
+      --c200: #b9d8ef;
+      --c600: #005b9f;
+      --c700: #004a82;
+      --c900: #0b2f52;
+    }
+
+    .t-purple {
+      --c50: #faf5ff;
+      --c100: #f3e8ff;
+      --c200: #e9d5ff;
+      --c600: #9333ea;
+      --c700: #7e22ce;
+      --c900: #581c87;
+    }
+
+    .t-indigo {
+      --c50: #eef2ff;
+      --c100: #e0e7ff;
+      --c200: #c7d2fe;
+      --c600: #4f46e5;
+      --c700: #4338ca;
+      --c900: #312e81;
+    }
+
+    .t-slate {
+      --c50: #f8fafc;
+      --c100: #f1f5f9;
+      --c200: #e2e8f0;
+      --c600: #475569;
+      --c700: #334155;
+      --c900: #0f172a;
+    }
+
+    /* Màu nhận diện 4 phần (eyebrow, số mục trên tiêu đề) */
+    .slide {
+      --acc: var(--brand-orange);
+      --acc-ink: #c2410c;
+    }
+
+    .slide[data-section="1"] {
+      --acc: #005b9f;
+      --acc-ink: #005b9f;
+    }
+
+    .slide[data-section="2"] {
+      --acc: #059669;
+      --acc-ink: #047857;
+    }
+
+    .slide[data-section="3"] {
+      --acc: #e11d48;
+      --acc-ink: #be123c;
+    }
+
+    .slide[data-section="4"] {
+      --acc: #d97706;
+      --acc-ink: #b45309;
+    }
+
+    /* =====================================================================
+       2. KHUNG TRÌNH CHIẾU 16:9 (1600×900, tự co giãn vừa màn hình)
+       ===================================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: #0e1a2a;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+    }
+
+    b,
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+    }
+
+    mjx-container {
+      text-transform: none !important;
+    }
+
+    .viewport {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1600px;
+      height: 900px;
+      transform: translate(-50%, -50%) scale(var(--scale, 1));
+      background: #fff;
+      box-shadow: 0 30px 90px -30px rgba(0, 0, 0, .6);
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(14px);
+      transition: opacity .38s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .45s;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: opacity .38s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s;
+    }
+
+    body.booting .slide {
+      transition: none !important;
+    }
+
+    /* Nền chấm nhẹ góc phải trên */
+    .slide:not(.slide--bleed)::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 520px;
+      height: 320px;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(0, 91, 159, .13) 1.3px, transparent 1.3px);
+      background-size: 22px 22px;
+      -webkit-mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
+      mask-image: radial-gradient(ellipse at top right, #000 0%, transparent 70%);
+    }
+
+    /* Đầu slide */
+    .slide__head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 30px var(--pad-x) 16px;
+      border-bottom: 1px solid var(--line);
+      flex: none;
+    }
+
+    .slide__head::after {
+      content: "";
+      position: absolute;
+      left: var(--pad-x);
+      bottom: -2px;
+      width: 112px;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--acc-ink);
+    }
+
+    .eyebrow__num {
+      display: inline-grid;
+      place-items: center;
+      min-width: 34px;
+      height: 26px;
+      padding: 0 8px;
+      border-radius: 8px;
+      background: var(--acc);
+      color: #fff;
+      font-size: 13.5px;
+      letter-spacing: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid currentColor;
+      font-size: 12.5px;
+      letter-spacing: .02em;
+      text-transform: none;
+    }
+
+    .slide__title {
+      margin-top: 8px;
+      font-size: var(--fs-title);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -.015em;
+      color: var(--ink);
+    }
+
+    .slide__title .num {
+      color: var(--acc);
+      margin-right: 4px;
+    }
+
+    .slide__logo {
+      height: 44px;
+      width: auto;
+      flex: none;
+      margin-bottom: 4px;
+    }
+
+    /* Thân slide */
+    .slide__body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px var(--pad-x) 16px;
+      font-size: var(--fs-body);
+      line-height: 1.5;
+      color: var(--ink-2);
+    }
+
+    /* .fit: JS bọc nội dung và đặt zoom lớn nhất mà vẫn vừa khung 1600×900 */
+    .fit {
+      flex: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Chân slide (chèn bằng JS) */
+    .slide__foot {
+      position: relative;
+      z-index: 1;
+      flex: none;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--pad-x);
+      font-size: 13.5px;
+      color: var(--muted);
+      border-top: 1px solid #eef1f5;
+    }
+
+    .slide__foot .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      margin-right: 10px;
+      vertical-align: 1px;
+    }
+
+    .slide__num {
+      font-weight: 700;
+      color: var(--ink-2);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: .04em;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      font-weight: 800;
+      font-size: 30px;
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .wordmark b {
+      color: var(--brand-blue-2);
+    }
+
+    .wordmark i {
+      color: var(--brand-orange);
+      font-style: italic;
+    }
+
+    .wordmark--dark b {
+      color: #fff;
+    }
+
+    /* Dải "Bản mẫu": bỏ thuộc tính data-template trên <body> để tắt */
+    body[data-template]::after {
+      content: "Bản mẫu";
+      position: fixed;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
+      z-index: 70;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    /* =====================================================================
+       3. THÀNH PHẦN DÙNG CHUNG
+       ===================================================================== */
+    .grid {
+      display: grid;
+      gap: var(--gap);
+      min-width: 0;
+    }
+
+    .g-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .g-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .g-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .g-55-45 {
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mt-auto {
+      margin-top: auto;
+    }
+
+    /* Bento card */
+    .card {
+      position: relative;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 22px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 12px 30px -20px rgba(16, 24, 40, .22);
+    }
+
+    .card.tint {
+      background: var(--c50);
+      border-color: var(--c200);
+    }
+
+    .card__head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card__head h3 {
+      font-size: var(--fs-h3);
+      line-height: 1.25;
+      font-weight: 700;
+      color: var(--c900);
+      text-wrap: balance;
+    }
+
+    .card__head> :last-child:not(h3):not(.ico) {
+      margin-left: auto;
+    }
+
+    .card__sub {
+      font-size: var(--fs-sm);
+      color: var(--muted);
+      margin-top: -6px;
+    }
+
+    .ico {
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 18px;
+    }
+
+    .ico--sm {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--c100);
+      color: var(--c700);
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chips__label {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--c700);
+      margin-right: 2px;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--c900);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--c100);
+      border: 1px solid var(--c200);
+      font-size: var(--fs-sm);
+      line-height: 1.45;
+      color: var(--c900);
+    }
+
+    .callout>i {
+      color: var(--c600);
+      font-size: 18px;
+      margin-top: 2px;
+      flex: none;
+    }
+
+    .banner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: var(--c50);
+      border: 1px solid var(--c200);
+      color: var(--ink-2);
+    }
+
+    .banner>i {
+      font-size: 22px;
+      color: var(--c600);
+      flex: none;
+    }
+
+    .banner b.lead {
+      color: var(--c900);
+    }
+
+    .box {
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 16px;
+      min-width: 0;
+    }
+
+    .box--soft {
+      background: var(--c50);
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--c600);
+    }
+
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .list>li {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .list>li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: .62em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--c600);
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .steps>li {
+      counter-increment: s;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .steps>li::before {
+      content: counter(s);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--c600);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .steps>li>div {
+      padding-top: 2px;
+    }
+
+    .formula {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px dashed var(--c200);
+      font-size: 19px;
+      color: var(--c900);
+    }
+
+    .sol {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .sol>.ln {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .sol>.ln::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: .68em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c600);
+    }
+
+    .ok {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .bad {
+      color: #e11d48;
+      font-weight: 700;
+    }
+
+    /* Thẻ thống kê */
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 18px;
+    }
+
+    .stat b {
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--c600);
+      letter-spacing: -.03em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat span {
+      font-size: var(--fs-sm);
+      color: var(--c900);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    /* Mục tồn đọng */
+    .issue {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+
+    .issue h4 {
+      font-size: 17px;
+      color: var(--c900);
+      margin-bottom: 3px;
+    }
+
+    .issue p {
+      font-size: var(--fs-sm);
+    }
+
+    /* =====================================================================
+       4. BÌA & LỜI KẾT
+       ===================================================================== */
+    .slide--cover {
+      background:
+        radial-gradient(900px 600px at 82% 45%, #e2f0fb 0%, rgba(226, 240, 251, 0) 65%),
+        radial-gradient(600px 420px at 0% 0%, rgba(242, 101, 34, .14) 0%, rgba(242, 101, 34, 0) 70%),
+        linear-gradient(180deg, #f8fbfe 0%, #fff 100%);
+    }
+
+    .slide--cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(0, 91, 159, .10) 1.3px, transparent 1.3px);
+      background-size: 26px 26px;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 55%, transparent 100%);
+    }
+
+    .cover {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      align-items: center;
+      gap: 24px;
+      padding: 0 72px 0 104px;
+    }
+
+    .cover__logo {
+      height: 64px;
+      width: auto;
+    }
+
+    .cover__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 48px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: #fff6f0;
+      border: 1px solid rgba(242, 101, 34, .3);
+      color: #c2410c;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .cover__title {
+      margin-top: 22px;
+      font-size: 92px;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -.035em;
+      color: #0b2f52;
+    }
+
+    .cover__title span {
+      color: var(--brand-orange);
+    }
+
+    .cover__bar {
+      width: 128px;
+      height: 8px;
+      border-radius: 8px;
+      margin-top: 30px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .cover__lead {
+      margin-top: 26px;
+      font-size: 23px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      max-width: 680px;
+      text-wrap: balance;
+    }
+
+    .cover__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .cover__meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink-2);
+      box-shadow: 0 8px 20px -16px rgba(15, 33, 55, .4);
+    }
+
+    .cover__meta i {
+      color: var(--brand-blue);
+    }
+
+    .cover__art {
+      position: relative;
+      height: 680px;
+    }
+
+    .orbit {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      border: 2px dashed rgba(0, 91, 159, .18);
+      border-radius: 50%;
+    }
+
+    .orbit--2 {
+      width: 460px;
+      height: 460px;
+      border-style: solid;
+      border-color: rgba(0, 91, 159, .08);
+    }
+
+    .big-num {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 360px;
+      height: 360px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: radial-gradient(circle at 32% 26%, #36abe8 0%, #118acb 38%, #005b9f 100%);
+      box-shadow: 0 40px 80px -30px rgba(0, 91, 159, .6), inset 0 -24px 60px rgba(0, 0, 0, .14);
+    }
+
+    .big-num small {
+      position: absolute;
+      top: 64px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: .4em;
+      opacity: .85;
+      padding-left: .4em;
+    }
+
+    .big-num b {
+      font-size: 250px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.04em;
+      margin-top: 18px;
+    }
+
+    .tag {
+      position: absolute;
+      white-space: nowrap;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 23px;
+      color: var(--ink);
+      box-shadow: 0 18px 36px -18px rgba(15, 33, 55, .38);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .tag::before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      border-radius: 50%;
+      background: var(--brand-orange);
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    .tag--1 {
+      left: 10px;
+      top: 70px;
+      transform: rotate(-3deg);
+    }
+
+    .tag--2 {
+      right: 0;
+      top: 150px;
+      transform: rotate(2.5deg);
+      animation-delay: -2s;
+    }
+
+    .tag--3 {
+      right: 30px;
+      bottom: 150px;
+      transform: rotate(-2deg);
+      animation-delay: -4s;
+    }
+
+    .tag--4 {
+      left: -10px;
+      bottom: 120px;
+      transform: rotate(2deg);
+      animation-delay: -1s;
+    }
+
+    .tag--2::before,
+    .tag--3::before {
+      background: var(--brand-blue-2);
+    }
+
+    @keyframes float {
+      50% {
+        translate: 0 -8px;
+      }
+    }
+
+    .slide--end {
+      background: linear-gradient(135deg, #0b2f52 0%, #082039 55%, #061627 100%);
+      color: #fff;
+    }
+
+    .slide--end::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(640px 460px at 88% 8%, rgba(242, 101, 34, .28), transparent 70%),
+        radial-gradient(640px 460px at 6% 100%, rgba(17, 138, 203, .32), transparent 70%);
+    }
+
+    .end {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 64px;
+    }
+
+    .end__logo {
+      height: 72px;
+      width: auto;
+    }
+
+    .end h2 {
+      margin-top: 48px;
+      font-size: 84px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+    }
+
+    .end__bar {
+      width: 128px;
+      height: 8px;
+      border-radius: 8px;
+      margin-top: 30px;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+    }
+
+    .end__wish {
+      margin-top: 30px;
+      font-size: 26px;
+      color: #cbd8e6;
+      max-width: 1000px;
+      line-height: 1.5;
+      text-wrap: balance;
+    }
+
+    .end__quote {
+      margin-top: 18px;
+      font-size: 20px;
+      font-style: italic;
+      color: #93a8bf;
+    }
+
+    .end__chips {
+      display: flex;
+      gap: 12px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .end__chips span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .18);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .end__chips i {
+      color: var(--brand-orange);
+    }
+
+    /* =====================================================================
+       5. THÀNH PHẦN THEO PHẦN HỌP
+       ===================================================================== */
+    /* --- Mục lục --- */
+    .agenda {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .agenda__item {
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      width: 100%;
+      padding: 14px 22px 14px 14px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 10px 26px -22px rgba(16, 24, 40, .4);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .agenda__item:hover,
+    .agenda__item:focus-visible {
+      transform: translateX(6px);
+      border-color: var(--c200);
+      background: var(--c50);
+      outline: none;
+    }
+
+    .agenda__num {
+      width: 76px;
+      height: 76px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: var(--c100);
+      color: var(--c600);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .agenda__text h3 {
+      font-size: 23px;
+      color: var(--c900);
+      margin-bottom: 3px;
+    }
+
+    .agenda__text p {
+      font-size: var(--fs-sm);
+      color: var(--ink-2);
+    }
+
+    .agenda__go {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--c100);
+      color: var(--c700);
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    /* --- Phần 1: bảng tiến độ + bộ lọc --- */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .seg {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      border: 1px solid var(--line);
+    }
+
+    .seg__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .seg button {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      padding: 7px 14px;
+      border-radius: 9px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--ink-2);
+      transition: background .15s, color .15s;
+    }
+
+    .seg button:hover {
+      background: rgba(255, 255, 255, .7);
+    }
+
+    .seg button[aria-pressed="true"] {
+      background: #fff;
+      color: var(--brand-blue);
+      box-shadow: 0 1px 3px rgba(16, 24, 40, .14);
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .legend i {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .table-wrap {
+      flex: none;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 30px -24px rgba(16, 24, 40, .35);
+    }
+
+    .plan {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15.5px;
+      line-height: 1.35;
+      color: var(--ink-2);
+    }
+
+    .plan th {
+      background: #0b3c66;
+      color: #fff;
+      text-align: left;
+      font-weight: 700;
+      font-size: 14.5px;
+      padding: 11px 14px;
+      border-right: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .plan th:nth-child(-n+2),
+    .plan td:nth-child(-n+2) {
+      text-align: center;
+    }
+
+    .plan td {
+      padding: 8px 14px;
+      border-top: 1px solid #edf1f5;
+      border-right: 1px solid #edf1f5;
+      vertical-align: middle;
+    }
+
+    .plan th:last-child,
+    .plan td:last-child {
+      border-right: 0;
+    }
+
+    .plan .time {
+      white-space: nowrap;
+      font-weight: 600;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .plan .bno {
+      font-weight: 800;
+      color: var(--brand-blue);
+      font-size: 17px;
+    }
+
+    .plan tr.is-done td {
+      color: var(--muted);
+    }
+
+    .plan tr.is-done .bno {
+      color: #94a3b8;
+    }
+
+    .plan tr.is-current td {
+      background: #fff7ed;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .plan tr.is-current td:first-child {
+      box-shadow: inset 4px 0 0 var(--brand-orange);
+    }
+
+    .plan tr.is-current .bno {
+      color: var(--brand-orange);
+    }
+
+    .plan tr.is-review td {
+      background: #ecfdf5;
+      color: #065f46;
+      font-weight: 700;
+    }
+
+    .plan tr.is-review .bno {
+      color: #047857;
+    }
+
+    .plan[data-track="chuyen"] :is(.c2, .c3),
+    .plan[data-track="nangcao"] :is(.c1, .c3),
+    .plan[data-track="coban"] :is(.c1, .c2) {
+      display: none;
+    }
+
+    /* --- Phần 3: bảng bẫy sai lầm → nguyên nhân → kịch bản xử lý --- */
+    .traps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .traps__head,
+    .trap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .9fr) minmax(0, 1.25fr);
+      gap: 12px;
+    }
+
+    .traps__head span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .trap>div {
+      padding: 11px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 15.5px;
+      line-height: 1.45;
+      min-width: 0;
+    }
+
+    .trap__err {
+      border-left: 4px solid #e11d48 !important;
+    }
+
+    .trap__err b {
+      display: block;
+      color: #881337;
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
+    .trap__why {
+      background: #fffbeb !important;
+      border-color: #fde68a !important;
+      color: #78350f;
+    }
+
+    .trap__fix {
+      background: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+      color: #064e3b;
+    }
+
+    /* --- Phần 3: kịch bản hội thoại GV – HS --- */
+    .script {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .say {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .say__who {
+      display: grid;
+      place-items: center;
+      height: 30px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+
+    .say__txt {
+      padding: 8px 14px;
+      border-radius: 4px 14px 14px 14px;
+      font-size: 15.5px;
+      line-height: 1.45;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .say--gv .say__who {
+      background: #005b9f;
+      color: #fff;
+    }
+
+    .say--gv .say__txt {
+      background: #f0f7fc;
+      border-color: #b9d8ef;
+      color: #0b2f52;
+    }
+
+    .say--hs .say__who {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .say__note {
+      display: block;
+      margin-top: 3px;
+      font-size: 13.5px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* --- Phần 4: khen thưởng --- */
+    .awards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .award {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--c50), #fff 70%);
+      border: 1px solid var(--c200);
+      overflow: hidden;
+    }
+
+    .award::after {
+      content: "\f005";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: -10px;
+      top: -20px;
+      font-size: 76px;
+      color: var(--c100);
+      opacity: .55;
+      pointer-events: none;
+    }
+
+    .award__top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .award__top h3 {
+      font-size: 18px;
+      color: var(--c900);
+      line-height: 1.25;
+    }
+
+    .award__top small {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c700);
+    }
+
+    .award p {
+      position: relative;
+      z-index: 1;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* --- Phần 4: quy chuẩn hành động --- */
+    .acts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .act {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--c600);
+      box-shadow: 0 12px 30px -22px rgba(16, 24, 40, .35);
+    }
+
+    .act__top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .act__top h3 {
+      font-size: 17px;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+
+    .act__n {
+      margin-left: auto;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--c200);
+    }
+
+    .act p {
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+
+    /* =====================================================================
+       6. ĐIỀU HƯỚNG
+       ===================================================================== */
+    .progress {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      z-index: 60;
+      background: rgba(255, 255, 255, .12);
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--brand-orange), #fbbf24);
+      transition: width .35s ease;
+    }
+
+    .nav {
+      position: fixed;
+      right: 18px;
+      bottom: 16px;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid rgba(15, 33, 55, .1);
+      box-shadow: 0 14px 34px -14px rgba(15, 33, 55, .45);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .nav button {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 0;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      background: #eef2f6;
+      color: var(--ink-2);
+      font-size: 14px;
+      transition: background .15s, transform .15s;
+    }
+
+    .nav button:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+
+    .nav button:active:not(:disabled) {
+      transform: scale(.94);
+    }
+
+    .nav button:disabled {
+      opacity: .35;
+      cursor: default;
+    }
+
+    .nav button.is-primary {
+      background: var(--brand-orange);
+      color: #fff;
+    }
+
+    .nav button.is-primary:hover:not(:disabled) {
+      background: #dc5410;
+    }
+
+    .nav__count {
+      min-width: 64px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav__sep {
+      width: 1px;
+      height: 22px;
+      background: rgba(15, 33, 55, .12);
+      margin: 0 2px;
+    }
+
+    body.is-idle .nav {
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+
+    body.is-idle {
+      cursor: none;
+    }
+
+    /* Hiệu ứng xuất hiện nội dung */
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .slide.is-active .fit> :not(.grid):not(.acts):not(.agenda):not(.awards),
+    .slide.is-active :is(.grid, .acts, .agenda, .awards)>* {
+      animation: rise .55s cubic-bezier(.2, .7, .2, 1) both;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda, .awards)> :nth-child(2) {
+      animation-delay: .06s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda, .awards)> :nth-child(3) {
+      animation-delay: .12s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda, .awards)> :nth-child(4) {
+      animation-delay: .18s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda, .awards)> :nth-child(n+5) {
+      animation-delay: .24s;
+    }
+
+    .slide.is-active .fit> :nth-child(2):not(.grid) {
+      animation-delay: .1s;
+    }
+
+    .slide.is-active .fit> :nth-child(3):not(.grid) {
+      animation-delay: .2s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* =====================================================================
+       7. ĐIỆN THOẠI / MÀN HÌNH NHỎ: bỏ khung 16:9, thành tài liệu cuộn dọc
+          (mọi slide xếp nối tiếp, cuộn cả trang; đầu slide dính khi đọc)
+       ===================================================================== */
+    @media (max-width: 899px),
+    (max-height: 499px) {
+      :root {
+        --fs-title: 20px;
+        --fs-h3: 16px;
+        --fs-body: 14.5px;
+        --fs-sm: 13.5px;
+        --fs-xs: 12px;
+        --pad-x: 16px;
+        --gap: 12px;
+      }
+
+      html,
+      body {
+        height: auto;
+      }
+
+      body {
+        overflow: auto;
+        background: #eef2f6;
+      }
+
+      .viewport,
+      .stage {
+        position: static;
+        inset: auto;
+        width: auto;
+        height: auto;
+        transform: none;
+        box-shadow: none;
+        overflow: visible;
+        background: transparent;
+      }
+
+      .slide,
+      .slide.is-active {
+        position: relative;
+        inset: auto;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none;
+        margin-bottom: 10px;
+        scroll-margin-top: 0;
+      }
+
+      .slide.is-active :is(*) {
+        animation: none !important;
+      }
+
+      .slide:not(.slide--bleed)::before {
+        display: none;
+      }
+
+      .slide__head {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        background: rgba(255, 255, 255, .97);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        padding: 12px 16px 10px;
+        align-items: center;
+      }
+
+      .slide__head::after {
+        width: 64px;
+        height: 3px;
+      }
+
+      .slide__logo {
+        display: none;
+      }
+
+      .eyebrow {
+        font-size: 10.5px;
+        gap: 7px;
+      }
+
+      .eyebrow__num {
+        min-width: 26px;
+        height: 20px;
+        font-size: 11px;
+        border-radius: 6px;
+      }
+
+      .slide__title {
+        margin-top: 5px;
+      }
+
+      .slide__body {
+        flex: none;
+        justify-content: flex-start;
+        padding: 14px 16px 22px;
+      }
+
+      .fit {
+        zoom: 1 !important;
+        gap: 12px;
+      }
+
+      .slide__foot {
+        display: none;
+      }
+
+      .g-2,
+      .g-3,
+      .g-4,
+      .g-55-45,
+      .acts,
+      .awards {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .card {
+        padding: 14px;
+        gap: 10px;
+        border-radius: 14px;
+      }
+
+      .ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        font-size: 14px;
+      }
+
+      .ico--sm {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+      }
+
+      .issue {
+        grid-template-columns: 28px minmax(0, 1fr);
+        padding: 10px 12px;
+        gap: 10px;
+      }
+
+      .issue h4 {
+        font-size: 14px;
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 2px 8px;
+      }
+
+      .badge {
+        font-size: 11px;
+        padding: 3px 9px;
+      }
+
+      .formula {
+        font-size: 15px;
+      }
+
+      .stat b {
+        font-size: 34px;
+      }
+
+      .banner {
+        padding: 12px 14px;
+        gap: 10px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .banner>i {
+        font-size: 17px;
+      }
+
+      mjx-container[display="true"],
+      .formula mjx-container {
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .agenda__item {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        padding: 10px 12px 10px 10px;
+      }
+
+      .agenda__num {
+        width: 48px;
+        height: 48px;
+        font-size: 19px;
+        border-radius: 12px;
+      }
+
+      .agenda__text h3 {
+        font-size: 15px;
+      }
+
+      .agenda__go {
+        grid-column: 2;
+        justify-self: start;
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .seg {
+        overflow-x: auto;
+      }
+
+      .seg__label,
+      .legend {
+        display: none;
+      }
+
+      .seg button {
+        font-size: 12px;
+        padding: 6px 10px;
+        white-space: nowrap;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .plan {
+        min-width: 680px;
+        font-size: 13px;
+      }
+
+      /* Bẫy sai lầm: mỗi lỗi thành một khối dọc có nhãn */
+      .traps__head {
+        display: none;
+      }
+
+      .trap {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+
+      .trap>div {
+        border-radius: 0;
+        border-width: 0 0 1px 0 !important;
+        font-size: 13.5px;
+        padding: 9px 12px;
+      }
+
+      .trap>div:last-child {
+        border-bottom: 0 !important;
+      }
+
+      .trap>div::before {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        opacity: .75;
+      }
+
+      .trap__why::before {
+        content: "Nguyên nhân";
+      }
+
+      .trap__fix::before {
+        content: "Kịch bản xử lý";
+      }
+
+      .trap__err b {
+        font-size: 14px;
+      }
+
+      .say {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .say__who {
+        height: 26px;
+        font-size: 11px;
+      }
+
+      .say__txt {
+        font-size: 13.5px;
+        padding: 7px 11px;
+      }
+
+      .award__top h3,
+      .act__top h3 {
+        font-size: 15px;
+      }
+
+      .award p,
+      .act p {
+        font-size: 13.5px;
+      }
+
+      .cover {
+        grid-template-columns: 1fr;
+        padding: 28px 20px 36px;
+        gap: 0;
+        height: auto;
+      }
+
+      .cover__logo {
+        height: 44px;
+      }
+
+      .cover__kicker {
+        margin-top: 24px;
+        font-size: 14px;
+        padding: 6px 14px;
+      }
+
+      .cover__title {
+        font-size: 38px;
+      }
+
+      .cover__bar {
+        height: 6px;
+        width: 96px;
+        margin-top: 20px;
+      }
+
+      .cover__lead {
+        font-size: 16px;
+        margin-top: 18px;
+      }
+
+      .cover__meta span {
+        font-size: 13px;
+        padding: 7px 12px;
+      }
+
+      /* Không dùng display:none: MathJax đo độ rộng chữ trong \text{ƯCLN}… lần đầu tại đây
+         rồi lưu cache; phần tử ẩn hoàn toàn cho độ rộng 0 làm vỡ mọi công thức cùng chữ phía sau. */
+      .slide--cover {
+        overflow: hidden;
+      }
+
+      .cover__art {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .end {
+        padding: 44px 20px 110px;
+        height: auto;
+      }
+
+      .end__logo {
+        height: 48px;
+      }
+
+      .end h2 {
+        font-size: 38px;
+        margin-top: 28px;
+      }
+
+      .end__wish {
+        font-size: 17px;
+      }
+
+      .end__quote {
+        font-size: 15px;
+      }
+
+      .end__chips span {
+        font-size: 13px;
+      }
+
+      .progress {
+        background: rgba(15, 33, 55, .08);
+        z-index: 80;
+      }
+
+      .nav {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 14px;
+      }
+
+      body.is-idle .nav {
+        opacity: 1;
+        transform: translateX(50%);
+        pointer-events: auto;
+      }
+
+      #fullscreenBtn,
+      .nav__sep {
+        display: none;
+      }
+
+      body[data-template]::after {
+        top: 10px;
+        left: auto;
+        right: 10px;
+        transform: none;
+        font-size: 10px;
+        padding: 3px 8px;
+        z-index: 90;
+      }
+    }
+
+    /* =====================================================================
+       8. IN / XUẤT PDF (Ctrl + P → khổ 1600×900, mỗi slide một trang)
+       ===================================================================== */
+    @media print {
+      @page {
+        size: 1600px 900px;
+        margin: 0;
+      }
+
+      html,
+      body {
+        height: auto;
+        overflow: visible;
+        background: #fff;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .viewport,
+      .stage {
+        position: static;
+        transform: none;
+        width: 1600px;
+        height: auto;
+        overflow: visible;
+        box-shadow: none;
+      }
+
+      .slide {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        width: 1600px;
+        height: 900px;
+        break-after: page;
+        page-break-after: always;
+        overflow: hidden;
+      }
+
+      .nav,
+      .progress,
+      body[data-template]::after {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="booting" data-template>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <main class="viewport">
+    <div class="stage" id="stage">
+
+      <!-- ==================== BÌA ==================== -->
+      <section class="slide slide--cover slide--bleed is-active" data-section="0" aria-label="Bìa">
+        <div class="cover">
+          <div>
+            <img class="cover__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+            <div><span class="cover__kicker"><i class="fa-solid fa-calendar-check"></i> Tuần 15 · Tháng 10/2026</span>
+            </div>
+            <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 6</span></h1>
+            <div class="cover__bar"></div>
+            <p class="cover__lead">Tiến độ các tuần tới · Kiến thức trọng tâm · Bẫy sai lầm &amp; kịch bản xử lý ·
+              Tồn đọng &amp; khen thưởng</p>
+            <div class="cover__meta">
+              <span><i class="fa-solid fa-graduation-cap"></i> Năm học 2026 – 2027</span>
+              <span><i class="fa-solid fa-users"></i> Bộ phận Chuyên môn · CLB Toán học MathExpress</span>
+            </div>
+          </div>
+          <div class="cover__art" aria-hidden="true">
+            <div class="orbit"></div>
+            <div class="orbit orbit--2"></div>
+            <div class="big-num"><small>KHỐI</small><b>6</b></div>
+            <div class="tag tag--1">$\text{ƯCLN}(18, 30) = 6$</div>
+            <div class="tag tag--2">$\text{BCNN}(12, 18) = 36$</div>
+            <div class="tag tag--3">$(-) \cdot (-) = (+)$</div>
+            <div class="tag tag--4">$a - (b - c) = a - b + c$</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== MỤC LỤC ==================== -->
+      <section class="slide" data-section="0" data-agenda aria-label="Nội dung cuộc họp">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num"><i class="fa-solid fa-list-ul"></i></span>Tổng quan</div>
+            <h2 class="slide__title">Nội dung cuộc họp</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="agenda">
+            <button type="button" class="agenda__item t-blue" data-goto-section="1">
+              <span class="agenda__num">01</span>
+              <span class="agenda__text">
+                <h3>Khung chương trình &amp; tiến độ các tuần tới</h3>
+                <p>Buổi đang dạy, các buổi kế tiếp theo từng hệ lớp và mốc ôn tập – kiểm tra.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <button type="button" class="agenda__item t-emerald" data-goto-section="2">
+              <span class="agenda__num">02</span>
+              <span class="agenda__text">
+                <h3>Kiến thức trọng tâm &amp; phương pháp giảng dạy</h3>
+                <p>Quy trình chuẩn, dạng toán then chốt và cách trình bày mẫu thống nhất toàn khối.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <button type="button" class="agenda__item t-rose" data-goto-section="3">
+              <span class="agenda__num">03</span>
+              <span class="agenda__text">
+                <h3>Bẫy sai lầm của học sinh &amp; kịch bản xử lý</h3>
+                <p>Lỗi điển hình, nguyên nhân gốc và lời dẫn của giáo viên để học sinh tự phát hiện, tự sửa.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+            <button type="button" class="agenda__item t-amber" data-goto-section="4">
+              <span class="agenda__num">04</span>
+              <span class="agenda__text">
+                <h3>Tồn đọng &amp; khen thưởng</h3>
+                <p>Tác phong giảng dạy, chấm bài, điểm danh, khảo sát; ghi nhận giáo viên tiêu biểu và quy chuẩn hành
+                  động.</p>
+              </span>
+              <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 1. TIẾN ĐỘ ==================== -->
+      <section class="slide" data-section="1" aria-label="1. Khung chương trình và tiến độ các tuần tới">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Khung chương trình &amp; tiến độ</div>
+            <h2 class="slide__title"><span class="num">1.</span> Tiến độ Buổi 14 – 20 theo hệ lớp</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="toolbar">
+            <div class="seg" role="group" aria-label="Lọc theo hệ lớp" data-filter="track" data-target="planTable">
+              <span class="seg__label"><i class="fa-solid fa-layer-group"></i>Hệ lớp</span>
+              <button type="button" data-value="all" aria-pressed="true">Tất cả</button>
+              <button type="button" data-value="chuyen" aria-pressed="false">Chuyên</button>
+              <button type="button" data-value="nangcao" aria-pressed="false">Nâng cao</button>
+              <button type="button" data-value="coban" aria-pressed="false">Mở rộng + Cơ bản</button>
+            </div>
+            <div class="legend">
+              <span><i style="background:#fff7ed;border:1px solid #fdcbaa;border-left:4px solid #f26522"></i>Tuần này</span>
+              <span><i style="background:#ecfdf5;border:1px solid #a7f3d0"></i>Ôn tập / kiểm tra</span>
+              <span><i style="background:#f8fafc;border:1px solid #cbd5e1"></i>Đã dạy</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="plan" id="planTable" data-track="all">
+              <thead>
+                <tr>
+                  <th style="width:13%">Thời gian</th>
+                  <th style="width:7%">Buổi</th>
+                  <th class="c1">Phiếu 1 · Định hướng Chuyên</th>
+                  <th class="c2">Phiếu 2 · Nâng cao</th>
+                  <th class="c3">Phiếu 3 + 4 · Mở rộng + Cơ bản</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-done">
+                  <td class="time">16/10 – 22/10</td>
+                  <td class="bno">14</td>
+                  <td class="c1">ƯCLN và BCNN (kèm phân tích ra TSNT)</td>
+                  <td class="c2">ƯCLN và BCNN (kèm phân tích ra TSNT)</td>
+                  <td class="c3">Bội chung – BCNN</td>
+                </tr>
+                <tr class="is-current">
+                  <td class="time">23/10 – 29/10</td>
+                  <td class="bno">15</td>
+                  <td class="c1">ƯCLN và BCNN (tiếp) – bài toán thực tế</td>
+                  <td class="c2">ƯCLN và BCNN (tiếp) – bài toán thực tế</td>
+                  <td class="c3">Ôn tập ước và bội</td>
+                </tr>
+                <tr>
+                  <td class="time">30/10 – 05/11</td>
+                  <td class="bno">16</td>
+                  <td class="c1">Số nguyên – Các phép toán trên $\mathbb{Z}$</td>
+                  <td class="c2">Số nguyên – Các phép toán trên $\mathbb{Z}$</td>
+                  <td class="c3">Số nguyên – Cộng, trừ số nguyên</td>
+                </tr>
+                <tr>
+                  <td class="time">06/11 – 12/11</td>
+                  <td class="bno">17</td>
+                  <td class="c1">Số nguyên – Các phép toán (tiếp)</td>
+                  <td class="c2">Số nguyên – Các phép toán (tiếp)</td>
+                  <td class="c3">Quy tắc dấu ngoặc</td>
+                </tr>
+                <tr>
+                  <td class="time">13/11 – 19/11</td>
+                  <td class="bno">18</td>
+                  <td class="c1">Tính chất chia hết của số nguyên</td>
+                  <td class="c2">Tính chất chia hết của số nguyên</td>
+                  <td class="c3">Phép nhân và lũy thừa của số nguyên</td>
+                </tr>
+                <tr class="is-review">
+                  <td class="time">20/11 – 26/11</td>
+                  <td class="bno">19</td>
+                  <td class="c1"><i class="fa-solid fa-rotate"></i> Ôn tập tổng hợp</td>
+                  <td class="c2"><i class="fa-solid fa-rotate"></i> Ôn tập tổng hợp</td>
+                  <td class="c3"><i class="fa-solid fa-rotate"></i> Ôn tập tổng hợp</td>
+                </tr>
+                <tr class="is-review">
+                  <td class="time">27/11 – 03/12</td>
+                  <td class="bno">20</td>
+                  <td class="c1"><i class="fa-solid fa-file-pen"></i> Kiểm tra giữa kỳ</td>
+                  <td class="c2"><i class="fa-solid fa-file-pen"></i> Kiểm tra giữa kỳ</td>
+                  <td class="c3"><i class="fa-solid fa-file-pen"></i> Kiểm tra giữa kỳ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="grid g-3" style="gap:14px">
+            <div class="callout t-orange">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <div><b>Tuần này (Buổi 15):</b> chốt kỹ năng nhận diện bài toán thực tế quy về ƯCLN hoặc BCNN.</div>
+            </div>
+            <div class="callout t-blue">
+              <i class="fa-solid fa-compass"></i>
+              <div><b>Chuyển giao Buổi 16:</b> học sinh tiếp cận số âm; ưu tiên trục số và phép trừ là cộng với số
+                đối.</div>
+            </div>
+            <div class="callout t-emerald">
+              <i class="fa-solid fa-flag-checkered"></i>
+              <div><b>Mốc kiểm tra:</b> Buổi 20; đề và đáp án gửi BPCM duyệt trước buổi kiểm tra một tuần.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 2.1 KIẾN THỨC TRỌNG TÂM ==================== -->
+      <section class="slide" data-section="2" aria-label="2.1 Kiến thức trọng tâm: ƯCLN và BCNN">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm &amp; phương pháp</div>
+            <h2 class="slide__title"><span class="num">2.1</span> Quy trình tìm ƯCLN &amp; BCNN</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <article class="card tint t-blue">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-book-open"></i></span>
+                <h3>Tìm ƯCLN · lấy thừa số <u>chung</u>, số mũ <u>nhỏ nhất</u></h3>
+              </div>
+              <ol class="steps box">
+                <li>
+                  <div>Phân tích mỗi số ra <b>thừa số nguyên tố</b>.</div>
+                </li>
+                <li>
+                  <div>Chọn các thừa số nguyên tố <b>chung</b>.</div>
+                </li>
+                <li>
+                  <div>Lập tích, mỗi thừa số lấy với <b>số mũ nhỏ nhất</b>.</div>
+                </li>
+              </ol>
+              <div class="box box--soft">
+                <span class="label">Ví dụ</span>
+                $18 = 2 \cdot 3^2$; $\ 30 = 2 \cdot 3 \cdot 5$ $\ \Rightarrow\ \text{ƯCLN}(18, 30) = 2 \cdot 3 = 6$.
+              </div>
+            </article>
+
+            <article class="card tint t-emerald">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-book-open-reader"></i></span>
+                <h3>Tìm BCNN · lấy thừa số <u>chung và riêng</u>, số mũ <u>lớn nhất</u></h3>
+              </div>
+              <ol class="steps box">
+                <li>
+                  <div>Phân tích mỗi số ra <b>thừa số nguyên tố</b>.</div>
+                </li>
+                <li>
+                  <div>Chọn các thừa số nguyên tố <b>chung và riêng</b>.</div>
+                </li>
+                <li>
+                  <div>Lập tích, mỗi thừa số lấy với <b>số mũ lớn nhất</b>.</div>
+                </li>
+              </ol>
+              <div class="box box--soft">
+                <span class="label">Ví dụ</span>
+                $12 = 2^2 \cdot 3$; $\ 18 = 2 \cdot 3^2$ $\ \Rightarrow\ \text{BCNN}(12, 18) = 2^2 \cdot 3^2 = 36$.
+              </div>
+            </article>
+          </div>
+
+          <div class="grid g-2" style="gap:14px">
+            <div class="formula t-purple">
+              <span class="label" style="margin:0">Liên hệ</span>
+              $\text{ƯCLN}(a, b) \cdot \text{BCNN}(a, b) = a \cdot b$ <span style="color:var(--muted);font-size:15px">(với
+                $a, b \in \mathbb{N}^*$)</span>
+            </div>
+            <div class="callout t-amber">
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <div><b>Phương pháp:</b> dạy song song hai quy trình trên cùng một ví dụ để học sinh đối chiếu
+                “chung – nhỏ nhất” với “chung và riêng – lớn nhất”.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 2.2 DẠNG TOÁN THEN CHỐT ==================== -->
+      <section class="slide" data-section="2" aria-label="2.2 Dạng toán then chốt: bài toán thực tế">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm &amp; phương pháp</div>
+            <h2 class="slide__title"><span class="num">2.2</span> Dạng then chốt · Bài toán thực tế ƯCLN – BCNN</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-55-45">
+            <div class="stack">
+              <div class="box box--soft t-amber">
+                <span class="label">Ví dụ</span>
+                Một đội có từ 300 đến 400 học sinh. Xếp hàng 12, hàng 15 hay hàng 18 đều vừa đủ. Hỏi đội có bao nhiêu
+                học sinh?
+              </div>
+              <div class="box t-blue">
+                <span class="label">Trình bày mẫu thống nhất</span>
+                <div class="sol">
+                  <div class="ln">Gọi số học sinh là $x$ $\ (x \in \mathbb{N},\ 300 \le x \le 400)$.</div>
+                  <div class="ln">Vì $x \ \vdots \ 12$, $x \ \vdots \ 15$, $x \ \vdots \ 18$ nên $x \in
+                    \text{BC}(12, 15, 18)$.</div>
+                  <div class="ln">$\text{BCNN}(12, 15, 18) = 2^2 \cdot 3^2 \cdot 5 = 180$ $\ \Rightarrow\ x \in \{0;
+                    180; 360; 540; \dots\}$.</div>
+                  <div class="ln">Đối chiếu điều kiện $300 \le x \le 400$ $\ \Rightarrow\ x = 360$.</div>
+                  <div class="ln ok">Vậy đội có 360 học sinh.</div>
+                </div>
+              </div>
+            </div>
+
+            <article class="card tint t-emerald">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-key"></i></span>
+                <h3>Nhận diện bằng từ khóa</h3>
+              </div>
+              <div class="grid g-2" style="gap:10px">
+                <div class="box">
+                  <span class="label">Quy về ƯCLN</span>
+                  <ul class="list" style="font-size:var(--fs-sm)">
+                    <li>“chia đều”, “nhiều nhất”</li>
+                    <li>“lớn nhất”, cắt thành phần bằng nhau</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <span class="label">Quy về BCNN</span>
+                  <ul class="list" style="font-size:var(--fs-sm)">
+                    <li>“xếp hàng … đều vừa đủ”</li>
+                    <li>“ít nhất”, “cùng lặp lại”</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div><b>Lưu ý giảng dạy:</b> bắt buộc ghi điều kiện của ẩn ở dòng đầu và đối chiếu điều kiện ở dòng
+                  cuối; đây là bước học sinh hay bỏ nhất.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 3.1 BẪY SAI LẦM ==================== -->
+      <section class="slide" data-section="3" aria-label="3.1 Bẫy sai lầm thường gặp">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Bẫy sai lầm &amp; kịch bản xử lý</div>
+            <h2 class="slide__title"><span class="num">3.1</span> 4 bẫy sai lầm điển hình của học sinh</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="traps">
+            <div class="traps__head">
+              <span><i class="fa-solid fa-xmark" style="color:#e11d48"></i>Sai lầm của học sinh</span>
+              <span><i class="fa-solid fa-magnifying-glass" style="color:#d97706"></i>Nguyên nhân gốc</span>
+              <span><i class="fa-solid fa-chalkboard-user" style="color:#059669"></i>Kịch bản xử lý của giáo viên</span>
+            </div>
+            <div class="trap">
+              <div class="trap__err"><b>Nhầm ƯC với ƯCLN</b>Viết $\text{ƯC}(12, 18) = 6$.</div>
+              <div class="trap__why">Chưa phân biệt <b>tập hợp</b> với <b>một số</b>.</div>
+              <div class="trap__fix">Hỏi: “ƯC là tập hợp hay một số?” → yêu cầu liệt kê $\{1; 2; 3; 6\}$ rồi chỉ ra
+                phần tử lớn nhất.</div>
+            </div>
+            <div class="trap">
+              <div class="trap__err"><b>Lấy sai số mũ</b>$\text{ƯCLN}(12, 18) = 2^2 \cdot 3^2$.</div>
+              <div class="trap__why">Nhớ máy móc, lẫn quy tắc ƯCLN với BCNN.</div>
+              <div class="trap__fix">Cho thử lại: $36$ có là ước của $12$ không? Học sinh tự thấy mâu thuẫn rồi sửa về
+                số mũ nhỏ nhất.</div>
+            </div>
+            <div class="trap">
+              <div class="trap__err"><b>Phá ngoặc sai dấu</b>$a - (b - c) = a - b - c$.</div>
+              <div class="trap__why">Chỉ đổi dấu số hạng đầu tiên trong ngoặc.</div>
+              <div class="trap__fix">Thay số kiểm tra: $10 - (5 - 2)$ tính hai cách cho hai kết quả khác nhau → nhắc
+                “đổi dấu <b>tất cả</b> số hạng”.</div>
+            </div>
+            <div class="trap">
+              <div class="trap__err"><b>Thiếu nghiệm bậc chẵn</b>$x^2 = 25 \Rightarrow x = 5$.</div>
+              <div class="trap__why">Chưa có thói quen xét số đối khi làm việc trên $\mathbb{Z}$.</div>
+              <div class="trap__fix">Hỏi: “$(-5)^2$ bằng bao nhiêu?” → chốt mẫu: $x = 5$ hoặc $x = -5$.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 3.2 KỊCH BẢN XỬ LÝ ==================== -->
+      <section class="slide" data-section="3" aria-label="3.2 Kịch bản xử lý mẫu trên lớp">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Bẫy sai lầm &amp; kịch bản xử lý</div>
+            <h2 class="slide__title"><span class="num">3.2</span> Kịch bản mẫu · Xử lý lỗi phá ngoặc trên lớp</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-55-45">
+            <article class="card tint t-blue">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-comments"></i></span>
+                <h3>Lời dẫn gợi mở (không sửa hộ)</h3>
+                <span class="badge">3 – 4 phút</span>
+              </div>
+              <div class="script">
+                <div class="say say--hs"><span class="say__who">HS</span>
+                  <div class="say__txt">$15 - (7 - 3) = 15 - 7 - 3 = 5$.</div>
+                </div>
+                <div class="say say--gv"><span class="say__who">GV</span>
+                  <div class="say__txt">Em tính trong ngoặc trước thử xem, $15 - 4$ bằng bao nhiêu?<span
+                      class="say__note">Cho học sinh tự đối chiếu, chưa nói đúng/sai.</span></div>
+                </div>
+                <div class="say say--hs"><span class="say__who">HS</span>
+                  <div class="say__txt">Bằng $11$ ạ… khác kết quả $5$ của em.</div>
+                </div>
+                <div class="say say--gv"><span class="say__who">GV</span>
+                  <div class="say__txt">Vậy khi bỏ ngoặc có dấu “−” đằng trước, số $-3$ trong ngoặc phải đổi thành gì?
+                  </div>
+                </div>
+                <div class="say say--hs"><span class="say__who">HS</span>
+                  <div class="say__txt">Đổi thành $+3$: $15 - 7 + 3 = 11$.</div>
+                </div>
+              </div>
+            </article>
+
+            <div class="stack">
+              <article class="card tint t-emerald" style="gap:10px">
+                <div class="card__head">
+                  <span class="ico ico--sm"><i class="fa-solid fa-list-check"></i></span>
+                  <h3 style="font-size:18px">4 bước xử lý chuẩn</h3>
+                </div>
+                <ol class="steps">
+                  <li>
+                    <div><b>Phát hiện:</b> chụp hoặc chép lỗi lên bảng, ẩn tên học sinh.</div>
+                  </li>
+                  <li>
+                    <div><b>Đối chiếu:</b> cho tính lại bằng cách khác hoặc thay số cụ thể.</div>
+                  </li>
+                  <li>
+                    <div><b>Gọi tên quy tắc:</b> học sinh tự phát biểu lại quy tắc bằng lời.</div>
+                  </li>
+                  <li>
+                    <div><b>Củng cố:</b> 2 bài tương tự ngay tại lớp, kiểm tra ở BTVN.</div>
+                  </li>
+                </ol>
+              </article>
+              <div class="callout t-rose">
+                <i class="fa-solid fa-ban"></i>
+                <div><b>Tránh:</b> gạch đỏ rồi tự viết lời giải đúng; học sinh chép lại nhưng không hiểu vì sao sai.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 4.1 TỒN ĐỌNG ==================== -->
+      <section class="slide" data-section="4" aria-label="4.1 Tồn đọng: tác phong, chấm bài, điểm danh, khảo sát">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">04</span>Tồn đọng &amp; khen thưởng</div>
+            <h2 class="slide__title"><span class="num">4.1</span> Tồn đọng cần khắc phục</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-4" style="gap:14px">
+            <div class="stat t-rose"><b>05</b><span>lớp ghi nhận GV vào lớp muộn</span></div>
+            <div class="stat t-amber"><b>11</b><span>lớp GV chưa đeo thẻ tên</span></div>
+            <div class="stat t-blue"><b>08</b><span>bài chấm lệch đáp án &gt; 0,5 điểm</span></div>
+            <div class="stat t-purple"><b>03</b><span>lớp nhập điểm khảo sát trễ hạn</span></div>
+          </div>
+
+          <div class="grid g-2">
+            <article class="card tint t-rose">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-user-tie"></i></span>
+                <h3>Tác phong giảng dạy</h3>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-clock"></i></span>
+                <div>
+                  <h4>Vào lớp muộn, dùng thiết bị cá nhân</h4>
+                  <p>Chưa có mặt trước 05 phút; còn dùng điện thoại cho việc riêng trong giờ dạy.</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-id-badge"></i></span>
+                <div>
+                  <h4>Chưa đeo thẻ tên</h4>
+                  <div class="chips" style="margin-top:4px">
+                    <span class="chip">6C1-MD</span><span class="chip">6B4-MD</span><span class="chip">6A2-CG</span>
+                    <span class="chip">6A3-LB</span><span class="chip">…</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card tint t-amber">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-clipboard-check"></i></span>
+                <h3>Chấm bài · điểm danh · khảo sát</h3>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-pen-ruler"></i></span>
+                <div>
+                  <h4>Chấm chưa sát biểu điểm</h4>
+                  <p>Cho điểm cả câu khi thiếu bước lập luận; câu bỏ trống chưa nhập 0.</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-user-check"></i></span>
+                <div>
+                  <h4>Điểm danh, nhận xét chưa đúng timeline</h4>
+                  <p>Điểm danh sau ca học; nhận xét khảo sát chung chung, thiếu tiêu chí CLB.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 4.2 KHEN THƯỞNG & HÀNH ĐỘNG ==================== -->
+      <section class="slide" data-section="4" aria-label="4.2 Khen thưởng và quy chuẩn hành động">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">04</span>Tồn đọng &amp; khen thưởng</div>
+            <h2 class="slide__title"><span class="num">4.2</span> Ghi nhận tiêu biểu &amp; quy chuẩn hành động</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="awards">
+            <article class="award t-amber">
+              <div class="award__top"><span class="ico"><i class="fa-solid fa-trophy"></i></span>
+                <h3>Chấm bài chuẩn xác<small>Giáo viên lớp 6A2-CG</small></h3>
+              </div>
+              <p>Chấm từng bước theo biểu điểm, ghi chú lỗi cụ thể trên bài; 100% điểm nhập đúng hạn.</p>
+            </article>
+            <article class="award t-emerald">
+              <div class="award__top"><span class="ico"><i class="fa-solid fa-medal"></i></span>
+                <h3>Nhận xét sâu sát<small>Giáo viên lớp 6B1-XL</small></h3>
+              </div>
+              <p>Nhận xét đủ 4 tiêu chí: tình hình học tập, mức độ nắm kiến thức, điểm làm tốt, nội dung cần cải thiện.
+              </p>
+            </article>
+            <article class="award t-blue">
+              <div class="award__top"><span class="ico"><i class="fa-solid fa-award"></i></span>
+                <h3>Tác phong mẫu mực<small>Giáo viên lớp 6A-MD</small></h3>
+              </div>
+              <p>Luôn có mặt trước giờ, đeo thẻ tên, điểm danh ngay trong ca học suốt tháng.</p>
+            </article>
+          </div>
+
+          <div class="acts">
+            <article class="act t-rose">
+              <div class="act__top"><span class="ico ico--sm"><i class="fa-solid fa-user-tie"></i></span>
+                <h3>Tác phong</h3><span class="act__n">01</span>
+              </div>
+              <p>Có mặt trước 05 phút, đeo thẻ tên suốt ca dạy, không dùng thiết bị cho việc riêng.</p>
+            </article>
+            <article class="act t-amber">
+              <div class="act__top"><span class="ico ico--sm"><i class="fa-solid fa-square-check"></i></span>
+                <h3>Chấm bài</h3><span class="act__n">02</span>
+              </div>
+              <p>Chấm theo từng bước của biểu điểm; nhập đủ điểm thành phần, câu bỏ trống nhập 0.</p>
+            </article>
+            <article class="act t-emerald">
+              <div class="act__top"><span class="ico ico--sm"><i class="fa-solid fa-calendar-check"></i></span>
+                <h3>Điểm danh</h3><span class="act__n">03</span>
+              </div>
+              <p>Điểm danh ngay trong ca học; ghi chú học sinh mới, đối chiếu danh sách thi.</p>
+            </article>
+            <article class="act t-purple">
+              <div class="act__top"><span class="ico ico--sm"><i class="fa-solid fa-comment-dots"></i></span>
+                <h3>Khảo sát</h3><span class="act__n">04</span>
+              </div>
+              <p>Nhập điểm, nhận xét đúng timeline; bám đủ tiêu chí nhận xét của CLB.</p>
+            </article>
+          </div>
+
+          <div class="banner t-indigo">
+            <i class="fa-solid fa-microphone"></i>
+            <div><b class="lead">Góc thảo luận:</b> mời thầy cô chia sẻ khó khăn thực tế tại cơ sở và đề xuất giải pháp
+              hỗ trợ học sinh.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== LỜI KẾT ==================== -->
+      <section class="slide slide--end slide--bleed" data-section="end" aria-label="Lời cảm ơn">
+        <div class="end">
+          <img class="end__logo" src="../../../logo_white.svg" alt="MathExpress" data-dark="1"
+            onerror="logoFallback(this)" />
+          <h2>Cảm ơn quý thầy cô!</h2>
+          <div class="end__bar"></div>
+          <p class="end__wish">Kính chúc quý thầy cô một tuần giảng dạy nhiều năng lượng và hiệu quả!</p>
+          <p class="end__quote">“Tận tâm khơi dậy niềm đam mê và phát triển năng lực Toán học”</p>
+          <div class="end__chips">
+            <span><i class="fa-solid fa-users-gear"></i>Đồng hành cùng Khối 6</span>
+            <span><i class="fa-solid fa-shield-halved"></i>Kỷ luật &amp; chất lượng</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Thanh điều khiển (tự ẩn khi không di chuột) -->
+  <nav class="nav" id="slideNav" aria-label="Điều hướng slide">
+    <button type="button" id="prevBtn" title="Slide trước (←)" aria-label="Slide trước"><i
+        class="fa-solid fa-chevron-left"></i></button>
+    <span class="nav__count" id="slideCounter" aria-live="polite">1 / 1</span>
+    <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→ / Space)" aria-label="Slide sau"><i
+        class="fa-solid fa-chevron-right"></i></button>
+    <span class="nav__sep"></span>
+    <button type="button" id="agendaBtn" title="Về mục lục (M)" aria-label="Về mục lục"><i
+        class="fa-solid fa-list-ul"></i></button>
+    <button type="button" id="fullscreenBtn" title="Toàn màn hình (F)" aria-label="Toàn màn hình"><i
+        class="fa-solid fa-expand"></i></button>
+  </nav>
+
+  <script>
+    // ===== Thông tin cuộc họp (sửa ở đây khi dùng mẫu) =====
+    var DECK = {
+      footer: 'MathExpress · Họp chuyên môn Khối 6 · Tuần 15 – Tháng 10/2026'
+    };
+
+    (function () {
+      var STAGE_W = 1600, STAGE_H = 900;
+      var root = document.documentElement;
+      var slides = Array.prototype.slice.call(document.querySelectorAll('#stage > .slide'));
+      var total = slides.length;
+      // Cùng điều kiện với @media ở mục 7 của CSS: true = chế độ tài liệu cuộn dọc
+      var flowMQ = window.matchMedia('(max-width: 899px), (max-height: 499px)');
+      var cur = 0;
+
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      var counter = document.getElementById('slideCounter');
+      var bar = document.getElementById('progressBar');
+      var fsBtn = document.getElementById('fullscreenBtn');
+      var agendaIdx = Math.max(0, slides.findIndex(function (s) { return s.hasAttribute('data-agenda'); }));
+
+      // Đánh số id, chèn chân slide
+      slides.forEach(function (s, i) {
+        s.id = 'slide-' + (i + 1);
+        if (s.classList.contains('slide--bleed')) return;
+        var f = document.createElement('footer');
+        f.className = 'slide__foot';
+        f.innerHTML = '<span><span class="dot"></span>' + DECK.footer + '</span>' +
+          '<span class="slide__num">' + String(i + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0') + '</span>';
+        s.appendChild(f);
+      });
+
+      // Mục lục: tự tính dải slide của từng phần, bấm để chuyển tới
+      var ranges = {};
+      slides.forEach(function (s, i) {
+        var k = s.dataset.section;
+        if (!k || k === '0' || k === 'end') return;
+        if (!ranges[k]) ranges[k] = { from: i, to: i };
+        ranges[k].to = i;
+      });
+      document.querySelectorAll('[data-goto-section]').forEach(function (el) {
+        var r = ranges[el.dataset.gotoSection];
+        if (!r) return;
+        var out = el.querySelector('[data-range]');
+        if (out) out.textContent = r.from === r.to ? 'Slide ' + (r.from + 1) : 'Slide ' + (r.from + 1) + ' – ' + (r.to + 1);
+        el.addEventListener('click', function () { go(r.from); });
+      });
+
+      // Thu phóng sân khấu 1600×900 vừa cửa sổ
+      function fit() {
+        var s = flowMQ.matches ? 1 : Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
+        root.style.setProperty('--scale', s);
+      }
+
+      // fitSlides: bọc nội dung mỗi slide vào .fit rồi chọn zoom lớn nhất (≤ ZMAX) mà vẫn vừa khung;
+      // thêm/bớt nội dung không bị tràn vì zoom tự giảm (tối thiểu ZMIN).
+      var ZMAX = 1.14, ZMIN = 0.8;
+      slides.forEach(function (s) {
+        var b = s.querySelector('.slide__body');
+        if (!b) return;
+        var f = document.createElement('div');
+        f.className = 'fit';
+        while (b.firstChild) f.appendChild(b.firstChild);
+        b.appendChild(f);
+      });
+      function fitSlides() {
+        var scale = parseFloat(root.style.getPropertyValue('--scale')) || 1;
+        slides.forEach(function (s) {
+          var b = s.querySelector('.slide__body'), f = b && b.querySelector('.fit');
+          if (!f) return;
+          if (flowMQ.matches) { f.style.zoom = ''; return; }
+          var cs = getComputedStyle(b);
+          var avail = b.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+          var z = ZMAX;
+          f.style.zoom = z;
+          while (z > ZMIN && f.getBoundingClientRect().height / scale > avail + 0.5) {
+            z = Math.round((z - 0.01) * 100) / 100;
+            f.style.zoom = z;
+          }
+          if (f.getBoundingClientRect().height / scale > avail + 0.5) {
+            console.warn('[fitSlides] ' + s.id + ' vẫn tràn ở zoom ' + ZMIN + ': nên tách thành 2 slide.');
+          }
+        });
+      }
+      window.__fitSlides = fitSlides;
+
+      function update() {
+        counter.textContent = (cur + 1) + ' / ' + total;
+        bar.style.width = ((cur + 1) / total * 100) + '%';
+        prevBtn.disabled = cur === 0;
+        nextBtn.disabled = cur === total - 1;
+        try { history.replaceState(null, '', '#' + slides[cur].id); } catch (e) { }
+      }
+
+      function setActive(i) {
+        slides[cur].classList.remove('is-active');
+        cur = i;
+        slides[cur].classList.add('is-active');
+        slides.forEach(function (s, k) {
+          if (!flowMQ.matches && k !== cur) s.setAttribute('aria-hidden', 'true');
+          else s.removeAttribute('aria-hidden');
+        });
+        update();
+      }
+
+      // Trình chiếu: đổi slide; tài liệu cuộn dọc: cuộn tới slide
+      function go(i, instant) {
+        i = Math.max(0, Math.min(total - 1, i));
+        if (flowMQ.matches) {
+          slides[i].scrollIntoView({ behavior: instant ? 'auto' : 'smooth', block: 'start' });
+          setActive(i);
+          return;
+        }
+        if (i === cur) return;
+        setActive(i);
+      }
+
+      // Tài liệu cuộn dọc: slide hiện tại = slide đang chiếm đầu màn hình
+      var scrollT;
+      window.addEventListener('scroll', function () {
+        if (!flowMQ.matches) return;
+        cancelAnimationFrame(scrollT);
+        scrollT = requestAnimationFrame(function () {
+          var line = window.innerHeight * 0.3, idx = 0;
+          for (var k = 0; k < total; k++) {
+            if (slides[k].getBoundingClientRect().top <= line) idx = k; else break;
+          }
+          if (idx !== cur) setActive(idx);
+        });
+      }, { passive: true });
+
+      // Slide khởi đầu: #slide-6 hoặc ?slide=6
+      (function initial() {
+        var m = /^#slide-(\d+)$/.exec(location.hash);
+        var n = m ? parseInt(m[1], 10) : parseInt(new URLSearchParams(location.search).get('slide'), 10);
+        setActive(n >= 1 && n <= total ? n - 1 : 0);
+        if (flowMQ.matches && cur > 0) requestAnimationFrame(function () { go(cur, true); });
+      })();
+
+      prevBtn.addEventListener('click', function () { go(cur - 1); });
+      nextBtn.addEventListener('click', function () { go(cur + 1); });
+      document.getElementById('agendaBtn').addEventListener('click', function () { go(agendaIdx); });
+
+      // Toàn màn hình
+      function toggleFs() {
+        if (!document.fullscreenElement) {
+          var p = root.requestFullscreen && root.requestFullscreen();
+          if (p && p.catch) p.catch(function () { });
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+      fsBtn.addEventListener('click', toggleFs);
+      document.addEventListener('fullscreenchange', function () {
+        fsBtn.innerHTML = document.fullscreenElement ? '<i class="fa-solid fa-compress"></i>' : '<i class="fa-solid fa-expand"></i>';
+      });
+
+      // Phím tắt trình chiếu (chế độ tài liệu để trình duyệt tự cuộn)
+      document.addEventListener('keydown', function (e) {
+        if (flowMQ.matches) return;
+        if (e.altKey || e.ctrlKey || e.metaKey) return;
+        if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return;
+        switch (e.key) {
+          case 'ArrowRight': case 'PageDown': case 'Enter':
+            if (e.key === 'Enter' && e.target.closest && e.target.closest('button, a')) return;
+            e.preventDefault(); go(cur + 1); break;
+          case ' ': case 'Spacebar':
+            e.preventDefault(); go(e.shiftKey ? cur - 1 : cur + 1); break;
+          case 'ArrowLeft': case 'PageUp': case 'Backspace':
+            e.preventDefault(); go(cur - 1); break;
+          case 'Home': e.preventDefault(); go(0); break;
+          case 'End': e.preventDefault(); go(total - 1); break;
+          case 'f': case 'F': toggleFs(); break;
+          case 'm': case 'M': go(agendaIdx); break;
+        }
+      });
+
+      // Vuốt ngang trên màn hình cảm ứng lớn (máy tính bảng ở chế độ trình chiếu)
+      var tx = 0, ty = 0, tracking = false;
+      var IGNORE = 'button, a, .table-wrap, .seg';
+      document.addEventListener('touchstart', function (e) {
+        tracking = !flowMQ.matches && !(e.target.closest && e.target.closest(IGNORE));
+        tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
+      }, { passive: true });
+      document.addEventListener('touchend', function (e) {
+        if (!tracking) return;
+        var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) go(dx < 0 ? cur + 1 : cur - 1);
+      }, { passive: true });
+
+      // Bộ lọc hệ lớp (bảng tiến độ)
+      document.querySelectorAll('[data-filter]').forEach(function (group) {
+        var table = document.getElementById(group.dataset.target);
+        group.addEventListener('click', function (e) {
+          var b = e.target.closest('button[data-value]');
+          if (!b || !table) return;
+          group.querySelectorAll('button[data-value]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          table.setAttribute('data-' + group.dataset.filter, b.dataset.value);
+        });
+      });
+
+      // Tự ẩn thanh điều khiển & con trỏ khi trình chiếu (chỉ với chuột)
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        var nav = document.getElementById('slideNav'), idleT;
+        var wake = function () {
+          document.body.classList.remove('is-idle');
+          clearTimeout(idleT);
+          idleT = setTimeout(function () { if (!nav.matches(':hover')) document.body.classList.add('is-idle'); }, 2600);
+        };
+        ['mousemove', 'mousedown', 'wheel'].forEach(function (ev) { window.addEventListener(ev, wake, { passive: true }); });
+        wake();
+      }
+
+      fit();
+      fitSlides();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitSlides);
+      window.addEventListener('resize', fit);
+      function onModeChange() { fit(); fitSlides(); setActive(cur); if (flowMQ.matches) go(cur, true); }
+      if (flowMQ.addEventListener) flowMQ.addEventListener('change', onModeChange);
+      else if (flowMQ.addListener) flowMQ.addListener(onModeChange);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.remove('booting'); }); });
+    })();
+  </script>
+</body>
+
+</html>
