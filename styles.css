@@ -1,7 +1,12 @@
 /* MATHEXPRESS · THƯ VIỆN BÀI TRÌNH CHIẾU (tối giản, phong cách SlideShare) */
 :root {
-  --bg: #f6f7f9;
+  --bg: #f8f4f1;
   --tile: #ffffff;
+  --glass: rgba(255, 255, 255, .55);
+  --glass-line: rgba(255, 255, 255, .75);
+  --glass-shadow: 0 8px 32px rgba(0, 60, 110, .10);
+  --blob-o: rgba(242, 101, 34, .42);
+  --blob-b: rgba(17, 138, 203, .38);
   --text: #16202b;
   --muted: #6b7682;
   --line: #e4e7eb;
@@ -16,8 +21,13 @@
 
 /* Giao diện tối (bật bằng nút ở góc trên) */
 :root[data-theme="dark"] {
-  --bg: #0f141a;
+  --bg: #0d1218;
   --tile: #171e26;
+  --glass: rgba(23, 30, 38, .55);
+  --glass-line: rgba(255, 255, 255, .08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, .35);
+  --blob-o: rgba(242, 101, 34, .22);
+  --blob-b: rgba(17, 138, 203, .26);
   --text: #e8edf2;
   --muted: #8d98a5;
   --line: #26303b;
@@ -34,7 +44,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+/* Nền glassmorphism: các mảng màu cam và xanh của logo, làm nhòe */
+body::before {
+  content: ''; position: fixed; inset: -10%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(38vw 38vw at 8% 12%, var(--blob-o), transparent 70%),
+    radial-gradient(42vw 42vw at 92% 28%, var(--blob-b), transparent 70%),
+    radial-gradient(36vw 36vw at 70% 96%, var(--blob-o), transparent 70%),
+    radial-gradient(34vw 34vw at 22% 78%, var(--blob-b), transparent 70%);
+  filter: blur(40px);
+}
+
+/* Bề mặt kính mờ dùng chung */
+.card, .filters button, .theme {
+  background: var(--glass);
+  border: 1px solid var(--glass-line);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* Lề mỗi bên 17% chiều rộng màn hình (điện thoại: 16px) */
+.wrap { padding: 0 17%; }
 
 /* Đầu trang */
 .head { display: flex; align-items: center; gap: 16px; padding-top: 36px; padding-bottom: 28px; }
@@ -42,7 +72,7 @@ body {
 .theme {
   margin-left: auto; width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
   display: grid; place-items: center;
-  background: var(--tile); color: var(--text); border: 1px solid var(--line);
+  color: var(--text);
 }
 .theme svg { width: 18px; height: 18px; }
 .theme .sun, :root[data-theme="dark"] .theme .moon { display: none; }
@@ -55,7 +85,7 @@ body {
 .filters button {
   font: inherit; font-size: 14px; font-weight: 500;
   padding: 7px 16px; border-radius: 999px; cursor: pointer;
-  background: transparent; color: var(--muted); border: 1px solid var(--line);
+  color: var(--text);
 }
 .filters button:hover { color: var(--text); }
 .filters button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
@@ -65,12 +95,16 @@ body {
 /* Lưới thẻ kiểu SlideShare: ảnh bìa 16:9, tiêu đề, người xem, ngày */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 28px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 32px 24px;
   padding-bottom: 56px;
 }
 
-.card { --c: var(--brand); display: block; color: inherit; text-decoration: none; }
+.card {
+  --c: var(--brand); display: block; color: inherit; text-decoration: none;
+  padding: 10px 10px 14px; border-radius: 20px; box-shadow: var(--glass-shadow);
+}
+.card h2, .card .meta { padding: 0 6px; }
 .card[data-g="k6"] { --c: var(--k6); }
 .card[data-g="k7"] { --c: var(--k7); }
 .card[data-g="k8"] { --c: var(--k8); }
@@ -80,8 +114,8 @@ body {
 
 .thumb {
   position: relative; overflow: hidden;
-  aspect-ratio: 16 / 9; border-radius: 10px;
-  display: flex; flex-direction: column; padding: 14px 16px;
+  aspect-ratio: 16 / 9; border-radius: 14px;
+  display: flex; flex-direction: column; padding: 18px 20px;
   background: linear-gradient(135deg, var(--c), color-mix(in srgb, var(--c) 60%, #000));
   color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
@@ -93,33 +127,37 @@ body {
 .thumb::after {
   content: attr(data-num);
   position: absolute; right: 6px; bottom: -30px;
-  font-size: 140px; font-weight: 800; line-height: 1; letter-spacing: -.04em;
+  font-size: 150px; font-weight: 800; line-height: 1; letter-spacing: -.04em;
   color: #fff; opacity: .16; pointer-events: none;
 }
 .thumb > * { position: relative; z-index: 1; }
 
-.thumb__brand { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; opacity: .85; }
+.thumb__brand { padding-right: 64px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
 .thumb__title {
   margin-top: auto; max-width: 78%;
-  font-size: 17px; font-weight: 700; line-height: 1.25;
+  font-size: 18px; font-weight: 700; line-height: 1.25;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 .thumb__count {
   position: absolute; right: 10px; top: 10px;
-  font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 6px;
+  font-size: 12px; font-weight: 500; padding: 4px 9px; border-radius: 6px;
   background: rgba(0, 0, 0, .45);
 }
 
 .card h2 {
-  margin-top: 12px; font-size: 15px; font-weight: 700; line-height: 1.35;
+  margin-top: 12px; font-size: 16px; font-weight: 700; line-height: 1.35;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .card:hover h2 { color: var(--c); }
-.meta { margin-top: 4px; font-size: 13px; color: var(--muted); }
+.meta { margin-top: 4px; font-size: 14px; color: var(--muted); }
 
 /* Chân trang: câu trích dẫn */
 .foot { padding-top: 24px; padding-bottom: 40px; border-top: 1px solid var(--line); text-align: center; }
 .quote { font-size: 14px; font-style: italic; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .wrap { padding: 0 16px; }
+}
 
 @media (max-width: 520px) {
   .head { padding-top: 24px; padding-bottom: 20px; }

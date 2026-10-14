@@ -107,6 +107,68 @@ window.INITIAL_PRESENTATIONS = [
     ]
   },
   {
+    "id": "pres-khoi8-tuan14",
+    "title": "Tuần 14 - Họp giáo viên khối 8",
+    "category": "Khối 8",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 8",
+    "speaker": "Bộ phận Chuyên môn",
+    "date": "2026-10-12",
+    "quarter": "Q4-2026",
+    "duration": "60 phút (15 slide tương tác)",
+    "fileSize": "Interactive HTML Deck & PDF",
+    "pdfUrl": "Meeting/Khoi 8/Tuan 14 - Hop khoi 8/Khối 8 - Họp giáo viên W15.pdf",
+    "pptxUrl": "Meeting/Khoi 8/Tuan 14 - Hop khoi 8/index.html",
+    "webViewerUrl": "Meeting/Khoi 8/Tuan 14 - Hop khoi 8/index.html",
+    "summary": "Khung chương trình Buổi 15 – 22; khác biệt CT 2006 và SGK Kết nối tri thức ở Định lí Thalès (không có hệ quả), tính chất đường phân giác, phân thức đại số; dạng bài then chốt với ví dụ đặc trưng và bước dễ sai, bài toán thực tiễn đo chiều cao cây (lỗi làm tròn nhiều lần), hình vẽ TikZ; sai lầm thường gặp của học sinh; tồn đọng tác phong, dữ liệu khảo sát Quý I và quy chuẩn hành động.",
+    "featured": true,
+    "tags": [
+      "Khối 8",
+      "Toán 8",
+      "Họp giáo viên",
+      "Định lí Thalès",
+      "Tính chất đường phân giác",
+      "Phân thức đại số",
+      "Bài toán thực tiễn",
+      "SGK Kết nối tri thức",
+      "Khảo sát Quý I"
+    ],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Khung chương trình Buổi 15 – 22",
+        "subtitle": "Tiến độ Tháng 10 – 12 theo ba hệ lớp",
+        "content": "<ul><li>Bảng tiến độ Buổi 15 – 22 cho hệ Định hướng Chuyên, Nâng cao, Mở rộng + Cơ bản (lọc theo hệ lớp).</li><li>Kiến thức trọng tâm trong thời gian tới: Định lí Thalès, Tính chất đường phân giác trong tam giác, Phân thức đại số.</li></ul>",
+        "notes": "Các hệ lớp học lệch buổi nhưng dùng chung một bộ lời giải mẫu.",
+        "badge": "Tiến độ"
+      },
+      {
+        "page": 2,
+        "title": "Kiến thức trọng tâm theo SGK Kết nối tri thức",
+        "subtitle": "Dạng bài then chốt · Bài toán thực tiễn · Trình bày mẫu",
+        "content": "<ul><li><strong>Thalès:</strong> chỉ có định lí thuận và đảo (Bài 15); bốn dạng bài then chốt, mỗi dạng có ví dụ đặc trưng, bước dễ sai và cách đúng.</li><li><strong>Bài toán thực tiễn:</strong> đo chiều cao cây bằng cọc ngắm; làm tròn tỉ số ở bước trung gian cho 11,5 m thay vì 11,8 m.</li><li><strong>Cạnh song song:</strong> tính qua hình bình hành, không dùng hệ quả.</li><li><strong>Phân giác:</strong> Bài 17, chứng minh bằng Thalès với tam giác cân phụ.</li><li><strong>Phân thức:</strong> điều kiện xác định viết đầu tiên, đối chiếu với phân thức ban đầu.</li></ul>",
+        "notes": "Không dùng tam giác đồng dạng trong học kì 1; chỉ làm tròn một lần ở kết quả cuối.",
+        "badge": "Trọng tâm"
+      },
+      {
+        "page": 3,
+        "title": "Sai lầm thường gặp của học sinh",
+        "subtitle": "Sai lầm và nguyên nhân gốc",
+        "content": "<ul><li>Thalès: lập tỉ số lệch cặp, dùng tỉ số với cạnh song song, dùng định lí đảo sai, làm tròn nhiều lần trong bài thực tiễn.</li><li>Phân giác: viết ngược tỉ số, lấy tỉ số làm độ dài.</li><li>Phân thức: tính giá trị sau rút gọn, không đối chiếu điều kiện khi phân thức bằng 0, giản ước số hạng, sai dấu, thiếu điều kiện phép chia.</li></ul>",
+        "notes": "Ví dụ số trong bảng sai lầm khớp với ví dụ ở mục 2.",
+        "badge": "Sai lầm"
+      },
+      {
+        "page": 4,
+        "title": "Tồn đọng & quy chuẩn hành động",
+        "subtitle": "Tác phong và dữ liệu khảo sát Quý I",
+        "content": "<ul><li>Tác phong: dùng thiết bị cá nhân, vào lớp muộn, chưa đeo thẻ tên.</li><li>Khảo sát Quý I: nhập điểm trễ (8T4, 8A2-HBT, 8.2A2-LH, 8T2C), lệch điểm danh và điểm số, thiếu điểm thành phần, nhận xét sơ sài, chưa điểm danh (8B1-HD, 8C2-HBT).</li><li>Quy chuẩn hành động: tác phong, nhập điểm, điểm danh, nhận xét.</li></ul>",
+        "notes": "Nhắc quy chuẩn: nhập 0 cho câu bỏ trống, tick vắng cho học sinh đã nghỉ, ghi chú HSM.",
+        "badge": "Tồn đọng"
+      }
+    ]
+  },
+  {
     "id": "pres-khoi8-tuan10",
     "title": "Tuần 10 - Họp giáo viên khối 8",
     "category": "Khối 8",

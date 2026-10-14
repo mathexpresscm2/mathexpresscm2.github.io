@@ -66,7 +66,7 @@
       var g = groupInfo(p._g), n = slideCount(p);
       return '<a class="card" data-g="' + p._g + '" href="' + encodeURI(p.webViewerUrl || '#') + '" target="_blank" rel="noopener">' +
         '<div class="thumb" data-num="' + (g.num || '') + '">' +
-        '<span class="thumb__brand">MathExpress · ' + g.label + '</span>' +
+        '<span class="thumb__brand">' + g.label + '</span>' +
         '<span class="thumb__title">' + esc(p.title) + '</span>' +
         (n ? '<span class="thumb__count">' + n + ' slide</span>' : '') +
         '</div>' +
