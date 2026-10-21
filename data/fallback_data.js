@@ -115,12 +115,12 @@ window.INITIAL_PRESENTATIONS = [
     "speaker": "Bộ phận Chuyên môn",
     "date": "2026-10-12",
     "quarter": "Q4-2026",
-    "duration": "60 phút (15 slide tương tác)",
+    "duration": "60 phút (13 slide tương tác)",
     "fileSize": "Interactive HTML Deck & PDF",
     "pdfUrl": "Meeting/Khoi 8/Tuan 14 - Hop khoi 8/Khối 8 - Họp giáo viên W15.pdf",
     "pptxUrl": "Meeting/Khoi 8/Tuan 14 - Hop khoi 8/index.html",
     "webViewerUrl": "Meeting/Khoi 8/Tuan 14 - Hop khoi 8/index.html",
-    "summary": "Khung chương trình Buổi 15 – 22; khác biệt CT 2006 và SGK Kết nối tri thức ở Định lí Thalès (không có hệ quả), tính chất đường phân giác, phân thức đại số; dạng bài then chốt với ví dụ đặc trưng và bước dễ sai, bài toán thực tiễn đo chiều cao cây (lỗi làm tròn nhiều lần), hình vẽ TikZ; sai lầm thường gặp của học sinh; tồn đọng tác phong, dữ liệu khảo sát Quý I và quy chuẩn hành động.",
+    "summary": "Khung chương trình Buổi 15 – 22; khác biệt CT 2006 và SGK Kết nối tri thức ở Định lí Thalès (không có hệ quả), tính chất đường phân giác, phân thức đại số; dạng bài then chốt với ví dụ đặc trưng và bước dễ sai, bài toán thực tiễn đo chiều cao cây (lỗi làm tròn nhiều lần), hình vẽ TikZ; tồn đọng tác phong, dữ liệu khảo sát Quý I và quy chuẩn hành động.",
     "featured": true,
     "tags": [
       "Khối 8",
@@ -152,14 +152,6 @@ window.INITIAL_PRESENTATIONS = [
       },
       {
         "page": 3,
-        "title": "Sai lầm thường gặp của học sinh",
-        "subtitle": "Sai lầm và nguyên nhân gốc",
-        "content": "<ul><li>Thalès: lập tỉ số lệch cặp, dùng tỉ số với cạnh song song, dùng định lí đảo sai, làm tròn nhiều lần trong bài thực tiễn.</li><li>Phân giác: viết ngược tỉ số, lấy tỉ số làm độ dài.</li><li>Phân thức: tính giá trị sau rút gọn, không đối chiếu điều kiện khi phân thức bằng 0, giản ước số hạng, sai dấu, thiếu điều kiện phép chia.</li></ul>",
-        "notes": "Ví dụ số trong bảng sai lầm khớp với ví dụ ở mục 2.",
-        "badge": "Sai lầm"
-      },
-      {
-        "page": 4,
         "title": "Tồn đọng & quy chuẩn hành động",
         "subtitle": "Tác phong và dữ liệu khảo sát Quý I",
         "content": "<ul><li>Tác phong: dùng thiết bị cá nhân, vào lớp muộn, chưa đeo thẻ tên.</li><li>Khảo sát Quý I: nhập điểm trễ (8T4, 8A2-HBT, 8.2A2-LH, 8T2C), lệch điểm danh và điểm số, thiếu điểm thành phần, nhận xét sơ sài, chưa điểm danh (8B1-HD, 8C2-HBT).</li><li>Quy chuẩn hành động: tác phong, nhập điểm, điểm danh, nhận xét.</li></ul>",
