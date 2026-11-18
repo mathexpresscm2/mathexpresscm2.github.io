@@ -107,6 +107,39 @@ window.INITIAL_PRESENTATIONS = [
     ]
   },
   {
+    "id": "pres-khoi8-tuan20",
+    "title": "Tuần 20 - Họp giáo viên khối 8",
+    "category": "Khối 8",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 8",
+    "speaker": "Bộ phận Chuyên môn",
+    "date": "2026-11-10",
+    "quarter": "Q4-2026",
+    "duration": "60 phút (16 slide tương tác)",
+    "fileSize": "Interactive HTML Deck (16:9)",
+    "pdfUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
+    "pptxUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
+    "webViewerUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
+    "summary": "Kèm Khung chương trình Buổi 21 – 28 (Tháng 12/2026 – Tháng 01/2027) theo 3 hệ phiếu; giải phẫu toàn diện các lỗi sai trọng tâm của học sinh trong Phân thức đại số và Tam giác đồng dạng; chuyển giao kỹ thuật sư phạm Sơ đồ phân tích ngược đi lên.",
+    "featured": true,
+    "tags": [
+      "Khối 8",
+      "Toán 8",
+      "Họp giáo viên",
+      "Tuần 20",
+      "Phân thức đại số",
+      "Tam giác đồng dạng",
+      "Bài toán thực tiễn",
+      "Sơ đồ phân tích ngược",
+      "SGK Kết nối tri thức"
+    ],
+    "highlights": [
+      "Giải phẫu 6 sai lầm kinh điển trong chuyên đề Phân thức đại số: Bỏ qua ĐKXĐ khi tính giá trị, nhầm lẫn logic VÀ vs HOẶC, triệt tiêu số hạng thay vì nhân tử chung, lỗi quy đồng non, lỗi dấu ngoặc và thứ tự phép tính.",
+      "Giải phẫu 7 sai lầm cốt lõi trong chuyên đề Tam giác đồng dạng: Viết sai thứ tự đỉnh tương ứng, nhầm tỉ số k và 1/k, góc xen giữa (c.g.c), sắp xếp cạnh tăng dần (c.c.c), tam giác vuông, tỉ số diện tích k^2 và bài toán thực tế đo bóng.",
+      "Phương pháp giảng dạy: Từ lời giải xuôi đến sơ đồ phân tích ngược (Bottom-Up) đi từ kết luận, giúp học sinh chủ động tìm hướng giải hình học."
+    ]
+  },
+  {
     "id": "pres-khoi8-tuan14",
     "title": "Tuần 14 - Họp giáo viên khối 8",
     "category": "Khối 8",
@@ -607,85 +640,5 @@ window.INITIAL_PRESENTATIONS = [
     "actionItems": [
       "Nắm vững bảng điểm và mẫu nhận xét BTVN."
     ]
-  }
-];
-
-window.INITIAL_ANNOUNCEMENTS = [
-  {
-    "id": "anc-007",
-    "title": "Bản Tin Chuyên Môn: Tuần 14 - Họp Giáo Viên Khối 7 (Tháng 10/2026)",
-    "date": "2026-10-14",
-    "author": "Bộ phận Chuyên môn",
-    "category": "Tài nguyên mới",
-    "priority": "High",
-    "summary": "Đã cập nhật 19 slide tương tác cuộc họp chuyên môn Giáo viên mới Khối 7 Tháng 10/2026: khung chương trình Buổi 15 – 24, tỉ lệ thức & dãy tỉ số bằng nhau, đại lượng tỉ lệ thuận – tỉ lệ nghịch, tam giác bằng nhau, tam giác cân – đều, các lỗi sai thường gặp và tồn đọng Khảo sát Quý.",
-    "content": "Toàn thể Giáo viên Khối 7 xem bản trình chiếu tương tác (HTML) hoặc văn bản kế hoạch (.PDF) trực tiếp trên trang chủ.",
-    "badge": "MỚI NHẤT"
-  },
-  {
-    "id": "anc-006",
-    "title": "Bản Tin Chuyên Môn: Tuần 14 - Họp Giáo Viên Khối 6 (Tháng 10/2026)",
-    "date": "2026-10-08",
-    "author": "Bộ phận Chuyên môn",
-    "category": "Tài nguyên mới",
-    "priority": "High",
-    "summary": "Đã cập nhật đầy đủ 18 slide tương tác cuộc họp chuyên môn Khối 6 Tháng 10/2026: Rà soát tác phong giảng dạy, xử lý 8 tồn đọng kỳ thi Khảo sát Quý I, khung chương trình Tháng 10 & 11/2026, kiến thức trọng tâm ƯCLN - BCNN và 5 dạng toán then chốt.",
-    "content": "Toàn thể Giáo viên Khối 6 xem bản trình chiếu tương tác (HTML), tải file PowerPoint (.PPTX) hoặc xem văn bản kế hoạch (.PDF) trực tiếp trên trang chủ.",
-    "badge": "MỚI"
-  },
-  {
-    "id": "anc-005",
-    "title": "Cập Nhật Bản Trình Chiếu: Tuần 10 - Họp Giáo Viên Khối 8",
-    "date": "2026-09-14",
-    "author": "Bộ phận Chuyên môn",
-    "category": "Tài nguyên mới",
-    "priority": "High",
-    "summary": "Đã cập nhật toàn bộ 13 slide cuộc họp chuyên môn Khối 8 Tháng 9/2026: Rà soát khung chương trình Tháng 9 - 11, 8 phương pháp phân tích đa thức, phân tích ví dụ sai lầm Hệ quả Thalès SGK mới và kế hoạch khảo sát Quý I.",
-    "content": "Toàn bộ Giáo viên Khối 8 có thể xem trực tiếp bản trình chiếu tương tác (HTML) và tham khảo tài liệu hướng dẫn chuyên môn.",
-    "badge": "MỚI"
-  },
-  {
-    "id": "anc-004",
-    "title": "Cập Nhật Bản Trình Chiếu: Tuần 10 - Họp Giáo Viên Khối 7",
-    "date": "2026-09-07",
-    "author": "Bộ phận Chuyên môn",
-    "category": "Tài nguyên mới",
-    "priority": "High",
-    "summary": "Đã cập nhật toàn bộ 16 slide cuộc họp chuyên môn Khối 7 Tháng 9/2026: Rà soát khung chương trình, trọng tâm Tam giác bằng nhau, Tỉ lệ thức và kế hoạch khảo sát Quý I.",
-    "content": "Toàn bộ Giáo viên Khối 7 có thể xem trực tiếp bản trình chiếu tương tác (HTML) hoặc tải file PDF/DOCX tài liệu cuộc họp.",
-    "badge": "MỚI"
-  },
-  {
-    "id": "anc-003",
-    "title": "Cập Nhật Bản Trình Chiếu: Tuần 15 - Họp Giáo Viên Khối 6",
-    "date": "2026-09-05",
-    "author": "Bộ phận Chuyên môn",
-    "category": "Tài nguyên mới",
-    "priority": "High",
-    "summary": "Đã cập nhật toàn bộ 15 slide cuộc họp chuyên môn Khối 6 Tháng 9/2026: Rà soát khung chương trình, kiến thức trọng tâm Số học và hướng dẫn nhận xét khảo sát Quý I.",
-    "content": "Toàn bộ Giáo viên Khối 6 có thể xem trực tiếp bản trình chiếu tương tác (HTML) hoặc tải file PDF/DOCX tài liệu cuộc họp.",
-    "badge": "MỚI"
-  },
-  {
-    "id": "anc-001",
-    "title": "Thông Báo Lịch Họp Chuyên Môn Toán Quý 3 & Tập Huấn Trợ Giảng Mới K2026",
-    "date": "2026-07-25",
-    "author": "Bộ phận Chuyên môn",
-    "category": "Thông báo quan trọng",
-    "priority": "High",
-    "summary": "Trân trọng kính mời toàn thể Giáo viên & Trợ giảng tham dự buổi Họp Định Kỳ Quý 3 và Tập huấn Chuyên môn vào 09h00 Thứ Bảy (01/08/2026) tại Hội trường A.",
-    "content": "Buổi họp sẽ tập trung triển khai bộ giáo trình nâng cấp 2026-2027, công bố lịch thi thử vào 10 đợt 1 và phân công công tác trợ giảng phụ đạo các lớp mục tiêu.",
-    "badge": "MỚI"
-  },
-  {
-    "id": "anc-002",
-    "title": "Cập Nhật Thư Viện Bài Trình Chiếu & File Bài Tập Chuẩn Hóa 2026",
-    "date": "2026-07-18",
-    "author": "Tổ Kỹ Thuật Giáo Trình",
-    "category": "Tài nguyên mới",
-    "priority": "Normal",
-    "summary": "Toàn bộ slide bài giảng Hình học 9 và file applet GeoGebra tương tác đã được cập nhật đầy đủ trên hệ thống Thư viện nội bộ.",
-    "content": "Giáo viên và Trợ giảng có thể xem trực tiếp hoặc tải file PPTX/PDF gốc về để phục vụ công tác giảng dạy.",
-    "badge": "UPDATE"
   }
 ];
