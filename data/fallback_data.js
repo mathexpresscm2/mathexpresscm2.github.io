@@ -115,12 +115,12 @@ window.INITIAL_PRESENTATIONS = [
     "speaker": "Bộ phận Chuyên môn",
     "date": "2026-11-10",
     "quarter": "Q4-2026",
-    "duration": "60 phút (16 slide tương tác)",
+    "duration": "60 phút (20 slide tương tác)",
     "fileSize": "Interactive HTML Deck (16:9)",
     "pdfUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
     "pptxUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
     "webViewerUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
-    "summary": "Kèm Khung chương trình Buổi 21 – 28 (Tháng 12/2026 – Tháng 01/2027) theo 3 hệ phiếu; giải phẫu toàn diện các lỗi sai trọng tâm của học sinh trong Phân thức đại số và Tam giác đồng dạng; chuyển giao kỹ thuật sư phạm Sơ đồ phân tích ngược đi lên.",
+    "summary": "1. Khung chương trình Buổi 21 – 28 (Tháng 12/2026 – Tháng 01/2027) theo 3 hệ phiếu; 2. Kiến thức trọng tâm Phân thức đại số, Tam giác đồng dạng và Sơ đồ phân tích ngược; 3. Tồn đọng trong kì khảo sát quý I (tác phong, chấm thi, nhập điểm, điểm danh, nhận xét); 4. Kế hoạch thời gian tới: Ôn thi học kì I và Kiểm tra quý II.",
     "featured": true,
     "tags": [
       "Khối 8",
@@ -131,12 +131,14 @@ window.INITIAL_PRESENTATIONS = [
       "Tam giác đồng dạng",
       "Bài toán thực tiễn",
       "Sơ đồ phân tích ngược",
+      "Ôn thi học kì I",
+      "Kiểm tra quý II",
       "SGK Kết nối tri thức"
     ],
     "highlights": [
-      "Giải phẫu 6 sai lầm kinh điển trong chuyên đề Phân thức đại số: Bỏ qua ĐKXĐ khi tính giá trị, nhầm lẫn logic VÀ vs HOẶC, triệt tiêu số hạng thay vì nhân tử chung, lỗi quy đồng non, lỗi dấu ngoặc và thứ tự phép tính.",
-      "Giải phẫu 7 sai lầm cốt lõi trong chuyên đề Tam giác đồng dạng: Viết sai thứ tự đỉnh tương ứng, nhầm tỉ số k và 1/k, góc xen giữa (c.g.c), sắp xếp cạnh tăng dần (c.c.c), tam giác vuông, tỉ số diện tích k^2 và bài toán thực tế đo bóng.",
-      "Phương pháp giảng dạy: Từ lời giải xuôi đến sơ đồ phân tích ngược (Bottom-Up) đi từ kết luận, giúp học sinh chủ động tìm hướng giải hình học."
+      "Khung chương trình Buổi 21 – 28 (3 hệ phiếu) cùng mốc Kiểm tra quý II (Buổi 23) và Ôn tập tổng hợp (Buổi 24 thêm).",
+      "Chuyên đề trọng tâm: 5 nhóm lỗi Phân thức đại số, 6 nhóm lỗi Tam giác đồng dạng và phương pháp Sơ đồ phân tích ngược.",
+      "Rà soát tồn đọng kì khảo sát quý I (tác phong, chấm thi – nhập điểm, điểm danh – nhận xét) và kế hoạch trọng tâm tháng 12: Ôn thi học kì I & Kiểm tra quý II."
     ]
   },
   {

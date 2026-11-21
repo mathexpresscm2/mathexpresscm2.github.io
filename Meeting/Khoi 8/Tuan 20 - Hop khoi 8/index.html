@@ -156,6 +156,24 @@
       --c900: #0b2f52;
     }
 
+    .t-sky {
+      --c50: #f0f9ff;
+      --c100: #e0f2fe;
+      --c200: #bae6fd;
+      --c600: #0284c7;
+      --c700: #0369a1;
+      --c900: #0c4a6e;
+    }
+
+    .t-violet {
+      --c50: #f5f3ff;
+      --c100: #ede9fe;
+      --c200: #ddd6fe;
+      --c600: #7c3aed;
+      --c700: #6d28d9;
+      --c900: #4c1d95;
+    }
+
     .t-purple {
       --c50: #faf5ff;
       --c100: #f3e8ff;
@@ -200,13 +218,13 @@
     }
 
     .slide[data-section="3"] {
-      --acc: #059669;
-      --acc-ink: #047857;
+      --acc: #e11d48;
+      --acc-ink: #be123c;
     }
 
     .slide[data-section="4"] {
-      --acc: #d97706;
-      --acc-ink: #b45309;
+      --acc: #059669;
+      --acc-ink: #047857;
     }
 
     /* =====================================================================
@@ -343,11 +361,25 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
       font-size: 13.5px;
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
       color: var(--acc-ink);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid currentColor;
+      font-size: 12px;
+      letter-spacing: .02em;
+      text-transform: none;
     }
 
     .eyebrow__num {
@@ -494,6 +526,250 @@
 
     .g-4-fig {
       grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr) minmax(0, 1.15fr);
+    }
+
+
+    .mt-auto {
+      margin-top: auto;
+    }
+
+    .ico--sm {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+
+    .nos {
+      display: inline-flex;
+      gap: 6px;
+      flex: none;
+    }
+
+    .no {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--c600);
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 800;
+      box-shadow: 0 0 0 3px #fff;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chips__label {
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      color: var(--c700);
+      margin-right: 2px;
+    }
+
+    .chip {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c900);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hl {
+      font-weight: 700;
+      color: var(--c700);
+      white-space: nowrap;
+    }
+
+    .banner b.lead {
+      color: var(--c900);
+    }
+
+    .issue {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .issue h4 {
+      font-size: 16.5px;
+      color: var(--c900);
+      margin-bottom: 3px;
+    }
+
+    .issue p {
+      font-size: var(--fs-sm);
+    }
+
+    .evs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ev {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      color: var(--c700);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .15s, border-color .15s;
+    }
+
+    .ev:hover {
+      background: var(--c100);
+      border-color: var(--c600);
+    }
+
+    .ev .fa-google-drive {
+      color: #1fa463;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 18px;
+    }
+
+    .stat b {
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 800;
+      color: var(--c600);
+      letter-spacing: -.03em;
+    }
+
+    .stat span {
+      font-size: var(--fs-sm);
+      color: var(--c900);
+      font-weight: 600;
+    }
+
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .checks span {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--c900);
+    }
+
+    .checks i {
+      color: var(--c600);
+    }
+
+    .rules {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1.2fr);
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .rule>i {
+      color: var(--c600);
+    }
+
+    .rule> :first-child {
+      font-weight: 600;
+      color: var(--c900);
+    }
+
+    /* Kế hoạch hành động */
+    .acts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .act {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--c600);
+      box-shadow: 0 12px 30px -22px rgba(16, 24, 40, .35);
+    }
+
+    .act__top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .act__top h3 {
+      font-size: 19px;
+      color: var(--ink);
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .act__n {
+      margin-left: auto;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--c200);
+    }
+
+    .act p {
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: var(--ink-2);
+    }
+
+    .act .badge {
+      align-self: flex-start;
+      margin-top: auto;
     }
 
     .stack {
@@ -1601,22 +1877,31 @@
       }
     }
 
-    .slide.is-active .fit> :not(.grid):not(.agenda):not(.banner),
+    .slide.is-active .fit> :not(.grid):not(.acts):not(.agenda):not(.banner),
     .slide.is-active .grid>*,
+    .slide.is-active .acts>*,
     .slide.is-active .agenda>* {
       animation: rise .5s cubic-bezier(.2, .7, .2, 1) both;
     }
 
-    .slide.is-active :is(.grid, .agenda)> :nth-child(2) {
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(2) {
       animation-delay: .06s;
     }
 
-    .slide.is-active :is(.grid, .agenda)> :nth-child(3) {
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(3) {
       animation-delay: .12s;
     }
 
-    .slide.is-active :is(.grid, .agenda)> :nth-child(4) {
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(4) {
       animation-delay: .18s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(5) {
+      animation-delay: .24s;
+    }
+
+    .slide.is-active :is(.grid, .acts, .agenda)> :nth-child(6) {
+      animation-delay: .30s;
     }
 
     /* =====================================================================
@@ -1698,8 +1983,33 @@
       .g-4-fig,
       .compare,
       .compare--narrow-left,
+      .acts,
+      .checks,
       .cover {
         grid-template-columns: 1fr;
+      }
+
+      .rule {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .rule>i {
+        display: none;
+      }
+
+      .issue {
+        grid-template-columns: 28px minmax(0, 1fr);
+        padding: 10px 12px;
+        gap: 10px;
+      }
+
+      .issue h4 {
+        font-size: 14.5px;
+      }
+
+      .stat b {
+        font-size: 36px;
       }
 
       .cover {
@@ -1822,8 +2132,8 @@
             </div>
             <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 8</span></h1>
             <div class="cover__bar"></div>
-            <p class="cover__lead">Khung chương trình tháng 12 – 01 · Sai lầm trọng tâm Phân thức đại số &amp; Tam giác
-              đồng dạng · Sơ đồ phân tích ngược</p>
+            <p class="cover__lead">Khung chương trình tháng 12 – 01 · Trọng tâm Phân thức &amp; Tam giác đồng dạng ·
+              Tồn đọng Khảo sát quý I · Ôn thi học kì I &amp; Kiểm tra quý II</p>
             <div class="cover__meta">
               <span><i class="fa-solid fa-graduation-cap"></i> Năm học 2026 – 2027</span>
               <span><i class="fa-solid fa-users"></i> Bộ phận Chuyên môn · CLB Toán học MathExpress</span>
@@ -1867,27 +2177,27 @@
             <button type="button" class="agenda__item t-blue" data-goto-section="2">
               <span class="agenda__num">02</span>
               <span class="agenda__text">
-                <h3>Phần 2: Chuyên đề Đại số · Giải phẫu sai lầm Phân thức đại số</h3>
-                <p>Điều kiện xác định, logic VÀ/HOẶC, triệt tiêu số hạng vs nhân tử chung, lỗi quy đồng non, lỗi dấu
-                  ngoặc và thứ tự phép tính.</p>
+                <h3>Phần 2: Một số kiến thức trọng tâm trong thời gian tới</h3>
+                <p>Phân thức đại số (ĐKXĐ, rút gọn, quy đồng, dấu ngoặc, thứ tự phép tính), Tam giác đồng dạng (thứ tự
+                  đỉnh, tỉ số $k$ và $k^2$, c.g.c, c.c.c, tam giác vuông, đo bóng) và Sơ đồ phân tích ngược.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
-            <button type="button" class="agenda__item t-emerald" data-goto-section="3">
+            <button type="button" class="agenda__item t-rose" data-goto-section="3">
               <span class="agenda__num">03</span>
               <span class="agenda__text">
-                <h3>Phần 3: Chuyên đề Hình học · Giải phẫu sai lầm Tam giác đồng dạng</h3>
-                <p>Thứ tự 3 đỉnh tương ứng, nhầm tỉ số $k$ và $1/k$, lỗi thường gặp các
-                  trường hợp đồng dạng (c.g.c, c.c.c, tam giác vuông), tỉ số diện tích $k^2$ và bài toán đo bóng.</p>
+                <h3>Phần 3: Tồn đọng trong kì khảo sát quý I</h3>
+                <p>Tác phong giảng dạy (điện thoại, vào lớp muộn, thẻ tên), chấm thi – nhập điểm và đối chiếu điểm danh,
+                  nhận xét học sinh.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
-            <button type="button" class="agenda__item t-amber" data-goto-section="4">
+            <button type="button" class="agenda__item t-emerald" data-goto-section="4">
               <span class="agenda__num">04</span>
               <span class="agenda__text">
-                <h3>Phần 4: Phương pháp giảng dạy · Sơ đồ phân tích ngược</h3>
-                <p>Thay vì viết ngay lời giải xuôi, rèn kĩ thuật lập "Sơ đồ phân tích ngược" (Bottom-Up)
-                  giúp học sinh tự tìm ra hướng giải hình học.</p>
+                <h3>Phần 4: Kế hoạch trong thời gian tới</h3>
+                <p>Triển khai hai nhiệm vụ trọng tâm trong tháng 12/2026: Ôn thi học kì I và tổ chức Kiểm tra quý II
+                  (Buổi 23: 16/12 – 22/12) đồng bộ cho cả 4 hệ lớp.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2036,7 +2346,7 @@
       <section class="slide" data-section="2" aria-label="2.1 ĐKXĐ & Lỗi logic VÀ/HOẶC">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Chuyên đề Đại số · Phân thức đại số</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
             <h2 class="slide__title"><span class="num">2.1</span> Điều kiện xác định &amp; Lỗi logic "VÀ" vs "HOẶC"</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2115,7 +2425,7 @@
       <section class="slide" data-section="2" aria-label="2.2 Rút gọn từng số hạng thay vì nhân tử chung">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Chuyên đề Đại số · Phân thức đại số</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
             <h2 class="slide__title"><span class="num">2.2</span> Triệt tiêu số hạng thay vì nhân tử chung</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2165,7 +2475,7 @@
       <section class="slide" data-section="2" aria-label="2.3 Lỗi quy đồng non khi chưa rút gọn">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Chuyên đề Đại số · Phân thức đại số</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
             <h2 class="slide__title"><span class="num">2.3</span> Lỗi "Quy đồng non" · Tăng vọt bậc đa thức &amp; bế tắc
               tính toán</h2>
           </div>
@@ -2241,7 +2551,7 @@
       <section class="slide" data-section="2" aria-label="2.4 Quy tắc dấu & Lỗi dấu ngoặc">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Chuyên đề Đại số · Phân thức đại số</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
             <h2 class="slide__title"><span class="num">2.4</span> Quy tắc dấu &amp; Lỗi dấu ngoặc trong phép tính</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2318,7 +2628,7 @@
       <section class="slide" data-section="2" aria-label="2.5 Thứ tự phép tính trong bài toán tổng hợp">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Chuyên đề Đại số · Phân thức đại số</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
             <h2 class="slide__title"><span class="num">2.5</span> Thứ tự thực hiện phép tính trong bài toán tổng hợp
             </h2>
           </div>
@@ -2414,15 +2724,15 @@
       </section>
 
       <!-- =================================================================
-           PHẦN 2: HÌNH HỌC - TAM GIÁC ĐỒNG DẠNG (SLIDES 8 - 13)
+           MỤC 2 (TIẾP): HÌNH HỌC - TAM GIÁC ĐỒNG DẠNG (2.6 – 2.11)
            ================================================================= -->
 
       <!-- SLIDE 8: 2.1 THỨ TỰ ĐỈNH TƯƠNG ỨNG -->
-      <section class="slide" data-section="3" aria-label="3.1 Viết sai thứ tự đỉnh tương ứng">
+      <section class="slide" data-section="2" aria-label="2.6 Viết sai thứ tự đỉnh tương ứng">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Chuyên đề Hình học · Tam giác đồng dạng</div>
-            <h2 class="slide__title"><span class="num">3.1</span> Viết sai thứ tự đỉnh tương ứng</h2>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng</div>
+            <h2 class="slide__title"><span class="num">2.6</span> Viết sai thứ tự đỉnh tương ứng</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
@@ -2643,11 +2953,11 @@
       </section>
 
       <!-- SLIDE 9: 2.2 TỈ SỐ K VÀ 1/K -->
-      <section class="slide" data-section="3" aria-label="3.2 Lẫn lộn giữa tỉ số k và 1/k">
+      <section class="slide" data-section="2" aria-label="2.7 Lẫn lộn giữa tỉ số k và 1/k">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Chuyên đề Hình học · Tam giác đồng dạng</div>
-            <h2 class="slide__title"><span class="num">3.2</span> Lẫn lộn giữa tỉ số đồng dạng $k$ và tỉ số nghịch đảo
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng</div>
+            <h2 class="slide__title"><span class="num">2.7</span> Lẫn lộn giữa tỉ số đồng dạng $k$ và tỉ số nghịch đảo
               $1/k$</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2728,11 +3038,11 @@
       </section>
 
       <!-- SLIDE 10: 2.3 LỖI 3 TRƯỜNG HỢP ĐỒNG DẠNG (c.g.c và c.c.c) -->
-      <section class="slide" data-section="3" aria-label="3.3 Lỗi trong 3 trường hợp đồng dạng">
+      <section class="slide" data-section="2" aria-label="2.8 Lỗi trong 3 trường hợp đồng dạng">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Chuyên đề Hình học · Tam giác đồng dạng</div>
-            <h2 class="slide__title"><span class="num">3.3</span> Lỗi trong các trường hợp đồng dạng (c.g.c &amp; c.c.c)
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng</div>
+            <h2 class="slide__title"><span class="num">2.8</span> Lỗi trong các trường hợp đồng dạng (c.g.c &amp; c.c.c)
             </h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2965,11 +3275,11 @@
         </div>
       </section>
       <!-- SLIDE 11: 2.4 LỖI CẠNH HUYỀN - CẠNH GÓC VUÔNG -->
-      <section class="slide" data-section="3" aria-label="3.4 Lỗi ngộ nhận Cạnh huyền - Cạnh góc vuông">
+      <section class="slide" data-section="2" aria-label="2.9 Lỗi ngộ nhận Cạnh huyền - Cạnh góc vuông">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Chuyên đề Hình học · Tam giác đồng dạng</div>
-            <h2 class="slide__title"><span class="num">3.4</span> Lỗi ngộ nhận trường hợp "Cạnh huyền – Cạnh góc vuông"
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng</div>
+            <h2 class="slide__title"><span class="num">2.9</span> Lỗi ngộ nhận trường hợp "Cạnh huyền – Cạnh góc vuông"
             </h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3177,11 +3487,11 @@
         </div>
       </section>
       <!-- SLIDE 12: 2.5 TỈ SỐ DIỆN TÍCH K^2 -->
-      <section class="slide" data-section="3" aria-label="3.5 Ngộ nhận tỉ số diện tích bằng k">
+      <section class="slide" data-section="2" aria-label="2.10 Ngộ nhận tỉ số diện tích bằng k">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Chuyên đề Hình học · Tam giác đồng dạng</div>
-            <h2 class="slide__title"><span class="num">3.5</span> Ngộ nhận Tỉ số diện tích bằng Tỉ số đồng dạng ($k$ vs
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng</div>
+            <h2 class="slide__title"><span class="num">2.10</span> Ngộ nhận Tỉ số diện tích bằng Tỉ số đồng dạng ($k$ vs
               $k^2$)</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3325,11 +3635,11 @@
       </section>
 
       <!-- SLIDE 13: 2.6 BÀI TOÁN THỰC TẾ ĐO BÓNG & ĐƠN VỊ -->
-      <section class="slide" data-section="3" aria-label="3.6 Bài toán thực tế đo bóng & Lỗi đổi đơn vị">
+      <section class="slide" data-section="2" aria-label="2.11 Bài toán thực tế đo bóng & Lỗi đổi đơn vị">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Chuyên đề Hình học · Tam giác đồng dạng</div>
-            <h2 class="slide__title"><span class="num">3.6</span> Bài toán thực tế đo bóng &amp; Lỗi chuyển đổi đơn vị
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng</div>
+            <h2 class="slide__title"><span class="num">2.11</span> Bài toán thực tế đo bóng &amp; Lỗi chuyển đổi đơn vị
               đo</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3528,16 +3838,12 @@
         </div>
       </section>
 
-      <!-- =================================================================
-           PHẦN 4: PHƯƠNG PHÁP GIẢNG DẠY (SLIDES 14 - 15)
-           ================================================================= -->
-
-      <!-- SLIDE 14: TỪ LỜI GIẢI XUÔI ĐẾN SƠ ĐỒ PHÂN TÍCH NGƯỢC -->
-      <section class="slide" data-section="4" aria-label="4. Từ lời giải xuôi đến sơ đồ phân tích ngược">
+      <!-- SLIDE 15: 2.12 TỪ LỜI GIẢI XUÔI ĐẾN SƠ ĐỒ PHÂN TÍCH NGƯỢC -->
+      <section class="slide" data-section="2" aria-label="2.12 Từ lời giải xuôi đến sơ đồ phân tích ngược">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">04</span>Phương pháp giảng dạy · Hình học 8</div>
-            <h2 class="slide__title"><span class="num">04</span> Từ lời giải xuôi đến sơ đồ phân tích ngược
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phương pháp giảng dạy</div>
+            <h2 class="slide__title"><span class="num">2.12</span> Từ lời giải xuôi đến sơ đồ phân tích ngược
             </h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3708,7 +4014,370 @@
       </section>
 
       <!-- =================================================================
-           SLIDE 15: LỜI KẾT
+           MỤC 3: TỒN ĐỌNG TRONG KÌ KHẢO SÁT QUÝ I (SLIDES 16 - 18)
+           ================================================================= -->
+      <section class="slide" data-section="3" aria-label="3.1 Tồn đọng trong giảng dạy và tác phong">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I</div>
+            <h2 class="slide__title"><span class="num">3.1</span> Tồn đọng trong giảng dạy &amp; tác phong</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <article class="card tint t-rose">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-clock"></i></span>
+                <h3>Kỷ luật thời gian &amp; thiết bị</h3>
+                <span class="badge">2 tồn tại</span>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                <div>
+                  <h4>Dùng điện thoại, laptop cho mục đích cá nhân</h4>
+                  <p>Vẫn còn hiện tượng giáo viên dùng điện thoại, laptop cho việc riêng trong thời gian giảng dạy — gây
+                    mất tập trung và ảnh hưởng đến hình ảnh sư phạm.</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-person-walking-arrow-right"></i></span>
+                <div>
+                  <h4>Vào lớp muộn</h4>
+                  <p>Chưa đảm bảo có mặt tại lớp tối thiểu <b>05 phút</b> trước giờ học, ảnh hưởng đến thời lượng giảng
+                    dạy và tiến độ kế hoạch bài học.</p>
+                  <div class="chips" style="margin-top:8px">
+                    <span class="chips__label">Lớp ghi nhận:</span>
+                    <span class="chip">6B3-MD</span><span class="chip">6A-MD</span>
+                  </div>
+                </div>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-bullhorn"></i>
+                <div><b>Yêu cầu:</b> Thầy/cô không dùng điện thoại, laptop cho việc riêng trong giờ dạy; chủ động sắp
+                  xếp thời gian để có mặt tại lớp trước 05 phút.</div>
+              </div>
+            </article>
+
+            <article class="card tint t-amber">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-id-badge"></i></span>
+                <h3>Quy định đeo thẻ tên giáo viên</h3>
+                <span class="badge">Bắt buộc</span>
+              </div>
+              <div class="stat">
+                <b>11+</b>
+                <span>lớp ghi nhận giáo viên chưa đeo thẻ tên khi lên lớp</span>
+              </div>
+              <p style="font-size:var(--fs-sm)">Đeo thẻ tên là quy định chung của CLB nhằm đảm bảo hình ảnh chuyên
+                nghiệp, nhưng BPCM vẫn ghi nhận nhiều giáo viên chưa thực hiện.</p>
+              <div class="chips">
+                <span class="chip">6C1-MD</span><span class="chip">6B4-MD</span><span class="chip">6B1-CG</span>
+                <span class="chip">6A2-CG</span><span class="chip">6A2-LB</span><span class="chip">6C2-LB</span>
+                <span class="chip">6A3-LB</span><span class="chip">6A2-AK</span><span class="chip">6B2-AK</span>
+                <span class="chip">6A3-AK</span><span class="chip">6B1-XL</span><span class="chip">…</span>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-bullhorn"></i>
+                <div><b>Yêu cầu:</b> Thầy/cô đeo thẻ tên MathExpress trong suốt ca dạy, tại mọi cơ sở.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 1.2 CHẤM THI & NHẬP ĐIỂM ==================== -->
+      <section class="slide" data-section="3" aria-label="3.2 Khảo sát Quý I: chấm thi và nhập điểm">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I <span
+                class="pill">Tồn đọng 1 – 4 / 8</span></div>
+            <h2 class="slide__title"><span class="num">3.2</span> Khảo sát Quý I: chấm thi &amp; nhập điểm</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-3">
+            <article class="card tint t-rose">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-file-circle-xmark"></i></span>
+                <h3>Chấm bài sai lệch</h3>
+                <span class="nos" title="Tồn đọng số 1"><span class="no">1</span></span>
+              </div>
+              <ul class="list">
+                <li><b>Chấm sai thành đúng:</b> lớp <span class="hl">6A1-CG</span> ghi nhận 15 lỗi tương tự ở bài 5a
+                  (lớp Nâng cao); lớp <span class="hl">6T3B-Online</span>.</li>
+                <li><b>Chấm đúng thành sai:</b> lớp <span class="hl">6T3B-Online</span> — ảnh hưởng trực tiếp đến điểm
+                  số và kết quả đánh giá học sinh.</li>
+              </ul>
+              <div class="callout">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Đối chiếu kỹ bài làm với đáp án, kiểm tra lại từng bước trước khi cho điểm.</div>
+              </div>
+              <div class="evs mt-auto">
+                <a class="ev" href="https://drive.google.com/drive/folders/10kE4Hq4gOq7qxaP28brA6LbwkO512cCG"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (1)</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1k-DmCdNkxSfID--rrxab0RVSAkl_ZTyF"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (2)</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1Z4iArtDCZTY2VVFUs88haRE8-MKbIZ5Q"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Đúng → sai</a>
+              </div>
+            </article>
+
+            <article class="card tint t-orange">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-spell-check"></i></span>
+                <h3>Lệch &amp; thiếu điểm thành phần</h3>
+                <span class="nos" title="Tồn đọng số 2 và 3"><span class="no">2</span><span class="no">3</span></span>
+              </div>
+              <ul class="list">
+                <li><b>Lệch điểm:</b> điểm thành phần trên bài thi không khớp với điểm trên phần mềm — lớp <span
+                    class="hl">6B3-HD</span> có <b>19 lỗi</b>.</li>
+                <li><b>Nhập thiếu điểm:</b> câu học sinh không làm được bị <b>bỏ trống</b> thay vì nhập <b>0 điểm</b>.
+                </li>
+              </ul>
+              <div class="callout">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Đối chiếu bài giấy với phần mềm trước khi chốt điểm; câu không làm nhập <b>0
+                    điểm</b>, không để trống.</div>
+              </div>
+              <div class="evs mt-auto">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/15cEMaThWH8JwdyaOGJCgjH5n04pY95we"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>19 lỗi lệch điểm · 6B3-HD</a>
+              </div>
+            </article>
+
+            <article class="card tint t-blue">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-hourglass-half"></i></span>
+                <h3>Trễ timeline nhập điểm &amp; nhận xét</h3>
+                <span class="nos" title="Tồn đọng số 4"><span class="no">4</span></span>
+              </div>
+              <p>Chưa hoàn thành nhập điểm và nhận xét theo đúng timeline CLB, làm chậm tiến độ tổng hợp và kiểm soát
+                kết quả toàn hệ thống.</p>
+              <div class="chips">
+                <span class="chips__label">Lớp ghi nhận:</span>
+                <span class="chip">6A-MD</span><span class="chip">6A3-MD</span><span class="chip">6A1-HD</span>
+                <span class="chip">6A1-AK</span><span class="chip">6B2-HBT</span><span class="chip">6.3B2-LH</span>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Hoàn tất nhập điểm &amp; nhận xét đúng hạn theo timeline CLB đã thông báo.</div>
+              </div>
+            </article>
+          </div>
+
+          <div class="banner t-amber">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div><b class="lead">Quy tắc chấm thi bắt buộc:</b> đối chiếu kỹ từng câu, kiểm tra lại phép tính của học
+              sinh trước khi cho điểm. Không để xảy ra chấm đúng thành sai (hoặc ngược lại), không để lệch điểm giữa bài
+              giấy và phần mềm.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 1.3 ĐIỂM DANH & NHẬN XÉT ==================== -->
+      <section class="slide" data-section="3" aria-label="3.3 Khảo sát Quý I: điểm danh và nhận xét">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I <span
+                class="pill">Tồn đọng 5 – 8 / 8</span></div>
+            <h2 class="slide__title"><span class="num">3.3</span> Khảo sát Quý I: điểm danh &amp; nhận xét</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <article class="card tint t-rose">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-user-xmark"></i></span>
+                <h3>Điểm danh không khớp với bài thi</h3>
+                <span class="nos" title="Tồn đọng số 5 và 6"><span class="no">5</span><span class="no">6</span></span>
+              </div>
+              <ul class="list">
+                <li><b>Vắng mặt nhưng vẫn có điểm &amp; nhận xét:</b> lớp <span class="hl">6B1-CG</span> có <b>04 trường
+                    hợp</b> học sinh được điểm danh vắng nhưng vẫn được nhập điểm, nhận xét.</li>
+                <li><b>Có bài thi nhưng không có trong file điểm danh:</b> học sinh đã làm bài nhưng không được nhập
+                  điểm và nhận xét.</li>
+              </ul>
+              <div class="callout">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Đối chiếu danh sách dự thi với file điểm danh trước khi nhập điểm, nhận xét.</div>
+              </div>
+              <div class="evs mt-auto">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1aAIqSsfJA4dCtp17yTC7Vsql6Owy0B3m"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B1-CG</a>
+              </div>
+            </article>
+
+            <article class="card tint t-violet">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-comment-slash"></i></span>
+                <h3>Nhận xét sơ sài, chưa bám tiêu chí CLB</h3>
+                <span class="nos" title="Tồn đọng số 7"><span class="no">7</span></span>
+              </div>
+              <p>Nội dung nhận xét chưa đầy đủ, chưa thể hiện rõ tình hình học tập của học sinh. Ghi nhận tại lớp <span
+                  class="hl">6B3-CG</span>.</p>
+              <div>
+                <span class="label">Nhận xét cần thể hiện đủ</span>
+                <div class="checks">
+                  <span><i class="fa-solid fa-check"></i>Tình hình học tập</span>
+                  <span><i class="fa-solid fa-check"></i>Mức độ nắm bắt kiến thức</span>
+                  <span><i class="fa-solid fa-check"></i>Những điểm làm tốt</span>
+                  <span><i class="fa-solid fa-check"></i>Nội dung cần cải thiện</span>
+                </div>
+              </div>
+              <div class="evs mt-auto">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1JehZo8AmNSuFkKoxeoXcKGTo5HzcaNg3"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B3-CG</a>
+              </div>
+            </article>
+
+            <article class="card tint t-slate">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-clipboard-user"></i></span>
+                <h3>Chưa thực hiện điểm danh</h3>
+                <span class="nos" title="Tồn đọng số 8"><span class="no">8</span></span>
+              </div>
+              <p>Chưa cập nhật đầy đủ thông tin điểm danh theo quy định, gây khó khăn cho việc theo dõi chuyên cần và
+                tổng hợp dữ liệu lớp.</p>
+              <div class="chips">
+                <span class="chips__label">Lớp ghi nhận:</span>
+                <span class="chip">6.4A-LH</span><span class="chip">6A1-HD</span>
+              </div>
+              <div class="callout">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Hoàn thành điểm danh ngay trong ca học.</div>
+              </div>
+              <div class="evs mt-auto">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1LDnxRt1QOSnLSWSVcCHWx_hOQbR5OhD1"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng chưa điểm danh</a>
+              </div>
+            </article>
+
+            <article class="card tint t-sky">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-user-tag"></i></span>
+                <h3>Quy chuẩn điểm danh HS nghỉ học &amp; HSM</h3>
+                <span class="badge">Lưu ý nghiệp vụ</span>
+              </div>
+              <div class="rules">
+                <div class="rule">
+                  <span>HS đã nghỉ học nhưng vẫn có tên trong danh sách</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>Tick <b>“Vắng mặt”</b>, không để trống điểm danh</span>
+                </div>
+                <div class="rule">
+                  <span>Học sinh mới (HSM) có đi học nhưng không thi</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>Tick <b>“Có mặt”</b> và ghi chú <b>“HSM – không tham gia thi”</b> ở cột ghi chú</span>
+                </div>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>Hiện nhiều giáo viên đang <b>bỏ trống</b> điểm danh của học sinh đã nghỉ học.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- =================================================================
+           MỤC 4: KẾ HOẠCH TRONG THỜI GIAN TỚI (SLIDE 19)
+           ================================================================= -->
+      <section class="slide" data-section="4" aria-label="4. Kế hoạch trong thời gian tới">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">04</span>Kế hoạch trong thời gian tới <span
+                class="pill">Tháng 12/2026</span></div>
+            <h2 class="slide__title"><span class="num">4.</span> Ôn thi học kì I &amp; Kiểm tra quý II</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="grid g-2">
+            <article class="card tint t-blue">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-book-open-reader"></i></span>
+                <h3>Ôn thi học kì I</h3>
+                <span class="badge"><i class="fa-solid fa-book"></i>Tháng 12/2026</span>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-layer-group"></i></span>
+                <div>
+                  <h4>Hệ thống hóa kiến thức trọng tâm Học kì I</h4>
+                  <p>Tổng hợp mạch kiến thức Toán 8 (SGK Kết nối tri thức): <b>Đa thức, Hằng đẳng thức &amp; phân tích
+                      đa thức thành nhân tử</b>; <b>Tứ giác</b>, <b>Định lí Thalès</b>, đường trung bình và tính chất
+                    đường phân giác.</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-pen-ruler"></i></span>
+                <div>
+                  <h4>Rèn kỹ năng làm bài &amp; tránh lỗi mất điểm</h4>
+                  <p>Hướng dẫn học sinh trình bày chặt chẽ theo cấu trúc đề thi cuối kì trên trường; lưu ý các lỗi dễ
+                    mắc như nhầm dấu khi biến đổi, thiếu căn cứ lập luận hình học và <b>không dùng Hệ quả Thalès</b>.</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-users"></i></span>
+                <div>
+                  <h4>Phân hóa hỗ trợ theo từng hệ lớp</h4>
+                  <p>Củng cố chắc kiến thức nền và dạng bài cốt lõi cho hệ Cơ bản – Mở rộng; tăng cường bài toán vận
+                    dụng, lập luận tổng hợp cho hệ Nâng cao – Định hướng Chuyên và kịp thời bổ sung lỗ hổng kiến thức.</p>
+                </div>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-bullseye"></i>
+                <div><b>Mục tiêu:</b> Giúp học sinh nắm vững kiến thức Học kì I, tự tin làm bài thi cuối kì trên trường
+                  đạt kết quả tốt và hạn chế tối đa lỗi trình bày.</div>
+              </div>
+            </article>
+
+            <article class="card tint t-emerald">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-calendar-check"></i></span>
+                <h3>Kiểm tra quý II</h3>
+                <span class="badge"><i class="fa-solid fa-clock"></i>Buổi 23 · 16/12 – 22/12</span>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-graduation-cap"></i></span>
+                <div>
+                  <h4>Thời gian &amp; phạm vi tổ chức</h4>
+                  <p>Triển khai <b>Kiểm tra quý II</b> đồng bộ tại <b>Buổi 23 (16/12 – 22/12/2026)</b> cho cả <b>4 hệ
+                      lớp</b>: Phiếu 1 (Định hướng chuyên), Phiếu 2 (Nâng cao), Phiếu 3 + 4 (Mở rộng + Cơ bản).</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-square-check"></i></span>
+                <div>
+                  <h4>Gắn tiến độ giảng dạy &amp; ôn tập tổng hợp</h4>
+                  <p>Đảm bảo tiến độ <b>Phân thức đại số</b> và <b>Tam giác đồng dạng</b> (Buổi 21 – 22) theo từng hệ
+                    phiếu trước kì kiểm tra; dành <b>Buổi 24 thêm (30/12 – 31/12)</b> để ôn tập tổng hợp và khắc phục lỗi
+                    sai sau thi.</p>
+                </div>
+              </div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-clipboard-check"></i></span>
+                <div>
+                  <h4>Chuẩn hóa coi thi, chấm bài &amp; tổng hợp kết quả</h4>
+                  <p>Thực hiện nghiêm túc quy trình chấm bài, đối chiếu khớp điểm giấy với phần mềm, cập nhật điểm danh
+                    và hoàn thiện nhận xét đúng tiến độ CLB — khắc phục triệt để tồn đọng của kì Khảo sát quý I.</p>
+                </div>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-bullseye"></i>
+                <div><b>Mục tiêu:</b> Đánh giá sát năng lực học sinh theo từng hệ lớp và kịp thời điều chỉnh kế hoạch
+                  giảng dạy bước sang giai đoạn tháng 01/2027.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           SLIDE 20: LỜI KẾT
            ================================================================= -->
       <section class="slide slide--end slide--bleed" data-section="end" aria-label="Lời cảm ơn & Thông điệp kết">
         <div class="end">
@@ -3728,7 +4397,7 @@
   <nav class="nav" id="slideNav" aria-label="Điều hướng trình chiếu">
     <button type="button" id="prevBtn" title="Slide trước (←, Backspace)"><i
         class="fa-solid fa-chevron-left"></i></button>
-    <span class="nav__count" id="slideCounter">1 / 16</span>
+    <span class="nav__count" id="slideCounter">1 / 20</span>
     <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→, Space, Enter)"><i
         class="fa-solid fa-chevron-right"></i></button>
     <span class="nav__sep"></span>
@@ -3888,7 +4557,7 @@
       // 8. Vuốt cảm ứng (Swipe Touch)
       var tx = 0, ty = 0, tracking = false;
       var IGNORE = 'button, a, .table-wrap, .seg';
-      document.addEventListener('touchọc sinhtart', function (e) {
+      document.addEventListener('touchstart', function (e) {
         tracking = !(e.target.closest && e.target.closest(IGNORE));
         tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY;
       }, { passive: true });
