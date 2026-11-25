@@ -2744,17 +2744,6 @@
                 <li><b>Chưa chuẩn hóa mẫu dương:</b> để mẫu âm như $\dfrac{3}{-5}$ khi rút gọn hoặc so sánh (cần đổi
                   về mẫu dương $-\dfrac{3}{5}$ theo chuẩn SGK Kết nối tri thức).</li>
               </ul>
-              <div class="compare" style="margin-top:4px">
-                <div class="compare__bad" style="font-size:14.5px;padding:10px 12px">
-                  <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
-                  <p>Cho $A = \dfrac{5}{n - 3}$ là phân số với mọi $n \in \mathbb{Z}$.</p>
-                  <p style="margin-top:4px"><span class="tag-err">Bỏ sót $n \neq 3$</span></p>
-                </div>
-                <div class="compare__good" style="font-size:14.5px;padding:10px 12px">
-                  <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
-                  <p>$A$ là phân số khi $n \in \mathbb{Z}$ và $n - 3 \neq 0$, tức là $n \neq 3$.</p>
-                </div>
-              </div>
               <div class="callout t-blue mt-auto">
                 <i class="fa-solid fa-chalkboard-user"></i>
                 <div><b>Lưu ý giảng dạy:</b> Luôn nhắc học sinh kiểm tra điều kiện mẫu khác $0$ trước khi biến đổi hoặc
@@ -2920,52 +2909,28 @@
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
         <div class="slide__body">
-          <div class="grid g-2">
-            <article class="card tint t-blue">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-superscript"></i></span>
-                <h3>4 công thức tách phân số cốt lõi</h3>
+          <article class="card tint t-blue" style="max-width:1060px;margin:0 auto;width:100%">
+            <div class="card__head">
+              <span class="ico"><i class="fa-solid fa-superscript"></i></span>
+              <h3>4 công thức tách phân số cốt lõi</h3>
+            </div>
+            <div class="stack" style="gap:14px">
+              <div class="formula" style="justify-content:flex-start;padding:14px 18px;font-size:18px">
+                <b>1.</b> &nbsp; $\dfrac{b - a}{a \cdot b} = \dfrac{1}{a} - \dfrac{1}{b}$
+                <span style="margin-left:auto;font-size:14.5px;color:var(--muted)">$(a, b \neq 0)$</span>
               </div>
-              <div class="stack" style="gap:10px">
-                <div class="formula" style="justify-content:flex-start;padding:10px 14px;font-size:16.5px">
-                  <b>1.</b> &nbsp; $\dfrac{b - a}{a \cdot b} = \dfrac{1}{a} - \dfrac{1}{b}$
-                  <span style="margin-left:auto;font-size:13.5px;color:var(--muted)">$(a, b \neq 0)$</span>
-                </div>
-                <div class="formula" style="justify-content:flex-start;padding:10px 14px;font-size:16.5px">
-                  <b>2.</b> &nbsp; $\dfrac{a + b}{a \cdot b} = \dfrac{1}{b} + \dfrac{1}{a}$
-                  <span style="margin-left:auto;font-size:13.5px;color:var(--muted)">$(a, b \neq 0)$</span>
-                </div>
-                <div class="formula" style="justify-content:flex-start;padding:10px 14px;font-size:16px">
-                  <b>3.</b> &nbsp; $\dfrac{2}{n(n + 1)(n + 2)} = \dfrac{1}{n(n + 1)} - \dfrac{1}{(n + 1)(n + 2)}$
-                </div>
-                <div class="formula" style="justify-content:flex-start;padding:10px 14px;font-size:16px">
-                  <b>4.</b> &nbsp; $\dfrac{2a}{n(n + a)(n + 2a)} = \dfrac{1}{n(n + a)} - \dfrac{1}{(n + a)(n + 2a)}$
-                </div>
+              <div class="formula" style="justify-content:flex-start;padding:14px 18px;font-size:18px">
+                <b>2.</b> &nbsp; $\dfrac{a + b}{a \cdot b} = \dfrac{1}{b} + \dfrac{1}{a}$
+                <span style="margin-left:auto;font-size:14.5px;color:var(--muted)">$(a, b \neq 0)$</span>
               </div>
-            </article>
-
-            <article class="card tint t-emerald">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-                <h3>Ứng dụng khử liên tiếp &amp; so sánh</h3>
-                <span class="badge">Gợi ý giảng dạy</span>
+              <div class="formula" style="justify-content:flex-start;padding:14px 18px;font-size:17.5px">
+                <b>3.</b> &nbsp; $\dfrac{2}{n(n + 1)(n + 2)} = \dfrac{1}{n(n + 1)} - \dfrac{1}{(n + 1)(n + 2)}$
               </div>
-              <div class="box box--soft" style="font-size:15px">
-                <b>Ví dụ minh họa:</b> So sánh tổng $S = \dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \dots + \dfrac{1}{9 \cdot 10}$ với $1$.
+              <div class="formula" style="justify-content:flex-start;padding:14px 18px;font-size:17.5px">
+                <b>4.</b> &nbsp; $\dfrac{2a}{n(n + a)(n + 2a)} = \dfrac{1}{n(n + a)} - \dfrac{1}{(n + a)(n + 2a)}$
               </div>
-              <div class="box" style="font-size:15px;line-height:1.7">
-                <p>Áp dụng công thức 1 với $b - a = 1$:</p>
-                <p>$S = \left(1 - \dfrac{1}{2}\right) + \left(\dfrac{1}{2} - \dfrac{1}{3}\right) + \dots + \left(\dfrac{1}{9} - \dfrac{1}{10}\right)$</p>
-                <p>$S = 1 - \dfrac{1}{10} = \dfrac{9}{10} \lt 1$.</p>
-              </div>
-              <div class="callout t-amber mt-auto">
-                <i class="fa-solid fa-lightbulb"></i>
-                <div><b>Lưu ý cho giáo viên:</b> Rèn học sinh kiểm tra <b>hiệu hai thừa số ở mẫu</b> có khớp với tử số
-                  hay không; nếu tử chưa đúng hệ số (như $2$ hoặc $2a$), cần nhân và chia tương ứng trước khi tách.
-                </div>
-              </div>
-            </article>
-          </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -3012,120 +2977,18 @@
               </div>
             </article>
 
-            <div class="stack">
-              <div class="fig">
-  <svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='76.71276 52.800635 228.01869 96.822535' role="img" aria-label="Hình vẽ hình học MathExpress">
-<defs>
-<path id="d1-g0-67" d='M6.939975-6.079203C6.966874-6.1868 6.966874-6.204732 6.966874-6.222665C6.966874-6.231631 6.957908-6.321295 6.859278-6.321295C6.805479-6.321295 6.77858-6.294396 6.715816-6.222665L6.168867-5.621918C6.133001-5.577086 6.097136-5.54122 6.088169-5.54122S6.070237-5.550187 6.016438-5.612951C5.881943-5.792279 5.478456-6.321295 4.545953-6.321295C2.492653-6.321295 .457285-4.33076 .457285-2.286426C.457285-.824907 1.524284 .19726 2.96787 .19726C3.900374 .19726 4.635616-.286924 4.985305-.600747C5.801245-1.327024 5.953674-2.116065 5.953674-2.15193S5.935741-2.25056 5.828144-2.25056C5.729514-2.25056 5.711582-2.196762 5.702615-2.160897C5.263263-.71731 3.981071-.080697 3.084433-.080697C2.214695-.080697 1.291158-.609714 1.291158-1.963636C1.291158-2.367123 1.425654-3.783811 2.331258-4.886675C2.86924-5.532254 3.747945-6.043337 4.608717-6.043337C5.603985-6.043337 6.133001-5.281196 6.133001-4.294894C6.133001-3.990037 6.106102-3.927273 6.106102-3.855542C6.106102-3.756912 6.213699-3.756912 6.240598-3.756912C6.357161-3.756912 6.357161-3.774844 6.401993-3.945205L6.939975-6.079203Z'/>
-<path id="d1-g0-84" d='M3.936239-5.460523C3.990037-5.657783 4.00797-5.747447 4.160399-5.774346C4.23213-5.792279 4.519054-5.792279 4.707347-5.792279C5.738481-5.792279 6.043337-5.729514 6.043337-5.030137C6.043337-4.913574 6.043337-4.779078 5.96264-4.250062L5.953674-4.178331C5.953674-4.115567 5.989539-4.052802 6.079203-4.052802C6.1868-4.052802 6.204732-4.133499 6.222665-4.267995L6.455791-5.819178C6.464757-5.86401 6.473724-5.917808 6.473724-5.944707C6.473724-6.070237 6.38406-6.070237 6.213699-6.070237H1.111831C.896638-6.070237 .887671-6.06127 .824907-5.890909L.268991-4.312827C.233126-4.196264 .233126-4.178331 .233126-4.169365C.233126-4.124533 .260025-4.052802 .349689-4.052802C.448319-4.052802 .466252-4.1066 .52005-4.267995C1.0132-5.66675 1.291158-5.792279 2.591283-5.792279H2.940971C3.19203-5.792279 3.19203-5.76538 3.19203-5.693649C3.19203-5.639851 3.174097-5.577086 3.156164-5.505355L1.95467-.708344C1.873973-.385554 1.847073-.277958 .896638-.277958C.609714-.277958 .529016-.277958 .529016-.116563C.529016 0 .645579 0 .681445 0C.91457 0 1.174595-.017933 1.416687-.017933C1.667746-.017933 1.927771-.026899 2.178829-.026899C2.57335-.026899 2.591283-.026899 2.923039-.017933C3.039601-.017933 3.631382 0 3.703113 0C3.783811 0 3.891407 0 3.891407-.161395C3.891407-.277958 3.81071-.277958 3.58655-.277958S3.254795-.277958 3.012702-.29589C2.806476-.32279 2.698879-.331756 2.698879-.484184C2.698879-.529016 2.716812-.600747 2.734745-.663512L3.936239-5.460523Z'/>
-<path id="d1-g1-49" d='M2.145953-3.795766C2.145953-3.975093 2.122042-3.975093 1.942715-3.975093C1.548194-3.592528 .938481-3.592528 .723288-3.592528V-3.359402C.878705-3.359402 1.273225-3.359402 1.63188-3.526775V-.508095C1.63188-.310834 1.63188-.233126 1.016189-.233126H.759153V0C1.08792-.02391 1.554172-.02391 1.888917-.02391S2.689913-.02391 3.01868 0V-.233126H2.761644C2.145953-.233126 2.145953-.310834 2.145953-.508095V-3.795766Z'/>
-<path id="d1-g1-50" d='M3.21594-1.117808H2.99477C2.982814-1.034122 2.923039-.639601 2.833375-.573848C2.791532-.537983 2.307347-.537983 2.223661-.537983H1.105853L1.870984-1.159651C2.074222-1.321046 2.606227-1.703611 2.791532-1.882939C2.970859-2.062267 3.21594-2.367123 3.21594-2.791532C3.21594-3.53873 2.540473-3.975093 1.739477-3.975093C.968369-3.975093 .430386-3.466999 .430386-2.905106C.430386-2.600249 .687422-2.564384 .753176-2.564384C.902615-2.564384 1.075965-2.67198 1.075965-2.887173C1.075965-3.01868 .998257-3.209963 .735243-3.209963C.872727-3.514819 1.23736-3.741968 1.649813-3.741968C2.27746-3.741968 2.612204-3.275716 2.612204-2.791532C2.612204-2.367123 2.331258-1.93076 1.912827-1.548194L.496139-.251059C.436364-.191283 .430386-.185305 .430386 0H3.030635L3.21594-1.117808Z'/>
-<path id="d1-g1-51" d='M1.75741-1.984558C2.265504-1.984558 2.606227-1.643836 2.606227-1.034122C2.606227-.376588 2.211706-.089664 1.775342-.089664C1.613948-.089664 .998257-.125529 .729265-.472229C.962391-.496139 1.058032-.651557 1.058032-.812951C1.058032-1.016189 .91457-1.153674 .71731-1.153674C.555915-1.153674 .376588-1.052055 .376588-.800996C.376588-.209215 1.034122 .125529 1.793275 .125529C2.677958 .125529 3.269738-.442341 3.269738-1.034122C3.269738-1.470486 2.934994-1.93076 2.223661-2.110087C2.69589-2.265504 3.078456-2.64807 3.078456-3.138232C3.078456-3.616438 2.516563-3.975093 1.799253-3.975093C1.099875-3.975093 .56787-3.652304 .56787-3.162142C.56787-2.905106 .765131-2.833375 .884682-2.833375C1.0401-2.833375 1.201494-2.940971 1.201494-3.150187C1.201494-3.335492 1.069988-3.443088 .908593-3.466999C1.189539-3.777833 1.733499-3.777833 1.787298-3.777833C2.092154-3.777833 2.47472-3.634371 2.47472-3.138232C2.47472-2.809465 2.289415-2.235616 1.691656-2.199751C1.58406-2.193773 1.422665-2.181818 1.368867-2.181818C1.309091-2.175841 1.243337-2.169863 1.243337-2.080199C1.243337-1.984558 1.309091-1.984558 1.41071-1.984558H1.75741Z'/>
-<path id="d1-g1-52" d='M3.371357-.980324V-1.21345H2.67198V-3.855542C2.67198-3.993026 2.67198-4.034869 2.52254-4.034869C2.414944-4.034869 2.402989-4.016936 2.349191-3.945205L.274969-1.21345V-.980324H2.133998V-.502117C2.133998-.304857 2.133998-.233126 1.63188-.233126H1.458531V0C1.578082-.005978 2.139975-.02391 2.402989-.02391S3.227895-.005978 3.347447 0V-.233126H3.174097C2.67198-.233126 2.67198-.304857 2.67198-.502117V-.980324H3.371357ZM2.175841-3.383313V-1.21345H.532005L2.175841-3.383313Z'/>
-<path id="d1-g2-21" d='M5.307098-2.315318C5.425654-2.371108 5.467497-2.426899 5.467497-2.503611S5.425654-2.636115 5.307098-2.691905L1.066999-4.728269C.969365-4.777086 .941469-4.777086 .927522-4.777086C.829888-4.777086 .753176-4.700374 .753176-4.60274C.753176-4.498132 .836862-4.456289 .899626-4.428394L4.902615-2.503611L.934496-.592777C.808966-.536986 .753176-.509091 .753176-.397509C.753176-.320797 .81594-.230137 .927522-.230137C.934496-.230137 .969365-.230137 1.053051-.27198L5.307098-2.315318ZM5.188543 1.30411C5.300125 1.30411 5.467497 1.30411 5.467497 1.136737C5.467497 .962391 5.307098 .962391 5.188543 .962391H1.03213C.913574 .962391 .753176 .962391 .753176 1.136737C.753176 1.30411 .920548 1.30411 1.03213 1.30411H5.188543Z'/>
-<path id="d1-g3-50" d='M3.521793-1.26924H3.284682C3.263761-1.115816 3.194022-.704359 3.103362-.63462C3.047572-.592777 2.510585-.592777 2.412951-.592777H1.129763C1.862017-1.241345 2.106102-1.436613 2.524533-1.764384C3.040598-2.175841 3.521793-2.608219 3.521793-3.270735C3.521793-4.11457 2.782565-4.630635 1.889913-4.630635C1.025156-4.630635 .439352-4.02391 .439352-3.382316C.439352-3.02665 .739228-2.991781 .808966-2.991781C.976339-2.991781 1.17858-3.110336 1.17858-3.361395C1.17858-3.486924 1.129763-3.731009 .767123-3.731009C.983313-4.226152 1.457534-4.379577 1.785305-4.379577C2.48269-4.379577 2.84533-3.835616 2.84533-3.270735C2.84533-2.66401 2.412951-2.182814 2.189788-1.931756L.509091-.27198C.439352-.209215 .439352-.195268 .439352 0H3.312578L3.521793-1.26924Z'/>
-</defs>
-<g id="d1-page1">
-<path d='M117.6641 65.3047C117.6641 58.7266 112.332 53.3984 105.7578 53.3984C99.1797 53.3984 93.8516 58.7266 93.8516 65.3047C93.8516 71.8789 99.1797 77.2109 105.7578 77.2109C112.332 77.2109 117.6641 71.8789 117.6641 65.3047Z' fill='#fde8de'/>
-<path d='M117.6641 65.3047C117.6641 58.7266 112.332 53.3984 105.7578 53.3984C99.1797 53.3984 93.8516 58.7266 93.8516 65.3047C93.8516 71.8789 99.1797 77.2109 105.7578 77.2109C112.332 77.2109 117.6641 71.8789 117.6641 65.3047Z' stroke='#f26522' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#00497f' transform='matrix(1 0 0 1 29.2525 -85.3099)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-84"/>
-<use x='77.1165' y='154.17558' xlink:href="#d1-g1-49"/>
-</g>
-<path d='M174.3555 65.3047C174.3555 58.7266 169.0273 53.3984 162.4492 53.3984C155.875 53.3984 150.543 58.7266 150.543 65.3047C150.543 71.8789 155.875 77.2109 162.4492 77.2109C169.0273 77.2109 174.3555 71.8789 174.3555 65.3047Z' fill='#fde8de'/>
-<path d='M174.3555 65.3047C174.3555 58.7266 169.0273 53.3984 162.4492 53.3984C155.875 53.3984 150.543 58.7266 150.543 65.3047C150.543 71.8789 155.875 77.2109 162.4492 77.2109C169.0273 77.2109 174.3555 71.8789 174.3555 65.3047Z' stroke='#f26522' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#00497f' transform='matrix(1 0 0 1 85.9465 -85.3099)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-84"/>
-<use x='77.1165' y='154.17558' xlink:href="#d1-g1-50"/>
-</g>
-<path d='M231.0505 65.3047C231.0505 58.7266 225.7185 53.3984 219.1445 53.3984S207.2385 58.7266 207.2385 65.3047C207.2385 71.8789 212.5705 77.2109 219.1445 77.2109S231.0505 71.8789 231.0505 65.3047Z' fill='#fde8de'/>
-<path d='M231.0505 65.3047C231.0505 58.7266 225.7185 53.3984 219.1445 53.3984S207.2385 58.7266 207.2385 65.3047C207.2385 71.8789 212.5705 77.2109 219.1445 77.2109S231.0505 71.8789 231.0505 65.3047Z' stroke='#f26522' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#00497f' transform='matrix(1 0 0 1 142.6395 -85.3099)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-84"/>
-<use x='77.1165' y='154.17558' xlink:href="#d1-g1-51"/>
-</g>
-<path d='M287.7425 65.3047C287.7425 58.7266 282.4145 53.3984 275.8355 53.3984C269.2615 53.3984 263.9335 58.7266 263.9335 65.3047C263.9335 71.8789 269.2615 77.2109 275.8355 77.2109C282.4145 77.2109 287.7425 71.8789 287.7425 65.3047Z' fill='#fde8de'/>
-<path d='M287.7425 65.3047C287.7425 58.7266 282.4145 53.3984 275.8355 53.3984C269.2615 53.3984 263.9335 58.7266 263.9335 65.3047C263.9335 71.8789 269.2615 77.2109 275.8355 77.2109C282.4145 77.2109 287.7425 71.8789 287.7425 65.3047Z' stroke='#f26522' fill='none' stroke-width='1.19553' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#00497f' transform='matrix(1 0 0 1 199.3335 -85.3099)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-84"/>
-<use x='77.1165' y='154.17558' xlink:href="#d1-g1-52"/>
-</g>
-<path d='M77.41015 142.9492V118.0547C77.41015 114.7539 80.08594 112.0781 83.3867 112.0781H139.4648C142.7656 112.0781 145.4414 114.7539 145.4414 118.0547V142.9492C145.4414 146.25 142.7656 148.92578 139.4648 148.92578H83.3867C80.08594 148.92578 77.41015 146.25 77.41015 142.9492Z' fill='#fce8ed'/>
-<path d='M77.41015 142.9492V118.0547C77.41015 114.7539 80.08594 112.0781 83.3867 112.0781H139.4648C142.7656 112.0781 145.4414 114.7539 145.4414 118.0547V142.9492C145.4414 146.25 142.7656 148.92578 139.4648 148.92578H83.3867C80.08594 148.92578 77.41015 146.25 77.41015 142.9492Z' stroke='#e11d48' fill='none' stroke-width='1.39478' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#e11d48' transform='matrix(1 0 0 1 34.3205 -25.214)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-67"/>
-<use x='78.318446' y='154.17558' xlink:href="#d1-g1-49"/>
-</g>
-<g fill='#e11d48' transform='matrix(1 0 0 1 33.4525 -11.863)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g2-21"/>
-<use x='80.234915' y='153.179331' xlink:href="#d1-g3-50"/>
-</g>
-<path d='M156.7812 142.9492V118.0547C156.7812 114.7539 159.457 112.0781 162.7578 112.0781H218.8355C222.1365 112.0781 224.8125 114.7539 224.8125 118.0547V142.9492C224.8125 146.25 222.1365 148.92578 218.8355 148.92578H162.7578C159.457 148.92578 156.7812 146.25 156.7812 142.9492Z' fill='#ebf2f7'/>
-<path d='M156.7812 142.9492V118.0547C156.7812 114.7539 159.457 112.0781 162.7578 112.0781H218.8355C222.1365 112.0781 224.8125 114.7539 224.8125 118.0547V142.9492C224.8125 146.25 222.1365 148.92578 218.8355 148.92578H162.7578C159.457 148.92578 156.7812 146.25 156.7812 142.9492Z' stroke='#005b9f' fill='none' stroke-width='1.0959' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#005b9f' transform='matrix(1 0 0 1 113.6915 -20.112)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-67"/>
-<use x='78.318446' y='154.17558' xlink:href="#d1-g1-50"/>
-</g>
-<path d='M236.1525 142.9492V118.0547C236.1525 114.7539 238.8285 112.0781 242.1285 112.0781H298.2075C301.5075 112.0781 304.1835 114.7539 304.1835 118.0547V142.9492C304.1835 146.25 301.5075 148.92578 298.2075 148.92578H242.1285C238.8285 148.92578 236.1525 146.25 236.1525 142.9492Z' fill='#ebf2f7'/>
-<path d='M236.1525 142.9492V118.0547C236.1525 114.7539 238.8285 112.0781 242.1285 112.0781H298.2075C301.5075 112.0781 304.1835 114.7539 304.1835 118.0547V142.9492C304.1835 146.25 301.5075 148.92578 298.2075 148.92578H242.1285C238.8285 148.92578 236.1525 146.25 236.1525 142.9492Z' stroke='#005b9f' fill='none' stroke-width='1.0959' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<g fill='#005b9f' transform='matrix(1 0 0 1 193.0635 -20.112)'>
-<use x='71.74051' y='153.179331' xlink:href="#d1-g0-67"/>
-<use x='78.318446' y='154.17558' xlink:href="#d1-g1-51"/>
-</g>
-<path d='M105.7578 78.9102L103.1953 107.0664' stroke='#e11d48' fill='none' stroke-width='1.0959' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<path d='M102.921669 110.090147L105.781053 105.469053L103.195112 107.066709L100.941194 105.031543' fill='#e11d48'/>
-<path d='M158.1992 78.0586L123.6406 108.0977' stroke='#e11d48' fill='none' stroke-width='1.0959' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<path d='M121.347881 110.089528L126.613498 108.737967L123.640851 108.097341L123.422089 105.066094' fill='#e11d48'/>
-<path d='M214.8905 78.0586L195.2305 107.6836' stroke='#005b9f' fill='none' stroke-width='.99628' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<path d='M193.632326 110.090169L198.112797 107.519875L195.229984 107.683932L194.261224 104.961264' fill='#005b9f'/>
-<path d='M274.4215 78.9102L270.5585 107.2305' stroke='#005b9f' fill='none' stroke-width='.99628' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/>
-<path d='M270.16758 110.089748L273.081629 105.824126L270.558181 107.23038L268.5035 105.199118' fill='#005b9f'/>
-</g>
-</svg>
-  <script type="text/x-tikz" data-fig="d1">
-\begin{tikzpicture}[x=1cm,y=1cm,line join=round,line cap=round,font=\small]
-  % 4 objects on top
-  \foreach \i/\x in {1/1.2, 2/3.2, 3/5.2, 4/7.2} {
-    \fill[mxorange!15] (\x,3.1) circle (0.42);
-    \draw[mxorange,line width=1.2pt] (\x,3.1) circle (0.42);
-    \node[mxblue!80!black,font=\bfseries\small] at (\x,3.1) {$T_{\i}$};
-  }
-
-  % 3 boxes on bottom
-  \fill[mxrose!10,rounded corners=6pt] (0.2,0.15) rectangle (2.6,1.45);
-  \draw[mxrose,line width=1.4pt,rounded corners=6pt] (0.2,0.15) rectangle (2.6,1.45);
-  \node[mxrose,font=\bfseries\small] at (1.4,0.98) {$C_1$};
-  \node[mxrose,font=\scriptsize\bfseries] at (1.4,0.48) {$\ge 2$};
-
-  \fill[mxblue!8,rounded corners=6pt] (3.0,0.15) rectangle (5.4,1.45);
-  \draw[mxblue,line width=1.1pt,rounded corners=6pt] (3.0,0.15) rectangle (5.4,1.45);
-  \node[mxblue,font=\bfseries\small] at (4.2,0.80) {$C_2$};
-
-  \fill[mxblue!8,rounded corners=6pt] (5.8,0.15) rectangle (8.2,1.45);
-  \draw[mxblue,line width=1.1pt,rounded corners=6pt] (5.8,0.15) rectangle (8.2,1.45);
-  \node[mxblue,font=\bfseries\small] at (7.0,0.80) {$C_3$};
-
-  % Arrows from 4 objects into 3 boxes
-  \draw[->,>=stealth,mxrose,line width=1.1pt] (1.2,2.62) -- (1.1,1.52);
-  \draw[->,>=stealth,mxrose,line width=1.1pt] (3.05,2.65) -- (1.75,1.52);
-  \draw[->,>=stealth,mxblue,line width=1.0pt] (5.05,2.65) -- (4.3,1.52);
-  \draw[->,>=stealth,mxblue,line width=1.0pt] (7.15,2.62) -- (7.0,1.52);
-\end{tikzpicture}
-  </script>
-  <div class="fig__caption">Hình 1: 4 con thỏ (T₁–T₄) nhốt vào 3 chuồng (C₁–C₃) — luôn tồn tại ít nhất 1 chuồng chứa từ 2 con trở lên.</div>
-</div>
-              <article class="card tint t-amber" style="padding:14px 16px">
-                <div class="card__head">
-                  <span class="ico ico--sm"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                  <h3 style="font-size:17.5px">Hai điều kiện bắt buộc khi vận dụng</h3>
-                </div>
-                <ul class="list" style="font-size:15px">
-                  <li><b>Số thỏ phải nhiều hơn số chuồng</b> ($a > b$).</li>
-                  <li>Thỏ phải được nhốt hết vào trong chuồng nhưng <b>không bắt buộc</b> chuồng nào cũng phải có thỏ.
-                  </li>
-                </ul>
-              </article>
-            </div>
+            <article class="card tint t-amber">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <h3>Hai điều kiện bắt buộc khi vận dụng</h3>
+                <span class="badge">Cần ghi nhớ</span>
+              </div>
+              <ul class="list" style="font-size:16px;gap:12px">
+                <li><b>Số thỏ phải nhiều hơn số chuồng</b> ($a > b$).</li>
+                <li>Thỏ phải được nhốt hết vào trong chuồng nhưng <b>không bắt buộc</b> chuồng nào cũng phải có thỏ.
+                </li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -3236,7 +3099,7 @@
                   <h3>3 lỗi sai thường gặp của học sinh</h3>
                 </div>
                 <ul class="list" style="font-size:14.5px">
-                  <li>Không nhận ra cách tách phần nguyên đưa phân số về dạng $a + \dfrac{b}{n + c}$.</li>
+                  <li>Học sinh không nhận ra cách đưa phân số về dạng $a + \dfrac{b}{n + c}$.</li>
                   <li><b>Xác định sai điều kiện mẫu số</b> để phân số đạt GTLN hay GTNN (nhầm dấu âm/dương).</li>
                   <li>Tìm được $n$ nhưng <b>quên thay lại</b> vào biểu thức ban đầu để tính giá trị nhỏ nhất.</li>
                 </ul>
@@ -3286,50 +3149,20 @@
             để $P$ có giá trị lớn nhất. Giá trị lớn nhất đó bằng bao nhiêu?
           </div>
 
-          <div class="grid g-45-55">
-            <div class="stack">
-              <div class="compare__bad" style="font-size:14.5px">
-                <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
-                <p>Tách nhầm $4n - 11 = 4(n - 5) - 11$, hoặc tách đúng $P = 4 + \dfrac{9}{n - 5}$ nhưng chọn nhầm
-                  $n - 5 = -1$ (nên $n = 4$, ra $P = -5$). <span class="tag-err">Sai dấu tách hoặc chọn nhầm mẫu
-                    âm</span></p>
-              </div>
-
-              <article class="card tint t-amber" style="padding:14px 16px">
-                <div class="card__head">
-                  <span class="ico ico--sm"><i class="fa-solid fa-scale-balanced"></i></span>
-                  <h3 style="font-size:17px">Quy tắc xét dấu (với $b > 0$)</h3>
-                </div>
-                <div class="rules">
-                  <div class="rule">
-                    <span>Tìm <b>GTNN</b> của $a + \dfrac{b}{n + c}$</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>Mẫu $n + c$ là <b>số nguyên âm lớn nhất</b> ($= -1$)</span>
-                  </div>
-                  <div class="rule">
-                    <span>Tìm <b>GTLN</b> của $a + \dfrac{b}{n + c}$</span>
-                    <i class="fa-solid fa-arrow-right"></i>
-                    <span>Mẫu $n + c$ là <b>số nguyên dương nhỏ nhất</b> ($= 1$)</span>
-                  </div>
-                </div>
-              </article>
+          <div class="compare__good" style="font-size:16.5px;display:flex;flex-direction:column;gap:12px;padding:18px 22px">
+            <h4><i class="fa-solid fa-circle-check"></i> Lời giải chuẩn</h4>
+            <div class="formula ok" style="font-size:17px;padding:12px 14px">
+              $P = \dfrac{4n - 11}{n - 5} = \dfrac{4n - 20 + 20 - 11}{n - 5} = \dfrac{4(n - 5) + 9}{n - 5} = 4 + \dfrac{9}{n - 5}$
             </div>
-
-            <div class="compare__good" style="font-size:15.5px;display:flex;flex-direction:column;gap:8px">
-              <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
-              <div class="formula ok" style="font-size:15px;padding:8px 10px">
-                $P = \dfrac{4n - 11}{n - 5} = \dfrac{4n - 20 + 20 - 11}{n - 5} = \dfrac{4(n - 5) + 9}{n - 5} = 4 + \dfrac{9}{n - 5}$
-              </div>
-              <ul class="list" style="font-size:15px">
-                <li>Để $P$ có giá trị lớn nhất thì $\dfrac{9}{n - 5}$ phải có <b>giá trị dương lớn nhất</b>.</li>
-                <li>Suy ra $n - 5$ là <b>số nguyên dương nhỏ nhất</b>.</li>
-                <li>Suy ra $n - 5 = 1$ hay $n = 6$ (thỏa mãn $n \in \mathbb{Z},\ n \neq 5$).</li>
-                <li>Với $n = 6$ thì $P = \dfrac{4 \cdot 6 - 11}{6 - 5} = \dfrac{13}{1} = 13$.</li>
-              </ul>
-              <div class="callout t-emerald mt-auto">
-                <i class="fa-solid fa-circle-check"></i>
-                <div><b>Kết luận:</b> Giá trị lớn nhất của $P$ là <b>$13$</b> khi <b>$n = 6$</b>.</div>
-              </div>
+            <ul class="list" style="font-size:16px;gap:8px">
+              <li>Để $P$ có giá trị lớn nhất thì $\dfrac{9}{n - 5}$ phải có <b>giá trị dương lớn nhất</b>.</li>
+              <li>Suy ra $n - 5$ là <b>số nguyên dương nhỏ nhất</b>.</li>
+              <li>Suy ra $n - 5 = 1$ hay $n = 6$ (thỏa mãn $n \in \mathbb{Z},\ n \neq 5$).</li>
+              <li>Với $n = 6$ thì $P = \dfrac{4 \cdot 6 - 11}{6 - 5} = \dfrac{13}{1} = 13$.</li>
+            </ul>
+            <div class="callout t-emerald mt-auto">
+              <i class="fa-solid fa-circle-check"></i>
+              <div><b>Kết luận:</b> Giá trị lớn nhất của $P$ là <b>$13$</b> khi <b>$n = 6$</b>.</div>
             </div>
           </div>
         </div>
@@ -3573,12 +3406,6 @@
               </div>
               <p style="font-size:14.5px">Chưa thể hiện đầy đủ tình hình học tập của học sinh. Ghi nhận tại các lớp:
                 <span class="hl">6B3 – CG</span>, <span class="hl">7B1 – CG</span>.</p>
-              <div class="checks">
-                <span><i class="fa-solid fa-check"></i>Tình hình học tập</span>
-                <span><i class="fa-solid fa-check"></i>Mức độ nắm kiến thức</span>
-                <span><i class="fa-solid fa-check"></i>Những điểm làm tốt</span>
-                <span><i class="fa-solid fa-check"></i>Nội dung cần cải thiện</span>
-              </div>
               <div class="evs mt-auto">
                 <a class="ev" href="https://drive.google.com/drive/u/2/folders/1JehZo8AmNSuFkKoxeoXcKGTo5HzcaNg3"
                   target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng nhận xét</a>
@@ -3636,22 +3463,10 @@
         </header>
         <div class="slide__body">
           <div class="stack" style="gap:12px">
-            <article class="card tint t-blue" style="padding:12px 16px">
-              <div class="card__head">
-                <span class="ico ico--sm"><i class="fa-solid fa-table-cells"></i></span>
-                <h3 style="font-size:17.5px">Minh họa nhập điểm thành phần (Điểm danh: Có mặt · Thang 10)</h3>
-                <span class="badge">Bài không làm nhập 0,00</span>
-              </div>
-              <div class="score-strip">
-                <div class="score-cell"><small>Bài 1</small><b>2,00</b></div>
-                <div class="score-cell"><small>Bài 2</small><b>1,75</b></div>
-                <div class="score-cell"><small>Bài 3</small><b>1,50</b></div>
-                <div class="score-cell"><small>Bài 4</small><b>1,50</b></div>
-                <div class="score-cell"><small>Bài 5</small><b>0,25</b></div>
-                <div class="score-cell score-cell--zero"><small>Bài 6</small><b>0,00</b></div>
-                <div class="score-cell score-cell--total"><small>Tổng điểm</small><b>7,00</b></div>
-              </div>
-            </article>
+            <div style="background:#fff;border:1px solid #d5e0ec;border-radius:12px;padding:10px;box-shadow:0 4px 14px rgba(15,33,55,.06)">
+              <img src="minh-hoa-nhap-diem.jpg" alt="Minh họa giao diện nhập điểm thành phần và nhận xét học sinh"
+                style="width:100%;height:auto;display:block;border-radius:6px" />
+            </div>
 
             <table class="guide-tbl">
               <thead>
