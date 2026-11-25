@@ -3409,14 +3409,13 @@
         </div>
       </section>
 
-      <!-- SLIDE 13: 2.6 BÀI TOÁN THỰC TẾ ĐO BÓNG & ĐƠN VỊ -->
-      <section class="slide" data-section="2" aria-label="2.8 Bài toán thực tế đo bóng & Lỗi đổi đơn vị">
+      <!-- SLIDE 13: 2.6 BÀI TOÁN THỰC TẾ & CÁC LỖI THƯỜNG GẶP -->
+      <section class="slide" data-section="2" aria-label="2.8 Bài toán thực tế và các lỗi thường gặp">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.8</span> Bài toán thực tế đo bóng &amp; Lỗi chuyển đổi đơn vị
-              đo</h2>
+            <h2 class="slide__title"><span class="num">2.8</span> Bài toán thực tế &amp; các lỗi thường gặp</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
@@ -3430,30 +3429,31 @@
               </div>
 
               <div class="compare">
-                <div class="card tint t-rose" style="padding:12px 16px">
-                  <h4 style="font-size:15px;color:#881337;margin-bottom:4px"><i
-                      class="fa-solid fa-circle-xmark bad"></i> Sai</h4>
+                <div class="compare__bad" style="padding:12px 14px">
+                  <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
                   <ul class="list" style="font-size:14px">
-                    <li><b>Lỗi 1 (Không đổi đơn vị):</b> $\dfrac{h}{1{,}5} = \dfrac{3{,}2}{60} \implies h = 0{,}08\text{
-                      m}$ <span class="tag-err">Cột đèn cao 8 cm?</span></li>
-                    <li><b>Lỗi 2 (Lập ngược tỉ số):</b> $\dfrac{h}{1{,}5} = \dfrac{0{,}6}{3{,}2} \implies h \approx
-                      0{,}28\text{ m}$ <span class="tag-err">Sai cặp cạnh tương ứng</span></li>
-                    <li><b>Lỗi 3 (Thiếu lập luận):</b> Không chứng minh hai tam giác đồng dạng mà lập ngay tỉ lệ thức.
-                    </li>
+                    <li><b>1. Làm tròn nhiều lần:</b> Tính tỉ số trung gian $\dfrac{BC}{EF} = \dfrac{3{,}2}{0{,}6}
+                      \approx 5{,}3$, rồi tính $h \approx 1{,}5 \cdot 5{,}3 = 7{,}95\text{ m}$ <span
+                        class="tag-err">Sai số ở đáp án cuối</span></li>
+                    <li><b>2. Quên đổi đơn vị:</b> Để nguyên $60\text{ cm}$ tính cùng đơn vị mét: $\dfrac{h}{1{,}5} =
+                      \dfrac{3{,}2}{60}$ nên $h = 0{,}08\text{ m}$ <span class="tag-err">Cột đèn cao 8 cm?</span></li>
+                    <li><b>3. Không vẽ hình:</b> Không vẽ hình minh họa, không gọi tên các điểm nên thiếu căn cứ chứng
+                      minh hai tam giác đồng dạng và dễ ghép sai cặp cạnh tương ứng.</li>
                   </ul>
                 </div>
 
-                <div class="card tint t-emerald" style="padding:12px 16px">
-                  <h4 style="font-size:15px;color:#064e3b;margin-bottom:4px"><i class="fa-solid fa-circle-check ok"></i>
-                    Đúng</h4>
+                <div class="compare__good" style="padding:12px 14px">
+                  <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
                   <div style="font-size:14px;line-height:1.5">
-                    <p>• Đổi đơn vị đồng nhất: bóng của cọc $EF = 60\text{ cm} = 0{,}6\text{ m}$.</p>
-                    <p>• Cùng thời điểm, tia nắng mặt trời xem như song song $\implies \widehat{ACB} = \widehat{DFE} =
-                      \alpha$.</p>
-                    <p>• Vì cột và cọc cùng vuông góc mặt đất $\implies \widehat{ABC} = \widehat{DEF} = 90^\circ$.</p>
-                    <p>• Hai tam giác vuông có một cặp góc nhọn bằng nhau nên $\Delta ABC \vnbacksim \Delta DEF$.</p>
-                    <p>• Suy ra $\dfrac{AB}{DE} = \dfrac{BC}{EF}$, tức là $\dfrac{h}{1{,}5} = \dfrac{3{,}2}{0{,}6}$, nên
-                      $h = \dfrac{1{,}5 \cdot 3{,}2}{0{,}6} = 8\text{ m}$. <span class="tag-ok">Đáp số đúng</span></p>
+                    <p>• <b>Vẽ hình &amp; gọi tên:</b> Mô hình hóa cột đèn $AB$, bóng $BC$; cọc $DE$, bóng $EF$ (Hình 5).
+                    </p>
+                    <p>• <b>Đổi đơn vị đồng nhất:</b> $EF = 60\text{ cm} = 0{,}6\text{ m}$.</p>
+                    <p>• <b>Chứng minh đồng dạng:</b> Vì cột và cọc cùng vuông góc mặt đất nên $\widehat{ABC} =
+                      \widehat{DEF} = 90^\circ$; cùng thời điểm tia nắng song song nên $\widehat{ACB} = \widehat{DFE} =
+                      \alpha$. Suy ra $\Delta ABC \vnbacksim \Delta DEF$ (g.g).</p>
+                    <p>• <b>Giữ phân số đến bước cuối:</b> $\dfrac{AB}{DE} = \dfrac{BC}{EF}$, tức là $\dfrac{h}{1{,}5} =
+                      \dfrac{3{,}2}{0{,}6} = \dfrac{16}{3}$, nên $h = 1{,}5 \cdot \dfrac{16}{3} = 8\text{ m}$. <span
+                        class="tag-ok">Đáp số đúng</span></p>
                   </div>
                 </div>
               </div>
