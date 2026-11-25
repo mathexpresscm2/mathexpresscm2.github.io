@@ -115,7 +115,7 @@ window.INITIAL_PRESENTATIONS = [
     "speaker": "Bộ phận Chuyên môn",
     "date": "2026-11-10",
     "quarter": "Q4-2026",
-    "duration": "60 phút (19 slide tương tác)",
+    "duration": "60 phút (17 slide tương tác)",
     "fileSize": "Interactive HTML Deck (16:9)",
     "pdfUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
     "pptxUrl": "Meeting/Khoi 8/Tuan 20 - Hop khoi 8/index.html",
@@ -137,7 +137,7 @@ window.INITIAL_PRESENTATIONS = [
     ],
     "highlights": [
       "Khung chương trình Buổi 21 – 28 (3 hệ phiếu) cùng mốc Kiểm tra quý II (Buổi 23) và Ôn tập tổng hợp (Buổi 24 thêm).",
-      "Chuyên đề trọng tâm: 5 nhóm lỗi Phân thức đại số, 5 nhóm lỗi Tam giác đồng dạng và phương pháp Sơ đồ phân tích ngược.",
+      "Chuyên đề trọng tâm: 3 nhóm lỗi Phân thức đại số và 5 nhóm lỗi Tam giác đồng dạng.",
       "Rà soát tồn đọng kì khảo sát quý I (tác phong, chấm thi – nhập điểm, điểm danh – nhận xét) và kế hoạch trọng tâm tháng 12: Ôn thi học kì I & Kiểm tra quý II."
     ]
   },

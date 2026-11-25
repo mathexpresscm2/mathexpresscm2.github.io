@@ -720,6 +720,145 @@
       color: var(--c900);
     }
 
+    /* Lịch học & Nền tảng trực tuyến (Slide 4) */
+    .sched-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sched-row {
+      display: grid;
+      grid-template-columns: 62px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 14px;
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-left: 4px solid var(--brand-blue);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px -10px rgba(0, 91, 159, .28);
+    }
+
+    .sched-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 4px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-2));
+      color: #fff;
+      line-height: 1;
+    }
+
+    .sched-date b {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .sched-date small {
+      margin-top: 3px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      opacity: .92;
+    }
+
+    .sched-info h4 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--c900);
+      margin-bottom: 2px;
+    }
+
+    .sched-info p {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .sched-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--c100);
+      border: 1px solid var(--c200);
+      color: var(--c700);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .channel-box {
+      background: #fff;
+      border: 1px solid var(--c200);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .platforms {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .platform {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 11px;
+      border-radius: 11px;
+      border: 1px solid transparent;
+      min-width: 0;
+    }
+
+    .platform svg {
+      flex: none;
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .platform strong {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+
+    .platform small {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: .8;
+      margin-top: 1px;
+    }
+
+    .platform--zoom {
+      background: #f0f7ff;
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .platform--fb {
+      background: #eff6ff;
+      border-color: #c7d2fe;
+      color: #1877f2;
+    }
+
+    .platform--yt {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #dc2626;
+    }
+
     /* Kế hoạch hành động */
     .acts {
       display: grid;
@@ -1985,8 +2124,19 @@
       .compare--narrow-left,
       .acts,
       .checks,
+      .platforms,
       .cover {
         grid-template-columns: 1fr;
+      }
+
+      .sched-row {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .sched-time {
+        grid-column: 1 / -1;
+        justify-self: start;
       }
 
       .rule {
@@ -2132,7 +2282,7 @@
             </div>
             <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 8</span></h1>
             <div class="cover__bar"></div>
-            <p class="cover__lead">Khung chương trình tháng 12 – 01 · Trọng tâm Phân thức &amp; Tam giác đồng dạng ·
+            <p class="cover__lead">Khung chương trình tháng 12 – 01 · Phân thức &amp; Tam giác đồng dạng ·
               Tồn đọng Khảo sát quý I · Ôn thi học kì I &amp; Kiểm tra quý II</p>
             <div class="cover__meta">
               <span><i class="fa-solid fa-graduation-cap"></i> Năm học 2026 – 2027</span>
@@ -2169,8 +2319,8 @@
               <span class="agenda__num">01</span>
               <span class="agenda__text">
                 <h3>Phần 1: Khung chương trình Buổi 21 – 28</h3>
-                <p>Tiến độ Tháng 12/2026 – Tháng 01/2027 theo 3 hệ phiếu: Định hướng Chuyên, Nâng cao, Mở rộng + Cơ
-                  bản; lịch Kiểm tra quý 2 và buổi Ôn tập tổng hợp.</p>
+                <!-- <p>Tiến độ Tháng 12/2026 – Tháng 01/2027 theo 3 hệ phiếu: Định hướng Chuyên, Nâng cao, Mở rộng + Cơ
+                  bản; lịch Kiểm tra quý 2 và buổi Ôn tập tổng hợp.</p> -->
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2178,8 +2328,8 @@
               <span class="agenda__num">02</span>
               <span class="agenda__text">
                 <h3>Phần 2: Một số kiến thức trọng tâm trong thời gian tới</h3>
-                <p>Phân thức đại số (ĐKXĐ, rút gọn, quy đồng, dấu ngoặc, thứ tự phép tính), Tam giác đồng dạng (thứ tự
-                  đỉnh, tỉ số $k$ và $k^2$, c.g.c, c.c.c, tam giác vuông, đo bóng) và Sơ đồ phân tích ngược.</p>
+                <!-- <p>Phân thức đại số (ĐKXĐ, rút gọn, quy đồng, dấu ngoặc, thứ tự phép tính), Tam giác đồng dạng (thứ tự
+                  đỉnh, tỉ số $k$ và $k^2$, c.g.c, c.c.c, tam giác vuông, đo bóng) và Sơ đồ phân tích ngược.</p> -->
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2187,8 +2337,8 @@
               <span class="agenda__num">03</span>
               <span class="agenda__text">
                 <h3>Phần 3: Tồn đọng trong kì khảo sát quý I</h3>
-                <p>Tác phong giảng dạy (điện thoại, vào lớp muộn, thẻ tên), chấm thi – nhập điểm và đối chiếu điểm danh,
-                  nhận xét học sinh.</p>
+                <!-- <p>Tác phong giảng dạy (điện thoại, vào lớp muộn, thẻ tên), chấm thi – nhập điểm và đối chiếu điểm danh,
+                  nhận xét học sinh.</p> -->
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2196,8 +2346,8 @@
               <span class="agenda__num">04</span>
               <span class="agenda__text">
                 <h3>Phần 4: Kế hoạch trong thời gian tới</h3>
-                <p>Triển khai hai nhiệm vụ trọng tâm trong tháng 12/2026: Ôn thi học kì I và tổ chức Kiểm tra quý II
-                  (Buổi 23: 16/12 – 22/12) đồng bộ cho cả 4 hệ lớp.</p>
+                <!-- <p>Triển khai hai nhiệm vụ trọng tâm trong tháng 12/2026: Ôn thi học kì I và tổ chức Kiểm tra quý II
+                  (Buổi 23: 16/12 – 22/12) đồng bộ cho cả 4 hệ lớp.</p> -->
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2228,7 +2378,6 @@
             </div>
             <div class="legend">
               <span><i style="background:#22c55e;border:1px solid #16a34a"></i>Kiểm tra quý 2 (Buổi 23)</span>
-              <span><i style="background:#fef08a;border:1px solid #eab308"></i>Ôn tập tổng hợp (Buổi 24 thêm)</span>
             </div>
           </div>
 
@@ -2284,7 +2433,7 @@
                   <td class="c2">Tam giác đồng dạng (P2) </td>
                   <td class="c3">Phân thức Đại số (P3)</td>
                 </tr>
-                <tr class="row-dec is-review">
+                <tr class="row-dec">
                   <td class="time">30/12 – 31/12</td>
                   <td class="bno">24 thêm</td>
                   <td class="c1">Ôn tập tổng hợp</td>
@@ -2330,7 +2479,7 @@
             <i class="fa-solid fa-circle-info"></i>
             <div>
               <b>Lưu ý:</b> <b>Kiểm tra quý 2</b> diễn ra đồng bộ ở <b>Buổi 23 (16/12 – 22/12)</b> cho cả 4
-              hệ lớp; <b>Buổi 24 thêm (30/12 – 31/12)</b> dành trọn vẹn cho <b>Ôn tập tổng hợp</b>. Hai chuyên đề
+              hệ lớp. Hai chuyên đề
               <b>Phân thức đại số</b> và <b>Tam giác đồng dạng</b> là trọng tâm cốt lõi xuyên suốt Tháng 12/2026 – Tháng
               01/2027 <i></i>.
             </div>
@@ -2347,7 +2496,7 @@
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
-            <h2 class="slide__title"><span class="num">2.1</span> Điều kiện xác định &amp; Lỗi logic "VÀ" với "HOẶC"
+            <h2 class="slide__title"><span class="num">2.1</span> Điều kiện xác định &amp; Lỗi logic "VÀ" - "HOẶC"
             </h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2390,7 +2539,7 @@
             <div class="card tint t-blue">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-code-compare"></i></span>
-                <h3>Sai lầm 2: Lỗi khi tìm ĐKXĐ ("VÀ" với "HOẶC")</h3>
+                <h3>Sai lầm 2: Lỗi khi tìm ĐKXĐ ("VÀ" - "HOẶC")</h3>
                 <!-- <span class="badge bad"><i class="fa-solid fa-xmark"></i> Sai bản chất</span> -->
               </div>
               <div class="box box--soft">
@@ -2548,194 +2697,17 @@
         </div>
       </section>
 
-      <!-- SLIDE 6: 1.4 QUY TẮC DẤU & LỖI DẤU NGOẶC -->
-      <section class="slide" data-section="2" aria-label="2.4 Quy tắc dấu & Lỗi dấu ngoặc">
-        <header class="slide__head">
-          <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
-            <h2 class="slide__title"><span class="num">2.4</span> Quy tắc dấu &amp; Lỗi dấu ngoặc trong phép tính</h2>
-          </div>
-          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
-        </header>
-        <div class="slide__body">
-          <div class="stack">
-            <!-- Tình huống 1 -->
-            <div class="card tint t-amber">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-plus-minus"></i></span>
-                <h3>Tình huống 1: Đổi dấu mẫu đối nhau &amp; lũy thừa chẵn</h3>
-              </div>
-              <div class="box box--soft">
-                <b>Bài toán:</b> Tính $B = \dfrac{x + 2}{x - 3} + \dfrac{x - 8}{3 - x} \quad (x \neq 3)$.
-              </div>
-              <div class="compare">
-                <div class="compare__bad">
-                  <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
-                  <p>Đổi mẫu $3-x \to x-3$ nhưng <b>quên đổi dấu phép tính</b> đằng trước:</p>
-                  <div class="formula bad" style="font-size:15px;margin:4px 0;flex-wrap:wrap">
-                    $B = \dfrac{x+2}{x-3} + \dfrac{x-8}{x-3}$ $= \dfrac{2x-6}{x-3} = 2$
-                  </div>
-                  <p><span class="tag-err">Quên đổi dấu phép tính</span></p>
-                  <p style="font-size:13.5px;color:#881337"><i>Trường hợp khác: Gặp $(3-x)^2$ lại thêm dấu trừ đằng
-                      trước thành
-                      $-(x-3)^2$ (sai lũy thừa chẵn).</i></p>
-                </div>
-                <div class="compare__good">
-                  <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
-                  <p>Áp dụng quy tắc đổi dấu $\dfrac{x-8}{3-x} = -\dfrac{x-8}{x-3}$:</p>
-                  <div class="formula ok" style="font-size:15px;margin:4px 0;flex-wrap:wrap">
-                    $B = \dfrac{x+2}{x-3} - \dfrac{x-8}{x-3}$ $= \dfrac{(x+2) - (x-8)}{x-3}$ $= \dfrac{10}{x-3}$
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tình huống 2 -->
-            <div class="card tint t-rose">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-square-minus"></i></span>
-                <h3>Tình huống 2: Lỗi dấu ngoặc khi trừ phân thức</h3>
-              </div>
-              <div class="box box--soft">
-                <b>Bài toán:</b> Tính $C = \dfrac{4x + 7}{2x - 3} - \dfrac{2x - 5}{2x - 3} \quad \left(x \neq
-                \dfrac{3}{2}\right)$.
-              </div>
-              <div class="compare">
-                <div class="compare__bad">
-                  <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
-                  <p>Chỉ gán dấu trừ cho số hạng đầu tiên của tử thứ hai:</p>
-                  <div class="formula bad" style="font-size:15px;margin:4px 0;flex-wrap:wrap">
-                    $C = \dfrac{4x + 7 - 2x - 5}{2x - 3}$ $= \dfrac{2x + 2}{2x - 3}$
-                  </div>
-                  <p><span class="tag-err">Quên đổi dấu hạng tử $-5$</span></p>
-                  <p style="font-size:13.5px;color:#881337"><i>Học sinh quên rằng dấu trừ đứng trước cả một đa thức!</i>
-                  </p>
-                </div>
-                <div class="compare__good">
-                  <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
-                  <div class="formula ok" style="font-size:15px;margin:4px 0;flex-wrap:wrap">
-                    $C = \dfrac{(4x + 7) - (2x - 5)}{2x - 3}$ $= \dfrac{4x + 7 - 2x + 5}{2x - 3}$ $= \dfrac{2x + 12}{2x
-                    - 3}$
-                  </div>
-                  <!-- <p style="font-size:13.5px;color:#064e3b">Dấu gạch ngang phân thức có chức năng bao trùm như một dấu
-                    ngoặc đơn!</p> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 7: 1.5 THỨ TỰ PHÉP TÍNH & NGHỊCH ĐẢO -->
-      <section class="slide" data-section="2" aria-label="2.5 Thứ tự phép tính trong bài toán tổng hợp">
-        <header class="slide__head">
-          <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
-            <h2 class="slide__title"><span class="num">2.5</span> Thứ tự thực hiện phép tính trong bài toán tổng hợp
-            </h2>
-          </div>
-          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
-        </header>
-        <div class="slide__body">
-          <div class="stack" style="gap:14px">
-            <!-- Hàng 1: Vi phạm thứ tự phép tính -->
-            <div class="card tint t-blue">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-arrow-down-1-9"></i></span>
-                <h3>Sai thứ tự phép tính (Nhân chia trước, Cộng trừ sau)</h3>
-              </div>
-              <div class="box box--soft" style="font-size:17px">
-                <b>Bài toán:</b> Rút gọn $G = \left(\dfrac{1}{x - 1} - \dfrac{1}{x + 1}\right) : \dfrac{2}{x^2 - 1} + x
-                \quad (x \neq \pm 1)$.
-              </div>
-              <div class="compare">
-                <div class="compare__bad" style="font-size:16px">
-                  <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
-                  <p>Thấy $\dfrac{2}{x^2-1} + x$ đứng liền nhau, học sinh cộng trước rồi mới chia:</p>
-                  <p style="margin-top:4px">$G = \dfrac{2}{x^2-1} : \dfrac{x^3 - x + 2}{x^2 - 1}$ $= \dfrac{2}{x^3 - x +
-                    2}$
-                  </p>
-                  <p style="margin-top:4px"><span class="tag-err">Sai thứ tự phép tính</span></p>
-                </div>
-                <div class="compare__good" style="font-size:16px">
-                  <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
-                  <ul class="steps" style="font-size:16px">
-                    <li>
-                      <div><b>Tính trong ngoặc trước:</b> $\dfrac{(x+1)-(x-1)}{x^2-1} = \dfrac{2}{x^2-1}$</div>
-                    </li>
-                    <li>
-                      <div><b>Thực hiện phép chia:</b> $\dfrac{2}{x^2-1} : \dfrac{2}{x^2-1} = 1$</div>
-                    </li>
-                    <li>
-                      <div><b>Thực hiện phép cộng cuối cùng:</b> $G = 1 + x = x + 1$</div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Hàng 2: Lỗi nghịch đảo phép chia -->
-            <div class="card tint t-indigo">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-arrows-split-up-and-left"></i></span>
-                <h3>Hai lỗi nghịch đảo trong phép chia phân thức</h3>
-              </div>
-              <div class="grid g-2">
-                <div class="box box--soft">
-                  <span class="label" style="color:var(--brand-orange);font-size:13.5px">Ví dụ 1: Chia liên tiếp ba phân
-                    thức</span>
-                  <p style="font-size:16.5px">Tính $E = \dfrac{x}{y} : \dfrac{y}{z} : \dfrac{z}{x}$ &nbsp;($x, y, z \neq
-                    0$)</p>
-                  <div class="compare" style="margin-top:6px">
-                    <div class="compare__bad" style="font-size:15.5px;padding:10px 12px">
-                      <p><b class="bad"><i class="fa-solid fa-circle-xmark"></i> Sai:</b> Chia từ phải sang trái:</p>
-                      <p>$E=\dfrac{x}{y} : \left(\dfrac{y}{z} : \dfrac{z}{x}\right)$ $= \dfrac{x}{y} : \dfrac{xy}{z^2}$
-                        $= \dfrac{z^2}{y^2}$</p>
-                      <p><span class="tag-err">Sai thứ tự</span></p>
-                    </div>
-                    <div class="compare__good" style="font-size:15.5px;padding:10px 12px">
-                      <p><b class="ok"><i class="fa-solid fa-circle-check"></i> Đúng:</b> Làm từ trái sang phải:</p>
-                      <p>$E=\left(\dfrac{x}{y} : \dfrac{y}{z}\right) : \dfrac{z}{x}$ $= \dfrac{xz}{y^2} \cdot
-                        \dfrac{x}{z}$ $= \dfrac{x^2}{y^2}$</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="box box--soft">
-                  <span class="label" style="color:var(--brand-blue);font-size:13.5px">Ví dụ 2: Chia cho một đa
-                    thức</span>
-                  <p style="font-size:16.5px">Tính $F = \dfrac{x^2 - 4}{x + 1} : (x - 2)$ &nbsp;($x \neq -1$, $x \neq
-                    2$)</p>
-                  <div class="compare" style="margin-top:6px">
-                    <div class="compare__bad" style="font-size:15.5px;padding:10px 12px">
-                      <p><b class="bad"><i class="fa-solid fa-circle-xmark"></i> Sai:</b> Nhân thẳng vào tử:</p>
-                      <p>$F=\dfrac{(x^2-4)(x-2)}{x+1}$ $= \dfrac{(x+2)(x-2)^2}{x+1}$</p>
-                      <p><span class="tag-err">Chia thành nhân</span></p>
-                    </div>
-                    <div class="compare__good" style="font-size:15.5px;padding:10px 12px">
-                      <p><b class="ok"><i class="fa-solid fa-circle-check"></i> Đúng:</b> Coi $x-2 = \dfrac{x-2}{1}$,
-                        nhân với nghịch đảo:</p>
-                      <p>$F=\dfrac{(x-2)(x+2)}{x+1} \cdot \dfrac{1}{x-2}$ $= \dfrac{x+2}{x+1}$</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- =================================================================
            MỤC 2 (TIẾP): HÌNH HỌC - TAM GIÁC ĐỒNG DẠNG (2.6 – 2.10)
            ================================================================= -->
 
       <!-- SLIDE 8: 2.1 THỨ TỰ ĐỈNH TƯƠNG ỨNG -->
-      <section class="slide" data-section="2" aria-label="2.6 Viết sai thứ tự đỉnh tương ứng">
+      <section class="slide" data-section="2" aria-label="2.4 Viết sai thứ tự đỉnh tương ứng">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.6</span> Viết sai thứ tự đỉnh tương ứng</h2>
+            <h2 class="slide__title"><span class="num">2.4</span> Viết sai thứ tự đỉnh tương ứng</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
@@ -2956,12 +2928,12 @@
       </section>
 
       <!-- SLIDE 9: 2.2 TỈ SỐ K VÀ 1/K -->
-      <section class="slide" data-section="2" aria-label="2.7 Lẫn lộn giữa tỉ số k và 1/k">
+      <section class="slide" data-section="2" aria-label="2.5 Lẫn lộn giữa tỉ số k và 1/k">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.7</span> Sai sót giữa tỉ số đồng dạng $k$ và tỉ số nghịch đảo
+            <h2 class="slide__title"><span class="num">2.5</span> Sai sót giữa tỉ số đồng dạng $k$ và tỉ số nghịch đảo
               $1/k$</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3048,12 +3020,12 @@
       </section>
 
       <!-- SLIDE 10: 2.3 LỖI 3 TRƯỜNG HỢP ĐỒNG DẠNG (c.g.c và c.c.c) -->
-      <section class="slide" data-section="2" aria-label="2.8 Lỗi trong 3 trường hợp đồng dạng">
+      <section class="slide" data-section="2" aria-label="2.6 Lỗi trong 3 trường hợp đồng dạng">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.8</span> Lỗi trong các trường hợp đồng dạng (c.g.c &amp; c.c.c)
+            <h2 class="slide__title"><span class="num">2.6</span> Lỗi trong các trường hợp đồng dạng (c.g.c &amp; c.c.c)
             </h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3288,12 +3260,12 @@
         </div>
       </section>
       <!-- SLIDE 12: 2.5 TỈ SỐ DIỆN TÍCH K^2 -->
-      <section class="slide" data-section="2" aria-label="2.9 Ngộ nhận tỉ số diện tích bằng k">
+      <section class="slide" data-section="2" aria-label="2.7 Ngộ nhận tỉ số diện tích bằng k">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.9</span> Ngộ nhận Tỉ số diện tích bằng Tỉ số đồng dạng ($k$ vs
+            <h2 class="slide__title"><span class="num">2.7</span> Ngộ nhận Tỉ số diện tích bằng Tỉ số đồng dạng ($k$ vs
               $k^2$)</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3437,12 +3409,12 @@
       </section>
 
       <!-- SLIDE 13: 2.6 BÀI TOÁN THỰC TẾ ĐO BÓNG & ĐƠN VỊ -->
-      <section class="slide" data-section="2" aria-label="2.10 Bài toán thực tế đo bóng & Lỗi đổi đơn vị">
+      <section class="slide" data-section="2" aria-label="2.8 Bài toán thực tế đo bóng & Lỗi đổi đơn vị">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.10</span> Bài toán thực tế đo bóng &amp; Lỗi chuyển đổi đơn vị
+            <h2 class="slide__title"><span class="num">2.8</span> Bài toán thực tế đo bóng &amp; Lỗi chuyển đổi đơn vị
               đo</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3653,163 +3625,144 @@
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
         <div class="slide__body">
-          <div class="grid g-2">
-            <article class="card tint t-rose">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-clock"></i></span>
-                <h3>Kỷ luật thời gian &amp; thiết bị</h3>
-                <span class="badge">2 tồn tại</span>
-              </div>
+          <article class="card tint t-rose">
+            <div class="card__head">
+              <span class="ico"><i class="fa-solid fa-chalkboard-user"></i></span>
+              <h3>Tồn đọng trong công tác giảng dạy &amp; tác phong</h3>
+              <span class="badge">Quy định chung CLB</span>
+            </div>
+            <div class="grid g-3">
               <div class="issue">
                 <span class="ico ico--sm"><i class="fa-solid fa-mobile-screen-button"></i></span>
                 <div>
-                  <h4>Dùng điện thoại, laptop cho mục đích cá nhân</h4>
-                  <p>Vẫn còn hiện tượng giáo viên dùng điện thoại, laptop cho việc riêng trong thời gian giảng dạy — gây
-                    mất tập trung và ảnh hưởng đến hình ảnh sư phạm.</p>
+                  <h4>Dùng điện thoại, laptop cho việc cá nhân</h4>
+                  <p>Vẫn còn hiện tượng giáo viên sử dụng điện thoại, laptop cho mục đích cá nhân trong thời gian giảng
+                    dạy — ảnh hưởng đến chất lượng bài giảng và tác phong sư phạm.</p>
                 </div>
               </div>
               <div class="issue">
                 <span class="ico ico--sm"><i class="fa-solid fa-person-walking-arrow-right"></i></span>
                 <div>
-                  <h4>Vào lớp muộn</h4>
+                  <h4>Giáo viên vào lớp muộn</h4>
                   <p>Chưa đảm bảo có mặt tại lớp tối thiểu <b>05 phút</b> trước giờ học, ảnh hưởng đến thời lượng giảng
-                    dạy và tiến độ kế hoạch bài học.</p>
-                  <div class="chips" style="margin-top:8px">
-                    <span class="chips__label">Lớp ghi nhận:</span>
-                    <span class="chip">6B3-MD</span><span class="chip">6A-MD</span>
-                  </div>
+                    dạy và tiến độ thực hiện kế hoạch bài học.</p>
                 </div>
               </div>
-              <div class="callout mt-auto">
-                <i class="fa-solid fa-bullhorn"></i>
-                <div><b>Yêu cầu:</b> Thầy/cô không dùng điện thoại, laptop cho việc riêng trong giờ dạy; chủ động sắp
-                  xếp thời gian để có mặt tại lớp trước 05 phút.</div>
+              <div class="issue">
+                <span class="ico ico--sm"><i class="fa-solid fa-id-badge"></i></span>
+                <div>
+                  <h4>Chưa thực hiện đeo thẻ tên khi lên lớp</h4>
+                  <p>BPCM ghi nhận tình trạng nhiều giáo viên chưa thực hiện đeo thẻ tên khi lên lớp, dù đây là một
+                    trong những quy định bắt buộc của CLB.</p>
+                </div>
               </div>
-            </article>
-
-            <article class="card tint t-amber">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-id-badge"></i></span>
-                <h3>Quy định đeo thẻ tên giáo viên</h3>
-                <span class="badge">Bắt buộc</span>
-              </div>
-              <div class="stat">
-                <b>11+</b>
-                <span>lớp ghi nhận giáo viên chưa đeo thẻ tên khi lên lớp</span>
-              </div>
-              <p style="font-size:var(--fs-sm)">Đeo thẻ tên là quy định chung của CLB nhằm đảm bảo hình ảnh chuyên
-                nghiệp, nhưng BPCM vẫn ghi nhận nhiều giáo viên chưa thực hiện.</p>
-              <div class="chips">
-                <span class="chip">6C1-MD</span><span class="chip">6B4-MD</span><span class="chip">6B1-CG</span>
-                <span class="chip">6A2-CG</span><span class="chip">6A2-LB</span><span class="chip">6C2-LB</span>
-                <span class="chip">6A3-LB</span><span class="chip">6A2-AK</span><span class="chip">6B2-AK</span>
-                <span class="chip">6A3-AK</span><span class="chip">6B1-XL</span><span class="chip">…</span>
-              </div>
-              <div class="callout mt-auto">
-                <i class="fa-solid fa-bullhorn"></i>
-                <div><b>Yêu cầu:</b> Thầy/cô đeo thẻ tên MathExpress trong suốt ca dạy, tại mọi cơ sở.</div>
-              </div>
-            </article>
-          </div>
+            </div>
+            <div class="callout mt-auto">
+              <i class="fa-solid fa-bullhorn"></i>
+              <div><b>Yêu cầu:</b> Thầy/Cô nghiêm túc chấp hành: không dùng điện thoại, laptop cho mục đích cá nhân
+                trong giờ dạy; chủ động sắp xếp thời gian có mặt tại lớp trước tối thiểu <b>05 phút</b> để ổn định lớp
+                học; thực hiện đeo thẻ tên đầy đủ trong suốt quá trình giảng dạy nhằm đảm bảo hình ảnh chuyên nghiệp và
+                tuân thủ đúng quy định chung của CLB.</div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- ==================== 1.2 CHẤM THI & NHẬP ĐIỂM ==================== -->
+      <!-- ==================== 3.2 CHẤM THI & NHẬP ĐIỂM ==================== -->
       <section class="slide" data-section="3" aria-label="3.2 Khảo sát Quý I: chấm thi và nhập điểm">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I <span
-                class="pill">Tồn đọng 1 – 4 / 8</span></div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I</div>
             <h2 class="slide__title"><span class="num">3.2</span> Khảo sát Quý I: chấm thi &amp; nhập điểm</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
         <div class="slide__body">
           <div class="grid g-3">
-            <article class="card tint t-rose">
+            <article class="card tint t-blue">
               <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-file-circle-xmark"></i></span>
-                <h3>Chấm bài sai lệch</h3>
-                <span class="nos" title="Tồn đọng số 1"><span class="no">1</span></span>
+                <span class="ico"><i class="fa-solid fa-hourglass-half"></i></span>
+                <h3>Chậm timeline nhập điểm &amp; nhận xét</h3>
               </div>
-              <ul class="list">
-                <li><b>Chấm sai thành đúng:</b> lớp <span class="hl">6A1-CG</span> ghi nhận 15 lỗi tương tự ở bài 5a
-                  (lớp Nâng cao); lớp <span class="hl">6T3B-Online</span>.</li>
-                <li><b>Chấm đúng thành sai:</b> lớp <span class="hl">6T3B-Online</span> — ảnh hưởng trực tiếp đến điểm
-                  số và kết quả đánh giá học sinh.</li>
-              </ul>
-              <div class="callout">
+              <p>Chưa hoàn thành nhập điểm và nhận xét học sinh theo đúng timeline CLB yêu cầu, gây ảnh hưởng đến tiến
+                độ tổng hợp và kiểm soát kết quả.</p>
+              <div class="chips">
+                <span class="chips__label">Lớp ghi nhận:</span>
+                <span class="chip">8T4 – Online</span><span class="chip">8A2-HBT</span><span class="chip">8.2A2
+                  -LH</span><span class="chip">8T2C – Online</span>
+              </div>
+              <div class="callout mt-auto">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Đối chiếu kỹ bài làm với đáp án, kiểm tra lại từng bước trước khi cho điểm.</div>
+                <div><b>Yêu cầu:</b> Tuyệt đối tuân thủ timeline CLB; hoàn thành nhập điểm và nhận xét đúng hạn để kịp
+                  tiến độ báo cáo.</div>
               </div>
-              <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/folders/10kE4Hq4gOq7qxaP28brA6LbwkO512cCG"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (1)</a>
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1k-DmCdNkxSfID--rrxab0RVSAkl_ZTyF"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Sai → đúng (2)</a>
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1Z4iArtDCZTY2VVFUs88haRE8-MKbIZ5Q"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Đúng → sai</a>
+              <div class="evs">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1kx2JI3hzb615wOontkFQfRaQAm3abpgr"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng trễ timeline</a>
               </div>
             </article>
 
             <article class="card tint t-orange">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-spell-check"></i></span>
-                <h3>Lệch &amp; thiếu điểm thành phần</h3>
-                <span class="nos" title="Tồn đọng số 2 và 3"><span class="no">2</span><span class="no">3</span></span>
+                <h3>Lệch điểm bài thi &amp; phần mềm</h3>
               </div>
-              <ul class="list">
-                <li><b>Lệch điểm:</b> điểm thành phần trên bài thi không khớp với điểm trên phần mềm — lớp <span
-                    class="hl">6B3-HD</span> có <b>19 lỗi</b>.</li>
-                <li><b>Nhập thiếu điểm:</b> câu học sinh không làm được bị <b>bỏ trống</b> thay vì nhập <b>0 điểm</b>.
-                </li>
-              </ul>
-              <div class="callout">
-                <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Đối chiếu bài giấy với phần mềm trước khi chốt điểm; câu không làm nhập <b>0
-                    điểm</b>, không để trống.</div>
-              </div>
-              <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/15cEMaThWH8JwdyaOGJCgjH5n04pY95we"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>19 lỗi lệch điểm · 6B3-HD</a>
-              </div>
-            </article>
-
-            <article class="card tint t-blue">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-hourglass-half"></i></span>
-                <h3>Trễ timeline nhập điểm &amp; nhận xét</h3>
-                <span class="nos" title="Tồn đọng số 4"><span class="no">4</span></span>
-              </div>
-              <p>Chưa hoàn thành nhập điểm và nhận xét theo đúng timeline CLB, làm chậm tiến độ tổng hợp và kiểm soát
-                kết quả toàn hệ thống.</p>
+              <p>Giáo viên nhập điểm thành phần trên bài làm của học sinh không trùng khớp với điểm đã cập nhật trên hệ
+                thống phần mềm.</p>
               <div class="chips">
                 <span class="chips__label">Lớp ghi nhận:</span>
-                <span class="chip">6A-MD</span><span class="chip">6A3-MD</span><span class="chip">6A1-HD</span>
-                <span class="chip">6A1-AK</span><span class="chip">6B2-HBT</span><span class="chip">6.3B2-LH</span>
+                <span class="chip">8A2-HBT</span>
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Hoàn tất nhập điểm &amp; nhận xét đúng hạn theo timeline CLB đã thông báo.</div>
+                <div><b>Yêu cầu:</b> Đối chiếu kỹ lưỡng từng điểm thành phần trên bài làm bằng giấy với hệ thống phần
+                  mềm trước khi chốt điểm.</div>
+              </div>
+              <div class="evs">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/19p2QUCZecjD0-Eh_JzyeZS_9JQUrQb3y"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng lệch điểm ·
+                  8A2-HBT</a>
+              </div>
+            </article>
+
+            <article class="card tint t-rose">
+              <div class="card__head">
+                <span class="ico"><i class="fa-solid fa-file-circle-xmark"></i></span>
+                <h3>Nhập thiếu điểm thành phần</h3>
+              </div>
+              <p>Chưa nhập đầy đủ điểm thành phần của các bài trong bài thi. Những bài học sinh không làm được hoặc
+                không có điểm bị để trống thay vì nhập 0 điểm.</p>
+              <div class="chips">
+                <span class="chips__label">Lớp ghi nhận:</span>
+                <span class="chip">8A1-HD</span>
+              </div>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Nhập <b>0 điểm</b> thay vì để trống, nhằm đảm bảo đầy đủ và chính xác dữ liệu điểm
+                  trên hệ thống.</div>
+              </div>
+              <div class="evs">
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1xgEK446GlisVn7-24p9alh-o-o2SKYH8"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng thiếu điểm ·
+                  8A1-HD</a>
               </div>
             </article>
           </div>
 
           <div class="banner t-amber">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <div><b class="lead">Quy tắc chấm thi bắt buộc:</b> đối chiếu kỹ từng câu, kiểm tra lại phép tính của học
-              sinh trước khi cho điểm. Không để xảy ra chấm đúng thành sai (hoặc ngược lại), không để lệch điểm giữa bài
-              giấy và phần mềm.</div>
+            <div><b class="lead">Quy tắc nhập điểm bắt buộc:</b> Đối chiếu chính xác điểm thành phần trên bài làm của
+              học sinh với phần mềm hệ thống. Những bài không làm được bắt buộc nhập <b>0 điểm</b> (không để trống).
+              Hoàn thành nhập điểm đúng tiến độ timeline quy định.</div>
           </div>
         </div>
       </section>
 
-      <!-- ==================== 1.3 ĐIỂM DANH & NHẬN XÉT ==================== -->
+      <!-- ==================== 3.3 ĐIỂM DANH & NHẬN XÉT ==================== -->
       <section class="slide" data-section="3" aria-label="3.3 Khảo sát Quý I: điểm danh và nhận xét">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I <span
-                class="pill">Tồn đọng 5 – 8 / 8</span></div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Tồn đọng trong kì khảo sát quý I</div>
             <h2 class="slide__title"><span class="num">3.3</span> Khảo sát Quý I: điểm danh &amp; nhận xét</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3819,22 +3772,26 @@
             <article class="card tint t-rose">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-user-xmark"></i></span>
-                <h3>Điểm danh không khớp với bài thi</h3>
-                <span class="nos" title="Tồn đọng số 5 và 6"><span class="no">5</span><span class="no">6</span></span>
+                <h3>Sai sót trong điểm danh &amp; chấm bài thi</h3>
               </div>
               <ul class="list">
-                <li><b>Vắng mặt nhưng vẫn có điểm &amp; nhận xét:</b> lớp <span class="hl">6B1-CG</span> có <b>04 trường
-                    hợp</b> học sinh được điểm danh vắng nhưng vẫn được nhập điểm, nhận xét.</li>
-                <li><b>Có bài thi nhưng không có trong file điểm danh:</b> học sinh đã làm bài nhưng không được nhập
-                  điểm và nhận xét.</li>
+                <li><b>Vắng mặt nhưng vẫn có điểm &amp; nhận xét:</b> Lớp <span class="hl">8T2C</span> có 01 HS điểm
+                  danh vắng mặt nhưng vẫn được nhập điểm và nhận xét — chưa thống nhất giữa điểm danh và đánh giá.</li>
+                <li><b>Đã nghỉ học nhưng vẫn nhập điểm:</b> Lớp <span class="hl">8B2 -LD</span> có HS đã nghỉ học chính
+                  thức nhưng giáo viên vẫn tiếp tục nhập điểm và nhận xét trong file theo dõi.</li>
+                <li><b>Có bài thi nhưng không có trong file điểm danh:</b> Chưa đối chiếu danh sách dự thi với file điểm
+                  danh, dẫn đến HS có bài thi nhưng không được nhập điểm và nhận xét.</li>
               </ul>
               <div class="callout">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Đối chiếu danh sách dự thi với file điểm danh trước khi nhập điểm, nhận xét.</div>
+                <div><b>Yêu cầu:</b> Đối chiếu chặt chẽ danh sách dự thi với file điểm danh; cập nhật đúng tình trạng
+                  học tập thực tế.</div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1aAIqSsfJA4dCtp17yTC7Vsql6Owy0B3m"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B1-CG</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1DeX0bQLMFIlE2HTocq-dMczGkDf3i8aZ"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Vắng vẫn có điểm · 8T2C</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1roM67mMwyf0B9AUmQwxwGfszFIGJq_91"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Đã nghỉ vẫn nhập · 8B2-LD</a>
               </div>
             </article>
 
@@ -3842,44 +3799,45 @@
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-comment-slash"></i></span>
                 <h3>Nhận xét sơ sài, chưa bám tiêu chí CLB</h3>
-                <span class="nos" title="Tồn đọng số 7"><span class="no">7</span></span>
               </div>
-              <p>Nội dung nhận xét chưa đầy đủ, chưa thể hiện rõ tình hình học tập của học sinh. Ghi nhận tại lớp <span
-                  class="hl">6B3-CG</span>.</p>
+              <p>Nội dung nhận xét chưa đầy đủ, chưa thể hiện rõ tình hình học tập của học sinh, mức độ nắm bắt kiến
+                thức, những điểm học sinh làm tốt và những nội dung cần cải thiện.</p>
               <div>
-                <span class="label">Nhận xét cần thể hiện đủ</span>
+                <span class="label">4 tiêu chí nhận xét CLB yêu cầu:</span>
                 <div class="checks">
                   <span><i class="fa-solid fa-check"></i>Tình hình học tập</span>
-                  <span><i class="fa-solid fa-check"></i>Mức độ nắm bắt kiến thức</span>
+                  <span><i class="fa-solid fa-check"></i>Mức độ nắm kiến thức</span>
                   <span><i class="fa-solid fa-check"></i>Những điểm làm tốt</span>
                   <span><i class="fa-solid fa-check"></i>Nội dung cần cải thiện</span>
                 </div>
               </div>
-              <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1JehZo8AmNSuFkKoxeoXcKGTo5HzcaNg3"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B3-CG</a>
+              <div class="callout mt-auto">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <div><b>Yêu cầu:</b> Bám sát 4 tiêu chí; viết nhận xét cụ thể, rõ ràng, mang tính định hướng cho học
+                  sinh.</div>
               </div>
             </article>
 
             <article class="card tint t-slate">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-clipboard-user"></i></span>
-                <h3>Chưa thực hiện điểm danh</h3>
-                <span class="nos" title="Tồn đọng số 8"><span class="no">8</span></span>
+                <h3>Chưa thực hiện công tác điểm danh</h3>
               </div>
-              <p>Chưa cập nhật đầy đủ thông tin điểm danh theo quy định, gây khó khăn cho việc theo dõi chuyên cần và
-                tổng hợp dữ liệu lớp.</p>
+              <p>Giáo viên chưa cập nhật đầy đủ thông tin điểm danh của học sinh theo quy định, gây ảnh hưởng đến việc
+                theo dõi tình hình chuyên cần và tổng hợp dữ liệu lớp.</p>
               <div class="chips">
                 <span class="chips__label">Lớp ghi nhận:</span>
-                <span class="chip">6.4A-LH</span><span class="chip">6A1-HD</span>
+                <span class="chip">8B1-HD</span><span class="chip">8C2-HBT</span>
               </div>
               <div class="callout">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Hoàn thành điểm danh ngay trong ca học.</div>
+                <div><b>Yêu cầu:</b> Hoàn thành cập nhật điểm danh đầy đủ, chuẩn xác ngay trong ca học/kỳ khảo sát.
+                </div>
               </div>
               <div class="evs mt-auto">
-                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1LDnxRt1QOSnLSWSVcCHWx_hOQbR5OhD1"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng chưa điểm danh</a>
+                <a class="ev" href="https://drive.google.com/drive/u/2/folders/1A64frBSn4eNvvjP8c3UlLiiCcbXO6Phg"
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Chưa điểm danh · 8B1-HD,
+                  8C2-HBT</a>
               </div>
             </article>
 
@@ -3887,23 +3845,23 @@
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-user-tag"></i></span>
                 <h3>Quy chuẩn điểm danh HS nghỉ học &amp; HSM</h3>
-                <span class="badge">Lưu ý nghiệp vụ</span>
               </div>
               <div class="rules">
                 <div class="rule">
-                  <span>HS đã nghỉ học nhưng vẫn có tên trong danh sách</span>
+                  <span>Học sinh đã nghỉ học nhưng vẫn có tên trong danh sách điểm danh</span>
                   <i class="fa-solid fa-arrow-right"></i>
-                  <span>Tick <b>“Vắng mặt”</b>, không để trống điểm danh</span>
+                  <span>Tick <b>“Vắng mặt”</b> đối với HS này, đảm bảo dữ liệu cập nhật đầy đủ, không để trống</span>
                 </div>
                 <div class="rule">
-                  <span>Học sinh mới (HSM) có đi học nhưng không thi</span>
+                  <span>Học sinh mới (HSM) có đi học nhưng không tham gia thi</span>
                   <i class="fa-solid fa-arrow-right"></i>
-                  <span>Tick <b>“Có mặt”</b> và ghi chú <b>“HSM – không tham gia thi”</b> ở cột ghi chú</span>
+                  <span>Tick <b>“Có mặt”</b> và ghi chú <b>“HSM – không tham gia thi”</b> vào cột ghi chú</span>
                 </div>
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-circle-info"></i>
-                <div>Hiện nhiều giáo viên đang <b>bỏ trống</b> điểm danh của học sinh đã nghỉ học.</div>
+                <div>Nhiều GV hiện bỏ trống điểm danh HS đã nghỉ học. Việc thiếu ghi chú HSM gây khó khăn cho việc rà
+                  soát và đối chiếu kết quả.</div>
               </div>
             </article>
           </div>
@@ -3929,35 +3887,60 @@
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-book-open-reader"></i></span>
                 <h3>Ôn thi học kì I</h3>
-                <span class="badge"><i class="fa-solid fa-book"></i>Tháng 12/2026</span>
+                <span class="badge"><i class="fa-solid fa-video"></i>Lớp học miễn phí</span>
               </div>
-              <div class="issue">
-                <span class="ico ico--sm"><i class="fa-solid fa-layer-group"></i></span>
-                <div>
-                  <h4>Hệ thống hóa kiến thức trọng tâm Học kì I</h4>
-                  <p>Tổng hợp mạch kiến thức Toán 8 (SGK Kết nối tri thức): <b>Đa thức, Hằng đẳng thức &amp; phân tích
-                      đa thức thành nhân tử</b>; <b>Tứ giác</b>, <b>Định lí Thalès</b>, đường trung bình và tính chất
-                    đường phân giác.</p>
+
+              <div class="sched-list">
+                <div class="sched-row">
+                  <div class="sched-date"><b>02</b><small>Thg 12</small></div>
+                  <div class="sched-info">
+                    <h4>Buổi 1 · Ôn tập Học kì I</h4>
+                    <p>Thứ Tư, ngày 02/12/2026</p>
+                  </div>
+                  <span class="sched-time"><i class="fa-regular fa-clock"></i>19h30 – 21h30</span>
+                </div>
+                <div class="sched-row">
+                  <div class="sched-date"><b>16</b><small>Thg 12</small></div>
+                  <div class="sched-info">
+                    <h4>Buổi 2 · Ôn tập Học kì I</h4>
+                    <p>Thứ Tư, ngày 16/12/2026</p>
+                  </div>
+                  <span class="sched-time"><i class="fa-regular fa-clock"></i>19h30 – 21h30</span>
                 </div>
               </div>
-              <div class="issue">
-                <span class="ico ico--sm"><i class="fa-solid fa-pen-ruler"></i></span>
-                <div>
-                  <h4>Rèn kỹ năng làm bài &amp; tránh lỗi mất điểm</h4>
-                  <p>Hướng dẫn học sinh trình bày chặt chẽ theo cấu trúc đề thi cuối kì trên trường; lưu ý các lỗi dễ
-                    mắc như nhầm dấu khi biến đổi, thiếu căn cứ lập luận hình học và <b>không dùng Hệ quả Thalès</b>.
-                  </p>
+
+              <div class="channel-box">
+                <span class="label"><i class="fa-solid fa-tower-broadcast" style="margin-right:6px"></i>Hình thức: Miễn
+                  phí trực tuyến &amp; phát đồng thời</span>
+                <div class="platforms">
+                  <div class="platform platform--zoom">
+                    <svg viewBox="0 0 28 28" aria-hidden="true">
+                      <rect width="28" height="28" rx="7" fill="#2D8CFF" />
+                      <path
+                        d="M6.5 10.2A1.7 1.7 0 0 1 8.2 8.5h7.6a1.7 1.7 0 0 1 1.7 1.7v7.6a1.7 1.7 0 0 1-1.7 1.7H8.2a1.7 1.7 0 0 1-1.7-1.7v-7.6Zm12.1 2.2 3.7-2.6a.7.7 0 0 1 1.1.56v7.28a.7.7 0 0 1-1.1.56l-3.7-2.6v-3.2Z"
+                        fill="#fff" />
+                    </svg>
+                    <div><strong>Zoom</strong><small>Trực tuyến</small></div>
+                  </div>
+                  <div class="platform platform--fb">
+                    <svg viewBox="0 0 28 28" aria-hidden="true">
+                      <circle cx="14" cy="14" r="14" fill="#1877F2" />
+                      <path
+                        d="M19.3 18.1l.6-4h-3.8v-2.6c0-1.1.5-2.2 2.2-2.2H20V5.9s-1.6-.3-3-.3c-3.1 0-5.1 1.9-5.1 5.2v3.3H8.5v4h3.4V27.8c.7.1 1.4.2 2.1.2s1.4-.1 2.1-.2v-9.7h3.2z"
+                        fill="#fff" />
+                    </svg>
+                    <div><strong>Facebook</strong><small>Phát trực tiếp</small></div>
+                  </div>
+                  <div class="platform platform--yt">
+                    <svg viewBox="0 0 28 28" aria-hidden="true">
+                      <rect x="1" y="4.5" width="26" height="19" rx="5.5" fill="#FF0000" />
+                      <path d="M11.5 10.2 18.8 14l-7.3 3.8v-7.6Z" fill="#fff" />
+                    </svg>
+                    <div><strong>YouTube</strong><small>Phát trực tiếp</small></div>
+                  </div>
                 </div>
               </div>
-              <div class="issue">
-                <span class="ico ico--sm"><i class="fa-solid fa-users"></i></span>
-                <div>
-                  <h4>Phân hóa hỗ trợ theo từng hệ lớp</h4>
-                  <p>Củng cố chắc kiến thức nền và dạng bài cốt lõi cho hệ Cơ bản – Mở rộng; tăng cường bài toán vận
-                    dụng, lập luận tổng hợp cho hệ Nâng cao – Định hướng Chuyên và kịp thời bổ sung lỗ hổng kiến thức.
-                  </p>
-                </div>
-              </div>
+
               <div class="callout mt-auto">
                 <i class="fa-solid fa-bullseye"></i>
                 <div><b>Mục tiêu:</b> Giúp học sinh nắm vững kiến thức Học kì I, tự tin làm bài thi cuối kì trên trường
@@ -3977,16 +3960,6 @@
                   <h4>Thời gian &amp; phạm vi tổ chức</h4>
                   <p>Triển khai <b>Kiểm tra quý II</b> đồng bộ tại <b>Buổi 23 (16/12 – 22/12/2026)</b> cho cả <b>4 hệ
                       lớp</b>: Phiếu 1 (Định hướng chuyên), Phiếu 2 (Nâng cao), Phiếu 3 + 4 (Mở rộng + Cơ bản).</p>
-                </div>
-              </div>
-              <div class="issue">
-                <span class="ico ico--sm"><i class="fa-solid fa-square-check"></i></span>
-                <div>
-                  <h4>Gắn tiến độ giảng dạy &amp; ôn tập tổng hợp</h4>
-                  <p>Đảm bảo tiến độ <b>Phân thức đại số</b> và <b>Tam giác đồng dạng</b> (Buổi 21 – 22) theo từng hệ
-                    phiếu trước kì kiểm tra; dành <b>Buổi 24 thêm (30/12 – 31/12)</b> để ôn tập tổng hợp và khắc phục
-                    lỗi
-                    sai sau thi.</p>
                 </div>
               </div>
               <div class="issue">
@@ -4013,41 +3986,24 @@
       <section class="slide" data-section="qa" aria-label="Q&amp;A - Trao đổi và giải đáp">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num"><i class="fa-solid fa-comments"></i></span>Trao đổi &amp; giải đáp</div>
-            <h2 class="slide__title">Q&amp;A · Thảo luận chuyên môn Khối 8</h2>
+            <div class="eyebrow"><span class="eyebrow__num"><i class="fa-solid fa-comments"></i></span>Trao đổi &amp;
+              giải đáp</div>
+            <h2 class="slide__title">Q&amp;A · Giải đáp thắc mắc</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
         <div class="slide__body">
-          <div class="grid g-2">
-            <article class="card tint t-blue">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-chalkboard-user"></i></span>
-                <h3>Chuyên môn &amp; phương pháp giảng dạy</h3>
-                <span class="badge">Phân thức &amp; Đồng dạng</span>
-              </div>
-              <ul class="list">
-                <li>Những vướng mắc thực tế khi triển khai dạy <b>Phân thức đại số</b> và <b>Tam giác đồng dạng</b> theo từng hệ lớp (Định hướng Chuyên, Nâng cao, Mở rộng – Cơ bản).</li>
-                <li>Cách xử lí khi học sinh vẫn nhầm lẫn ĐKXĐ, quy đồng chưa rút gọn, sai thứ tự đỉnh hoặc nhầm tỉ số $k$ với $k^2$.</li>
-              </ul>
-            </article>
-
-            <article class="card tint t-emerald">
-              <div class="card__head">
-                <span class="ico"><i class="fa-solid fa-calendar-check"></i></span>
-                <h3>Ôn thi học kì I &amp; Kiểm tra quý II</h3>
-                <span class="badge">Tháng 12/2026</span>
-              </div>
-              <ul class="list">
-                <li>Đề xuất bổ sung dạng bài hoặc lưu ý trọng tâm cho giai đoạn <b>Ôn thi học kì I</b> trên trường.</li>
-                <li>Thống nhất phối hợp tổ chức, coi thi, chấm bài và nhập điểm – nhận xét cho kì <b>Kiểm tra quý II (Buổi 23: 16/12 – 22/12)</b>.</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="banner t-orange" style="margin-top:16px">
-            <i class="fa-solid fa-microphone"></i>
-            <div style="flex:1"><b class="lead">Mời quý thầy cô đặt câu hỏi &amp; chia sẻ ý kiến:</b> mọi góp ý về bài giảng, phiếu bài tập và công tác tổ chức lớp sẽ được Bộ phận Chuyên môn ghi nhận và giải đáp trực tiếp.</div>
+          <div
+            style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;margin:auto">
+            <div style="font-size:110px;color:var(--brand-orange);line-height:1;opacity:0.85">
+              <i class="fa-regular fa-circle-question"></i>
+            </div>
+            <h3 style="font-size:40px;font-weight:800;color:var(--brand-blue);margin:0">
+              Thầy/Cô có câu hỏi hay đóng góp ý kiến nào không ạ?
+            </h3>
+            <p style="font-size:20px;color:var(--muted);max-width:760px;line-height:1.6;margin:0">
+              Bộ phận Chuyên môn luôn sẵn sàng lắng nghe chia sẻ và giải đáp mọi thắc mắc từ Quý Thầy/Cô.
+            </p>
           </div>
         </div>
       </section>
@@ -4073,7 +4029,7 @@
   <nav class="nav" id="slideNav" aria-label="Điều hướng trình chiếu">
     <button type="button" id="prevBtn" title="Slide trước (←, Backspace)"><i
         class="fa-solid fa-chevron-left"></i></button>
-    <span class="nav__count" id="slideCounter">1 / 19</span>
+    <span class="nav__count" id="slideCounter">1 / 17</span>
     <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→, Space, Enter)"><i
         class="fa-solid fa-chevron-right"></i></button>
     <span class="nav__sep"></span>
