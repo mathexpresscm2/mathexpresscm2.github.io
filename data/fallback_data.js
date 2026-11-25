@@ -1,5 +1,60 @@
 window.INITIAL_PRESENTATIONS = [
   {
+    "id": "pres-khoi6-tuan22",
+    "title": "Tuần 22 - Họp giáo viên khối 6",
+    "category": "Khối 6",
+    "audience": "Giáo viên",
+    "audienceBadge": "GV Khối 6",
+    "speaker": "Bộ phận Chuyên môn",
+    "date": "2026-11-25",
+    "quarter": "Q4-2026",
+    "duration": "60 phút (17 slide tương tác)",
+    "fileSize": "Interactive HTML Deck (16:9)",
+    "pdfUrl": "Meeting/Khoi 6/Tuan 22 - Khoi 6,7/6 +7.pdf",
+    "pptxUrl": "Meeting/Khoi 6/Tuan 22 - Khoi 6,7/index.html",
+    "webViewerUrl": "Meeting/Khoi 6/Tuan 22 - Khoi 6,7/index.html",
+    "summary": "Họp chuyên môn Khối 6 tháng 12/2026: Khung chương trình Buổi 20 – 27 theo 3 hệ phiếu; Kiến thức trọng tâm Phân số (tính chất cơ bản, quy đồng, bốn phép toán, so sánh dãy phân số) và Nguyên lí Dirichlet; Dạng bài tìm n nguyên để phân số đạt GTNN – GTLN; Tồn đọng Khảo sát quý I & mẫu nhận xét Khối 6; Kế hoạch Ôn thi học kì I và Kiểm tra quý II.",
+    "featured": true,
+    "tags": [
+      "Khối 6",
+      "Toán 6",
+      "Họp giáo viên",
+      "Tuần 22",
+      "Phân số",
+      "So sánh dãy phân số",
+      "Nguyên lí Dirichlet",
+      "GTLN - GTNN",
+      "Khảo sát quý I",
+      "Ôn thi học kì I",
+      "Kiểm tra quý II",
+      "SGK Kết nối tri thức"
+    ],
+    "slides": [
+      {
+        "page": 1,
+        "title": "Họp Chuyên Môn Khối 6 – Tháng 12/2026",
+        "subtitle": "Khung chương trình Buổi 20 – 27 & Trọng tâm Phân số, Nguyên lí Dirichlet",
+        "content": "<ul><li><strong>Khung chương trình:</strong> Tiến độ Buổi 20 – 27 (Tháng 12/2026 – 01/2027) cho 3 hệ phiếu (Định hướng chuyên, Nâng cao, Mở rộng + Cơ bản), mốc Kiểm tra quý II ở Buổi 22 (16/12 – 22/12).</li><li><strong>Kiến thức trọng tâm:</strong> Phân số và tính chất cơ bản, quy trình 3 bước quy đồng mẫu số – so sánh phân số, bốn phép toán phân số, 4 công thức tách so sánh dãy phân số và Nguyên lí Dirichlet (kèm sơ đồ TikZ minh họa).</li><li><strong>Dạng bài thường gặp:</strong> Tìm số nguyên n để phân số đạt GTNN (M = (n+7)/(n+2)) và GTLN (P = (4n-11)/(n-5)), đối chiếu lỗi sai và quy tắc xét dấu mẫu số.</li></ul>",
+        "notes": "Nhắc học sinh kiểm tra điều kiện mẫu khác 0, chuẩn hóa mẫu dương, giữ đủ bước biến đổi và phân biệt rõ mẫu âm lớn nhất (−1) với mẫu dương nhỏ nhất (1).",
+        "badge": "Chuyên môn Khối 6"
+      },
+      {
+        "page": 2,
+        "title": "Tồn đọng Khảo sát quý I & Kế hoạch tháng 12/2026",
+        "subtitle": "Lọc riêng dữ liệu Khối 6, mẫu nhận xét chuẩn và lịch Ôn thi HKI – Kiểm tra quý II",
+        "content": "<ul><li><strong>Tác phong giảng dạy:</strong> Không dùng điện thoại/laptop cho việc riêng, có mặt trước 05 phút (6.4A–LH, 6B2–HBT), đeo thẻ tên đầy đủ (6B2–MD).</li><li><strong>Khảo sát quý I:</strong> Khắc phục lỗi chấm bài (6A1–CG 15 lỗi bài 5a Nâng cao, 6T3B–Online), lệch điểm (6B3–HD 19 lỗi), nhập thiếu 0 điểm, chậm thời hạn (6A–MD, 6A3–MD, 6A1–HD, 6A1–AK, 6B2–HBT, 6.3B2–LH), lệch điểm danh (6B1–CG 04 trường hợp), nhận xét sơ sài (6B3–CG) và chưa điểm danh (6.4A–LH, 6A1–HD).</li><li><strong>Hướng dẫn nhập điểm &amp; nhận xét:</strong> Bảng 6 dạng bài Khối 6 kèm mẫu nhận xét chuẩn 2 phần (Điểm làm tốt – Nội dung cần cải thiện).</li><li><strong>Kế hoạch tháng 12:</strong> Mở lớp Ôn thi học kì I trực tuyến (đầu tháng 12) và tổ chức Kiểm tra quý II đồng bộ từ 16/12 đến 22/12/2026 (Buổi 22).</li></ul>",
+        "notes": "Đánh dấu Vắng mặt cho học sinh đã nghỉ học, đánh dấu Có mặt kèm ghi chú HSM – không tham gia thi cho học sinh mới không dự thi.",
+        "badge": "Vận hành & Kế hoạch"
+      }
+    ],
+    "actionItems": [
+      "Chấp hành nghiêm tác phong lên lớp: đeo thẻ tên đầy đủ, có mặt trước 05 phút, không dùng điện thoại/laptop cho việc riêng.",
+      "Chuẩn bị kĩ 5 mảng kiến thức trọng tâm Khối 6 (Phân số & Nguyên lí Dirichlet) và rèn dạng bài tìm n để phân số đạt GTNN, GTLN.",
+      "Chủ động nhắc học sinh ôn tập, tham gia lớp Ôn thi học kì I trực tuyến (đầu tháng 12) và chuẩn bị cho Kiểm tra quý II (Buổi 22: 16/12 – 22/12).",
+      "Chấm bài chính xác, đối chiếu điểm giấy với phần mềm (bài không làm nhập 0 điểm), điểm danh và viết nhận xét đủ 4 tiêu chí đúng thời hạn."
+    ]
+  },
+  {
     "id": "pres-khoi6-tuan14",
     "title": "Tuần 14 - Họp giáo viên khối 6",
     "category": "Khối 6",
