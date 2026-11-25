@@ -2593,9 +2593,9 @@
                   $A = \dfrac{\bcancel{x^2} + 5x}{\bcancel{x^2} + 10x + 25}$ $= \dfrac{5x}{10x + 25}$
                   $= \dfrac{5x}{5(2x+5)} = \dfrac{x}{2x+5}$
                 </div>
-                <p><span class="tag-err">Sai từ bước gạch $x^2$</span></p>
-                <p style="margin-top:6px">Học sinh nhìn thấy kí hiệu $x^2$ ở cả tử và mẫu liền vội vàng "gạch chéo"
-                  triệt tiêu như phép trừ số học!</p>
+                <p><span class="tag-err">Sai ở bước triệt tiêu $x^2$</span></p>
+                <p style="margin-top:6px">Thấy hạng tử $x^2$ ở cả tử thức và mẫu thức nên rút gọn trực tiếp (nhầm số
+                  hạng với nhân tử chung).</p>
               </div>
               <div class="compare__good" style="font-size:16px">
                 <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
@@ -2626,7 +2626,7 @@
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Phân thức đại số</div>
-            <h2 class="slide__title"><span class="num">2.3</span> Lỗi quy đồng ngay khi chưa rút gọn · Tăng vọt bậc đa
+            <h2 class="slide__title"><span class="num">2.3</span> Lỗi quy đồng ngay khi chưa rút gọn · Làm tăng bậc đa
               thức &amp; dễ sai sót</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2642,7 +2642,7 @@
             <div class="card tint t-rose">
               <div class="card__head">
                 <span class="ico bad"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                <h3>Hướng 1: Quy đồng ngay (Thói quen xấu của học sinh)</h3>
+                <h3>Hướng 1: Quy đồng ngay (Thói quen dễ mắc của học sinh)</h3>
                 <!-- <span class="badge bad">Bế tắc</span> -->
               </div>
               <ul class="list" style="font-size:15px">
@@ -2651,7 +2651,7 @@
                   <div class="formula bad" style="font-size:15px;margin:6px 0;padding:6px">$\text{MTC} =
                     (x-1)(x+2)(x-3)(x+3)$</div>
                 </li>
-                <li>Nhân tung tóe ở tử số:
+                <li>Nhân khai triển tử thức:
                   $$\begin{aligned} P &= \dfrac{(x-1)(x^2-9) + (x+3)(x^2+x-2)}{(x-1)(x+2)(x-3)(x+3)} \\ &= \dfrac{2x^3 +
                   3x^2 - 8x + 3}{(x-1)(x+2)(x-3)(x+3)} \end{aligned}$$
                 </li>
@@ -2679,10 +2679,10 @@
                     \dfrac{1}{x-3}$
                   </div>
                 </li>
-                <li>Khi đó, mẫu thức chung mới chỉ là <b>bậc 2</b> cực kì gọn gàng:
+                <li>Khi đó, mẫu thức chung chỉ còn <b>bậc 2</b>, rất gọn:
                   $$\text{MTC} = (x+2)(x-3)$$
                 </li>
-                <li>Thực hiện phép cộng nhẹ nhàng:
+                <li>Thực hiện phép cộng đơn giản:
                   $$P = \dfrac{1}{x+2} + \dfrac{1}{x-3} = \dfrac{(x-3) + (x+2)}{(x+2)(x-3)} = \dfrac{2x - 1}{x^2 - x -
                   6}$$
                 </li>
@@ -3004,7 +3004,7 @@
                     <div class="compare__bad" style="font-size:14.5px;padding:8px 10px">
                       <p><b class="bad"><i class="fa-solid fa-circle-xmark"></i> Sai:</b> Dùng nhầm $\dfrac{1}{k} =
                         \dfrac{3}{2}$, được $A'B' = 13{,}5\text{ cm}$.</p>
-                      <p style="margin-top:4px"><span class="tag-err">Tam giác "nhỏ" lại có cạnh dài hơn</span></p>
+                      <p style="margin-top:4px"><span class="tag-err">Vô lí: tỉ số $k \lt 1$ nhưng $A'B' &gt; AB$</span></p>
                     </div>
                     <div class="compare__good" style="font-size:14.5px;padding:8px 10px">
                       <p><b class="ok"><i class="fa-solid fa-circle-check"></i> Đúng:</b> $\dfrac{A'B'}{AB} =
@@ -3047,7 +3047,8 @@
                   <div class="compare">
                     <div class="compare__bad" style="font-size:15px">
                       <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
-                      <p>Đồng dạng theo (c.g.c) vì có 2 cặp cạnh tỉ lệ và 1 góc bằng nhau (chỉ đếm số lượng yếu tố!).
+                      <p>Đồng dạng theo (c.g.c) vì có 2 cặp cạnh tỉ lệ và 1 góc bằng nhau (chỉ xét số lượng yếu tố mà bỏ
+                        qua vị trí góc).
                         <span class="tag-err">Sai</span>
                       </p>
                     </div>
@@ -3265,7 +3266,7 @@
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Một số kiến thức trọng tâm · Tam giác đồng dạng
             </div>
-            <h2 class="slide__title"><span class="num">2.7</span> Ngộ nhận Tỉ số diện tích bằng Tỉ số đồng dạng ($k$ vs
+            <h2 class="slide__title"><span class="num">2.7</span> Ngộ nhận Tỉ số diện tích bằng Tỉ số đồng dạng ($k$ và
               $k^2$)</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3300,12 +3301,12 @@
 
               <div class="card tint t-amber" style="padding:12px 16px">
                 <h4 style="font-size:15px;color:#78350f;margin-bottom:4px"><i class="fa-solid fa-lightbulb"></i> Phân
-                  biệt đại lượng Bậc 1 vs Bậc 2:</h4>
+                  biệt đại lượng bậc 1 và bậc 2:</h4>
                 <ul class="list" style="font-size:14px">
                   <li><b>Đại lượng bậc 1 (Chu vi, đường cao $h$, trung tuyến $m$, phân giác $d$):</b> Tỉ số bằng $k$.
                   </li>
-                  <li><b>Đại lượng bậc 2 (Diện tích $S = \dfrac{1}{2} a \cdot h$):</b> Cả đáy gấp $k$ lần, chiều cao
-                    cũng gấp $k$ lần $\implies$ Diện tích gấp $k \cdot k = k^2$ lần!</li>
+                  <li><b>Đại lượng bậc 2 (Diện tích $S = \dfrac{1}{2} a \cdot h$):</b> Cạnh đáy và chiều cao tương ứng
+                    đều gấp $k$ lần nên diện tích gấp $k \cdot k = k^2$ lần.</li>
                 </ul>
               </div>
             </div>
@@ -3682,9 +3683,9 @@
             <article class="card tint t-blue">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-hourglass-half"></i></span>
-                <h3>Chậm timeline nhập điểm &amp; nhận xét</h3>
+                <h3>Chậm thời hạn nhập điểm &amp; nhận xét</h3>
               </div>
-              <p>Chưa hoàn thành nhập điểm và nhận xét học sinh theo đúng timeline CLB yêu cầu, gây ảnh hưởng đến tiến
+              <p>Chưa hoàn thành nhập điểm và nhận xét học sinh theo đúng thời hạn CLB yêu cầu, gây ảnh hưởng đến tiến
                 độ tổng hợp và kiểm soát kết quả.</p>
               <div class="chips">
                 <span class="chips__label">Lớp ghi nhận:</span>
@@ -3693,12 +3694,12 @@
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Tuyệt đối tuân thủ timeline CLB; hoàn thành nhập điểm và nhận xét đúng hạn để kịp
+                <div><b>Yêu cầu:</b> Tuyệt đối tuân thủ thời hạn CLB; hoàn thành nhập điểm và nhận xét đúng hạn để kịp
                   tiến độ báo cáo.</div>
               </div>
               <div class="evs">
                 <a class="ev" href="https://drive.google.com/drive/u/2/folders/1kx2JI3hzb615wOontkFQfRaQAm3abpgr"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng trễ timeline</a>
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng trễ thời hạn</a>
               </div>
             </article>
 
@@ -3753,7 +3754,7 @@
             <i class="fa-solid fa-triangle-exclamation"></i>
             <div><b class="lead">Quy tắc nhập điểm bắt buộc:</b> Đối chiếu chính xác điểm thành phần trên bài làm của
               học sinh với phần mềm hệ thống. Những bài không làm được bắt buộc nhập <b>0 điểm</b> (không để trống).
-              Hoàn thành nhập điểm đúng tiến độ timeline quy định.</div>
+              Hoàn thành nhập điểm đúng tiến độ quy định.</div>
           </div>
         </div>
       </section>
@@ -3778,13 +3779,13 @@
                 <li><b>Vắng mặt nhưng vẫn có điểm &amp; nhận xét:</b> Lớp <span class="hl">8T2C</span> có 01 HS điểm
                   danh vắng mặt nhưng vẫn được nhập điểm và nhận xét — chưa thống nhất giữa điểm danh và đánh giá.</li>
                 <li><b>Đã nghỉ học nhưng vẫn nhập điểm:</b> Lớp <span class="hl">8B2 -LD</span> có HS đã nghỉ học chính
-                  thức nhưng giáo viên vẫn tiếp tục nhập điểm và nhận xét trong file theo dõi.</li>
-                <li><b>Có bài thi nhưng không có trong file điểm danh:</b> Chưa đối chiếu danh sách dự thi với file điểm
+                  thức nhưng giáo viên vẫn tiếp tục nhập điểm và nhận xét trong bảng theo dõi.</li>
+                <li><b>Có bài thi nhưng không có trong bảng điểm danh:</b> Chưa đối chiếu danh sách dự thi với bảng điểm
                   danh, dẫn đến HS có bài thi nhưng không được nhập điểm và nhận xét.</li>
               </ul>
               <div class="callout">
                 <i class="fa-solid fa-clipboard-check"></i>
-                <div><b>Yêu cầu:</b> Đối chiếu chặt chẽ danh sách dự thi với file điểm danh; cập nhật đúng tình trạng
+                <div><b>Yêu cầu:</b> Đối chiếu chặt chẽ danh sách dự thi với bảng điểm danh; cập nhật đúng tình trạng
                   học tập thực tế.</div>
               </div>
               <div class="evs mt-auto">
@@ -3850,12 +3851,12 @@
                 <div class="rule">
                   <span>Học sinh đã nghỉ học nhưng vẫn có tên trong danh sách điểm danh</span>
                   <i class="fa-solid fa-arrow-right"></i>
-                  <span>Tick <b>“Vắng mặt”</b> đối với HS này, đảm bảo dữ liệu cập nhật đầy đủ, không để trống</span>
+                  <span>Đánh dấu <b>“Vắng mặt”</b> đối với HS này, đảm bảo dữ liệu cập nhật đầy đủ, không để trống</span>
                 </div>
                 <div class="rule">
                   <span>Học sinh mới (HSM) có đi học nhưng không tham gia thi</span>
                   <i class="fa-solid fa-arrow-right"></i>
-                  <span>Tick <b>“Có mặt”</b> và ghi chú <b>“HSM – không tham gia thi”</b> vào cột ghi chú</span>
+                  <span>Đánh dấu <b>“Có mặt”</b> và ghi chú <b>“HSM – không tham gia thi”</b> vào cột ghi chú</span>
                 </div>
               </div>
               <div class="callout mt-auto">
@@ -3999,7 +4000,7 @@
               <i class="fa-regular fa-circle-question"></i>
             </div>
             <h3 style="font-size:40px;font-weight:800;color:var(--brand-blue);margin:0">
-              Thầy/Cô có câu hỏi hay đóng góp ý kiến nào không ạ?
+              Quý Thầy/Cô có câu hỏi hoặc ý kiến đóng góp nào không?
             </h3>
             <p style="font-size:20px;color:var(--muted);max-width:760px;line-height:1.6;margin:0">
               Bộ phận Chuyên môn luôn sẵn sàng lắng nghe chia sẻ và giải đáp mọi thắc mắc từ Quý Thầy/Cô.
