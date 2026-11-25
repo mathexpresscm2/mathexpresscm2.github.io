@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MathExpress · Họp chuyên môn Khối 6 · Tuần 22</title>
+  <title>MathExpress · Họp chuyên môn Khối 6 &amp; Khối 7 · Tuần 22</title>
   <meta name="description"
-    content="Họp chuyên môn Khối 6 – Tuần 22 (Tháng 12/2026): Khung chương trình Buổi 20 – 27; Kiến thức trọng tâm Phân số & Nguyên lí Dirichlet (SGK Kết nối tri thức); Dạng bài GTNN/GTLN phân số; Tồn đọng Khảo sát quý I & Hướng dẫn nhận xét; Kế hoạch Ôn thi học kì I & Kiểm tra quý II." />
+    content="Họp chuyên môn Khối 6 &amp; Khối 7 – Tuần 22 (Tháng 12/2026): Khung chương trình Khối 6 (Buổi 20 – 27) &amp; Khối 7 (Buổi 21 – 28); Kiến thức trọng tâm Phân số, Nguyên lí Dirichlet, Đại lượng tỉ lệ thuận – nghịch (SGK Kết nối tri thức); Dạng bài GTNN/GTLN phân số &amp; Bài toán hai xe lửa; Tồn đọng Khảo sát quý I &amp; Kế hoạch Ôn thi học kì I – Kiểm tra quý II." />
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -204,7 +204,7 @@
       --acc-ink: #047857;
     }
 
-    /* Bảng hướng dẫn nhập điểm & mẫu nhận xét Khối 6 */
+    /* Bảng hướng dẫn nhập điểm, nhận xét & bảng so sánh tỉ lệ thuận/nghịch */
     .guide-tbl {
       width: 100%;
       border-collapse: collapse;
@@ -223,11 +223,32 @@
       padding: 10px 14px;
     }
 
+    .guide-tbl th.th-alt {
+      background: var(--brand-orange);
+    }
+
+    .guide-tbl th.th-cat {
+      background: #0f2137;
+      text-align: center;
+    }
+
     .guide-tbl td {
-      padding: 9px 14px;
+      padding: 10px 14px;
       border-top: 1px solid #e6edf5;
-      vertical-align: top;
-      line-height: 1.5;
+      vertical-align: middle;
+      line-height: 1.55;
+    }
+
+    .guide-tbl td.td-cat {
+      font-weight: 800;
+      color: var(--ink);
+      background: #f8fafc;
+      text-align: center;
+      border-right: 1px solid #e6edf5;
+    }
+
+    .guide-tbl td + td {
+      border-left: 1px solid #eef2f7;
     }
 
     .score-strip {
@@ -1498,7 +1519,7 @@
     }
 
     .big6 b {
-      font-size: 250px;
+      font-size: 138px;
       font-weight: 800;
       line-height: 1;
       letter-spacing: -.04em;
@@ -2336,10 +2357,10 @@
             <img class="cover__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
             <div><span class="cover__kicker"><i class="fa-solid fa-calendar-check"></i> Tuần 22 · Tháng 12/2026</span>
             </div>
-            <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 6</span></h1>
+            <h1 class="cover__title">Họp chuyên môn<br /><span>Khối 6 &amp; Khối 7</span></h1>
             <div class="cover__bar"></div>
-            <p class="cover__lead">Khung chương trình tháng 12 – 01 · Trọng tâm Phân số &amp; Nguyên lí Dirichlet ·
-              Dạng bài GTLN – GTNN · Tồn đọng Khảo sát quý I · Kế hoạch sắp tới</p>
+            <p class="cover__lead">Khung chương trình tháng 12 – 01 · Phân số, Dirichlet &amp; Đại lượng tỉ lệ ·
+              Dạng bài trọng tâm · Tồn đọng Khảo sát quý I · Kế hoạch sắp tới</p>
             <div class="cover__meta">
               <span><i class="fa-solid fa-graduation-cap"></i> Năm học 2026 – 2027</span>
               <span><i class="fa-solid fa-users"></i> Bộ phận Chuyên môn · CLB Toán học MathExpress</span>
@@ -2348,12 +2369,12 @@
           <div class="cover__art" aria-hidden="true">
             <div class="orbit"></div>
             <div class="orbit orbit--2"></div>
-            <div class="big6"><small>KHỐI</small><b>6</b></div>
+            <div class="big6"><small>KHỐI</small><b>6–7</b></div>
             <div class="tag tag--1">$\dfrac{a}{b}\ (a, b \in \mathbb{Z},\ b \neq 0)$</div>
-            <div class="tag tag--2">$\dfrac{a}{b} = \dfrac{c}{d} \text{ khi } ad = bc$</div>
-            <div class="tag tag--3">$\dfrac{b - a}{a \cdot b} = \dfrac{1}{a} - \dfrac{1}{b}$</div>
-            <div class="tag tag--4">$a = bq + r\ (0 \lt r \lt b)$</div>
-            <div class="tag tag--5">$M = 1 + \dfrac{5}{n + 2}$</div>
+            <div class="tag tag--2">$\dfrac{b - a}{a \cdot b} = \dfrac{1}{a} - \dfrac{1}{b}$</div>
+            <div class="tag tag--3">$y = k \cdot x\ (k \neq 0)$</div>
+            <div class="tag tag--4">$x \cdot y = k\ (k \neq 0)$</div>
+            <div class="tag tag--5">$a = bq + r\ (0 \lt r \lt b)$</div>
           </div>
         </div>
       </section>
@@ -2365,7 +2386,7 @@
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num"><i class="fa-solid fa-list-ul"></i></span>Tổng quan</div>
-            <h2 class="slide__title">Nội dung sinh hoạt chuyên môn Khối 6 · Tháng 12</h2>
+            <h2 class="slide__title">Nội dung họp giáo viên Khối 6 &amp; Khối 7 · Tháng 12</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
@@ -2374,27 +2395,27 @@
             <button type="button" class="agenda__item t-orange" data-goto-section="1">
               <span class="agenda__num">01</span>
               <span class="agenda__text">
-                <h3>Phần 1: Khung chương trình Buổi 20 – 27</h3>
-                <p>Tiến độ Tháng 12/2026 – Tháng 01/2027 theo 3 hệ phiếu: Định hướng chuyên, Nâng cao, Mở rộng + Cơ bản;
-                  mốc Kiểm tra quý II (Buổi 22).</p>
+                <h3>Phần 1: Khung chương trình Khối 6 &amp; Khối 7</h3>
+                <p>Tiến độ tháng 12/2026 – 01/2027 theo 3 hệ phiếu cho Khối 6 (Buổi 20 – 27) và Khối 7 (Buổi 21 – 28);
+                  mốc Kiểm tra quý II (16/12 – 22/12).</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
             <button type="button" class="agenda__item t-blue" data-goto-section="2">
               <span class="agenda__num">02</span>
               <span class="agenda__text">
-                <h3>Phần 2: Kiến thức trọng tâm Khối 6</h3>
-                <p>Phân số &amp; tính chất cơ bản, quy đồng mẫu số – so sánh phân số, các phép toán phân số, so sánh dãy
-                  phân số và Nguyên lí Dirichlet.</p>
+                <h3>Phần 2: Kiến thức trọng tâm</h3>
+                <p>Khối 6: Phân số, quy đồng – so sánh, bốn phép toán, so sánh dãy phân số &amp; Nguyên lí Dirichlet ·
+                  Khối 7: Đại lượng tỉ lệ thuận, đại lượng tỉ lệ nghịch.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
             <button type="button" class="agenda__item t-indigo" data-goto-section="3">
               <span class="agenda__num">03</span>
               <span class="agenda__text">
-                <h3>Phần 3: Dạng bài toán thường gặp &amp; lỗi sai của học sinh</h3>
-                <p>Tìm số nguyên $n$ để phân số đạt giá trị nhỏ nhất (GTNN) hoặc giá trị lớn nhất (GTLN) và cách phòng
-                  tránh các lỗi hay mắc.</p>
+                <h3>Phần 3: Các dạng bài toán thường gặp &amp; lỗi sai</h3>
+                <p>Dạng 1 (Khối 6): Tìm $n \in \mathbb{Z}$ để phân số đạt GTNN, GTLN · Dạng 2 (Khối 7): Bài toán thực
+                  tế hai xe lửa ($S = 182\text{ km}$).</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2402,8 +2423,8 @@
               <span class="agenda__num">04</span>
               <span class="agenda__text">
                 <h3>Phần 4: Một số tồn đọng trong thời gian qua</h3>
-                <p>Tác phong giảng dạy, tồn đọng Khảo sát quý I (chấm bài, nhập điểm, điểm danh, nhận xét) và hướng dẫn
-                  nhập điểm – mẫu nhận xét Khối 6.</p>
+                <p>Tác phong giảng dạy, tồn đọng Khảo sát quý I Khối 6 &amp; Khối 7 (chấm bài, nhập điểm, điểm danh, nhận
+                  xét) và hướng dẫn nhập điểm – mẫu nhận xét.</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2411,7 +2432,8 @@
               <span class="agenda__num">05</span>
               <span class="agenda__text">
                 <h3>Phần 5: Kế hoạch trong thời gian tới &amp; Thảo luận</h3>
-                <p>Triển khai lớp Ôn thi học kì I trực tuyến (đầu tháng 12) và tổ chức Kiểm tra quý II (16/12 – 22/12).</p>
+                <p>Lớp Ôn thi học kì I trực tuyến cho Khối 6 &amp; Khối 7 (đầu tháng 12) và Kiểm tra quý II (16/12 –
+                  22/12).</p>
               </span>
               <span class="agenda__go"><span data-range></span><i class="fa-solid fa-arrow-right"></i></span>
             </button>
@@ -2420,19 +2442,23 @@
       </section>
 
       <!-- =================================================================
-           PHẦN 1: KHUNG CHƯƠNG TRÌNH KHỐI 6 (SLIDE 3)
+           PHẦN 1: KHUNG CHƯƠNG TRÌNH (SLIDES 3 - 4)
            ================================================================= -->
-      <section class="slide" data-section="1" aria-label="1. Khung chương trình Khối 6 Buổi 20 – 27">
+
+      <!-- SLIDE 3: 1.1 KHUNG CHƯƠNG TRÌNH KHỐI 6 -->
+      <section class="slide" data-section="1" aria-label="1.1 Khung chương trình Khối 6 Buổi 20 – 27">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">01</span>Khung chương trình &amp; tiến độ</div>
-            <h2 class="slide__title"><span class="num">1.</span> Khung chương trình Khối 6 (Buổi 20 – 27)</h2>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Khung chương trình &amp; tiến độ <span
+                class="pill">Khối 6</span></div>
+            <h2 class="slide__title"><span class="num">1.1</span> Khung chương trình Khối 6 (Buổi 20 – 27)</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
         </header>
         <div class="slide__body">
           <div class="toolbar">
-            <div class="seg" role="group" aria-label="Lọc theo hệ lớp" data-filter="track" data-target="planTable">
+            <div class="seg" role="group" aria-label="Lọc theo hệ lớp Khối 6" data-filter="track"
+              data-target="planTable6">
               <span class="seg__label"><i class="fa-solid fa-layer-group"></i>Hệ lớp</span>
               <button type="button" data-value="all" aria-pressed="true">Tất cả hệ lớp</button>
               <button type="button" data-value="chuyen" aria-pressed="false">Phiếu 1 (Định hướng chuyên)</button>
@@ -2445,7 +2471,7 @@
           </div>
 
           <div class="table-wrap">
-            <table class="plan" id="planTable" data-track="all">
+            <table class="plan" id="planTable6" data-track="all">
               <thead>
                 <tr>
                   <th class="th-center" style="width: 9%;">Tháng</th>
@@ -2466,7 +2492,6 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- Tháng 12 năm 2026 -->
                 <tr class="row-dec">
                   <td class="month month-dec" rowspan="5">12/2026</td>
                   <td class="time">02/12 – 08/12</td>
@@ -2503,8 +2528,6 @@
                   <td class="c2">Ôn tập tổng hợp</td>
                   <td class="c3">Ôn tập tổng hợp</td>
                 </tr>
-
-                <!-- Tháng 01 năm 2027 -->
                 <tr class="row-jan">
                   <td class="month month-jan" rowspan="4">01/2027</td>
                   <td class="time">04/01 – 10/01</td>
@@ -2537,28 +2560,137 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
 
-          <div class="callout t-blue" style="margin-top: 10px;">
-            <i class="fa-solid fa-circle-info"></i>
-            <div>
-              <b>Lưu ý:</b> <b>Kiểm tra quý II</b> diễn ra đồng bộ ở <b>Buổi 22 (16/12 – 22/12/2026)</b> cho cả 3 hệ
-              phiếu. Mảng <b>Phân số</b> (và <b>Nguyên lí Dirichlet</b> ở hệ Định hướng chuyên) là trọng tâm xuyên suốt
-              tháng 12/2026 – 01/2027.
+      <!-- SLIDE 4: 1.2 KHUNG CHƯƠNG TRÌNH KHỐI 7 -->
+      <section class="slide" data-section="1" aria-label="1.2 Khung chương trình Khối 7 Buổi 21 – 28">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">01</span>Khung chương trình &amp; tiến độ <span
+                class="pill">Khối 7</span></div>
+            <h2 class="slide__title"><span class="num">1.2</span> Khung chương trình Khối 7 (Buổi 21 – 28)</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="toolbar">
+            <div class="seg" role="group" aria-label="Lọc theo hệ lớp Khối 7" data-filter="track"
+              data-target="planTable7">
+              <span class="seg__label"><i class="fa-solid fa-layer-group"></i>Hệ lớp</span>
+              <button type="button" data-value="all" aria-pressed="true">Tất cả hệ lớp</button>
+              <button type="button" data-value="chuyen" aria-pressed="false">Phiếu 1 (Định hướng chuyên)</button>
+              <button type="button" data-value="nangcao" aria-pressed="false">Phiếu 2 (Nâng cao)</button>
+              <button type="button" data-value="coban" aria-pressed="false">Phiếu 3 + 4 (MR – CB)</button>
             </div>
+            <div class="legend">
+              <span><i style="background:#22c55e;border:1px solid #16a34a"></i>Kiểm tra quý II (Buổi 23)</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="plan" id="planTable7" data-track="all">
+              <thead>
+                <tr>
+                  <th class="th-center" style="width: 9%;">Tháng</th>
+                  <th class="th-center" style="width: 13%;">Thời gian</th>
+                  <th class="th-center" style="width: 8%;">Buổi học</th>
+                  <th class="c1" style="width: 23%;">
+                    <span>Phiếu số 1</span>
+                    <small>Định hướng chuyên</small>
+                  </th>
+                  <th class="c2" style="width: 23%;">
+                    <span>Phiếu số 2</span>
+                    <small>Nâng cao</small>
+                  </th>
+                  <th class="c3" style="width: 24%;">
+                    <span>Phiếu số 3 + 4</span>
+                    <small>Mở rộng + Cơ bản</small>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="row-dec">
+                  <td class="month month-dec" rowspan="5">12/2026</td>
+                  <td class="time">02/12 – 08/12</td>
+                  <td class="bno">21</td>
+                  <td class="c1">Ôn tập số học</td>
+                  <td class="c2">Bài toán tỉ lệ thuận, tỉ lệ nghịch</td>
+                  <td class="c3">Ôn tập cuối kì 1</td>
+                </tr>
+                <tr class="row-dec">
+                  <td class="time">09/12 – 15/12</td>
+                  <td class="bno">22</td>
+                  <td class="c1">Biến đổi biểu thức hữu tỉ</td>
+                  <td class="c2">Biến đổi biểu thức hữu tỉ</td>
+                  <td class="c3">Đại lượng tỉ lệ thuận</td>
+                </tr>
+                <tr class="row-dec is-test">
+                  <td class="time">16/12 – 22/12</td>
+                  <td class="bno">23</td>
+                  <td class="c1">Kiểm tra quý II</td>
+                  <td class="c2">Kiểm tra quý II</td>
+                  <td class="c3">Kiểm tra quý II</td>
+                </tr>
+                <tr class="row-dec">
+                  <td class="time">23/12 – 29/12</td>
+                  <td class="bno">24</td>
+                  <td class="c1">Biểu thức đại số</td>
+                  <td class="c2">Biểu thức đại số</td>
+                  <td class="c3">Đại lượng tỉ lệ nghịch</td>
+                </tr>
+                <tr class="row-dec">
+                  <td class="time">30/12 – 31/12</td>
+                  <td class="bno">24-thêm</td>
+                  <td class="c1">Ôn tập tổng hợp</td>
+                  <td class="c2">Ôn tập tổng hợp</td>
+                  <td class="c3">Ôn tập tổng hợp</td>
+                </tr>
+                <tr class="row-jan">
+                  <td class="month month-jan" rowspan="4">01/2027</td>
+                  <td class="time">04/01 – 10/01</td>
+                  <td class="bno">25</td>
+                  <td class="c1">Quan hệ giữa ba cạnh của tam giác</td>
+                  <td class="c2">Quan hệ giữa ba cạnh của tam giác</td>
+                  <td class="c3">Ôn tập hình học</td>
+                </tr>
+                <tr class="row-jan">
+                  <td class="time">11/01 – 17/01</td>
+                  <td class="bno">26</td>
+                  <td class="c1">Tính chất ba đường trung tuyến của tam giác</td>
+                  <td class="c2">Tính chất ba đường trung tuyến của tam giác</td>
+                  <td class="c3">Biểu thức đại số</td>
+                </tr>
+                <tr class="row-jan">
+                  <td class="time">18/01 – 24/01</td>
+                  <td class="bno">27</td>
+                  <td class="c1">Đa thức một biến</td>
+                  <td class="c2">Đa thức một biến</td>
+                  <td class="c3">Đa thức một biến</td>
+                </tr>
+                <tr class="row-jan">
+                  <td class="time">25/01 – 31/01</td>
+                  <td class="bno">28</td>
+                  <td class="c1">Nghiệm của đa thức một biến</td>
+                  <td class="c2">Nghiệm của đa thức một biến</td>
+                  <td class="c3">Cạnh và góc đối diện trong một tam giác</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       <!-- =================================================================
-           PHẦN 2: KIẾN THỨC TRỌNG TÂM KHỐI 6 (SLIDES 4 - 8)
+           PHẦN 2: KIẾN THỨC TRỌNG TÂM (SLIDES 5 - 10)
            ================================================================= -->
 
-      <!-- SLIDE 4: 2.1 PHÂN SỐ - TÍNH CHẤT CƠ BẢN -->
-      <section class="slide" data-section="2" aria-label="2.1 Phân số và tính chất cơ bản của phân số">
+      <!-- SLIDE 5: 2.1 PHÂN SỐ - TÍNH CHẤT CƠ BẢN (KHỐI 6) -->
+      <section class="slide" data-section="2" aria-label="2.1 Khối 6 Phân số và tính chất cơ bản">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · Số học 6 (SGK Kết nối tri
-              thức)</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · SGK Kết nối tri thức <span
+                class="pill">Khối 6</span></div>
             <h2 class="slide__title"><span class="num">2.1</span> Phân số &amp; Tính chất cơ bản của phân số</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2633,12 +2765,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 5: 2.2 QUY ĐỒNG MẪU SỐ - SO SÁNH PHÂN SỐ -->
-      <section class="slide" data-section="2" aria-label="2.2 Quy đồng mẫu số và so sánh phân số">
+      <!-- SLIDE 6: 2.2 QUY ĐỒNG MẪU SỐ - SO SÁNH PHÂN SỐ (KHỐI 6) -->
+      <section class="slide" data-section="2" aria-label="2.2 Khối 6 Quy đồng mẫu số và so sánh phân số">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · Số học 6 (SGK Kết nối tri
-              thức)</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · SGK Kết nối tri thức <span
+                class="pill">Khối 6</span></div>
             <h2 class="slide__title"><span class="num">2.2</span> Quy đồng mẫu số – So sánh phân số</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2702,12 +2834,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 6: 2.3 PHÉP CỘNG, TRỪ, NHÂN, CHIA PHÂN SỐ -->
-      <section class="slide" data-section="2" aria-label="2.3 Phép cộng, trừ, nhân, chia phân số">
+      <!-- SLIDE 7: 2.3 PHÉP CỘNG, TRỪ, NHÂN, CHIA PHÂN SỐ (KHỐI 6) -->
+      <section class="slide" data-section="2" aria-label="2.3 Khối 6 Phép cộng trừ nhân chia phân số">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · Số học 6 (SGK Kết nối tri
-              thức)</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · SGK Kết nối tri thức <span
+                class="pill">Khối 6</span></div>
             <h2 class="slide__title"><span class="num">2.3</span> Phép cộng, trừ, nhân, chia phân số</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2776,12 +2908,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 7: 2.4 SO SÁNH DÃY PHÂN SỐ -->
-      <section class="slide" data-section="2" aria-label="2.4 So sánh dãy phân số">
+      <!-- SLIDE 8: 2.4 SO SÁNH DÃY PHÂN SỐ (KHỐI 6) -->
+      <section class="slide" data-section="2" aria-label="2.4 Khối 6 So sánh dãy phân số">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · Nâng cao &amp; Định hướng
-              chuyên <span class="pill">Buổi 25</span></div>
+              chuyên <span class="pill">Khối 6 · Buổi 25</span></div>
             <h2 class="slide__title"><span class="num">2.4</span> So sánh dãy phân số · Các công thức tách thường dùng
             </h2>
           </div>
@@ -2837,12 +2969,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 8: 2.5 NGUYÊN LÍ DIRICHLET -->
-      <section class="slide" data-section="2" aria-label="2.5 Nguyên lí Dirichlet">
+      <!-- SLIDE 9: 2.5 NGUYÊN LÍ DIRICHLET (KHỐI 6) -->
+      <section class="slide" data-section="2" aria-label="2.5 Khối 6 Nguyên lí Dirichlet">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · Phiếu số 1 (Định hướng
-              chuyên) <span class="pill">Buổi 26 – 27</span></div>
+              chuyên) <span class="pill">Khối 6 · Buổi 26 – 27</span></div>
             <h2 class="slide__title"><span class="num">2.5</span> Nguyên lí Dirichlet</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -2998,15 +3130,93 @@
         </div>
       </section>
 
-      <!-- =================================================================
-           PHẦN 3: DẠNG BÀI TOÁN THƯỜNG GẶP & LỖI SAI (SLIDES 9 - 10)
-           ================================================================= -->
-
-      <!-- SLIDE 9: 3.1 DẠNG 1A - TÌM GTNN CỦA PHÂN SỐ -->
-      <section class="slide" data-section="3" aria-label="3.1 Dạng 1a Tìm n để phân số đạt giá trị nhỏ nhất">
+      <!-- SLIDE 10: 2.6 KHỐI 7 - ĐẠI LƯỢNG TỈ LỆ THUẬN, TỈ LỆ NGHỊCH -->
+      <section class="slide" data-section="2" aria-label="2.6 Khối 7 Đại lượng tỉ lệ thuận và đại lượng tỉ lệ nghịch">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Các dạng bài toán thường gặp · Phân số</div>
+            <div class="eyebrow"><span class="eyebrow__num">02</span>Kiến thức trọng tâm · SGK Kết nối tri thức <span
+                class="pill">Khối 7</span></div>
+            <h2 class="slide__title"><span class="num">2.6</span> Đại lượng tỉ lệ thuận &amp; Đại lượng tỉ lệ nghịch</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="stack" style="gap:14px">
+            <table class="guide-tbl" style="font-size:15.5px">
+              <thead>
+                <tr>
+                  <th class="th-cat" style="width:16%">Nội dung</th>
+                  <th style="width:42%"><i class="fa-solid fa-arrow-trend-up" style="margin-right:8px"></i>Đại lượng tỉ
+                    lệ thuận</th>
+                  <th class="th-alt" style="width:42%"><i class="fa-solid fa-arrows-left-right"
+                      style="margin-right:8px"></i>Đại lượng tỉ lệ nghịch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-cat">Định nghĩa</td>
+                  <td>
+                    <p>$y$ tỉ lệ thuận với $x$ theo hệ số $k$: <b>$y = k \cdot x$</b> $(k \neq 0)$</p>
+                    <p style="margin-top:4px">hay $\dfrac{y}{x} = k$ <span class="hl"
+                        style="margin-left:6px">Tỉ số không đổi</span></p>
+                  </td>
+                  <td>
+                    <p>$y$ tỉ lệ nghịch với $x$ theo hệ số $k$: <b>$y = \dfrac{k}{x}$</b> hay $x \cdot y = k$ $(k \neq 0)$</p>
+                    <p style="margin-top:4px">Tức $x \cdot y = k$ <span class="hl"
+                        style="margin-left:6px">Tích không đổi</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-cat">Tính chất</td>
+                  <td>
+                    <p>$\dfrac{y_1}{x_1} = \dfrac{y_2}{x_2} = \dfrac{y_3}{x_3} = \dots = k$</p>
+                    <p style="margin-top:6px">$\dfrac{x_1}{x_2} = \dfrac{y_1}{y_2}$ <span
+                        style="font-size:13.5px;color:var(--muted)">(các giá trị khác $0$)</span></p>
+                  </td>
+                  <td>
+                    <p>$x_1 \cdot y_1 = x_2 \cdot y_2 = x_3 \cdot y_3 = \dots = k$</p>
+                    <p style="margin-top:6px">$\dfrac{x_1}{x_2} = \dfrac{y_2}{y_1}$ <span
+                        style="font-size:13.5px;color:var(--muted)">(các giá trị khác $0$)</span></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="td-cat">Áp dụng<br />vào bài toán</td>
+                  <td>
+                    <p>$x;\ y;\ z$ tỉ lệ thuận với $a;\ b;\ c$ $(a, b, c \neq 0)$:</p>
+                    <div class="formula ok" style="margin-top:6px;padding:6px 10px;font-size:16px">
+                      $\dfrac{x}{a} = \dfrac{y}{b} = \dfrac{z}{c}$
+                    </div>
+                  </td>
+                  <td>
+                    <p>$x;\ y;\ z$ tỉ lệ nghịch với $a;\ b;\ c$ $(a, b, c \neq 0)$:</p>
+                    <div class="formula" style="margin-top:6px;padding:6px 10px;font-size:16px;border-color:#fdcbaa">
+                      $a \cdot x = b \cdot y = c \cdot z$
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="callout t-blue">
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <div><b>Lưu ý sư phạm Khối 7:</b> Nhấn mạnh sự khác biệt giữa <b>tỉ số không đổi</b> (tỉ lệ thuận) và
+                <b>tích không đổi</b> (tỉ lệ nghịch); yêu cầu học sinh luôn ghi rõ dòng lập luận khẳng định quan hệ tỉ
+                lệ trước khi lập đẳng thức.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           PHẦN 3: CÁC DẠNG BÀI TOÁN THƯỜNG GẶP & LỖI SAI (SLIDES 11 - 13)
+           ================================================================= -->
+
+      <!-- SLIDE 11: 3.1 DẠNG 1A - TÌM GTNN CỦA PHÂN SỐ (KHỐI 6) -->
+      <section class="slide" data-section="3" aria-label="3.1 Khối 6 Dạng 1a Tìm n để phân số đạt GTNN">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Các dạng bài toán thường gặp <span
+                class="pill">Khối 6 · Phân số</span></div>
             <h2 class="slide__title"><span class="num">3.1</span> Dạng 1 (Câu a): Tìm $n \in \mathbb{Z}$ để phân số đạt
               GTNN</h2>
           </div>
@@ -3059,11 +3269,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 10: 3.2 DẠNG 1B - TÌM GTLN CỦA PHÂN SỐ -->
-      <section class="slide" data-section="3" aria-label="3.2 Dạng 1b Tìm n để phân số đạt giá trị lớn nhất">
+      <!-- SLIDE 12: 3.2 DẠNG 1B - TÌM GTLN CỦA PHÂN SỐ (KHỐI 6) -->
+      <section class="slide" data-section="3" aria-label="3.2 Khối 6 Dạng 1b Tìm n để phân số đạt GTLN">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">03</span>Các dạng bài toán thường gặp · Phân số</div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Các dạng bài toán thường gặp <span
+                class="pill">Khối 6 · Phân số</span></div>
             <h2 class="slide__title"><span class="num">3.2</span> Dạng 1 (Câu b): Tìm $n \in \mathbb{Z}$ để phân số đạt
               GTLN</h2>
           </div>
@@ -3124,15 +3335,75 @@
         </div>
       </section>
 
+      <!-- SLIDE 13: 3.3 DẠNG 2 - BÀI TOÁN THỰC TẾ HAI XE LỬA (KHỐI 7) -->
+      <section class="slide" data-section="3" aria-label="3.3 Khối 7 Dạng 2 Bài toán thực tế hai xe lửa">
+        <header class="slide__head">
+          <div>
+            <div class="eyebrow"><span class="eyebrow__num">03</span>Các dạng bài toán thường gặp <span
+                class="pill">Khối 7 · Đại lượng tỉ lệ nghịch</span></div>
+            <h2 class="slide__title"><span class="num">3.3</span> Dạng 2: Bài toán thực tế (Hai xe lửa)</h2>
+          </div>
+          <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
+        </header>
+        <div class="slide__body">
+          <div class="box box--soft t-indigo" style="margin-bottom:10px">
+            <b>Ví dụ:</b> Hai xe lửa đi từ $A$ đến $B$ lần lượt mất $2$ giờ $48$ phút và $4$ giờ $40$ phút. Biết rằng
+            vận tốc xe thứ nhất lớn hơn vận tốc xe thứ hai là $26\text{ km/h}$. Tính quãng đường $AB$.
+          </div>
+
+          <div class="grid g-45-55">
+            <div class="stack">
+              <div class="compare__bad" style="font-size:14.5px;display:flex;flex-direction:column;gap:8px">
+                <h4><i class="fa-solid fa-circle-xmark"></i> Sai</h4>
+                <ul class="list" style="font-size:14.5px">
+                  <li><b>Không biết đổi đơn vị thời gian:</b> viết nhầm $2$ giờ $48$ phút $= 2{,}48$ giờ hoặc làm tròn
+                    sớm $\dfrac{14}{3} \approx 4{,}67$ giờ gây sai lệch đáp số.</li>
+                  <li><b>Sai bản chất (nhầm tỉ lệ nghịch thành tỉ lệ thuận):</b> lập tỉ lệ thức
+                    $\dfrac{v_1}{t_1} = \dfrac{v_2}{t_2}$. Khi thay $v_1 - v_2 = 26$ nhưng $t_1 - t_2 \lt 0$ sẽ dẫn
+                    tới <b>vận tốc âm</b>! <span class="tag-err">Sai bản chất</span></li>
+                </ul>
+              </div>
+
+              <div class="callout t-amber mt-auto">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div><b>Lưu ý giảng dạy:</b> Giữ thời gian dưới dạng <b>phân số tối giản</b> ($\dfrac{14}{5}$ giờ,
+                  $\dfrac{14}{3}$ giờ) đến bước cuối; bắt buộc viết câu lập luận <i>“trên cùng quãng đường nên vận
+                    tốc và thời gian tỉ lệ nghịch”</i>.</div>
+              </div>
+            </div>
+
+            <div class="compare__good" style="font-size:14.5px;display:flex;flex-direction:column;gap:6px">
+              <h4><i class="fa-solid fa-circle-check"></i> Đúng</h4>
+              <p>• Đổi: $2$ giờ $48$ phút $= \dfrac{14}{5}$ (giờ); &nbsp; $4$ giờ $40$ phút $= \dfrac{14}{3}$
+                (giờ).</p>
+              <p>• Gọi vận tốc xe thứ nhất và xe thứ hai lần lượt là $v_1,\ v_2$ (km/h) $(v_1, v_2 > 0)$.</p>
+              <p>• <b style="color:#047857">Vì trên cùng quãng đường $AB$ nên vận tốc và thời gian là hai đại lượng tỉ lệ
+                  nghịch.</b> Ta có:</p>
+              <div class="formula ok" style="font-size:14.5px;padding:5px 10px">
+                $v_1 \cdot \dfrac{14}{5} = v_2 \cdot \dfrac{14}{3}$ &nbsp;nên&nbsp; $\dfrac{v_1}{5} = \dfrac{v_2}{3}$
+              </div>
+              <p>• Theo đề bài $v_1 - v_2 = 26$. Áp dụng tính chất dãy tỉ số bằng nhau:</p>
+              <div class="formula ok" style="font-size:14.5px;padding:5px 10px">
+                $\dfrac{v_1}{5} = \dfrac{v_2}{3} = \dfrac{v_1 - v_2}{5 - 3} = \dfrac{26}{2} = 13$
+              </div>
+              <p>• Do đó $v_1 = 5 \cdot 13 = 65$ (km/h); &nbsp; $v_2 = 3 \cdot 13 = 39$ (km/h).</p>
+              <p>• Quãng đường $AB$ là: $S = v_1 \cdot t_1 = 65 \cdot \dfrac{14}{5} = 182$ (km).
+                <span class="tag-ok">Đáp số: $182\text{ km}$</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- =================================================================
-           PHẦN 4: MỘT SỐ TỒN ĐỌNG TRONG THỜI GIAN QUA (SLIDES 11 - 14)
+           PHẦN 4: MỘT SỐ TỒN ĐỌNG TRONG THỜI GIAN QUA (SLIDES 14 - 17)
            ================================================================= -->
 
-      <!-- SLIDE 11: 4.1 TỒN ĐỌNG TRONG CÔNG TÁC GIẢNG DẠY & TÁC PHONG -->
+      <!-- SLIDE 14: 4.1 TỒN ĐỌNG TRONG CÔNG TÁC GIẢNG DẠY & TÁC PHONG -->
       <section class="slide" data-section="4" aria-label="4.1 Tồn đọng trong công tác giảng dạy và tác phong">
         <header class="slide__head">
           <div>
-            <div class="eyebrow"><span class="eyebrow__num">04</span>Một số tồn đọng trong thời gian qua</div>
+            <div class="eyebrow"><span class="eyebrow__num">04</span>Một số tồn đọng trong thời gian qua <span
+                class="pill">Khối 6 &amp; Khối 7</span></div>
             <h2 class="slide__title"><span class="num">4.1</span> Tồn đọng trong công tác giảng dạy &amp; tác phong</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3141,7 +3412,7 @@
           <article class="card tint t-rose">
             <div class="card__head">
               <span class="ico"><i class="fa-solid fa-user-shield"></i></span>
-              <h3>Tồn đọng trong công tác giảng dạy &amp; tác phong (Khối 6)</h3>
+              <h3>Tồn đọng trong công tác giảng dạy &amp; tác phong (Khối 6 &amp; Khối 7)</h3>
               <span class="badge">Quy định chung CLB</span>
             </div>
             <div class="issue">
@@ -3159,8 +3430,8 @@
                 <p>Chưa đảm bảo có mặt tại lớp tối thiểu <b>05 phút</b> trước giờ học, ảnh hưởng đến thời lượng giảng
                   dạy và tiến độ thực hiện kế hoạch bài học.</p>
                 <div class="chips" style="margin-top:6px">
-                  <span class="chips__label">Lớp Khối 6 ghi nhận:</span>
-                  <span class="chip">6.4A – LH</span><span class="chip">6B2 – HBT</span>
+                  <span class="chips__label">Lớp ghi nhận:</span>
+                  <span class="chip">6.4A – LH</span><span class="chip">7B2 – AK</span><span class="chip">7A1 – LB</span><span class="chip">6B2 – HBT</span>
                 </div>
               </div>
             </div>
@@ -3171,8 +3442,8 @@
                 <p>Bộ phận Chuyên môn ghi nhận tình trạng nhiều giáo viên chưa thực hiện đeo thẻ tên khi lên lớp, dù đây
                   là quy định chung của CLB.</p>
                 <div class="chips" style="margin-top:6px">
-                  <span class="chips__label">Lớp Khối 6 ghi nhận:</span>
-                  <span class="chip">6B2 – MD</span><span class="chip">…</span>
+                  <span class="chips__label">Lớp ghi nhận:</span>
+                  <span class="chip">7.1B – LH</span><span class="chip">6B2 – MD</span><span class="chip">7B3 – MD</span><span class="chip">7A3 – HBT</span><span class="chip">…</span>
                 </div>
               </div>
             </div>
@@ -3186,12 +3457,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 12: 4.2 KHẢO SÁT QUÝ I - CHẤM BÀI & NHẬP ĐIỂM -->
+      <!-- SLIDE 15: 4.2 KHẢO SÁT QUÝ I - CHẤM BÀI & NHẬP ĐIỂM -->
       <section class="slide" data-section="4" aria-label="4.2 Khảo sát quý I chấm bài và nhập điểm">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">04</span>Một số tồn đọng trong thời gian qua <span
-                class="pill">Khảo sát quý I · Khối 6</span></div>
+                class="pill">Khảo sát quý I · Khối 6 &amp; 7</span></div>
             <h2 class="slide__title"><span class="num">4.2</span> Khảo sát quý I: Chấm bài &amp; nhập điểm</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3248,12 +3519,13 @@
                 <span class="ico"><i class="fa-solid fa-hourglass-half"></i></span>
                 <h3>Chậm thời hạn nhập điểm &amp; nhận xét</h3>
               </div>
-              <p style="font-size:15px">Chưa hoàn thành nhập điểm và nhận xét theo đúng thời hạn CLB yêu cầu, gây ảnh
+              <p style="font-size:14.5px">Chưa hoàn thành nhập điểm và nhận xét theo đúng thời hạn CLB yêu cầu, gây ảnh
                 hưởng đến tiến độ tổng hợp và kiểm soát kết quả.</p>
               <div class="chips">
-                <span class="chips__label">Lớp Khối 6 ghi nhận:</span>
+                <span class="chips__label">Lớp ghi nhận:</span>
                 <span class="chip">6A – MD</span><span class="chip">6A3 – MD</span><span class="chip">6A1 – HD</span>
                 <span class="chip">6A1 – AK</span><span class="chip">6B2 – HBT</span><span class="chip">6.3B2 – LH</span>
+                <span class="chip">7.3C – LH</span><span class="chip">7A3 – CG</span><span class="chip">7.3D – LH</span><span class="chip">…</span>
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-clipboard-check"></i>
@@ -3265,12 +3537,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 13: 4.3 KHẢO SÁT QUÝ I - ĐIỂM DANH & NHẬN XÉT -->
+      <!-- SLIDE 16: 4.3 KHẢO SÁT QUÝ I - ĐIỂM DANH & NHẬN XÉT -->
       <section class="slide" data-section="4" aria-label="4.3 Khảo sát quý I điểm danh và nhận xét">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">04</span>Một số tồn đọng trong thời gian qua <span
-                class="pill">Khảo sát quý I · Khối 6</span></div>
+                class="pill">Khảo sát quý I · Khối 6 &amp; 7</span></div>
             <h2 class="slide__title"><span class="num">4.3</span> Khảo sát quý I: Điểm danh &amp; nhận xét</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3299,8 +3571,8 @@
                 <span class="ico"><i class="fa-solid fa-comment-slash"></i></span>
                 <h3>Nhận xét sơ sài, chưa bám tiêu chí CLB</h3>
               </div>
-              <p style="font-size:14.5px">Chưa thể hiện đầy đủ tình hình học tập của học sinh. Ghi nhận lớp Khối 6:
-                <span class="hl">6B3 – CG</span>.</p>
+              <p style="font-size:14.5px">Chưa thể hiện đầy đủ tình hình học tập của học sinh. Ghi nhận tại các lớp:
+                <span class="hl">6B3 – CG</span>, <span class="hl">7B1 – CG</span>.</p>
               <div class="checks">
                 <span><i class="fa-solid fa-check"></i>Tình hình học tập</span>
                 <span><i class="fa-solid fa-check"></i>Mức độ nắm kiến thức</span>
@@ -3309,7 +3581,7 @@
               </div>
               <div class="evs mt-auto">
                 <a class="ev" href="https://drive.google.com/drive/u/2/folders/1JehZo8AmNSuFkKoxeoXcKGTo5HzcaNg3"
-                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng 6B3 – CG</a>
+                  target="_blank" rel="noopener"><i class="fa-brands fa-google-drive"></i>Minh chứng nhận xét</a>
               </div>
             </article>
 
@@ -3321,8 +3593,8 @@
               <p style="font-size:14.5px">Chưa cập nhật đầy đủ thông tin điểm danh theo quy định, ảnh hưởng đến việc
                 theo dõi chuyên cần và tổng hợp dữ liệu lớp.</p>
               <div class="chips">
-                <span class="chips__label">Lớp Khối 6 ghi nhận:</span>
-                <span class="chip">6.4A – LH</span><span class="chip">6A1 – HD</span>
+                <span class="chips__label">Lớp ghi nhận:</span>
+                <span class="chip">6.4A – LH</span><span class="chip">6A1 – HD</span><span class="chip">7B1 – CG</span>
               </div>
               <div class="evs mt-auto">
                 <a class="ev" href="https://drive.google.com/drive/u/2/folders/1LDnxRt1QOSnLSWSVcCHWx_hOQbR5OhD1"
@@ -3352,12 +3624,12 @@
         </div>
       </section>
 
-      <!-- SLIDE 14: 4.4 HƯỚNG DẪN NHẬP ĐIỂM & MẪU NHẬN XÉT KHỐI 6 -->
-      <section class="slide" data-section="4" aria-label="4.4 Hướng dẫn nhập điểm và mẫu nhận xét Khối 6">
+      <!-- SLIDE 17: 4.4 HƯỚNG DẪN NHẬP ĐIỂM & MẪU NHẬN XÉT -->
+      <section class="slide" data-section="4" aria-label="4.4 Hướng dẫn nhập điểm và mẫu nhận xét học sinh">
         <header class="slide__head">
           <div>
             <div class="eyebrow"><span class="eyebrow__num">04</span>Một số tồn đọng trong thời gian qua <span
-                class="pill">Mẫu chuẩn Khối 6</span></div>
+                class="pill">Mẫu chuẩn CLB</span></div>
             <h2 class="slide__title"><span class="num">4.4</span> Hướng dẫn nhập điểm &amp; mẫu nhận xét học sinh</h2>
           </div>
           <img class="slide__logo" src="../../../logo.svg" alt="MathExpress" onerror="logoFallback(this)" />
@@ -3384,13 +3656,13 @@
             <table class="guide-tbl">
               <thead>
                 <tr>
-                  <th style="width:38%">Cấu trúc dạng bài khảo sát Khối 6</th>
+                  <th style="width:38%">Cấu trúc dạng bài minh họa</th>
                   <th style="width:62%">Mẫu nhận xét chuẩn bám sát từng dạng bài</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>
+                  <td style="vertical-align:top">
                     <ul class="list" style="font-size:14px;gap:5px">
                       <li><b>Bài 1:</b> Viết tập hợp, tính số phần tử của tập hợp</li>
                       <li><b>Bài 2:</b> Tính hợp lí</li>
@@ -3400,7 +3672,7 @@
                       <li><b>Bài 6:</b> Bài toán nâng cao</li>
                     </ul>
                   </td>
-                  <td>
+                  <td style="vertical-align:top">
                     <p style="margin-bottom:8px"><b style="color:#047857">• Điểm làm tốt:</b> Con vận dụng tốt kiến thức
                       vào làm dạng bài tập hợp (cách viết tập hợp, tính số phần tử của tập hợp). Áp dụng tốt tính chất
                       giao hoán, kết hợp, phân phối vào làm các bài toán tính hợp lí, bài toán tìm $x$, vận dụng tốt vào
@@ -3416,7 +3688,7 @@
       </section>
 
       <!-- =================================================================
-           PHẦN 5: KẾ HOẠCH TRONG THỜI GIAN TỚI (SLIDE 15)
+           PHẦN 5: KẾ HOẠCH TRONG THỜI GIAN TỚI (SLIDE 18)
            ================================================================= -->
       <section class="slide" data-section="5" aria-label="5. Kế hoạch trong thời gian tới">
         <header class="slide__head">
@@ -3432,14 +3704,14 @@
             <article class="card tint t-blue">
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-book-open-reader"></i></span>
-                <h3>Lớp ôn thi học kì I (Khối 6)</h3>
+                <h3>Lớp ôn thi học kì I (Khối 6 &amp; Khối 7)</h3>
                 <span class="badge"><i class="fa-solid fa-laptop"></i>Trực tuyến</span>
               </div>
               <div class="issue">
                 <span class="ico ico--sm"><i class="fa-solid fa-users"></i></span>
                 <div>
                   <h4>Đối tượng &amp; hình thức</h4>
-                  <p>Học sinh các lớp <b>Khối 6</b> · Hình thức học <b>trực tuyến (Online)</b>.</p>
+                  <p>Học sinh các lớp <b>Khối 6 và Khối 7</b> · Hình thức học <b>trực tuyến (Online)</b>.</p>
                 </div>
               </div>
               <div class="issue">
@@ -3460,14 +3732,14 @@
               <div class="card__head">
                 <span class="ico"><i class="fa-solid fa-calendar-check"></i></span>
                 <h3>Đợt thi khảo sát / Kiểm tra quý II</h3>
-                <span class="badge"><i class="fa-solid fa-clock"></i>Buổi 22 · 16/12 – 22/12</span>
+                <span class="badge"><i class="fa-solid fa-clock"></i>16/12 – 22/12/2026</span>
               </div>
               <div class="issue">
                 <span class="ico ico--sm"><i class="fa-solid fa-graduation-cap"></i></span>
                 <div>
                   <h4>Thời gian &amp; phạm vi tổ chức</h4>
-                  <p>Tổ chức đồng bộ từ ngày <b>16/12/2026 đến ngày 22/12/2026</b> (<b>Buổi 22</b> trong khung chương
-                    trình Khối 6) cho toàn bộ các hệ lớp.</p>
+                  <p>Tổ chức đồng bộ từ ngày <b>16/12/2026 đến ngày 22/12/2026</b> (<b>Buổi 22</b> ở Khối 6 và
+                    <b>Buổi 23</b> ở Khối 7) cho toàn bộ các hệ lớp.</p>
                 </div>
               </div>
               <div class="issue">
@@ -3480,8 +3752,8 @@
               </div>
               <div class="callout mt-auto">
                 <i class="fa-solid fa-bullseye"></i>
-                <div><b>Mục tiêu:</b> Đánh giá sát thực lực học sinh Khối 6, đảm bảo dữ liệu điểm số – nhận xét đầy đủ,
-                  chính xác và không lặp lại tồn đọng quý I.</div>
+                <div><b>Mục tiêu:</b> Đánh giá sát thực lực học sinh Khối 6 &amp; Khối 7, đảm bảo dữ liệu điểm số – nhận
+                  xét đầy đủ, chính xác và không lặp lại tồn đọng quý I.</div>
               </div>
             </article>
           </div>
@@ -3489,7 +3761,7 @@
       </section>
 
       <!-- =================================================================
-           SLIDE 16: Q&A - THẢO LUẬN VÀ GÓP Ý
+           SLIDE 19: Q&A - THẢO LUẬN VÀ GÓP Ý
            ================================================================= -->
       <section class="slide" data-section="qa" aria-label="6. Thảo luận và góp ý">
         <header class="slide__head">
@@ -3516,7 +3788,7 @@
       </section>
 
       <!-- =================================================================
-           SLIDE 17: LỜI KẾT
+           SLIDE 20: LỜI KẾT
            ================================================================= -->
       <section class="slide slide--end slide--bleed" data-section="end" aria-label="Lời cảm ơn & Thông điệp kết">
         <div class="end">
@@ -3536,7 +3808,7 @@
   <nav class="nav" id="slideNav" aria-label="Điều hướng trình chiếu">
     <button type="button" id="prevBtn" title="Slide trước (←, Backspace)"><i
         class="fa-solid fa-chevron-left"></i></button>
-    <span class="nav__count" id="slideCounter">1 / 17</span>
+    <span class="nav__count" id="slideCounter">1 / 20</span>
     <button type="button" id="nextBtn" class="is-primary" title="Slide sau (→, Space, Enter)"><i
         class="fa-solid fa-chevron-right"></i></button>
     <span class="nav__sep"></span>
@@ -3569,7 +3841,7 @@
         if (s.classList.contains('slide--bleed')) return;
         var f = document.createElement('footer');
         f.className = 'slide__foot';
-        f.innerHTML = '<span><span class="dot"></span>MathExpress · Họp Chuyên môn Khối 6 · Tuần 22</span>' +
+        f.innerHTML = '<span><span class="dot"></span>MathExpress · Họp Chuyên môn Khối 6 &amp; Khối 7 · Tuần 22</span>' +
           '<span class="slide__num">' + String(i + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0') + '</span>';
         s.appendChild(f);
       });

@@ -1,28 +1,30 @@
 window.INITIAL_PRESENTATIONS = [
   {
     "id": "pres-khoi6-tuan22",
-    "title": "Tuần 22 - Họp giáo viên khối 6",
+    "title": "Tuần 22 - Họp giáo viên Khối 6 & Khối 7",
     "category": "Khối 6",
     "audience": "Giáo viên",
-    "audienceBadge": "GV Khối 6",
+    "audienceBadge": "GV Khối 6 & 7",
     "speaker": "Bộ phận Chuyên môn",
     "date": "2026-11-25",
     "quarter": "Q4-2026",
-    "duration": "60 phút (17 slide tương tác)",
+    "duration": "60 phút (20 slide tương tác)",
     "fileSize": "Interactive HTML Deck (16:9)",
     "pdfUrl": "Meeting/Khoi 6/Tuan 22 - Khoi 6,7/6 +7.pdf",
     "pptxUrl": "Meeting/Khoi 6/Tuan 22 - Khoi 6,7/index.html",
     "webViewerUrl": "Meeting/Khoi 6/Tuan 22 - Khoi 6,7/index.html",
-    "summary": "Họp chuyên môn Khối 6 tháng 12/2026: Khung chương trình Buổi 20 – 27 theo 3 hệ phiếu; Kiến thức trọng tâm Phân số (tính chất cơ bản, quy đồng, bốn phép toán, so sánh dãy phân số) và Nguyên lí Dirichlet; Dạng bài tìm n nguyên để phân số đạt GTNN – GTLN; Tồn đọng Khảo sát quý I & mẫu nhận xét Khối 6; Kế hoạch Ôn thi học kì I và Kiểm tra quý II.",
+    "summary": "Họp chuyên môn Khối 6 & Khối 7 tháng 12/2026: Khung chương trình Khối 6 (Buổi 20 – 27) và Khối 7 (Buổi 21 – 28); Kiến thức trọng tâm Phân số, Nguyên lí Dirichlet (Khối 6) và Đại lượng tỉ lệ thuận – tỉ lệ nghịch (Khối 7); Dạng bài GTNN – GTLN phân số & Bài toán thực tế hai xe lửa; Tồn đọng Khảo sát quý I Khối 6 & 7, mẫu nhận xét chuẩn; Kế hoạch Ôn thi học kì I và Kiểm tra quý II.",
     "featured": true,
     "tags": [
       "Khối 6",
+      "Khối 7",
       "Toán 6",
+      "Toán 7",
       "Họp giáo viên",
       "Tuần 22",
       "Phân số",
-      "So sánh dãy phân số",
       "Nguyên lí Dirichlet",
+      "Đại lượng tỉ lệ thuận & nghịch",
       "GTLN - GTNN",
       "Khảo sát quý I",
       "Ôn thi học kì I",
@@ -32,25 +34,25 @@ window.INITIAL_PRESENTATIONS = [
     "slides": [
       {
         "page": 1,
-        "title": "Họp Chuyên Môn Khối 6 – Tháng 12/2026",
-        "subtitle": "Khung chương trình Buổi 20 – 27 & Trọng tâm Phân số, Nguyên lí Dirichlet",
-        "content": "<ul><li><strong>Khung chương trình:</strong> Tiến độ Buổi 20 – 27 (Tháng 12/2026 – 01/2027) cho 3 hệ phiếu (Định hướng chuyên, Nâng cao, Mở rộng + Cơ bản), mốc Kiểm tra quý II ở Buổi 22 (16/12 – 22/12).</li><li><strong>Kiến thức trọng tâm:</strong> Phân số và tính chất cơ bản, quy trình 3 bước quy đồng mẫu số – so sánh phân số, bốn phép toán phân số, 4 công thức tách so sánh dãy phân số và Nguyên lí Dirichlet (kèm sơ đồ TikZ minh họa).</li><li><strong>Dạng bài thường gặp:</strong> Tìm số nguyên n để phân số đạt GTNN (M = (n+7)/(n+2)) và GTLN (P = (4n-11)/(n-5)), đối chiếu lỗi sai và quy tắc xét dấu mẫu số.</li></ul>",
-        "notes": "Nhắc học sinh kiểm tra điều kiện mẫu khác 0, chuẩn hóa mẫu dương, giữ đủ bước biến đổi và phân biệt rõ mẫu âm lớn nhất (−1) với mẫu dương nhỏ nhất (1).",
-        "badge": "Chuyên môn Khối 6"
+        "title": "Họp Chuyên Môn Khối 6 & Khối 7 – Tháng 12/2026",
+        "subtitle": "Khung chương trình & Trọng tâm Phân số, Nguyên lí Dirichlet, Đại lượng tỉ lệ",
+        "content": "<ul><li><strong>Khung chương trình:</strong> Tiến độ tháng 12/2026 – 01/2027 cho 3 hệ phiếu: Khối 6 (Buổi 20 – 27, Kiểm tra quý II ở Buổi 22) và Khối 7 (Buổi 21 – 28, Kiểm tra quý II ở Buổi 23).</li><li><strong>Trọng tâm Khối 6:</strong> Phân số &amp; tính chất cơ bản, quy đồng mẫu số – so sánh, bốn phép toán phân số, 4 công thức tách so sánh dãy phân số và Nguyên lí Dirichlet (kèm hình minh họa TikZ).</li><li><strong>Trọng tâm Khối 7:</strong> Bảng so sánh Đại lượng tỉ lệ thuận (tỉ số không đổi) và Đại lượng tỉ lệ nghịch (tích không đổi).</li><li><strong>Dạng bài thường gặp:</strong> Dạng 1 (Khối 6) tìm n nguyên để phân số đạt GTNN, GTLN; Dạng 2 (Khối 7) bài toán thực tế hai xe lửa (182 km).</li></ul>",
+        "notes": "Nhắc học sinh Khối 6 xét đúng dấu mẫu số khi tìm GTLN/GTNN; nhắc học sinh Khối 7 đổi thời gian sang phân số tối giản và lập luận rõ quan hệ tỉ lệ nghịch.",
+        "badge": "Chuyên môn Khối 6 & 7"
       },
       {
         "page": 2,
         "title": "Tồn đọng Khảo sát quý I & Kế hoạch tháng 12/2026",
-        "subtitle": "Lọc riêng dữ liệu Khối 6, mẫu nhận xét chuẩn và lịch Ôn thi HKI – Kiểm tra quý II",
-        "content": "<ul><li><strong>Tác phong giảng dạy:</strong> Không dùng điện thoại/laptop cho việc riêng, có mặt trước 05 phút (6.4A–LH, 6B2–HBT), đeo thẻ tên đầy đủ (6B2–MD).</li><li><strong>Khảo sát quý I:</strong> Khắc phục lỗi chấm bài (6A1–CG 15 lỗi bài 5a Nâng cao, 6T3B–Online), lệch điểm (6B3–HD 19 lỗi), nhập thiếu 0 điểm, chậm thời hạn (6A–MD, 6A3–MD, 6A1–HD, 6A1–AK, 6B2–HBT, 6.3B2–LH), lệch điểm danh (6B1–CG 04 trường hợp), nhận xét sơ sài (6B3–CG) và chưa điểm danh (6.4A–LH, 6A1–HD).</li><li><strong>Hướng dẫn nhập điểm &amp; nhận xét:</strong> Bảng 6 dạng bài Khối 6 kèm mẫu nhận xét chuẩn 2 phần (Điểm làm tốt – Nội dung cần cải thiện).</li><li><strong>Kế hoạch tháng 12:</strong> Mở lớp Ôn thi học kì I trực tuyến (đầu tháng 12) và tổ chức Kiểm tra quý II đồng bộ từ 16/12 đến 22/12/2026 (Buổi 22).</li></ul>",
+        "subtitle": "Rà soát đầy đủ dữ liệu Khối 6 & Khối 7, mẫu nhận xét chuẩn và kế hoạch ôn thi",
+        "content": "<ul><li><strong>Tác phong giảng dạy:</strong> Không dùng thiết bị cá nhân trong giờ dạy; có mặt trước 05 phút (6.4A–LH, 7B2–AK, 7A1–LB, 6B2–HBT); đeo thẻ tên đầy đủ (7.1B–LH, 6B2–MD, 7B3–MD, 7A3–HBT).</li><li><strong>Khảo sát quý I:</strong> Chấm bài chính xác (6A1–CG 15 lỗi, 6T3B–Online), khớp điểm bài giấy &amp; phần mềm (6B3–HD 19 lỗi), nhập 0 điểm câu không làm, đúng thời hạn (6A–MD, 6A3–MD, 6A1–HD, 6A1–AK, 6B2–HBT, 6.3B2–LH, 7.3C–LH, 7A3–CG, 7.3D–LH), điểm danh &amp; nhận xét đủ 4 tiêu chí (6B1–CG, 6B3–CG, 7B1–CG, 6.4A–LH, 6A1–HD).</li><li><strong>Mẫu nhập điểm &amp; nhận xét:</strong> Minh họa nhập điểm thành phần đủ 0,00 và mẫu nhận xét 6 dạng bài theo 2 phần (Điểm làm tốt – Nội dung cần cải thiện).</li><li><strong>Kế hoạch tháng 12:</strong> Lớp Ôn thi học kì I trực tuyến cho Khối 6 &amp; Khối 7 (đầu tháng 12) và Kiểm tra quý II từ 16/12 đến 22/12/2026.</li></ul>",
         "notes": "Đánh dấu Vắng mặt cho học sinh đã nghỉ học, đánh dấu Có mặt kèm ghi chú HSM – không tham gia thi cho học sinh mới không dự thi.",
         "badge": "Vận hành & Kế hoạch"
       }
     ],
     "actionItems": [
       "Chấp hành nghiêm tác phong lên lớp: đeo thẻ tên đầy đủ, có mặt trước 05 phút, không dùng điện thoại/laptop cho việc riêng.",
-      "Chuẩn bị kĩ 5 mảng kiến thức trọng tâm Khối 6 (Phân số & Nguyên lí Dirichlet) và rèn dạng bài tìm n để phân số đạt GTNN, GTLN.",
-      "Chủ động nhắc học sinh ôn tập, tham gia lớp Ôn thi học kì I trực tuyến (đầu tháng 12) và chuẩn bị cho Kiểm tra quý II (Buổi 22: 16/12 – 22/12).",
+      "Chuẩn bị kĩ kiến thức trọng tâm Khối 6 (Phân số, Nguyên lí Dirichlet, GTLN – GTNN) và Khối 7 (Đại lượng tỉ lệ thuận – nghịch, bài toán thực tế hai xe lửa).",
+      "Chủ động nhắc học sinh Khối 6 & Khối 7 tham gia lớp Ôn thi học kì I trực tuyến (đầu tháng 12) và chuẩn bị cho Kiểm tra quý II (16/12 – 22/12).",
       "Chấm bài chính xác, đối chiếu điểm giấy với phần mềm (bài không làm nhập 0 điểm), điểm danh và viết nhận xét đủ 4 tiêu chí đúng thời hạn."
     ]
   },
